@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import WeddingsClientPage from './page.client';
+import { pageAlternates } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Ibiza Boat Weddings | Unforgettable Ceremonies at Sea | Salvador Ibiza',
@@ -9,9 +10,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  alternates: {
-    canonical: '/weddings',
-  },
+  alternates: pageAlternates('/weddings'),
   openGraph: {
     title: 'Ibiza Boat Weddings | Dream Ceremonies at Sea',
     description: '💒 Create your perfect wedding at sea in Ibiza! Intimate ceremonies with stunning sunsets and all-inclusive packages.',

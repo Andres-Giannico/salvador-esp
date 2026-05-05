@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import SunsetTripClientPage from './page.client';
 import Script from 'next/script';
+import { pageAlternates } from '@/config/site';
 
 const sunsetTripJsonLd = {
   "@context": "https://schema.org",
@@ -45,9 +46,7 @@ const sunsetTripJsonLd = {
 export const metadata: Metadata = {
   title: 'Ibiza Sunset Boat Trip (All-Inclusive) | Salvador',
   description: '🌅 Experience Ibiza\'s legendary sunset from the sea! 3-hour all-inclusive cruise with unlimited drinks, Spanish tapas & paddle boards. Book now from €80!',
-  alternates: {
-    canonical: 'https://salvadoreiviza.es/boat-trips/sunset-trip',
-  },
+  alternates: pageAlternates('/boat-trips/sunset-trip'),
   robots: {
     index: true,
     follow: true,
