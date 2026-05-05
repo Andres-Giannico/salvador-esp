@@ -3,7 +3,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { esPageMetadata } from '@/lib/page-meta';
 
 export const metadata = esPageMetadata({
-  title: 'Excursiones en barco para familias Ibiza (3 h) | Salvador Ibiza',
+  title: 'Excursiones en barco para familias Ibiza (3 h)',
   description:
     'Excursión compartida pensada para familias: chalecos, baños tranquilos junto Sant Antoni, snorkel superficial y opciones sin alcohol pensadas también para menores, según la modalidad todo incluido contratada.',
   path: '/boat-trips/family',

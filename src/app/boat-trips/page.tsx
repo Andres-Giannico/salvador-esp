@@ -4,7 +4,7 @@ import { esPageMetadata } from '@/lib/page-meta';
 
 export const metadata: Metadata = esPageMetadata({
   path: '/boat-trips',
-  title: 'Excursiones en barco en Ibiza — día y atardecer | Salvador Ibiza',
+  title: 'Excursiones en barco en Ibiza — día y atardecer',
   description:
     'Descubre excursiones en barco en Ibiza con Salvador: salidas todo incluido por el día y mágicas al atardecer. Paddle surf, snorkel, bar abierto y puestas de sol inolvidables. Reserva ahora.',
   keywords:

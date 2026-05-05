@@ -6,7 +6,7 @@ import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { esPageMetadata } from '@/lib/page-meta';
 
 export const metadata = esPageMetadata({
-  title: 'Paddle surf (SUP) desde barco en Ibiza (3 h) | Kayaks opcionales | Salvador Ibiza',
+  title: 'Paddle surf (SUP) desde barco en Ibiza (3 h) | Kayaks opcionales',
   description:
     'Excursión compartida con tablas SUP a bordo, paradas para remar desde calas cercanas al puerto de Sant Antoni y aguas habitualmente muy claras. Kayaks disponibles.',
   path: '/boat-trips/paddle',

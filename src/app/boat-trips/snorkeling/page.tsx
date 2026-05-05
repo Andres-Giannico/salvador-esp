@@ -6,7 +6,7 @@ import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { esPageMetadata } from '@/lib/page-meta';
 
 export const metadata = esPageMetadata({
-  title: 'Excursiones snorkel en barco Ibiza (3 h) | Mar transparente | Salvador Ibiza',
+  title: 'Excursiones snorkel en barco Ibiza (3 h) | Mar transparente',
   description:
     'Snorkel en Ibiza desde el Salvador: equipo incluido, calas tranquilas y tripulación que guía cada parada en agua cristalina del Mediterráneo.',
   path: '/boat-trips/snorkeling',

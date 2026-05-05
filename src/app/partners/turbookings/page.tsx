@@ -3,7 +3,7 @@ import { esPageMetadata } from "@/lib/page-meta";
 
 export const metadata: Metadata = esPageMetadata({
   path: "/partners/turbookings",
-  title: "Integración TurBookings | Salvador Ibiza",
+  title: "Integración TurBookings",
   description:
     "Cómo funciona la pasarela TurBookings con Salvador Ibiza: reservas seguras para clientes y herramientas para agencias colaboradoras.",
 });

@@ -4,7 +4,7 @@ import { esPageMetadata } from '@/lib/page-meta';
 
 export const metadata: Metadata = esPageMetadata({
   path: '/book-now',
-  title: 'Reservar excursiones en barco | Salvador Ibiza',
+  title: 'Reservar excursiones en barco',
   description:
     'Reserva online tu excursión en barco o charter privado en Ibiza con Salvador. Disponibilidad en tiempo real y pago seguro.',
 });

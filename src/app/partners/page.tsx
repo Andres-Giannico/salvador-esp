@@ -4,7 +4,7 @@ import { esPageMetadata } from "@/lib/page-meta";
 
 export const metadata: Metadata = esPageMetadata({
   path: "/partners",
-  title: "Colaboradores y TurBookings | Salvador Ibiza",
+  title: "Colaboradores y TurBookings",
   description:
     "Red de partners, integraciones TurBookings y condiciones para agencias u hoteles que venden excursiones Salvador Ibiza en Ibiza.",
 });

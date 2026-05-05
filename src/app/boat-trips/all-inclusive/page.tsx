@@ -6,7 +6,7 @@ import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { esPageMetadata } from '@/lib/page-meta';
 
 export const metadata = esPageMetadata({
-  title: 'Excursiones en barco todo incluido Ibiza (3 h) | Salvador Ibiza',
+  title: 'Excursiones en barco todo incluido Ibiza (3 h)',
   description:
     'Una tarifa que aglutina open bar, tapas, fruta, tablas SUP, kayaks, snorkel y tripulación en salidas de tres horas por la bahía de Sant Antoni y entorno.',
   path: '/boat-trips/all-inclusive',

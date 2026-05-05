@@ -6,7 +6,7 @@ import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { esPageMetadata } from '@/lib/page-meta';
 
 export const metadata = esPageMetadata({
-  title: 'Excursiones en barco para grupos Ibiza (3 h) | Salvador Ibiza',
+  title: 'Excursiones en barco para grupos Ibiza (3 h)',
   description:
     'Salidas compartidas con espacio suficiente para grupos grandes: celebraciones, amigos y pequeños eventos corporativos. Todo según disponibilidad y modalidad reservada.',
   path: '/boat-trips/groups',

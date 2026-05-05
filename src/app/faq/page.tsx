@@ -4,7 +4,7 @@ import { esPageMetadata } from "@/lib/page-meta";
 
 export const metadata: Metadata = esPageMetadata({
   path: "/faq",
-  title: "Preguntas frecuentes | Salvador Ibiza",
+  title: "Preguntas frecuentes",
   description:
     "Respuestas sobre excursiones día y atardecer, charters privados, precios todo incluido, puntos embarque y seguridad antes de navegar Salvador Ibiza.",
 });

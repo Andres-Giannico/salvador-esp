@@ -3,7 +3,7 @@ import { esPageMetadata } from '@/lib/page-meta';
 import SunsetBoatTripsClientPage from './page.client';
 
 export const metadata = esPageMetadata({
-  title: 'Excursiones en barco al atardecer Ibiza | Cruceros vespertinos | Salvador Ibiza',
+  title: 'Excursiones en barco al atardecer Ibiza | Cruceros vespertinos',
   description:
     'Vive el atardecer en Ibiza desde el mar con Salvador Ibiza: salidas de 3 h, bebidas y tapas, bahía y costa oeste. Reserva tu crucero vespertino mediterráneo.',
   path: '/boat-trips/sunset',

@@ -4,7 +4,7 @@ import { esPageMetadata } from '@/lib/page-meta';
 
 export const metadata: Metadata = esPageMetadata({
   path: '/boat-trips/day-trip',
-  title: 'Excursión diurna en barco Ibiza todo incluido | Salvador Ibiza',
+  title: 'Excursión diurna en barco Ibiza todo incluido',
   description:
     'Aventura de 3 h en Ibiza: bar abierto ilimitado, tapas españolas, 15 tablas paddle, snorkel y calas vírgenes. Desde 80 €. Reserva aquí.',
   keywords:

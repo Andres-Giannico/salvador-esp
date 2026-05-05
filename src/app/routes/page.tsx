@@ -9,7 +9,7 @@ import { absoluteUrl, getSiteUrl } from '@/config/site';
 
 export const metadata: Metadata = esPageMetadata({
   path: '/routes',
-  title: 'Rutas en barco por Ibiza — costa oeste y norte | Salvador Ibiza',
+  title: 'Rutas en barco por Ibiza — costa oeste y norte',
   description:
     'Salimos desde Sant Antoni: costa oeste (Cala Comte / Cala Conta) u o norte (Sa Foradada). El capitán decide la ruta diaria más segura y espectacular.',
 });
@@ -97,7 +97,7 @@ export default async function RoutesPage() {
   const pageSchema: WithContext<WebPage> = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Rutas en barco por Ibiza — costa oeste y norte | Salvador Ibiza',
+    name: 'Rutas en barco por Ibiza — costa oeste y norte',
     description:
       'Salimos desde Sant Antoni: costa oeste (Cala Comte / Cala Conta) u o norte (Sa Foradada). El capitán decide la ruta diaria más segura y espectacular.',
     url: absoluteUrl('/routes'),

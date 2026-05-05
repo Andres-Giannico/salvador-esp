@@ -4,7 +4,7 @@ import { esPageMetadata } from "@/lib/page-meta";
 
 export const metadata: Metadata = esPageMetadata({
   path: "/privacy-policy",
-  title: "Política de privacidad | Salvador Ibiza",
+  title: "Política de privacidad",
   description:
     "Información sobre el tratamiento de datos personales por Ibicruiser, S.L. (Salvador Ibiza) conforme al RGPD y normativa aplicable.",
 });

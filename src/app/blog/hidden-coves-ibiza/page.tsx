@@ -5,7 +5,7 @@ import { esPageMetadata } from "@/lib/page-meta";
 
 export const metadata = esPageMetadata({
   title:
-    "Calas escondidas de Ibiza: secretos mejor guardados desde el barco | Salvador Ibiza",
+    "Calas escondidas de Ibiza: secretos mejor guardados desde el barco",
   description:
     "Las calitas y rincones de Ibiza poco conocidos desde el barco Salvador: Aguas vírgenes, snorkeling y tranquilidad lejos del gentío.",
   path: "/blog/hidden-coves-ibiza",

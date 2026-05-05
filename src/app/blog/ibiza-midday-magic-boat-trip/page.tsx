@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { esPageMetadata } from '@/lib/page-meta'
 
 export const metadata = esPageMetadata({
-  title: 'Magia del mediodía en barco Ibiza | Salvador Ibiza',
+  title: 'Magia del mediodía en barco Ibiza',
   description:
     'Por qué navegar al mediodía en Ibiza marca diferencia: mar en calma chapuzones varios sol generoso energía alta sin prisa atardecer grupo mixto.',
   path: '/blog/ibiza-midday-magic-boat-trip',

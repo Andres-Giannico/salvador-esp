@@ -14,7 +14,7 @@ import { esPageMetadata } from '@/lib/page-meta';
 
 export const metadata: Metadata = esPageMetadata({
   path: '/corporate-events',
-  title: 'Eventos corporativos en Ibiza | Salvador Ibiza',
+  title: 'Eventos corporativos en Ibiza',
   description:
     'Team building, incentivos y entretenimiento de clientes a bordo de Salvador Ibiza: barco tradicional en Sant Antoni de Portmany.',
 });

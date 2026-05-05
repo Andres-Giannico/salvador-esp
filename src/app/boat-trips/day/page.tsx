@@ -3,7 +3,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { esPageMetadata } from '@/lib/page-meta';
 
 export const metadata = esPageMetadata({
-  title: 'Excursiones de día en barco Ibiza (3 h) | Tarde en el mar | Salvador Ibiza',
+  title: 'Excursiones de día en barco Ibiza (3 h) | Tarde en el mar',
   description:
     'Salidas diurnas de tres horas: sol de tarde, baños, snorkel y paddle con bar y tapas según modalidad reservada. Punto de encuentro habitual Sant Antoni.',
   path: '/boat-trips/day',

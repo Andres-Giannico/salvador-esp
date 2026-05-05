@@ -3,7 +3,7 @@ import { esPageMetadata } from '@/lib/page-meta';
 import { absoluteUrl, publicAssetUrl } from '@/config/site';
 
 export const metadata = esPageMetadata({
-  title: 'Excursiones barco Sant Antoni Ibiza | Bahía y puesta del sol | Salvador Ibiza',
+  title: 'Excursiones barco Sant Antoni Ibiza | Bahía y puesta del sol',
   description:
     'Salidas desde la bahía de Sant Antoni: excursiones diurnas y al atardecer con Salvador Ibiza. Aguas tranquilas, calas cercanas y vistas al ocaso. Desde 80 €.',
   path: '/boat-trips/san-antonio',
@@ -18,7 +18,7 @@ function sanAntonioBoatTripsJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: 'Excursiones en barco desde Sant Antoni Ibiza | Salvador Ibiza',
+    name: 'Excursiones en barco desde Sant Antoni Ibiza',
     description:
       'Excursiones grupo desde Sant Antoni: rutas día y ocaso por la bahía y costa oeste, bebidas y tapas en modalidad anunciada, paddle y snorkel.',
     image: publicAssetUrl('/images/barcodesdedron.jpg'),

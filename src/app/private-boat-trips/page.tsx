@@ -5,7 +5,7 @@ import { esPageMetadata } from '@/lib/page-meta';
 import { absoluteUrl, publicAssetUrl } from '@/config/site';
 
 export const metadata = esPageMetadata({
-  title: 'Charters privados en Ibiza hasta 35 personas | Salvador Ibiza',
+  title: 'Charters privados en Ibiza hasta 35 personas',
   description:
     'Barco Salvador solo para tu grupo: rutas a medida, tripulación profesional, servicio tipo todo incluido anunciado y deportes acuáticos. Precios desde 1.350 € según temporada. Reserva charter privado.',
   path: '/private-boat-trips',

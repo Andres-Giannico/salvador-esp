@@ -25,7 +25,7 @@ function dayTripClientProductJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: 'Excursión diurna en barco todo incluido | Salvador Ibiza',
+    name: 'Excursión diurna en barco todo incluido',
     description:
       'Auténtica experiencia mediterránea a bordo del barco tradicional Salvador: paddle surf, kayak, snorkel y baños en aguas cristalinas; tapas españolas, fruta y bar abierto ilimitado.',
     brand: {

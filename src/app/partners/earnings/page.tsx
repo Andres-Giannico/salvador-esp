@@ -3,7 +3,7 @@ import { esPageMetadata } from "@/lib/page-meta";
 
 export const metadata: Metadata = esPageMetadata({
   path: "/partners/earnings",
-  title: "Programa de comisiones para partners | Salvador Ibiza",
+  title: "Programa de comisiones para partners",
   description:
     "Información próxima para agencias y colaboradores: comisiones, reporting y proceso de alta en el programa de partners Salvador Ibiza.",
 });

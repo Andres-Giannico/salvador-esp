@@ -4,7 +4,7 @@ import { esPageMetadata } from "@/lib/page-meta";
 
 export const metadata: Metadata = esPageMetadata({
   path: "/book/flyer",
-  title: "Reserva rápida (folleto QR) | Salvador Ibiza",
+  title: "Reserva rápida (folleto QR)",
   description:
     "Acceso rápido para completar tu reserva de excursión en barco con Salvador Ibiza desde material impreso QR.",
   keywords: "reservar barco Ibiza, QR folleto Salvador, reserva día atardecer",

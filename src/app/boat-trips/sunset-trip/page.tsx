@@ -5,7 +5,7 @@ import { absoluteUrl, publicAssetUrl } from '@/config/site';
 
 export const metadata = esPageMetadata({
   path: '/boat-trips/sunset-trip',
-  title: 'Excursión atardecer Ibiza todo incluido | Salvador Ibiza',
+  title: 'Excursión atardecer Ibiza todo incluido',
   description:
     '🌅 Atardecer legendario desde el mar: crucero de ~3 h con bebidas ilimitadas, tapas, música y actividades. Café Mambo / del Mar. Desde 80 €. Reserva.',
   keywords:
