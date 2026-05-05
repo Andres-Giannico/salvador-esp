@@ -13,88 +13,115 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 // Updated trip data to match FeaturedTripsSection
 const middayTrip = {
   imageUrl: "/images/optimized/salvador-ibiza-boat-aerial-view.webp",
-  imageAlt: "Salvador Ibiza Day Boat Trip - Premium Sea Adventure",
-  title: "Daytime Experience",
-  description: "Sun, sea, and adventure await.",
+  imageAlt: "Excursión diurna Salvador Ibiza",
+  title: "Experiencia diurna",
+  description: "Sol, mar y aventura en 3 horas.",
   isPopular: true,
-  badgeText: "2:00 PM - 5:00 PM",
+  badgeText: "14:00 – 17:00",
   badgeBgColor: "bg-blue-500",
   features: [
-    "15 Premium Paddle Boards & 2 Kayaks",
-    "Snorkeling Equipment",
-    "Swimming in Crystal Clear Waters",
-    "Premium Open Bar & Fresh Sangria",
-    "Spanish Tapas & Fresh Fruit",
-    "Premium Sound System"
+    "15 tablas SUP y 2 kayaks",
+    "Snorkel completo para todos",
+    "Baños en aguas cristalinas",
+    "Bar premium y sangría fresca",
+    "Tapas españolas y fruta",
+    "Sistema de sonido premium",
   ],
-  price: "€80 per adult",
-  priceSubtext: "Children 6-12: €45 | Under 6: Complimentary",
+  price: "80 € / adulto",
+  priceSubtext: "Niños 6–12: 45 € | Menores de 6: gratis",
   priceColor: "text-blue-600",
   ctaHref: "/boat-trips/day-trip#booking-widget",
   ctaBgColor: "bg-blue-600",
   ctaHoverBgColor: "hover:bg-blue-700",
   detailsHref: "/boat-trips/day-trip",
-  detailsText: "Explore Details"
+  detailsText: "Ver detalle",
 };
 
 const sunsetTrip = {
   imageUrl: "/images/sunset.png",
-  imageAlt: "Salvador Ibiza Sunset Boat Trip - Sunset & Sea Adventure",
-  title: "Sunset Voyage",
-  description: "Experience Ibiza's iconic sunset from the sea.",
-  badgeText: "6:30 PM - 9:30 PM",
+  imageAlt: "Excursión al atardecer Salvador Ibiza",
+  title: "Ruta al atardecer",
+  description: "La puesta de sol de Ibiza desde el mejor escenario.",
+  badgeText: "18:30 – 21:30",
   badgeBgColor: "bg-orange-500",
   features: [
-    "Sunset Swimming at Hidden Coves",
-    "15 Paddle Boards & 2 Kayaks",
-    "Snorkeling Equipment",
-    "Premium Bar & Unlimited Cava",
-    "Spanish Tapas Selection",
-    "Sunset at Café Mambo"
+    "Baño al ocaso en calas escondidas",
+    "15 SUP y 2 kayaks",
+    "Equipo snorkel",
+    "Cava abierta y cóctel bar",
+    "Selección tapas españolas",
+    "Vistas premium del horizonte",
   ],
-  price: "€80 per adult",
-  priceSubtext: "Children 6-12: €45 | Under 6: Complimentary",
+  price: "80 € / adulto",
+  priceSubtext: "Niños 6–12: 45 € | Menores de 6: gratis",
   priceColor: "text-orange-600",
   ctaHref: "/boat-trips/sunset-trip#booking-widget",
   ctaBgColor: "bg-orange-500",
   ctaHoverBgColor: "hover:bg-orange-600",
   detailsHref: "/boat-trips/sunset-trip",
-  detailsText: "Explore Details"
+  detailsText: "Ver detalle",
 };
 
-// Define included features data with Lucide icons
 const includedFeatures = [
   {
     icon: Anchor,
-    title: "Expert Captain & Crew",
-    description: "Professional service ensuring safety and local insights"
+    title: "Capitán y tripulación",
+    description:
+      "Tripulación local que prioriza la seguridad y cuenta historias sobre cada rincón náutico.",
   },
   {
-    icon: Coffee, // Represents drinks/snacks
-    title: "All-Inclusive Service",
-    description: "Unlimited premium drinks, gourmet snacks, and fresh fruit"
+    icon: Coffee,
+    title: "Bar y tapeo inspirado en España",
+    description:
+      "Bar abierto en la modalidad elegida más tapas, fruta fresca de temporada y bebidas sin alcohol disponibles durante la travesía.",
   },
   {
     icon: Music,
-    title: "Premium Sound System",
-    description: "High-quality audio with Bluetooth connectivity"
+    title: "Música en cubierta",
+    description:
+      "Bluetooth para que pongas tus listas siempre dentro de niveles cómodos y respetuosos junto al puerto y las calas.",
   },
   {
-    icon: Camera, // Represents photo opportunities
-    title: "Unforgettable Views",
-    description: "Capture stunning moments against Ibiza's iconic backdrop"
-  }
+    icon: Camera,
+    title: "Vistas icónicas",
+    description:
+      "Paradas para fotografiar los acantilados y tonalidades características costa Poniente norte Ibiza.",
+  },
 ];
 
 const galleryImages = [
-  { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Friends enjoying drinks and laughing on a Salvador Ibiza boat trip" },
-  { src: "/images/boat/chicosdisfrutandoenproa.webp", alt: "Group of friends having fun at the bow of the Salvador boat in Ibiza" },
-  { src: "/images/boat/chicasensupencueva.webp", alt: "Girls exploring Ibiza caves on paddleboards during a boat tour" },
-  { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Two friends enjoying the sun on a boat trip in Ibiza" },
-  { src: "/images/boat/parejasnorkeling.webp", alt: "Couple snorkeling in crystal clear Ibiza waters on a boat tour" },
-  { src: "/images/optimized/toasting-drinks-ibiza-boat.webp", alt: "Friends toasting at the boat's bar during an Ibiza excursion" },
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "The Salvador charter yacht in beautiful turquoise waters of Ibiza" },
-  { src: "/images/boat/4chicasparadasentablaxxl.webp", alt: "Group of friends on a large paddleboard during a Salvador Ibiza boat excursion" }
+  {
+    src: "/images/boat/chicaspasandolomuybien.webp",
+    alt: "Grupo brindando en cubierta excursión Salvador Ibiza",
+  },
+  {
+    src: "/images/boat/chicosdisfrutandoenproa.webp",
+    alt: "Amigos en la proa del Salvador Ibiza navegando",
+  },
+  {
+    src: "/images/boat/chicasensupencueva.webp",
+    alt: "Exploración en paddle surf cerca de cuevas Ibiza",
+  },
+  {
+    src: "/images/boat/doschicasfelicesenproa.webp",
+    alt: "Dos personas disfrutan del sol en la proa",
+  },
+  {
+    src: "/images/boat/parejasnorkeling.webp",
+    alt: "Snorkel en pareja aguas cristalinas",
+  },
+  {
+    src: "/images/optimized/toasting-drinks-ibiza-boat.webp",
+    alt: "Brindis en la barra popa Ibiza",
+  },
+  {
+    src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp",
+    alt: "Vista aérea Salvador Ibiza en mar turquesa",
+  },
+  {
+    src: "/images/boat/4chicasparadasentablaxxl.webp",
+    alt: "Cuatro personas en tabla paddle gigante junto Salvador",
+  },
 ];
 
 export default function BoatTripsClientPage() {
@@ -146,7 +173,7 @@ export default function BoatTripsClientPage() {
         >
           <Image
             src="/images/optimized/salvador-ibiza-boat-drone-view.webp"
-            alt="Aerial drone view of the Salvador charter boat in Ibiza, ready for a boat trip"
+            alt="Barco Salvador Ibiza navegación preparado excursión Costa Poniente día"
             fill
             priority
             className="object-cover object-center brightness-75"
@@ -162,10 +189,13 @@ export default function BoatTripsClientPage() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-xl leading-tight">
-            Your Perfect Ibiza <span className="text-cyan-400">Boat Trip</span>
+            Tu excursión ideal en <span className="text-cyan-400">barco Ibiza</span>
           </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-95 mb-8 drop-shadow-md">
-            Choose between our all-inclusive <span className="font-semibold text-cyan-300">3-hour</span> Daytime Experience or the magical Sunset Voyage.
+            Elige la experiencia{" "}
+            <span className="font-semibold text-cyan-300">diurna tres horas todo incluido</span>{" "}
+            o la mágica{" "}
+            <span className="font-semibold text-cyan-300">ruta al atardecer</span> con Salvador Ibiza.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <motion.button
@@ -175,7 +205,7 @@ export default function BoatTripsClientPage() {
               className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-black/50 transition"
             >
               <FiSun className="text-orange-300" />
-              <span>Daytime Experience</span>
+              <span>Experiencia diurna</span>
             </motion.button>
             <motion.button
               onClick={() => scrollToTrip('sunset-trip-card')}
@@ -184,7 +214,7 @@ export default function BoatTripsClientPage() {
               className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-black/50 transition"
             >
               <FiMoon className="text-indigo-300" />
-              <span>Sunset Voyage</span>
+              <span>Ruta atardecer</span>
             </motion.button>
           </div>
         </motion.div>
@@ -213,13 +243,17 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Our Signature Boat Trips: Day or Sunset
+              Las dos grandes salidas Salvador: día o atardecer
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Embark on the ultimate <strong>Ibiza boat trip</strong> with Salvador. We offer two distinct, unforgettable <strong>boat tours</strong> for you to choose your perfect sea adventure. Whether you prefer basking in the daytime sun or witnessing a magical sunset, every trip is a premium, all-inclusive experience.
+              La excursión <strong>Ibiza en barco Salvador</strong> se resume en dos formatos muy completos —
+              mismo espíritu todo incluido, tripulación fija conocida temporada — eliges si prefieres
+              chapuzón pleno sol mediodía o brindis cálido frente poniente tardío.
             </p>
             <p className="text-md text-gray-600">
-              Our <strong>boat trips</strong> are expertly crafted to showcase the stunning Ibiza coastline. Discover hidden coves, swim in turquoise waters, and enjoy thrilling activities like paddle boarding, kayaking, and snorkeling. All this while you unwind with great music, a premium open bar, and freshly prepared Spanish tapas.
+              Navegamos hacia calas menos masificadas, con música a tu gusto, gastronomía balear a bordo y
+              actividades acuáticas para todos los niveles. La tripulación adapta la ruta al mar y al grupo
+              para que el día sea seguro, relajado y memorable.
             </p>
           </motion.div>
 
@@ -257,10 +291,10 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Moments Aboard Salvador
+              Momentos a bordo del Salvador
             </h2>
             <p className="text-lg text-gray-700">
-              Explore snapshots from our unforgettable Daytime & Sunset trips.
+              Imágenes reales de nuestras salidas diurnas y al atardecer.
             </p>
           </motion.div>
           <ImageGallery images={galleryImages} className="max-w-6xl mx-auto" />
@@ -277,10 +311,10 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Included in Every Trip
+              Incluido en cada excursión
             </h2>
             <p className="text-lg text-gray-600">
-              Relax and enjoy, we've taken care of the details.
+              Tú disfrutas; nosotros cuidamos del resto.
             </p>
           </motion.div>
 
@@ -316,10 +350,11 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Explore Our Specialized <span className="text-blue-600">Boat Trips</span>
+              Otras <span className="text-blue-600">experiencias en barco</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Discover the perfect boat trip for your needs. From romantic sunsets to family adventures, we have something special for everyone.
+              Encuentra la salida que mejor encaje contigo: atardeceres íntimos, familia, salidas desde San
+              Antonio o la exclusividad de un charter privado.
             </p>
           </motion.div>
 
@@ -336,10 +371,12 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiSun className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Sunset Trips</h3>
+                  <h3 className="text-xl font-bold">Atardeceres en barco</h3>
                 </div>
-                <p className="mb-4 opacity-90">Experience Ibiza's legendary sunsets from the sea. Magical golden hour cruises.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">620 searches/month</span>
+                <p className="mb-4 opacity-90">
+                  Vive el ocaso más famoso de Ibiza desde el mar, con música suave y brindis al anochecer.
+                </p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Ver página</span>
               </Link>
             </motion.div>
 
@@ -355,10 +392,12 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiMapPin className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">San Antonio Departures</h3>
+                  <h3 className="text-xl font-bold">Salidas desde San Antonio</h3>
                 </div>
-                <p className="mb-4 opacity-90">Convenient departures from San Antonio Bay. Explore the stunning west coast.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">240 searches/month</span>
+                <p className="mb-4 opacity-90">
+                  Embarque cómodo en la bahía y acceso rápido a la costa oeste y sus calas icónicas.
+                </p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Ver página</span>
               </Link>
             </motion.div>
 
@@ -374,10 +413,12 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiSun className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Day Trips</h3>
+                  <h3 className="text-xl font-bold">Excursiones de día</h3>
                 </div>
-                <p className="mb-4 opacity-90">Perfect daytime adventures with swimming, snorkeling, and water sports.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">50 searches/month</span>
+                <p className="mb-4 opacity-90">
+                  Aventuras de sol alto con baños, snorkel y deportes acuáticos incluidos.
+                </p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Ver página</span>
               </Link>
             </motion.div>
 
@@ -393,10 +434,12 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiUsers className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Family Trips</h3>
+                  <h3 className="text-xl font-bold">Viajes en familia</h3>
                 </div>
-                <p className="mb-4 opacity-90">Safe, fun, and educational boat trips perfect for families with children.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">40 searches/month</span>
+                <p className="mb-4 opacity-90">
+                  Rutas pensadas para niños y adultos: seguridad, juegos y tiempo en cala para todos.
+                </p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Ver página</span>
               </Link>
             </motion.div>
 
@@ -412,10 +455,12 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiGift className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">All-Inclusive</h3>
+                  <h3 className="text-xl font-bold">Todo incluido</h3>
                 </div>
-                <p className="mb-4 opacity-90">Everything included: drinks, food, equipment, and entertainment.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">10 searches/month</span>
+                <p className="mb-4 opacity-90">
+                  Bebidas, comida, equipo y animación en un solo precio para no preocuparte de nada.
+                </p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Ver página</span>
               </Link>
             </motion.div>
 
@@ -431,10 +476,12 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiAnchor className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Private Charters</h3>
+                  <h3 className="text-xl font-bold">Charters privados</h3>
                 </div>
-                <p className="mb-4 opacity-90">Exclusive boat just for your group. Ultimate privacy and luxury.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">100 searches/month</span>
+                <p className="mb-4 opacity-90">
+                  El barco solo para tu grupo: horarios flexibles y servicio personalizado.
+                </p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Ver página</span>
               </Link>
             </motion.div>
           </div>

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Sunset Boat Trips Ibiza | Magical Evening Cruises',
     description: 'Experience magical sunset boat trips in Ibiza with Salvador. Premium evening cruises with drinks, tapas, and breathtaking Mediterranean sunsets.',
-    url: 'https://salvadoribiza.com/boat-trips/sunset',
+    url: 'https://salvadoreiviza.es/boat-trips/sunset',
     images: [
       {
         url: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
@@ -33,14 +33,14 @@ const sunsetBoatTripsJsonLd = {
   "@type": "Product",
   "name": "Sunset Boat Trips Ibiza by Salvador",
   "description": "Magical sunset boat trips in Ibiza with premium drinks, tapas, and breathtaking Mediterranean views. 3-hour evening cruises departing from San Antonio.",
-  "image": "https://salvadoribiza.com/images/blog/sunset-sailing-ibiza.jpg",
+  "image": "https://salvadoreiviza.es/images/blog/sunset-sailing-ibiza.jpg",
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/sunset",
+    "url": "https://salvadoreiviza.es/boat-trips/sunset",
     "priceCurrency": "EUR",
     "price": "80",
     "priceSpecification": {

@@ -1,14 +1,13 @@
 import { Metadata } from 'next';
 import ContactClientPage from './page.client';
+import { esPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
-  title: 'Contact | Salvador Boat Ibiza',
-  description: 'Get in touch with Salvador Boat Ibiza. Find our location at San Antonio Port, contact numbers, and directions to our meeting point.',
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata: Metadata = esPageMetadata({
+  path: '/contact',
+  title: 'Contacto | Salvador Ibiza — Puerto de San Antonio',
+  description:
+    'Contacto Salvador Ibiza: puerto de San Antonio, teléfonos y mapa hasta el punto de encuentro.',
+});
 
 export default function ContactPage() {
   return <ContactClientPage />;

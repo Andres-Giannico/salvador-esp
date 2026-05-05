@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://salvadoribiza.com', // Sin www - redirects 301 configurados
+  siteUrl: process.env.SITE_URL || 'https://salvadoreiviza.es',
   generateRobotsTxt: true, // Genera robots.txt automáticamente
   // Optional:
   // robotsTxtOptions: {

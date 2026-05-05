@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ibiza Boat Weddings | Dream Ceremonies at Sea',
     description: '💒 Create your perfect wedding at sea in Ibiza! Intimate ceremonies with stunning sunsets and all-inclusive packages.',
-    url: 'https://salvadoribiza.com/weddings',
+    url: 'https://salvadoreiviza.es/weddings',
     images: [
       {
         url: '/images/boat/private-new/tapasycavapopabarco_1.webp',
@@ -36,7 +36,7 @@ const weddingSchema = {
   "provider": {
     "@type": "LocalBusiness",
     "name": "Salvador Ibiza",
-    "url": "https://salvadoribiza.com"
+    "url": "https://salvadoreiviza.es"
   },
   "areaServed": {
     "@type": "Place",

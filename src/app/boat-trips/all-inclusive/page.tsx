@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'All-Inclusive Boat Trips Ibiza | Everything Included',
     description: 'Ultimate all-inclusive boat trips in Ibiza with premium drinks, gourmet food, water sports, and professional crew. No hidden costs.',
-    url: 'https://salvadoribiza.com/boat-trips/all-inclusive',
+    url: 'https://salvadoreiviza.es/boat-trips/all-inclusive',
     images: [
       {
         url: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
@@ -36,14 +36,14 @@ const allInclusiveBoatTripsJsonLd = {
   "@type": "Product",
   "name": "All-Inclusive Boat Trips Ibiza by Salvador",
   "description": "Ultimate all-inclusive boat trips in Ibiza with premium drinks, gourmet food, water sports, and professional crew. Everything included for the perfect day at sea.",
-  "image": "https://salvadoribiza.com/images/optimized/salvador-ibiza-boat-aerial-view.webp",
+  "image": "https://salvadoreiviza.es/images/optimized/salvador-ibiza-boat-aerial-view.webp",
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/all-inclusive",
+    "url": "https://salvadoreiviza.es/boat-trips/all-inclusive",
     "priceCurrency": "EUR",
     "price": "80",
     "priceSpecification": {
@@ -197,7 +197,7 @@ export default function AllInclusiveBoatTripsPage() {
             {/* Booking Widget */}
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                Book Your All-Inclusive Experience
+                Reserva experiencia amplia todo incluido
               </h2>
               <TurbnbWidget
                 companyId={2}
@@ -207,16 +207,17 @@ export default function AllInclusiveBoatTripsPage() {
                 customProperties={{
                   displayBillingTerm: true,
                   showQuantity: true,
-                  quantity: "Quantity",
+                  quantity: "Personas",
                   titleVariant: "Modern",
-                  bookNow: "RESERVE NOW",
-                  confirmReservationAndPay: "CLICK TO PAY",
-                  selectTimeLabel: "Time Selection",
-                  selectExperienceLabel: "Experience Type",
-                  addonsLabel: "Add-ons",
-                  childrenAge: "0 to 5 Years",
-                  infantAge: "0 to 5 Years",
-                  depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+                  bookNow: "RESERVAR AHORA",
+                  confirmReservationAndPay: "CONFIRMAR Y PAGAR",
+                  selectTimeLabel: "Elige horario",
+                  selectExperienceLabel: "Tipo de experiencia",
+                  addonsLabel: "Extras",
+                  childrenAge: "0 a 5 años",
+                  infantAge: "0 a 5 años",
+                  depositObservation:
+                    "Al completar la reserva recibirás un voucher con los detalles (punto de encuentro y horarios). Confirma que teléfono y email sean correctos. Se suele solicitar una señal de 20 € por persona; el saldo restante según las condiciones de la confirmación (habitualmente a bordo el día del viaje).",
                 }}
               />
             </div>

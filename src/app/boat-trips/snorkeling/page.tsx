@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Snorkeling Boat Trips Ibiza | Underwater Adventures',
     description: 'Explore Ibiza\'s underwater paradise with our snorkeling boat trips. Professional equipment and expert guidance included.',
-    url: 'https://salvadoribiza.com/boat-trips/snorkeling',
+    url: 'https://salvadoreiviza.es/boat-trips/snorkeling',
     images: [
       {
         url: '/images/boat/parejasnorkeling.webp',
@@ -36,14 +36,14 @@ const snorkelingBoatTripsJsonLd = {
   "@type": "Product",
   "name": "Snorkeling Boat Trips Ibiza by Salvador",
   "description": "Discover Ibiza's underwater world with professional snorkeling equipment and expert guidance. Perfect for all skill levels in crystal-clear Mediterranean waters.",
-  "image": "https://salvadoribiza.com/images/boat/parejasnorkeling.webp",
+  "image": "https://salvadoreiviza.es/images/boat/parejasnorkeling.webp",
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/snorkeling",
+    "url": "https://salvadoreiviza.es/boat-trips/snorkeling",
     "priceCurrency": "EUR",
     "price": "80",
     "priceSpecification": {
@@ -197,7 +197,7 @@ export default function SnorkelingBoatTripsPage() {
             {/* Booking Widget */}
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                Book Your Snorkeling Adventure
+                Reserva excursión de snorkel
               </h2>
               <TurbnbWidget
                 companyId={2}

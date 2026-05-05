@@ -32,10 +32,10 @@ export default function BlogClientPage({ posts }: BlogClientPageProps) {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-            Salvador Ibiza Blog
+            Blog Salvador Ibiza
           </h1>
           <p className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto">
-            Stories, tips, and insights from our adventures on the Mediterranean.
+            Relatos, consejos e inspiración desde nuestro Mediterráneo.
           </p>
         </motion.div>
 
@@ -70,14 +70,20 @@ export default function BlogClientPage({ posts }: BlogClientPageProps) {
                 <div className="flex items-center justify-between text-xs text-gray-500 mt-auto pt-5 border-t border-gray-100">
                   <div className="flex items-center gap-2">
                     <FiCalendar className="w-3.5 h-3.5 text-gray-400" />
-                    <span className="text-gray-600">{post.date}</span>
+                    <span className="text-gray-600">
+                      {new Date(`${post.date}T12:00:00`).toLocaleDateString('es-ES', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </span>
                   </div>
                   <Link 
                     href={`/blog/${post.slug}`} 
                     className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium group/link"
-                    aria-label={`Read more about ${post.title}`}
+                    aria-label={`Leer más: ${post.title}`}
                   >
-                    Read More 
+                    Leer más 
                     <FiArrowRight className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>

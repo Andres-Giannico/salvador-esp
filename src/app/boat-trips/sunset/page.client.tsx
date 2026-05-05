@@ -143,7 +143,7 @@ export default function SunsetBoatTripsClientPage() {
               href="#booking"
               className="inline-block bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-400 hover:to-pink-500 text-white font-bold py-4 px-8 rounded-lg shadow-[0_10px_25px_-5px_rgba(251,146,60,0.5)] transition duration-300 text-lg"
             >
-              Book Your Sunset Trip
+              Reserva ocaso
             </Link>
           </motion.div>
         </motion.div>
@@ -257,7 +257,7 @@ export default function SunsetBoatTripsClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-3xl md:text-4xl font-bold mb-6">
-              Book Your Sunset Adventure
+              Reserva tu aventura al atardecer
             </h3>
             <p className="text-xl mb-8 opacity-90">
               Don't miss Ibiza's most magical moments. Reserve your sunset boat trip today!

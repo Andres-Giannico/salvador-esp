@@ -74,29 +74,29 @@ export default function CookieConsentBanner() {
         <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 border border-gray-200 overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-cyan-500 p-6 text-white">
-            <h3 className="text-xl font-bold mb-2">🍪 Cookie Preferences</h3>
-            <p className="text-blue-100 text-sm">We respect your privacy</p>
+            <h3 className="text-xl font-bold mb-2">🍪 Preferencias de cookies</h3>
+            <p className="text-blue-100 text-sm">Respetamos tu privacidad</p>
           </div>
           
           {/* Content */}
           <div className="p-6">
             <p className="text-gray-700 mb-4 leading-relaxed">
-              We use cookies to enhance your browsing experience, analyze site traffic, and provide personalized content. 
-              By accepting, you help us improve our services and provide you with the best possible experience.
+              Usamos cookies para mejorar la navegación, analizar el tráfico del sitio y ofrecer contenido
+              más relevante. Si aceptas, nos ayudas a mejorar nuestros servicios.
             </p>
             
             <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
               <p className="text-sm text-blue-800">
-                <strong>Analytics:</strong> Help us understand how visitors interact with our website to improve your experience.
+                <strong>Analítica:</strong> Nos permite entender cómo se usa la web para mejorar la experiencia.
               </p>
             </div>
             
             <p className="text-xs text-gray-500 mb-6">
-              You can change your preferences at any time. Read our{' '}
+              Puedes cambiar tu decisión cuando quieras. Consulta nuestra{' '}
               <a href="/privacy-policy" className="text-blue-600 hover:text-blue-700 underline font-medium">
-                Privacy Policy
+                política de privacidad
               </a>{' '}
-              for more details.
+              para más información.
             </p>
             
             {/* Buttons */}
@@ -105,13 +105,13 @@ export default function CookieConsentBanner() {
                 onClick={() => handleConsent(false)} 
                 className="flex-1 px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-medium transition-all duration-200 hover:border-gray-400"
               >
-                Decline All
+                Rechazar todo
               </button>
               <button 
                 onClick={() => handleConsent(true)} 
                 className="flex-1 px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
               >
-                Accept All
+                Aceptar todo
               </button>
             </div>
           </div>

@@ -23,16 +23,16 @@ const BookingModal: React.FC<BookingModalProps> = ({
   productId,
   companyId = 2, // Default company ID
   channelId = 11, // Default channel ID
-  customProperties = { // Default English properties
+  customProperties = {
     "displayBillingTerm": true,
     "showQuantity": false,
     "titleVariant": "Modern",
-    "bookNow": "Book Now", // Generic default title
-    "confirmReservationAndPay": "Confirm & Pay",
-    "selectTimeLabel": "Select Time",
-    "selectExperienceLabel": "Select Experience",
-    "addonsLabel": "Add-ons",
-    "depositObservation": "Deposit and payment instructions\n\n\n"
+    "bookNow": "Reservar ahora",
+    "confirmReservationAndPay": "Confirmar y pagar",
+    "selectTimeLabel": "Elige horario",
+    "selectExperienceLabel": "Elige experiencia",
+    "addonsLabel": "Extras",
+    "depositObservation": "Depósito e instrucciones de pago\n\n\n"
   },
   widgetContainerId = `turbnb-booking-widget-container-${productId}` // Unique ID per product
 }) => {
@@ -77,7 +77,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
     if (!isOpen) {
       widgetInitialized.current = false;
       if(widgetContainerRef.current) {
-        widgetContainerRef.current.innerHTML = 'Loading booking options...';
+        widgetContainerRef.current.innerHTML = 'Cargando opciones de reserva…';
       }
     }
   }, [isOpen]);
@@ -124,11 +124,13 @@ const BookingModal: React.FC<BookingModalProps> = ({
               </div>
               <div className="ml-3">
                 <p className="text-sm text-blue-800">
-                  <span className="font-medium">Note:</span> You are booking a <strong>private charter (entire group)</strong>. 
-                  If you are looking for individual tickets for our shared trips, please visit our 
+                  <span className="font-medium">Importante:</span> estás reservando un{" "}
+                  <strong>charter privado (todo el barco para tu grupo)</strong>. Si buscas plazas sueltas en
+                  excursiones compartidas, visita nuestra{" "}
                   <Link href="/boat-trips" className="font-medium underline ml-1 hover:text-blue-600">
-                    boat trips page
-                  </Link>.
+                    página de excursiones
+                  </Link>
+                  .
                 </p>
               </div>
             </div>
@@ -139,7 +141,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
             ref={widgetContainerRef} 
             className="min-h-[60vh] max-h-[80vh] overflow-y-auto bg-white"
           >
-            <div className="p-6 text-center text-gray-500">Loading booking options...</div> 
+            <div className="p-6 text-center text-gray-500">Cargando opciones de reserva…</div> 
           </div>
         </DialogContent>
       </Dialog>

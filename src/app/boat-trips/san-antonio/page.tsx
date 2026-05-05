@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Boat Trips San Antonio Ibiza | Premium Departures from San Antonio Bay',
     description: 'Discover the best boat trips departing from San Antonio Ibiza. Premium day and sunset cruises exploring Ibiza\'s stunning west coast.',
-    url: 'https://salvadoribiza.com/boat-trips/san-antonio',
+    url: 'https://salvadoreiviza.es/boat-trips/san-antonio',
     images: [
       {
         url: '/images/optimized/salvador-ibiza-boat-drone-view.webp',
@@ -33,14 +33,14 @@ const sanAntonioBoatTripsJsonLd = {
   "@type": "Product",
   "name": "Boat Trips from San Antonio Ibiza by Salvador",
   "description": "Premium boat trips departing from San Antonio Ibiza. Explore the west coast with our day and sunset cruises including drinks, tapas, and water sports.",
-  "image": "https://salvadoribiza.com/images/barcodesdedron.jpg",
+  "image": "https://salvadoreiviza.es/images/barcodesdedron.jpg",
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/san-antonio",
+    "url": "https://salvadoreiviza.es/boat-trips/san-antonio",
     "priceCurrency": "EUR",
     "price": "80",
     "priceSpecification": {

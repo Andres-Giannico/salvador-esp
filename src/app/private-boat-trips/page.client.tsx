@@ -491,7 +491,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Book Your Charter Now
+                Reserva charter ahora
               </motion.button>
             </motion.div>
           </motion.div>
@@ -524,7 +524,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
             <div className="container mx-auto px-4">
               <div className="max-w-5xl mx-auto">
                 <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Book Your Private Charter</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Reserva charter privado</h2>
                   <button 
                     onClick={() => setShowDirectWidget(false)}
                     className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
@@ -546,11 +546,13 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                     </div>
                     <div className="ml-3">
                       <p className="text-sm text-blue-800">
-                        <span className="font-medium">Note:</span> This section is for booking a <strong>private charter (entire group)</strong>. 
-                        If you are looking for individual tickets for our shared trips, please visit our 
+                        <span className="font-medium">Importante:</span> estás contratando un{" "}
+                        <strong>charter privado (todo el grupo)</strong>.
+                        Para plazas en excursiones compartidas visita{" "}
                         <Link href="/boat-trips" className="font-medium underline ml-1 hover:text-blue-600">
-                          boat trips page
-                        </Link>.
+                          excursiones Salvador
+                        </Link>
+                        .
                       </p>
                     </div>
                   </div>
@@ -723,7 +725,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                       onClick={handleBookButtonClick}
                       className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
                     >
-                      Book Your Charter Now
+                      Reserva charter ahora
                     </button>
 
                     <p className="text-sm text-gray-500 text-center">

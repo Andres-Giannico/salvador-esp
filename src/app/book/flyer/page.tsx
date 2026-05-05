@@ -1,32 +1,18 @@
-import type { Metadata } from 'next';
-import BookTripsQrFlyerClient from './page.client';
+import type { Metadata } from "next";
+import BookTripsQrFlyerClient from "./page.client";
+import { esPageMetadata } from "@/lib/page-meta";
 
-export const metadata: Metadata = {
-  title: "Book Your Boat Trip - Quick Booking",
-  description: "Book your Salvador Ibiza boat trip quickly and easily. Choose between daytime adventures or magical sunset voyages from San Antonio Port.",
-  keywords: "book boat trip Ibiza, Salvador Ibiza booking, boat reservation, sunset cruise booking, day trip booking",
-  robots: {
-    index: false,
-    follow: false,
-  },
-  alternates: {
-    canonical: '/book/flyer',
-  },
-  openGraph: {
-    title: "Book Your Boat Trip - Salvador Ibiza",
-    description: "Quick and easy boat trip booking in Ibiza. All-inclusive experiences with instant confirmation.",
-    url: "https://salvadoribiza.com/book/flyer",
-    images: [
-      {
-        url: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Salvador Ibiza Boat Trip Booking',
-      }
-    ],
-  },
-};
+export const metadata: Metadata = esPageMetadata({
+  path: "/book/flyer",
+  title: "Reserva rápida (folleto QR) | Salvador Ibiza",
+  description:
+    "Acceso rápido para completar tu reserva de excursión en barco con Salvador Ibiza desde material impreso QR.",
+  keywords: "reservar barco Ibiza, QR folleto Salvador, reserva día atardecer",
+  robots: { index: false, follow: false },
+  ogImage: "/images/optimized/salvador-ibiza-boat-aerial-view.webp",
+  ogImageAlt: "Reserva rápida Salvador Ibiza",
+});
 
 export default function BookTripsQrFlyerPage() {
   return <BookTripsQrFlyerClient />;
-} 
+}

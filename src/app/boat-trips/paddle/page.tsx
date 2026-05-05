@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Paddle Boarding Boat Trips Ibiza | SUP Adventures',
     description: 'Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters.',
-    url: 'https://salvadoribiza.com/boat-trips/paddle',
+    url: 'https://salvadoreiviza.es/boat-trips/paddle',
     images: [
       {
         url: '/images/boat/chicasentablasup.png',
@@ -36,14 +36,14 @@ const paddleBoatTripsJsonLd = {
   "@type": "Product",
   "name": "Paddle Boarding Boat Trips Ibiza by Salvador",
   "description": "Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters on your adventure.",
-  "image": "https://salvadoribiza.com/images/boat/chicasentablasup.png",
+  "image": "https://salvadoreiviza.es/images/boat/chicasentablasup.png",
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/paddle",
+    "url": "https://salvadoreiviza.es/boat-trips/paddle",
     "priceCurrency": "EUR",
     "price": "80",
     "priceSpecification": {
@@ -219,7 +219,7 @@ export default function PaddleBoatTripsPage() {
             {/* Booking Widget */}
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                Book Your SUP Adventure
+                Reserva aventura paddle
               </h2>
               <TurbnbWidget
                 companyId={2}

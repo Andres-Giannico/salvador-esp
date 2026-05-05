@@ -1,14 +1,13 @@
 import { Metadata } from 'next';
 import AboutClientPage from './page.client';
+import { esPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
-  title: 'About Us | Salvador Ibiza - Premium Boat Experiences',
-  description: 'Discover the story behind Salvador Ibiza, your premium boat charter service in Ibiza. Experience luxury, comfort, and unforgettable moments on the Mediterranean Sea.',
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata: Metadata = esPageMetadata({
+  path: '/about',
+  title: 'Quiénes somos | Salvador Ibiza',
+  description:
+    'Conoce la historia de Salvador Ibiza: excursiones y charter premium en el Mediterráneo, con confort y tripulación profesional.',
+});
 
 export default function AboutPage() {
   return <AboutClientPage />;

@@ -1,33 +1,17 @@
-import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { esPageMetadata } from '@/lib/page-meta'
 
-export const metadata: Metadata = {
-  title: "Ibiza's Midday Magic: The Unforgettable Day Trip | Salvador Ibiza",
-  description: "Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.",
-  keywords: "Ibiza day boat trip, midday boat tour Ibiza, best daytime excursions Ibiza, Salvador Ibiza blog, Ibiza boat activities",
-  alternates: {
-    canonical: '/blog/ibiza-midday-magic-boat-trip',
-  },
-  openGraph: {
-    title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
-    description: "Explore the unique charm of a daytime boat adventure in Ibiza with Salvador.",
-    images: [
-      {
-        url: '/images/blog/midday-magic-placeholder.webp', // Placeholder - reemplazar luego
-        width: 1200,
-        height: 630,
-        alt: "Enjoying a sunny midday boat trip in Ibiza",
-      }
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ibiza's Midday Magic: The Unforgettable Day Trip | Salvador Ibiza",
-    description: "Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.",
-    images: ['/images/blog/midday-magic-placeholder.webp'], // Asegúrate que esta imagen también sea atractiva para Twitter
-  },
-}
+export const metadata = esPageMetadata({
+  title: 'Magia del mediodía en barco Ibiza | Salvador Ibiza',
+  description:
+    'Por qué navegar al mediodía en Ibiza marca diferencia: mar en calma chapuzones varios sol generoso energía alta sin prisa atardecer grupo mixto.',
+  path: '/blog/ibiza-midday-magic-boat-trip',
+  keywords:
+    'Ibiza excursión día mediodía Salvador barco grupo sol calas snorkel paddle blog',
+  ogImage: '/images/blog/midday-magic-placeholder.webp',
+  ogImageAlt: 'Día soleado en barco Ibiza con Salvador',
+})
 
 export default function MiddayMagicBoatTripPage() {
   return (
@@ -121,7 +105,7 @@ export default function MiddayMagicBoatTripPage() {
             href="/book-now" // Or directly to Day Trip booking if widget supports it
             className="mt-4 inline-block rounded-lg bg-white px-8 py-3.5 text-lg font-semibold text-blue-600 hover:bg-blue-50 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
           >
-            Book Your Daytime Adventure
+            Reserva día en barco
           </Link>
         </div>
       </div>

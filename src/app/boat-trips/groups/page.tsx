@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Group Boat Trips Ibiza | Perfect for Large Groups',
     description: 'Perfect group boat trips in Ibiza for friends, celebrations, and corporate events. Special rates and customized experiences for large groups.',
-    url: 'https://salvadoribiza.com/boat-trips/groups',
+    url: 'https://salvadoreiviza.es/boat-trips/groups',
     images: [
       {
         url: '/images/boat/chicasmuyfelices.webp',
@@ -36,14 +36,14 @@ const groupBoatTripsJsonLd = {
   "@type": "Product",
   "name": "Group Boat Trips Ibiza by Salvador",
   "description": "Perfect boat trips for large groups in Ibiza. Special rates and customized experiences for friends, celebrations, and corporate events.",
-  "image": "https://salvadoribiza.com/images/boat/chicasmuyfelices.webp",
+  "image": "https://salvadoreiviza.es/images/boat/chicasmuyfelices.webp",
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/groups",
+    "url": "https://salvadoreiviza.es/boat-trips/groups",
     "priceCurrency": "EUR",
     "price": "80",
     "priceSpecification": {
@@ -207,7 +207,7 @@ export default function GroupBoatTripsPage() {
             {/* Booking Widget */}
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                Book Your Group Adventure
+                Reserva salida en grupo
               </h2>
 
               <TurbnbWidget

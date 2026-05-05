@@ -1,17 +1,16 @@
-import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { esPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
-  title: 'Romantic Boat Charters in Ibiza: Discover Love at Sea | Salvador Ibiza',
-  description: 'Create unforgettable romantic memories with private boat charters in Ibiza. Perfect for proposals, anniversaries, and intimate escapes. Book your romantic cruise today.',
-  keywords: 'romantic boat charter Ibiza, romantic cruise Ibiza, proposal boat trip, anniversary celebration, couples boat trip, private romantic charter',
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata = esPageMetadata({
+  title: 'Barcos románticos Ibiza bodas parejas Salvador | El mar en pareja',
+  description:
+    'Charters íntimos y propuestas originales a bordo en Ibiza. Propuestas, aniversarios o escapadas tranquilas desde Sant Antoni con Salvador Ibiza.',
+  path: '/blog/discover-love-at-sea',
+  keywords:
+    'barco parejas Ibiza, charter romántico, propuesta en barco, aniversario mar mediterráneo, experiencia Salvador Ibiza',
+});
 
 export default function DiscoverLoveAtSeaPage() {
   return (
@@ -64,7 +63,7 @@ export default function DiscoverLoveAtSeaPage() {
                 href="/book-now"
                 className="inline-block bg-gradient-to-r from-pink-500 to-blue-600 hover:from-pink-400 hover:to-blue-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
               >
-                Book Your Romantic Charter
+                Reserva charter romántico
               </Link>
             </div>
           </div>
@@ -149,7 +148,7 @@ export default function DiscoverLoveAtSeaPage() {
               href="/book-now"
               className="inline-block bg-white text-blue-600 hover:bg-blue-50 font-bold py-4 px-8 rounded-lg shadow-lg transition duration-300 text-lg"
             >
-              Book Your Romantic Experience Now
+              Reserva experiencia romántica
             </Link>
           </div>
         </div>

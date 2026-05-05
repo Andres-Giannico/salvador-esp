@@ -1,17 +1,16 @@
-import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import { esPageMetadata } from '@/lib/page-meta'
 
-export const metadata: Metadata = {
-  title: 'Sunset Sailing in Ibiza: A Magical End to a Perfect Day | Salvador Ibiza',
-  description: 'Experience the magic of Ibiza\'s legendary sunsets from the best viewpoint - aboard our luxury yacht. Book your sunset sailing adventure today.',
-  keywords: 'sunset sailing Ibiza, sunset cruise Ibiza, sunset boat trip, golden hour cruise, Ibiza sunset experience, luxury yacht sunset',
-  robots: {
-    index: true,
-    follow: true,
-  },
-}
+export const metadata = esPageMetadata({
+  title: 'Navegar al ocaso en Ibiza: mágico final día desde Salvador',
+  description:
+    'Atardecer de Ibiza vista mar con Salvador: música comedida cóctel dentro modalidad anunciado tapas y calma Balear.',
+  path: '/blog/sunset-sailing-ibiza',
+  keywords:
+    'atardecer Ibiza barco ocaso dorado sant antoni navegación puesta sol mar Mediterráneo excursión Salvador blog',
+})
 
 export default function SunsetSailingPage() {
   return (
@@ -68,7 +67,7 @@ export default function SunsetSailingPage() {
                 href="/boat-trips/sunset"
                 className="inline-block bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-400 hover:to-pink-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
               >
-                Book Your Sunset Trip
+                Reserva ocaso en barco
               </Link>
             </div>
           </div>
@@ -170,7 +169,7 @@ export default function SunsetSailingPage() {
               href="/book-now"
               className="inline-block bg-white text-orange-600 hover:bg-orange-50 font-bold py-4 px-8 rounded-lg shadow-lg transition duration-300 text-lg"
             >
-              Book Your Sunset Experience Now
+              Reserva experiencia ocaso ya
             </Link>
           </div>
         </div>

@@ -85,7 +85,7 @@ export default function DayBoatTripsPage() {
                 href="/boat-trips/day-trip"
                 className="inline-block bg-blue-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-700 transition-colors"
               >
-                Book Your Day Trip Now
+                Reserva excursión diurna
               </Link>
             </div>
           </div>

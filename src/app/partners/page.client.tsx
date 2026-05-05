@@ -335,7 +335,15 @@ export default function PartnersClientPage() {
             >
               Partner with Us Today!
             </a>
-            <p className="text-sm text-gray-500 mt-4">Or email us at partners@salvadoribiza.com</p>
+            <p className="text-sm text-gray-500 mt-4">
+              O escribe a{" "}
+              <a
+                href={`mailto:${process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoreiviza.es"}`}
+                className="text-blue-600 hover:underline"
+              >
+                {process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoreiviza.es"}
+              </a>
+            </p>
           </motion.div>
         </div>
       </section>

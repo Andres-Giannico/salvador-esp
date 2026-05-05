@@ -1,42 +1,63 @@
 "use client";
 
 import Link from "next/link";
-import { FiHelpCircle, FiAnchor, FiDollarSign } from 'react-icons/fi';
-import { GiWaveSurfer, GiSailboat } from 'react-icons/gi';
-import { motion } from 'framer-motion';
-import Breadcrumbs from '@/components/ui/Breadcrumbs';
-
-// Importamos nuestro componente reutilizable
+import { FiHelpCircle, FiAnchor, FiDollarSign } from "react-icons/fi";
+import { GiWaveSurfer, GiSailboat } from "react-icons/gi";
+import { motion } from "framer-motion";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import FAQ from "@/components/trips/FAQ";
 
-// Categorías de preguntas frecuentes
 const generalFaqs = [
   {
-    question: "What kind of boat trips do you offer?",
+    question: "¿Qué excursiones en barco ofrecéis?",
     answer: (
       <>
-        We offer vibrant shared trips like our <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>Mixed Daytime Tour</Link> and the magical <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>Mixed Sunset Tour</Link>. We also specialize in fully customizable <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>.
+        Ofrecemos salidas compartidas como la{" "}
+        <Link href="/boat-trips/day-trip" className="text-cyan-600 hover:underline font-medium">
+          excursión diurna mixta
+        </Link>{" "}
+        y la mágica{" "}
+        <Link href="/boat-trips/sunset-trip" className="text-orange-600 hover:underline font-medium">
+          excursión al atardecer
+        </Link>
+        . También charters{" "}
+        <Link href="/private-boat-trips" className="text-purple-600 hover:underline font-medium">
+          privados totalmente personalizables
+        </Link>
+        .
       </>
     ),
   },
   {
-    question: "How long do the trips last?",
+    question: "¿Cuánto duran las salidas?",
     answer:
-      "Our Day Trips usually last around 3 hours, and Sunset Trips are also about 3 hours. The duration of Private Charters can be tailored to your preferences (minimum 3 hours).",
+      "Las excursiones diurnas y al atardecer suelen durar unas tres horas. Los charters privados se pueden adaptar a tu agenda (habitualmente mínimo 3 horas).",
   },
   {
-    question: "What routes do you usually take?",
+    question: "¿Qué rutas recorréis normalmente?",
     answer: (
       <>
-        Our shared tours explore the stunning West Coast (towards Cala Conta) or North Coast (towards Sa Foradada), showcasing beautiful coves and beaches like Cala Gració and Cala Salada. The captain chooses the best route daily based on conditions. See our <Link href='/routes' className='text-blue-600 hover:underline font-medium'>Routes Page</Link> for details. On <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>, the route is fully customizable within our operational range.
+        Según el día, la costa oeste (zona Cala Comte/Cala Conta) o norte (Sa Foradada), con baños en calas como Cala Gració o vistas a Cala Salada. Consulta también nuestra página de{" "}
+        <Link href="/routes" className="text-blue-600 hover:underline font-medium">
+          rutas
+        </Link>
+        . En el{" "}
+        <Link href="/private-boat-trips" className="text-purple-600 hover:underline font-medium">
+          charter privado
+        </Link>{" "}
+        el itinerario es flexible dentro de la zona náutica operativa.",
       </>
     ),
   },
   {
-    question: "Where is the meeting point?",
+    question: "¿Dónde es el punto de encuentro?",
     answer: (
       <>
-        Our meeting point is always at the port of San Antonio. You can find the exact location and directions on our <Link href='/contact' className='text-blue-600 hover:underline font-medium'>contact page with interactive map</Link>. We'll confirm the boarding time once your booking is confirmed.
+        Puerto de Sant Antoni. Ubicación y mapa detallados en{" "}
+        <Link href="/contact" className="text-blue-600 hover:underline font-medium">
+          contacto
+        </Link>
+        . Confirmamos hora exacta embarque al tener la reserva cerrada.",
       </>
     ),
   },
@@ -44,282 +65,321 @@ const generalFaqs = [
 
 const pricingFaqs = [
   {
-    question: "What's included in the price?",
+    question: "¿Qué incluye el precio?",
     answer: (
       <>
-        Shared trips (Day/Sunset) typically include the captain, crew, fuel, unlimited standard open bar (soft drinks, beer, wine, cava, sangria, water), Spanish tapas & fresh fruit, and use of paddleboards, kayaks & snorkel gear. <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link> have similar base inclusions but offer upgrade options (premium tapas, spirits). Always check the specific trip page!
+        Excursiones compartidas: capitán, tripulación, combustible, bar abierto tipo estándar
+        (refrescos, cerveza, vino blanco/tinto espumoso, sangría agua/fruta/roja/blanca si aplica según temporada), tapas y fruta fresca,
+        equipo de snorkel y material paddle/kayaks según página de la experiencia.
+        Las{" "}
+        <Link href="/private-boat-trips" className="text-purple-600 hover:underline font-medium">
+          privadas
+        </Link>{" "}
+        admiten mejoras gastronómicas o marcas superiores bajo solicitud.",
       </>
     ),
   },
   {
-    question: "Can we bring our own food and drinks?",
+    question: "¿Podemos traer comida o bebida propia?",
     answer: (
       <>
-        You are welcome to bring your own food onboard, especially on <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>. However, <strong>outside drinks are strictly not permitted on any trip</strong>, as we provide a generous complimentary open bar (soft drinks, beer, wine, cava, sangria, water). Specific requests like birthday cakes for charters can be discussed when booking.
+        Comida de fuera sí, muy habitual en charters privados.{" "}
+        <strong>Las consumiciones alcohólicas o refrescos externos no están permitidas</strong> porque
+        ya ofrecemos bar abierto generoso durante la excursión. Tartas especiales u opciones veggie se
+        comentan al reservar.",
       </>
     ),
   },
   {
-    question: "How can I book a trip?",
+    question: "¿Cómo puedo reservar?",
     answer: (
       <>
-        <Link href='/book-now' className='text-blue-600 hover:underline font-medium'>Booking online through our website</Link> is highly recommended! Use the secure booking widgets with live availability on the <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>Day Trip</Link>, <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>Sunset Trip</Link>, and <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link> pages. After completing your booking, you will receive a confirmation voucher with all the details, including the exact meeting point and time.
+        Ideal{" "}
+        <Link href="/book-now" className="text-blue-600 hover:underline font-medium">
+          reservar online
+        </Link>{" "}
+        con widgets seguros disponibles para{" "}
+        <Link href="/boat-trips/day-trip" className="text-cyan-600 hover:underline font-medium">
+          día
+        </Link>
+        ,{" "}
+        <Link href="/boat-trips/sunset-trip" className="text-orange-600 hover:underline font-medium">
+          atardecer
+        </Link>{" "}
+        y{" "}
+        <Link href="/private-boat-trips" className="text-purple-600 hover:underline font-medium">
+          charters privados
+        </Link>
+        . Recibirás voucher confirmando punto y horarios.",
       </>
     ),
   },
   {
-    question: "What's the cancellation policy?",
+    question: "¿Política de cancelación?",
     answer:
-      "Our cancellation policy varies depending on the trip type and notice period. Generally, we offer full or partial refunds if you cancel sufficiently in advance. Check our terms and conditions or contact us for specific details.",
+      "Según tipo de entrada y tiempo de antelación podrá aplicarse cancelación gratuita total o parcial. Revisa también el bloque contractual del proveedor booking o pregútanos antes de pagar.",
   },
 ];
 
 const onboardFaqs = [
   {
-    question: "What's the maximum capacity of the boat?",
-    answer:
-      "Please refer to our <Link href='/boat-trips' className='text-blue-600 hover:underline font-medium'>Trips</Link> or <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link> pages for the maximum number of passengers allowed.",
+    question: "¿Cuál es la capacidad máxima?",
+    answer: (
+      <>
+        Depende del producto contratado. Consulta{" "}
+        <Link href="/boat-trips" className="text-blue-600 hover:underline font-medium">
+          excursiones
+        </Link>{" "}
+        o{" "}
+        <Link href="/private-boat-trips" className="text-purple-600 hover:underline font-medium">
+          charters privados
+        </Link>{" "}
+        donde indicamos ocupación recomendada y legal.",
+      </>
+    ),
   },
   {
-    question: "Is there a toilet on board?",
-    answer:
-      "Yes, our boats are equipped with a marine toilet (WC) for your comfort.",
+    question: "¿Hay baños a bordo?",
+    answer: "Sí — servicio sanitario marinizado para comodidad de todos durante la navegación.",
   },
   {
-    question: "Is there shade on the boat?",
+    question: "¿Hay sombras en cubierta?",
     answer:
-      "Yes, all our boats have a canopy (bimini top) that provides ample shade to protect you from the sun.",
+      "Sí, todas las configuraciones llevan zonas cubiertas tipo biminí para refrescarse del sol mediterráneo.",
   },
   {
-    question: "Is there music on board?",
+    question: "¿Hay música?",
     answer:
-      "Yes, our boats have sound systems with Bluetooth connectivity, so you can play your own music and set the perfect vibe.",
+      "Equipo multimedia con bluetooth para llevar tus listas desde el teléfono respetando límites de volumen prudentes puerto-mar.",
   },
 ];
 
 const safetyFaqs = [
   {
-    question: "Do we need any prior boating experience?",
+    question: "¿Hay que tener experiencia náutica?",
     answer:
-      "Not at all! Our trips include an expert captain, so all you need to do is relax and enjoy the ride.",
+      "No. Nosotros llevamos el timón; tú sólo ocupate de divertirte y aplicar recomendaciones básicas de seguridad marcadas.",
   },
   {
-    question: "Is it safe for children?",
+    question: "¿Es seguro para niños?",
     answer:
-      "Absolutely! Our boats are safe for families and children. We have life jackets in different sizes. Just let us know the children's ages when booking.",
+      "Sí — chalecos disponibles tallas infantiles si nos avisan edades con antelación. Tripulación atenta especialmente zona baños libres.",
   },
   {
-    question: "What should we bring?",
+    question: "¿Qué llevar?",
     answer:
-      "We recommend bringing swimwear, a towel, sunscreen, a hat, sunglasses, and your camera to capture those unforgettable moments. If you're prone to seasickness, consider taking preventive medication beforehand.",
+      "Bañador, toalla alta protección solar, gorra, gafas y cámara resistente al agua. Si padecés mareos leves: medicación preventiva previa mejor que durante la mar.",
   },
   {
-    question: "What happens if there's bad weather?",
+    question: "¿Temporal adverso?",
     answer:
-      "Safety is our top priority. If weather conditions are unsafe for sailing (decision made by the captain), we'll try to reschedule your trip for another day. If that's not possible, we'll offer a full refund.",
+      "Por seguridad el capitán decide posponer. Intentamos fecha alternativa gratuita dentro stock disponible temporada; donde no aplique reposición devoluciones según política contratación.",
   },
 ];
 
 const activityFaqs = [
   {
-    question: "Can we do watersports?",
-    answer: (
-      <>
-        Yes! All our trips include the use of paddleboards (we have 15!), kayaks (2 available), and complete snorkeling equipment for everyone to enjoy during our swim stops.
-      </>
-    ),
-  },
-  {
-    question: "Are pets allowed on board?",
-    answer: (
-      <>
-        For the comfort of all guests, pets are not permitted on our shared Day or Sunset trips. On <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>, well-behaved pets may be considered upon prior request – please discuss this with us when booking.
-      </>
-    ),
-  },
-  {
-    question: "Do you speak languages other than English?",
+    question: "¿Incluye actividades náuticas?",
     answer:
-      "Yes, our crew speaks fluent Spanish, and often other languages like Italian or French. Don't hesitate to ask!",
+      "Sí: material paddle surf (conjunto suficientemente amplio temporada alta), kyaks dobles y equipo snorkel tamaños variados están incluidos en paradas vigiladas nadando.",
   },
   {
-    question: "What makes Salvador Ibiza so special?",
+    question: "¿Mascotas permitidas?",
     answer: (
       <>
-        It's the combination of our beautiful, traditional wooden boat, the stunning routes, the generous inclusions (drinks, food, activities), and most importantly, our friendly, professional crew dedicated to providing an authentic and unforgettable Ibiza experience. Read more <Link href='/about' className='text-blue-600 hover:underline font-medium'>About Us</Link>!
+        Salidas compartidas día/atardecer habitualmente exclusivas personas. Animales muy estudiados sólo charters{" "}
+        <Link href="/private-boat-trips" className="text-purple-600 hover:underline font-medium">
+          privados
+        </Link>{" "}
+        solicitando antes según tamaño comportamiento otros pasajeros abordo.",
+      </>
+    ),
+  },
+  {
+    question: "¿Qué idiomas habla la tripulación?",
+    answer:
+      "Trabajamos principalmente en español e inglés; muchas personas del equipo también se defienden en italiano u otros idiomas cuando la temporada multicultural lo pide.",
+  },
+  {
+    question: "¿Qué diferencia real a Salvador Ibiza?",
+    answer: (
+      <>
+        Por el barco de madera con carácter, las rutas cuidadas, las inclusiones muy completas en bebidas y gastronomía, y sobre todo un equipo que vive Ibiza desde el puerto cada verano —{" "}
+        <Link href="/about" className="text-blue-600 hover:underline font-medium">
+          conócenos mejor aquí
+        </Link>
+        .
       </>
     ),
   },
 ];
 
-// Refined Category Icon component
-function CategoryIcon({ 
-  icon, 
-  title, 
-  className = "" 
-}: { 
-  icon: React.ReactNode; 
-  title: string; 
-  className?: string; 
+function CategoryIcon({
+  icon,
+  title,
+  className = "",
+}: {
+  icon: React.ReactNode;
+  title: string;
+  className?: string;
 }) {
   return (
-    // Added group for hover effects, refined styling
-    <div className={`group flex flex-col items-center text-center p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 ${className}`}>
+    <div
+      className={`group flex flex-col items-center text-center p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 ${className}`}
+    >
       <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center mb-3 shadow-sm group-hover:shadow-md transition-shadow duration-200">
-        {icon} 
+        {icon}
       </div>
-      <h3 className="text-base md:text-lg font-semibold text-gray-800 group-hover:text-blue-700 transition-colors duration-200">{title}</h3>
+      <h3 className="text-base md:text-lg font-semibold text-gray-800 group-hover:text-blue-700 transition-colors duration-200">
+        {title}
+      </h3>
     </div>
   );
 }
 
 export default function FAQClientPage() {
-  // Animation for Hero section
   const heroAnimation = {
     initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } }
+    animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } },
   };
-  
-  // Animation for Category Icons wrapper
+
   const categoriesAnimation = {
     initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
+    animate: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
   };
 
-  // Animation for individual Category Icons
   const iconAnimation = {
     initial: { opacity: 0, scale: 0.9 },
-    animate: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" as const } }
+    animate: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" as const } },
   };
 
-  // Animation for FAQ sections
   const sectionAnimation = {
     initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
+    animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
   };
 
   return (
     <div className="bg-gradient-to-b from-white via-sky-50 to-blue-50">
-      {/* Breadcrumbs */}
       <div className="bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-4 py-4">
           <Breadcrumbs />
         </div>
       </div>
 
-      {/* Hero Section - Refined styling */}
       <section className="relative py-24 md:py-32 text-center overflow-hidden">
-        {/* Soft background gradient elements */}
         <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
           <div className="absolute w-full h-full bg-gradient-to-b from-white via-sky-50/50 to-transparent"></div>
           <div className="absolute w-[50vw] h-[50vh] rounded-full bg-cyan-200/20 -top-1/4 -left-1/4 blur-3xl opacity-70"></div>
           <div className="absolute w-[40vw] h-[40vh] rounded-full bg-blue-200/20 -bottom-1/4 -right-1/4 blur-3xl opacity-70"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            variants={heroAnimation}
-            initial="initial"
-            animate="animate"
-            className="max-w-3xl mx-auto"
-          >
+          <motion.div variants={heroAnimation} initial="initial" animate="animate" className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-5">
-              <span className="text-gray-900">Frequently Asked</span>{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Questions</span>
+              <span className="text-gray-900">Preguntas</span>{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
+                frecuentes
+              </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Find answers to your questions about our boat trips, bookings, and services.
+              Dudas rápidas sobre reservas, horarios incluidos y seguridad antes de zarpar contigo Salvador Ibiza.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Main Content Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          {/* Category Navigation - Added animation */}
-          <motion.div 
+          <motion.div
             variants={categoriesAnimation}
             initial="initial"
             animate="animate"
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 mb-16 md:mb-20 max-w-5xl mx-auto"
           >
             <motion.div variants={iconAnimation}>
-              <CategoryIcon 
-                icon={<GiSailboat className="w-8 h-8 text-blue-600" />} 
-                title="General" 
-              />
+              <CategoryIcon icon={<GiSailboat className="w-8 h-8 text-blue-600" />} title="General" />
             </motion.div>
             <motion.div variants={iconAnimation}>
-              <CategoryIcon 
-                icon={<FiDollarSign className="w-7 h-7 text-green-600" />} 
-                title="Pricing" 
-              />
-             </motion.div>
-             <motion.div variants={iconAnimation}>
-              <CategoryIcon 
-                icon={<FiAnchor className="w-7 h-7 text-cyan-600" />} 
-                title="On Board" 
-              />
+              <CategoryIcon icon={<FiDollarSign className="w-7 h-7 text-green-600" />} title="Precios" />
             </motion.div>
             <motion.div variants={iconAnimation}>
-              <CategoryIcon 
-                icon={<FiHelpCircle className="w-7 h-7 text-orange-600" />} 
-                title="Safety" 
-              />
+              <CategoryIcon icon={<FiAnchor className="w-7 h-7 text-cyan-600" />} title="A bordo" />
             </motion.div>
-             <motion.div variants={iconAnimation}>
-              <CategoryIcon 
-                icon={<GiWaveSurfer className="w-8 h-8 text-purple-600" />} 
-                title="Activities" 
-              />
+            <motion.div variants={iconAnimation}>
+              <CategoryIcon icon={<FiHelpCircle className="w-7 h-7 text-orange-600" />} title="Seguridad" />
+            </motion.div>
+            <motion.div variants={iconAnimation}>
+              <CategoryIcon icon={<GiWaveSurfer className="w-8 h-8 text-purple-600" />} title="Actividades" />
             </motion.div>
           </motion.div>
 
-          {/* FAQs by Category - Refined section headers */}
           <div className="space-y-16 max-w-4xl mx-auto">
-            <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+            <motion.section
+              variants={sectionAnimation}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <GiSailboat className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">General Questions</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">General</h2>
               </div>
-              <FAQ items={generalFaqs} />
+              <FAQ items={generalFaqs} title="" />
             </motion.section>
 
-            <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+            <motion.section
+              variants={sectionAnimation}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <FiDollarSign className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Pricing & Booking</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Precios y reservas</h2>
               </div>
-              <FAQ items={pricingFaqs} />
+              <FAQ items={pricingFaqs} title="" />
             </motion.section>
 
-             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+            <motion.section
+              variants={sectionAnimation}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <FiAnchor className="w-5 h-5 text-cyan-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">On Board Experience</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Experiencia a bordo</h2>
               </div>
-              <FAQ items={onboardFaqs} />
+              <FAQ items={onboardFaqs} title="" />
             </motion.section>
 
-            <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+            <motion.section
+              variants={sectionAnimation}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <FiHelpCircle className="w-5 h-5 text-orange-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Safety & Preparation</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Seguridad y preparativos</h2>
               </div>
-              <FAQ items={safetyFaqs} />
+              <FAQ items={safetyFaqs} title="" />
             </motion.section>
 
-             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+            <motion.section
+              variants={sectionAnimation}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <GiWaveSurfer className="w-6 h-6 text-purple-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Activities & More</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Actividades y más</h2>
               </div>
-              <FAQ items={activityFaqs} />
+              <FAQ items={activityFaqs} title="" />
             </motion.section>
           </div>
-          
-          {/* CTA Section - Refined design */}
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -327,24 +387,25 @@ export default function FAQClientPage() {
             className="mt-20 md:mt-28 max-w-4xl mx-auto"
           >
             <div className="relative bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl overflow-hidden shadow-lg p-8 md:p-12">
-               {/* Subtle background pattern */}
-               <div 
-                 className="absolute inset-0 opacity-10 pointer-events-none" 
-                 style={{
-                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23ffffff' fill-opacity='0.4' d='M0 0h10v10H0V0zm10 10h10v10H10V10z'/%3E%3C/svg%3E")`
-                 }}
-               ></div>
+              <div
+                className="absolute inset-0 opacity-10 pointer-events-none"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23ffffff' fill-opacity='0.4' d='M0 0h10v10H0V0zm10 10h10v10H10V10z'/%3E%3C/svg%3E")`,
+                }}
+              ></div>
               <div className="relative z-10 text-center md:flex items-center justify-between">
                 <div className="md:max-w-lg mb-6 md:mb-0 md:text-left">
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Still have questions?</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">¿Seguimos charlando?</h2>
                   <p className="text-blue-100 text-base md:text-lg leading-relaxed">
-                    We&apos;re here to help! Contact us directly for personalized assistance.
+                    Escríbenos desde la página contacto si tu grupo tiene requisitos particulares o logística empresa.
                   </p>
                 </div>
                 <Link href="/contact">
                   <span className="inline-flex items-center justify-center bg-white text-blue-700 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg shadow hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5">
-                    Contact Us
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    Ir a contacto
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
                   </span>
                 </Link>
               </div>
@@ -354,4 +415,4 @@ export default function FAQClientPage() {
       </section>
     </div>
   );
-} 
+}

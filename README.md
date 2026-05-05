@@ -1,6 +1,6 @@
-# 🚢 Salvador Ibiza - Boat Experience Website
+# 🚢 Salvador Ibiza (ES) — salvadoreiviza.es
 
-> Premium boat trips and private charters in Ibiza. Experience the Mediterranean's finest waters aboard the iconic Salvador boat.
+> Sitio público en **español** para excursiones en barco y charters privados en Ibiza. URLs canónicas y sitemap apuntan al dominio **salvadoreiviza.es**; el sitio en inglés (**salvadoribiza.com**) enlaza vía `NEXT_PUBLIC_SITE_URL_EN` y mismos paths para hreflang.
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.3.0-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
@@ -9,7 +9,7 @@
 
 ## 🌐 Live Website
 
-**Production**: [https://salvadoribiza.com](https://salvadoribiza.com)
+**Producción (.es)**: [https://salvadoreiviza.es](https://salvadoreiviza.es)
 
 ## 📋 Table of Contents
 
@@ -156,16 +156,24 @@ npm install
 ```
 
 3. **Environment setup**
-Create a `.env.local` file:
+Copia `.env.example` a `.env.local` y ajusta valores. Mínimo relevante para SEO y dominio:
+
 ```bash
-# Required for Google Maps integration
-GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+# URLs (canónico español + inglés alterno para hreflang / selector EN)
+NEXT_PUBLIC_SITE_URL=https://salvadoreiviza.es
+NEXT_PUBLIC_SITE_URL_EN=https://salvadoribiza.com
+SITE_URL=https://salvadoreiviza.es
 
-# Site URL for sitemap generation
-SITE_URL=https://salvadoribiza.com
+# Emails públicos (opcional; hay fallback en src/config/site.ts)
+NEXT_PUBLIC_CONTACT_EMAIL=info@salvadoreiviza.es
+NEXT_PUBLIC_PARTNERS_EMAIL=partners@salvadoreiviza.es
 
-# Analytics (optional in development)
+# Google Maps en cliente
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_key
+
+# Analytics (opcional en desarrollo)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-SP4LMTQT3E
+NEXT_PUBLIC_GTM_ID=GTM-MZR67SFF
 ```
 
 4. **Run development server**
@@ -304,18 +312,11 @@ Google Analytics 4 implementation with:
 
 ## 🌍 Internationalization
 
-### **Current Status**
-- **Primary**: English (default)
-- **Prepared for**: Spanish, French, German
-- **Implementation**: Next.js i18n ready
-
-### **Language Structure**
-```
-/ (English - default)
-/es (Spanish - planned)
-/fr (French - planned)
-/de (German - planned)
-```
+### **Estado actual**
+- **Contenido y UI**: español en este repositorio (`lang="es"` en `layout`, metadatos `es_ES`).
+- **Dominio alterno EN**: enlaces y `Metadata.alternates.languages` mediante `src/config/site.ts` (`getEnglishSiteUrl`, `pageAlternates`).
+- **Selector EN** en la navbar: mismo path bajo `NEXT_PUBLIC_SITE_URL_EN` (habitualmente `https://salvadoribiza.com`).
+- **Reciprocidad**: el sitio inglés debe exponer el enlace/espejo hacia `.es` en su propio código (otro repo/despliegue).
 
 ## 🤝 Contributing
 
@@ -334,9 +335,9 @@ Google Analytics 4 implementation with:
 
 ### **Deployment**
 - **Platform**: Vercel (automatic deployment)
-- **Domain**: salvadoribiza.com
-- **Environment**: Production optimized
-- **Monitoring**: Real-time performance tracking
+- **Domain**: salvadoreiviza.es (apex y/o www según configuración DNS)
+- **Env producción**: definir `NEXT_PUBLIC_SITE_URL`, `SITE_URL` y `NEXT_PUBLIC_SITE_URL_EN` como en `.env.example`
+- **Monitoring**: Google Analytics / GTM según IDs en entorno
 
 ## 📄 License
 
@@ -344,11 +345,11 @@ This project is proprietary software for Salvador Ibiza boat experiences.
 
 ## 📞 Contact
 
-- **Website**: [salvadoribiza.com](https://salvadoribiza.com)
-- **Phone**: +34 871 181 393 / +34 681 611 598
-- **Email**: [Contact form](https://salvadoribiza.com/contact)
+- **Web (.es)**: [salvadoreiviza.es](https://salvadoreiviza.es)
+- **Teléfonos**: +34 871 181 393 / +34 681 611 598
+- **Formulario**: [Contacto](https://salvadoreiviza.es/contact)
 - **WhatsApp**: +34 871 181 393
 
 ---
 
-*Experience the magic of Ibiza from the sea with Salvador boat trips* 🌊⛵
+*Ibiza desde el mar con Salvador* 🌊⛵

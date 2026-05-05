@@ -163,7 +163,7 @@ export default function SanAntonioBoatTripsClient() {
       <section className="py-8 sm:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Book Your San Antonio Adventure</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Reserva desde Sant Antoni</h2>
             <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-2">
               Choose your preferred date and time for an unforgettable boat trip around San Antonio Bay
             </p>
@@ -177,16 +177,17 @@ export default function SanAntonioBoatTripsClient() {
             customProperties={{
               displayBillingTerm: true,
               showQuantity: true,
-              quantity: "Guests",
+              quantity: "Personas",
               titleVariant: "Modern",
-              bookNow: "BOOK SAN ANTONIO TRIP",
-              confirmReservationAndPay: "CONFIRM & PAY",
-              selectTimeLabel: "Select Time",
-              selectExperienceLabel: "San Antonio Experience",
-              addonsLabel: "Add-ons",
-              childrenAge: "6 to 12 Years",
-              infantAge: "0 to 5 Years",
-              depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+              bookNow: "RESERVAR SALIDA",
+              confirmReservationAndPay: "CONFIRMAR Y PAGAR",
+              selectTimeLabel: "Elige horario",
+              selectExperienceLabel: "Salida desde Sant Antoni",
+              addonsLabel: "Extras",
+              childrenAge: "6 a 12 años",
+              infantAge: "0 a 5 años",
+              depositObservation:
+                "Al completar la reserva recibirás un voucher con los detalles (punto de encuentro y horarios). Confirma que teléfono y email sean correctos. Se suele solicitar una señal de 20 € por persona; el saldo restante según las condiciones de la confirmación (habitualmente a bordo el día del viaje).",
             }}
           />
         </div>

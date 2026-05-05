@@ -326,7 +326,7 @@ export default function WeddingsClientPage() {
                   onClick={handleBookButtonClick}
                   className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-lg transition-colors"
                 >
-                  Book Your Wedding
+                  Reserva boda en barco
                 </button>
               </div>
             </motion.div>
@@ -387,7 +387,7 @@ export default function WeddingsClientPage() {
                   onClick={handleBookButtonClick}
                   className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-lg transition-colors"
                 >
-                  Book Your Wedding
+                  Reserva boda en barco
                 </button>
               </div>
             </motion.div>
@@ -573,7 +573,7 @@ export default function WeddingsClientPage() {
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 bg-white text-blue-600 font-bold py-4 px-10 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-0.5"
             >
-              Book Your Wedding Charter <FiArrowRight className="ml-1 w-5 h-5"/>
+              Reserva boda en barco Charter <FiArrowRight className="ml-1 w-5 h-5"/>
             </motion.button>
           </motion.div>
         </div>
@@ -592,7 +592,7 @@ export default function WeddingsClientPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Book Your Wedding Charter</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Reserva boda en barco Charter</h2>
                 <button 
                   onClick={() => setShowDirectWidget(false)}
                   className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"

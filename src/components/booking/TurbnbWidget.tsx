@@ -37,14 +37,15 @@ export default function TurbnbWidget({
   customProperties = {
     displayBillingTerm: true,
     showQuantity: true,
-    quantity: "Quantity",
+    quantity: "Personas",
     titleVariant: "Modern",
-    bookNow: "RESERVE NOW",
-    confirmReservationAndPay: "CLICK TO PAY",
-    selectTimeLabel: "Time Selection",
-    selectExperienceLabel: "Experience Type",
-    addonsLabel: "Add-ons",
-    depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+    bookNow: "RESERVAR AHORA",
+    confirmReservationAndPay: "CONFIRMAR Y PAGAR",
+    selectTimeLabel: "Elige horario",
+    selectExperienceLabel: "Tipo de experiencia",
+    addonsLabel: "Extras",
+    depositObservation:
+      "Al completar la reserva recibirás un voucher con los detalles (punto de encuentro y horarios). Confirma que teléfono y email sean correctos. Se suele solicitar una señal de 20 € por persona; el saldo restante según las condiciones de la confirmación (habitualmente a bordo el día del viaje).",
   }
 }: TurbnbWidgetProps) {
   useEffect(() => {

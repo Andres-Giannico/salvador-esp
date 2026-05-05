@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { FiZap, FiAnchor, FiHeart, FiSmile } from 'react-icons/fi';
 
 const whyChooseItems = [
-  { icon: FiAnchor, title: "Historic Charm", text: "Sail aboard a beautifully restored piece of Balearic history." },
-  { icon: FiHeart, title: "Personalized Service", text: "Our expert crew is dedicated to making your day perfect." },
-  { icon: FiZap, title: "Total Flexibility", text: "Your route, your schedule, your music - completely tailored." },
-  { icon: FiSmile, title: "Effortless Enjoyment", text: "All-inclusive drinks & gear means you just relax and have fun." },
+  { icon: FiAnchor, title: "Encanto tradicional", text: "Navega en un barco de madera con historia balear recuperada con mimo." },
+  { icon: FiHeart, title: "Servicio cercano", text: "Tripulación experta dedicada a que el día salga redondo." },
+  { icon: FiZap, title: "Flexibilidad total", text: "Tu ruta, tu ritmo y tu música: lo adaptamos al grupo." },
+  { icon: FiSmile, title: "Relax real", text: "Bebidas y equipo incluidos: solo preocúpate de disfrutar." },
 ];
 
 const WhyChooseUsCard = () => {
@@ -29,7 +29,7 @@ const WhyChooseUsCard = () => {
         </svg>
       </div>
       
-      <h3 className="text-xl font-semibold mb-4 text-center relative">Why Choose Salvador?</h3>
+      <h3 className="text-xl font-semibold mb-4 text-center relative">¿Por qué Salvador?</h3>
       <div className="space-y-4 relative">
         {whyChooseItems.map((item, index) => (
           <motion.div 

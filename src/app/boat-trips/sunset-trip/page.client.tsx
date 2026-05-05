@@ -179,7 +179,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
               // Larger button with icon
               className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-bold py-4 px-10 rounded-lg shadow-xl transition duration-300 transform hover:-translate-y-1"
             >
-              Book Your Sunset Experience <FiAnchor className="ml-1 w-5 h-5"/>
+              Reserva experiencia al atardecer <FiAnchor className="ml-1 w-5 h-5"/>
             </motion.span>
           </Link>
         </motion.div>
@@ -469,7 +469,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
             </div>
             <Link href="#booking-widget">
               <span className="inline-block bg-white text-orange-600 hover:bg-orange-50 font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
-                Book Your Sunset Experience
+                Reserva experiencia al atardecer
               </span>
             </Link>
           </div>

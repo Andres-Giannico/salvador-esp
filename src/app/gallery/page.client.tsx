@@ -269,7 +269,7 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
               href="/boat-trips" 
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-full font-semibold hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
-              Book Your Experience
+              Reserva tu experiencia
             </a>
           </motion.div>
         </div>

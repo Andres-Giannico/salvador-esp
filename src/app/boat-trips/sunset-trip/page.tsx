@@ -7,7 +7,7 @@ const sunsetTripJsonLd = {
   "@type": "Product",
   "name": "Sunset Boat Trip in Ibiza - Salvador Ibiza",
   "image": [
-    "https://salvadoribiza.com/images/boat/sunset.png"
+    "https://salvadoreiviza.es/images/boat/sunset.png"
   ],
   "description": "All-inclusive sunset boat trip in Ibiza with captain. Enjoy 3 hours of navigation with catering, drinks, paddle surf and snorkel included.",
   "brand": {
@@ -16,7 +16,7 @@ const sunsetTripJsonLd = {
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/sunset-trip",
+    "url": "https://salvadoreiviza.es/boat-trips/sunset-trip",
     "priceCurrency": "EUR",
     "price": "80.00",
     "itemCondition": "https://schema.org/NewCondition",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   title: 'Ibiza Sunset Boat Trip (All-Inclusive) | Salvador',
   description: '🌅 Experience Ibiza\'s legendary sunset from the sea! 3-hour all-inclusive cruise with unlimited drinks, Spanish tapas & paddle boards. Book now from €80!',
   alternates: {
-    canonical: 'https://salvadoribiza.com/boat-trips/sunset-trip',
+    canonical: 'https://salvadoreiviza.es/boat-trips/sunset-trip',
   },
   robots: {
     index: true,

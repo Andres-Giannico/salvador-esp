@@ -14,40 +14,51 @@ interface BreadcrumbsProps {
   className?: string;
 }
 
-// Mapeo de rutas a nombres más amigables
 const routeLabels: Record<string, string> = {
-  'boat-trips': 'Boat Trips',
-  'day-trip': 'Day Trip',
-  'sunset-trip': 'Sunset Trip',
-  'private-boat-trips': 'Private Trips',
-  'private-charter': 'Private Charter',
-  'corporate-events': 'Corporate Events',
-  'about': 'About Us',
-  'contact': 'Contact',
-  'partners': 'Partners',
-  'weddings': 'Weddings',
-  'gallery': 'Gallery',
-  'blog': 'Blog',
-  'faq': 'FAQ',
-  'book-now': 'Book Now',
-  'routes': 'Routes',
-  'discover-love-at-sea': 'Discover Love at Sea',
-  'hidden-coves-ibiza': 'Hidden Coves of Ibiza',
-  'sunset-sailing-ibiza': 'Sunset Sailing in Ibiza',
-  'ibiza-midday-magic-boat-trip': 'Ibiza Midday Magic',
+  'boat-trips': 'Excursiones',
+  'day-trip': 'Salida diurna',
+  'sunset-trip': 'Atardecer',
+  'private-boat-trips': 'Charters privados',
+  'private-charter': 'Charter privado',
+  'corporate-events': 'Eventos corporativos',
+  about: 'Quiénes somos',
+  contact: 'Contacto',
+  partners: 'Colaboradores',
+  weddings: 'Bodas',
+  gallery: 'Galería',
+  blog: 'Blog',
+  faq: 'FAQ',
+  'book-now': 'Reservar',
+  routes: 'Rutas',
+  book: 'Reservas',
+  trips: 'Excursiones',
+  flyer: 'Folleto',
+  earnings: 'Ingresos para partners',
+  turbookings: 'TurBookings',
+  paddle: 'Paddle surf',
+  snorkeling: 'Snorkel',
+  'all-inclusive': 'Todo incluido',
+  groups: 'Grupos',
+  family: 'Familias',
+  sunset: 'Atardecer en barco',
+  day: 'Día',
+  'san-antonio': 'San Antonio',
+  'discover-love-at-sea': 'Descubre el amor en el mar',
+  'hidden-coves-ibiza': 'Calas ocultas de Ibiza',
+  'sunset-sailing-ibiza': 'Velero al atardecer',
+  'ibiza-midday-magic-boat-trip': 'Magia del mediodía en barco',
 };
 
 export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
   const pathname = usePathname();
 
-  // Si se proporcionan items custom, usarlos
   if (items) {
     return (
-      <nav aria-label="Breadcrumb" className={`flex items-center space-x-2 text-sm ${className}`}>
+      <nav aria-label="Migas de pan" className={`flex items-center space-x-2 text-sm ${className}`}>
         <Link
           href="/"
           className="flex items-center text-gray-500 hover:text-blue-600 transition-colors"
-          aria-label="Home"
+          aria-label="Inicio"
         >
           <FiHome className="w-4 h-4" />
         </Link>
@@ -72,10 +83,8 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
     );
   }
 
-  // Auto-generar breadcrumbs basado en la ruta actual
   const pathSegments = pathname.split('/').filter(Boolean);
-  
-  // Si estamos en home, no mostrar breadcrumbs
+
   if (pathSegments.length === 0) {
     return null;
   }
@@ -85,7 +94,8 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
 
   pathSegments.forEach((segment) => {
     currentPath += `/${segment}`;
-    const label = routeLabels[segment] || segment.charAt(0).toUpperCase() + segment.slice(1);
+    const label =
+      routeLabels[segment] || segment.charAt(0).toUpperCase() + segment.slice(1);
     breadcrumbItems.push({
       label,
       href: currentPath,
@@ -93,11 +103,11 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
   });
 
   return (
-    <nav aria-label="Breadcrumb" className={`flex items-center space-x-2 text-sm ${className}`}>
+    <nav aria-label="Migas de pan" className={`flex items-center space-x-2 text-sm ${className}`}>
       <Link
         href="/"
         className="flex items-center text-gray-500 hover:text-blue-600 transition-colors"
-        aria-label="Home"
+        aria-label="Inicio"
       >
         <FiHome className="w-4 h-4" />
       </Link>
@@ -120,4 +130,4 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
       ))}
     </nav>
   );
-} 
+}
