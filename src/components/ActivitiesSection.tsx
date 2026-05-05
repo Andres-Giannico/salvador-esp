@@ -104,7 +104,7 @@ export default function ActivitiesSection() {
             Nuestras experiencias
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Todas las actividades Salvador Boat en las aguas más transparentes de Ibiza
+            Todas las actividades de Salvador Ibiza en las aguas más transparentes de la isla
           </p>
         </motion.div>
 

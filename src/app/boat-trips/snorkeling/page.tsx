@@ -1,65 +1,48 @@
-import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { absoluteUrl, publicAssetUrl } from '@/config/site';
+import { esPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
-  title: 'Snorkeling Boat Trips Ibiza (3 hours) | Underwater Adventures | Salvador Ibiza',
-  description: 'Discover Ibiza\'s underwater world with our snorkeling boat trips. Professional equipment included, crystal-clear waters, and expert guidance for all skill levels.',
-  keywords: 'snorkeling boat trips Ibiza, underwater Ibiza, snorkel tour Ibiza, marine life Ibiza, crystal clear waters, snorkeling equipment',
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: '/boat-trips/snorkeling',
-  },
-  openGraph: {
-    title: 'Snorkeling Boat Trips Ibiza | Underwater Adventures',
-    description: 'Explore Ibiza\'s underwater paradise with our snorkeling boat trips. Professional equipment and expert guidance included.',
-    url: 'https://salvadoreiviza.es/boat-trips/snorkeling',
-    images: [
-      {
-        url: '/images/boat/parejasnorkeling.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Couple snorkeling in crystal clear waters during Ibiza boat trip',
-      }
-    ],
-  },
-};
+export const metadata = esPageMetadata({
+  title: 'Excursiones snorkel en barco Ibiza (3 h) | Mar transparente | Salvador Ibiza',
+  description:
+    'Snorkel en Ibiza desde el Salvador: equipo incluido, calas tranquilas y tripulación que guía cada parada en agua cristalina del Mediterráneo.',
+  path: '/boat-trips/snorkeling',
+  keywords:
+    'snorkel Ibiza barco, excursión snorkel, fauna marina Baleares, aguas transparentes Ibiza',
+  ogImage: '/images/boat/parejasnorkeling.webp',
+  ogImageAlt: 'Pareja haciendo snorkel en excursión en barco Ibiza',
+});
 
-// JSON-LD structured data for snorkeling boat trips
 const snorkelingBoatTripsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Snorkeling Boat Trips Ibiza by Salvador",
-  "description": "Discover Ibiza's underwater world with professional snorkeling equipment and expert guidance. Perfect for all skill levels in crystal-clear Mediterranean waters.",
-  "image": "https://salvadoreiviza.es/images/boat/parejasnorkeling.webp",
-  "brand": {
-    "@type": "Brand",
-    "name": "Salvador Ibiza"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://salvadoreiviza.es/boat-trips/snorkeling",
-    "priceCurrency": "EUR",
-    "price": "80",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "price": "80",
-      "priceCurrency": "EUR",
-      "valueAddedTaxIncluded": "true"
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Excursiones snorkel en barco Ibiza con Salvador Ibiza',
+  description:
+    'Snorkel con equipo profesional en aguas mediterráneas; indicaciones de seguridad y paradas adaptadas del grupo.',
+  image: publicAssetUrl('/images/boat/parejasnorkeling.webp'),
+  brand: { '@type': 'Brand', name: 'Salvador Ibiza' },
+  offers: {
+    '@type': 'Offer',
+    url: absoluteUrl('/boat-trips/snorkeling'),
+    priceCurrency: 'EUR',
+    price: '80',
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      price: '80',
+      priceCurrency: 'EUR',
+      valueAddedTaxIncluded: 'true',
     },
-    "availability": "https://schema.org/InStock"
+    availability: 'https://schema.org/InStock',
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "278"
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '278',
   },
-  "duration": "PT3H"
+  duration: 'PT3H',
 };
 
 export default function SnorkelingBoatTripsPage() {
@@ -71,42 +54,45 @@ export default function SnorkelingBoatTripsPage() {
       />
       <div className="min-h-screen bg-gradient-to-b from-cyan-50 to-white py-16">
         <div className="container mx-auto px-4">
-          {/* Breadcrumbs */}
           <div className="bg-white border-b border-gray-200 -mx-4 px-4 py-4 mb-8">
             <Breadcrumbs />
           </div>
 
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">
-              Snorkeling Boat Trips <span className="text-cyan-600">Ibiza</span>
+              Snorkel en barco en <span className="text-cyan-600">Ibiza</span>
             </h1>
-            
+
             <p className="text-xl text-gray-600 text-center mb-12 leading-relaxed">
-              Discover the underwater paradise of <strong>snorkeling boat trips in Ibiza</strong>. 
-              Explore crystal-clear waters with professional equipment and expert guidance.
+              Descubre fondos cercanos desde una <strong>excursión de snorkel en barco por Ibiza</strong>: equipo listo a bordo y
+              calas donde la visibilidad suele ser muy buena con mar en calma.
             </p>
 
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Underwater Adventure Awaits</h2>
-              
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Tu aventura bajo superficie tranquila</h2>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-cyan-600 font-bold">🤿</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Professional Snorkeling Gear</h3>
-                    <p className="text-gray-600">High-quality masks, snorkels, and fins provided for all guests. Sanitized and maintained equipment.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Equipo profesional incluido</h3>
+                    <p className="text-gray-600">
+                      Máscaras, tubos y aletas en varias tallas; tras cada grupo habitual el equipo pasa revisión rápida e higiene básica.
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-cyan-600 font-bold">🐠</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Marine Life Discovery</h3>
-                    <p className="text-gray-600">Explore vibrant underwater ecosystems and discover Mediterranean marine life in their natural habitat.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Vida marina mediterránea</h3>
+                    <p className="text-gray-600">
+                      Roqueríos de costa donde ver peces típicos del Mediterráneo; la fauna no se puede garantizar al 100 % día a día.
+                    </p>
                   </div>
                 </div>
 
@@ -115,8 +101,10 @@ export default function SnorkelingBoatTripsPage() {
                     <span className="text-cyan-600 font-bold">💎</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Crystal Clear Waters</h3>
-                    <p className="text-gray-600">Access to hidden coves and pristine locations with exceptional underwater visibility.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Aguas claras y calas vírgenes cercanas</h3>
+                    <p className="text-gray-600">
+                      Calas menos masificadas donde el agua permite ver bien el fondo con buenas condiciones meteorológicas.
+                    </p>
                   </div>
                 </div>
 
@@ -125,8 +113,10 @@ export default function SnorkelingBoatTripsPage() {
                     <span className="text-cyan-600 font-bold">👨‍🏫</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Expert Guidance</h3>
-                    <p className="text-gray-600">Professional crew provides safety briefings and snorkeling tips for beginners and experienced swimmers.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Ayuda desde cubierta</h3>
+                    <p className="text-gray-600">
+                      Charla de seguridad y uso del equipo; conviven niveles distintos y la tripulación orienta antes de cada parada.
+                    </p>
                   </div>
                 </div>
 
@@ -135,8 +125,10 @@ export default function SnorkelingBoatTripsPage() {
                     <span className="text-cyan-600 font-bold">🏝️</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Multiple Snorkel Spots</h3>
-                    <p className="text-gray-600">Visit 2-3 different underwater locations during your 3-hour adventure for varied marine experiences.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Varias paradas en tres horas</h3>
+                    <p className="text-gray-600">
+                      La meteorología ese día marca si alargamos un baño único o repartimos el tiempo entre dos rincones; el capitán adapta tiempo y paradas con seguridad.
+                    </p>
                   </div>
                 </div>
 
@@ -145,41 +137,42 @@ export default function SnorkelingBoatTripsPage() {
                     <span className="text-cyan-600 font-bold">🍹</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Refreshments Included</h3>
-                    <p className="text-gray-600">Premium drinks, Spanish tapas, and fresh fruit to recharge between snorkeling sessions.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Momentos tranquilos sobre cubierta</h3>
+                    <p className="text-gray-600">
+                      Bebidas, tapas y fruta dentro de lo incluido cuando contratas el paquete todo incluido que publicamos ese año para salidas Salvador compartidas.
+                    </p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-cyan-50 border border-cyan-200 rounded-lg p-6 mb-8">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">🤿 Perfect for All Skill Levels</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-3">🤿 Pensado para distintos perfiles</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>
-                    <strong>Beginners welcome</strong> - full safety briefing and swimming assistance
+                    <strong>Principiantes</strong>: charla rápida y paradas en aguas en calma cuando el mar lo permite.
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>
-                    <strong>Experienced snorkelers</strong> - explore deeper areas with confidence
+                    <strong>Con experiencia</strong>: más tiempo bajo superficie donde el panorama submarino compensa ese día.
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>
-                    <strong>Non-swimmers</strong> - can enjoy from the boat or shallow water areas
+                    <strong>Solo cubierta</strong>: música a volumen razonable, sombra y descanso sin obligación de chapuzón.
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>
-                    <strong>Family friendly</strong> - children's equipment and supervision available
+                    <strong>Familias</strong>: chalecos infantiles en varios tamaños antes de llegar al punto de snorkel.
                   </li>
                 </ul>
               </div>
             </div>
 
-            {/* Image Gallery */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/boat/parejasnorkeling.webp"
-                  alt="Couple enjoying snorkeling during Ibiza boat trip"
+                  alt="Pareja haciendo snorkel en excursión en barco Ibiza"
                   fill
                   className="object-cover"
                 />
@@ -187,18 +180,15 @@ export default function SnorkelingBoatTripsPage() {
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/optimized/crystal-clear-waters-ibiza.webp"
-                  alt="Crystal clear waters perfect for snorkeling in Ibiza"
+                  alt="Aguas muy transparentes ideales snorkel Ibiza"
                   fill
                   className="object-cover"
                 />
               </div>
             </div>
 
-            {/* Booking Widget */}
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                Reserva excursión de snorkel
-              </h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Reserva excursión snorkel</h2>
               <TurbnbWidget
                 companyId={2}
                 productId={2}
@@ -207,35 +197,37 @@ export default function SnorkelingBoatTripsPage() {
                 customProperties={{
                   displayBillingTerm: true,
                   showQuantity: true,
-                  titleVariant: "Modern",
-                  bookNow: "BOOK SNORKELING TRIP",
-                  confirmReservationAndPay: "CONFIRM & PAY",
-                  selectTimeLabel: "Time Selection",
-                  selectExperienceLabel: "Snorkeling Experience",
-                  addonsLabel: "Add-ons",
-                  childrenAge: "6 to 12 Years",
-                  infantAge: "0 to 5 Years"
+                  quantity: 'Personas',
+                  titleVariant: 'Modern',
+                  bookNow: 'RESERVAR SNORKEL',
+                  confirmReservationAndPay: 'CONFIRMAR Y PAGAR',
+                  selectTimeLabel: 'Elige horario',
+                  selectExperienceLabel: 'Experiencia snorkel',
+                  addonsLabel: 'Extras',
+                  childrenAge: '6 a 12 años',
+                  infantAge: '0 a 5 años',
+                  depositObservation:
+                    'Al completar la reserva recibirás un voucher con los detalles (punto de encuentro y horarios). Confirma que teléfono y email sean correctos. Se suele solicitar una señal de 20 € por persona; el saldo restante según las condiciones de la confirmación (habitualmente a bordo el día del viaje).',
                 }}
               />
             </div>
 
-            {/* Additional Options */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">More Aquatic Adventures</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Más actividades acuáticas</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Link 
+                <Link
                   href="/boat-trips/paddle"
                   className="block bg-cyan-600 text-white p-6 rounded-lg hover:bg-cyan-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">Paddle Boarding Experience</h4>
-                  <p>Combine snorkeling with paddle board adventures</p>
+                  <h4 className="text-xl font-bold mb-2">Paddle surf (SUP)</h4>
+                  <p>Combina snorkel con tablas en la misma jornada compartida</p>
                 </Link>
-                <Link 
+                <Link
                   href="/boat-trips"
                   className="block bg-gray-800 text-white p-6 rounded-lg hover:bg-gray-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">All Boat Trips</h4>
-                  <p>Explore all our water adventures</p>
+                  <h4 className="text-xl font-bold mb-2">Todas las excursiones</h4>
+                  <p>Consulta todas las páginas temáticas públicas antes de elegir día y canal de reserva.</p>
                 </Link>
               </div>
             </div>
@@ -244,4 +236,4 @@ export default function SnorkelingBoatTripsPage() {
       </div>
     </>
   );
-} 
+}

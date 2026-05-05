@@ -1,62 +1,48 @@
-import { Metadata } from 'next';
+import { absoluteUrl, publicAssetUrl } from '@/config/site';
+import { esPageMetadata } from '@/lib/page-meta';
 import SunsetBoatTripsClientPage from './page.client';
 
-export const metadata: Metadata = {
-  title: 'Sunset Boat Trips Ibiza | Magical Evening Cruises | Salvador Ibiza',
-  description: 'Experience the magic of Ibiza sunset boat trips with Salvador. Join our evening cruises for breathtaking sunsets, premium drinks, and unforgettable memories on the Mediterranean.',
-  keywords: 'ibiza sunset boat trip, sunset boat, sunset boat trip, sunset boat tour, boat sunset, sunset from boat, sunset on boat, ibiza boat trip sunset, sunset boat trips san antonio ibiza',
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: '/boat-trips/sunset',
-  },
-  openGraph: {
-    title: 'Sunset Boat Trips Ibiza | Magical Evening Cruises',
-    description: 'Experience magical sunset boat trips in Ibiza with Salvador. Premium evening cruises with drinks, tapas, and breathtaking Mediterranean sunsets.',
-    url: 'https://salvadoreiviza.es/boat-trips/sunset',
-    images: [
-      {
-        url: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Beautiful sunset during a boat trip in Ibiza with Salvador',
-      }
-    ],
-  },
-};
+export const metadata = esPageMetadata({
+  title: 'Excursiones en barco al atardecer Ibiza | Cruceros vespertinos | Salvador Ibiza',
+  description:
+    'Vive el atardecer en Ibiza desde el mar con Salvador Ibiza: salidas de 3 h, bebidas y tapas, bahía y costa oeste. Reserva tu crucero vespertino mediterráneo.',
+  path: '/boat-trips/sunset',
+  keywords:
+    'atardecer Ibiza barco, excursión atardecer, puesta de sol mar Ibiza, barco atardecer Sant Antoni, crucero vespertino Ibiza',
+  ogImage: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
+  ogImageAlt: 'Puesta de sol durante excursión en barco en Ibiza con Salvador Ibiza',
+});
 
-// JSON-LD structured data for sunset boat trips
 const sunsetBoatTripsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Sunset Boat Trips Ibiza by Salvador",
-  "description": "Magical sunset boat trips in Ibiza with premium drinks, tapas, and breathtaking Mediterranean views. 3-hour evening cruises departing from San Antonio.",
-  "image": "https://salvadoreiviza.es/images/blog/sunset-sailing-ibiza.jpg",
-  "brand": {
-    "@type": "Brand",
-    "name": "Salvador Ibiza"
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Excursiones en barco al atardecer Ibiza con Salvador Ibiza',
+  description:
+    'Cruceros vespertinos de 3 horas desde Sant Antoni con bebidas, tapas y vistas al atardecer en el Mediterráneo.',
+  image: publicAssetUrl('/images/blog/sunset-sailing-ibiza.jpg'),
+  brand: {
+    '@type': 'Brand',
+    name: 'Salvador Ibiza',
   },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://salvadoreiviza.es/boat-trips/sunset",
-    "priceCurrency": "EUR",
-    "price": "80",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "price": "80",
-      "priceCurrency": "EUR",
-      "valueAddedTaxIncluded": "true"
+  offers: {
+    '@type': 'Offer',
+    url: absoluteUrl('/boat-trips/sunset'),
+    priceCurrency: 'EUR',
+    price: '80',
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      price: '80',
+      priceCurrency: 'EUR',
+      valueAddedTaxIncluded: 'true',
     },
-    "availability": "https://schema.org/InStock"
+    availability: 'https://schema.org/InStock',
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "278"
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '278',
   },
-  "duration": "PT3H"
+  duration: 'PT3H',
 };
 
 export default function SunsetBoatTripsPage() {
@@ -69,4 +55,4 @@ export default function SunsetBoatTripsPage() {
       <SunsetBoatTripsClientPage />
     </>
   );
-} 
+}
