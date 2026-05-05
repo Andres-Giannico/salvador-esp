@@ -1,72 +1,69 @@
-import { Metadata } from 'next';
 import SunsetTripClientPage from './page.client';
 import Script from 'next/script';
-import { pageAlternates } from '@/config/site';
+import { esPageMetadata } from '@/lib/page-meta';
+import { absoluteUrl, publicAssetUrl } from '@/config/site';
 
-const sunsetTripJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Sunset Boat Trip in Ibiza - Salvador Ibiza",
-  "image": [
-    "https://salvadoreiviza.es/images/boat/sunset.png"
-  ],
-  "description": "All-inclusive sunset boat trip in Ibiza with captain. Enjoy 3 hours of navigation with catering, drinks, paddle surf and snorkel included.",
-  "brand": {
-    "@type": "Organization",
-    "name": "Salvador Ibiza"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://salvadoreiviza.es/boat-trips/sunset-trip",
-    "priceCurrency": "EUR",
-    "price": "80.00",
-    "itemCondition": "https://schema.org/NewCondition",
-    "availability": "https://schema.org/InStock",
-    "validFrom": "2025-06-25"
-  },
-  "review": {
-    "@type": "Review",
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": "4.9",
-      "bestRating": "5"
+export const metadata = esPageMetadata({
+  path: '/boat-trips/sunset-trip',
+  title: 'Excursión atardecer Ibiza todo incluido | Salvador Ibiza',
+  description:
+    '🌅 Atardecer legendario desde el mar: crucero de ~3 h con bebidas ilimitadas, tapas, música y actividades. Café Mambo / del Mar. Desde 80 €. Reserva.',
+  keywords:
+    'excursión atardecer Ibiza, sunset boat trip, barco atardecer Café Mambo, tour compartido Salvador Ibiza',
+  ogImage: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
+  ogImageAlt: 'Atardecer en barco frente a la costa de Ibiza — Salvador',
+});
+
+function sunsetTripJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Excursión en barco al atardecer Ibiza — Salvador Ibiza',
+    image: [publicAssetUrl('/images/optimized/ibiza-sunset-boat-trip-salvador.webp')],
+    description:
+      'Excursión compartida al atardecer en Ibiza con capitán. ~3 h de navegación con catering, bebidas, paddle surf y snorkel según condiciones.',
+    brand: {
+      '@type': 'Organization',
+      name: 'Salvador Ibiza',
     },
-    "author": {
-      "@type": "Person",
-      "name": "Verified Customer"
-    }
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "1198"
-  }
-};
-
-export const metadata: Metadata = {
-  title: 'Ibiza Sunset Boat Trip (All-Inclusive) | Salvador',
-  description: '🌅 Experience Ibiza\'s legendary sunset from the sea! 3-hour all-inclusive cruise with unlimited drinks, Spanish tapas & paddle boards. Book now from €80!',
-  alternates: pageAlternates('/boat-trips/sunset-trip'),
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    title: 'Ibiza Sunset Boat Trip (All-Inclusive) | Salvador',
-    description: '🌅 Experience Ibiza\'s legendary sunset from the sea! 3-hour all-inclusive cruise with unlimited drinks, Spanish tapas & paddle boards.',
-    images: ['/images/optimized/sunset-sailing-cruise-ibiza.webp'],
-  },
-};
+    offers: {
+      '@type': 'Offer',
+      url: absoluteUrl('/boat-trips/sunset-trip'),
+      priceCurrency: 'EUR',
+      price: '80.00',
+      itemCondition: 'https://schema.org/NewCondition',
+      availability: 'https://schema.org/InStock',
+      validFrom: '2025-06-25',
+    },
+    review: {
+      '@type': 'Review',
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: '4.9',
+        bestRating: '5',
+      },
+      author: {
+        '@type': 'Person',
+        name: 'Cliente verificado',
+      },
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '1198',
+    },
+  };
+}
 
 export default function SunsetTripPage() {
   return (
     <>
-       <Script
+      <Script
         id="sunset-trip-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(sunsetTripJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sunsetTripJsonLd()) }}
       />
       <SunsetTripClientPage />
     </>
-  )
-} 
+  );
+}
