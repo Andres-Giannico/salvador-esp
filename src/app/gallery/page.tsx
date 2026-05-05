@@ -6,7 +6,7 @@ export const metadata: Metadata = esPageMetadata({
   path: "/gallery",
   title: "Galería Salvador Ibiza | Fotos excursiones en barco",
   description:
-    "Imagenes reales día sol, atardecer, grupos snorkeling paddle privados barco Salvador — ibiza sant antoni vistas calas emblemáticas mediterranean lifestyle.",
+    "Fotos reales: día, atardecer, grupos, snorkel, paddle y charters privados en el barco Salvador — Sant Antoni de Portmany, calas y estilo mediterráneo.",
 });
 
 interface GalleryImage {
