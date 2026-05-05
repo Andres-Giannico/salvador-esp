@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { FiUsers, FiMap, FiCamera, FiAnchor, FiGift, FiCoffee, FiCheckCircle, FiShield, FiClock, FiDollarSign, FiDroplet, FiZap, FiWind, FiLifeBuoy, FiMusic as FiMusicAlt, FiEdit, FiStar, FiCalendar, FiNavigation, FiVolume2 } from 'react-icons/fi';
-import { GiWaterDrop } from 'react-icons/gi';
+import { FiUsers, FiMap, FiGift, FiClock, FiDollarSign } from 'react-icons/fi';
 import { motion, useTransform, AnimatePresence, useMotionValue } from 'framer-motion';
 import Script from 'next/script';
 import Link from 'next/link';
@@ -36,120 +35,90 @@ interface PrivateBoatTripsClientPageProps {
 
 // Combinar imágenes originales y nuevas de la carpeta /images/boat/ y /images/boat/private-new/
 const galleryImages = [
-  // Original images (unique src)
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Luxury private boat charter / Group relaxing" }, 
-  { src: "/images/optimized/salvador-ibiza-luxury-boat.webp", alt: "View from Salvador Ibiza boat" },
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-drone.webp", alt: "Aerial view of Salvador Ibiza boat" },
-  { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Sunset view near Es Vedra" },
-  { src: "/images/optimized/salvador-ibiza-boat-deck.webp", alt: "Drinks served on Salvador Ibiza charter" },
-  // Original images from /images/boat/
-  { src: "/images/optimized/salvador-ibiza-boat-cave-exploration.webp", alt: "View from inside a sea cave on Salvador Ibiza" },
-  { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Group enjoying the sunset on Salvador Ibiza" },
-  { src: "/images/boat/chicasentablasup.png", alt: "Paddleboarding near the cliffs from Salvador Ibiza" },
-  { src: "/images/optimized/drinks-cave-sunset-ibiza.webp", alt: "Glass of cava during sunset cruise on Salvador Ibiza" },
-  { src: "/images/optimized/happy-friends-boat-stern-ibiza.webp", alt: "Happy group posing on the back of Salvador Ibiza" },
-  { src: "/images/optimized/salvador-ibiza-boat-tapas-service.webp", alt: "Close-up of tapas served on Salvador Ibiza" },
-  { src: "/images/optimized/toasting-drinks-ibiza-boat.webp", alt: "Group toasting drinks at the bar on Salvador Ibiza" },
-  // Nuevas imágenes de la carpeta /images/boat/private-new/
-  { src: "/images/boat/private-new/tapasycavapopabarco_1.webp", alt: "Tapas and cava served on the boat stern" },
-  { src: "/images/boat/private-new/tapasenbarco_1.webp", alt: "Selection of tapas on the boat" },
-  { src: "/images/boat/private-new/sushiycavapopa_1.webp", alt: "Sushi and cava on the boat stern" },
-  { src: "/images/boat/private-new/interiorbarcosalvador_1.webp", alt: "Interior view of the Salvador boat" },
-  { src: "/images/boat/private-new/Frutasenbarra_1.webp", alt: "Fresh fruits platter at the boat bar" },
-  { src: "/images/boat/private-new/retretebarcoomg_1.webp", alt: "Modern toilet facilities on the boat (OMG view)" },
-  { src: "/images/boat/private-new/tapasyfrutasenbarco_1.webp", alt: "Tapas and fruits platter on the boat" },
-  { src: "/images/boat/private-new/retretebarco_1.webp", alt: "Clean and modern boat bathroom" },
-  { src: "/images/boat/private-new/popabarcosalvador_1.webp", alt: "Stern view of the Salvador boat with lifebuoy" },
-  { src: "/images/boat/private-new/barcosalvadorinterior_1.webp", alt: "Another interior view of the Salvador boat seating" },
-  { src: "/images/boat/private-new/cavaenbarco_1.webp", alt: "Cava bottle and glasses on the boat" },
-  { src: "/images/boat/private-new/interiorbarcocubierta_1.webp", alt: "View of the covered deck area of the boat" }
-];
-
-const charterHighlights = [
-  {
-    icon: <FiUsers className="w-6 h-6 text-blue-600" />,
-    title: "Exclusive Use (Up to 35)",
-    description: "The spacious Salvador boat, entirely for your group's enjoyment."
-  },
-  {
-    icon: <FiMap className="w-6 h-6 text-purple-600" />,
-    title: "Customizable Routes",
-    description: "Choose your desired destinations, weather permitting. Captain advises best options."
-  },
-  {
-    icon: <FiAnchor className="w-6 h-6 text-red-600" />,
-    title: "Expert Captain & Crew",
-    description: "Professional, friendly service ensuring safety, comfort, and local knowledge."
-  },
-  {
-    icon: <FiCoffee className="w-6 h-6 text-yellow-600" />,
-    title: "Standard Open Bar",
-    description: "Incl. soft drinks, beer, wine, cava, sangria & light tapas."
-  },
-  {
-    icon: <FiGift className="w-6 h-6 text-indigo-500" />,
-    title: "Watersports Included",
-    description: "Enjoy paddleboards, kayaks, and snorkeling gear at your leisure."
-  },
-  {
-    icon: <FiCheckCircle className="w-6 h-6 text-pink-500" />,
-    title: "Premium Sound System",
-    description: "Connect your device via Bluetooth and set the perfect vibe."
-  },
-  {
-    icon: <FiShield className="w-6 h-6 text-green-600" />,
-    title: "Privacy Guaranteed",
-    description: "Enjoy your day with complete exclusivity for your group."
-  },
-  {
-    icon: <FiCamera className="w-6 h-6 text-orange-500" />,
-    title: "Unique Photo Opportunities",
-    description: "Capture unforgettable moments against Ibiza's stunning backdrop."
-  }
+  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Charter privado de lujo / grupo relajado en cubierta" },
+  { src: "/images/optimized/salvador-ibiza-luxury-boat.webp", alt: "Vista desde el barco Salvador Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-boat-aerial-drone.webp", alt: "Vista aérea del barco Salvador Ibiza" },
+  { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Atardecer cerca de Es Vedrà" },
+  { src: "/images/optimized/salvador-ibiza-boat-deck.webp", alt: "Bebidas servidas en charter Salvador Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-boat-cave-exploration.webp", alt: "Vista desde el interior de una cueva marina en Salvador Ibiza" },
+  { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Grupo disfrutando del atardecer en Salvador Ibiza" },
+  { src: "/images/boat/chicasentablasup.png", alt: "Paddle surf junto a acantilados desde Salvador Ibiza" },
+  { src: "/images/optimized/drinks-cave-sunset-ibiza.webp", alt: "Copa de cava en crucero al atardecer en Salvador Ibiza" },
+  { src: "/images/optimized/happy-friends-boat-stern-ibiza.webp", alt: "Grupo feliz en la popa del Salvador Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-boat-tapas-service.webp", alt: "Detalle de tapas servidas en Salvador Ibiza" },
+  { src: "/images/optimized/toasting-drinks-ibiza-boat.webp", alt: "Brindis en la barra del barco Salvador Ibiza" },
+  { src: "/images/boat/private-new/tapasycavapopabarco_1.webp", alt: "Tapas y cava en la popa del barco" },
+  { src: "/images/boat/private-new/tapasenbarco_1.webp", alt: "Selección de tapas a bordo" },
+  { src: "/images/boat/private-new/sushiycavapopa_1.webp", alt: "Sushi y cava en la popa" },
+  { src: "/images/boat/private-new/interiorbarcosalvador_1.webp", alt: "Interior del barco Salvador" },
+  { src: "/images/boat/private-new/Frutasenbarra_1.webp", alt: "Fruta fresca en la barra del barco" },
+  { src: "/images/boat/private-new/retretebarcoomg_1.webp", alt: "Aseo moderno a bordo" },
+  { src: "/images/boat/private-new/tapasyfrutasenbarco_1.webp", alt: "Tapas y fruta en la barra" },
+  { src: "/images/boat/private-new/retretebarco_1.webp", alt: "Baño limpio y moderno del barco" },
+  { src: "/images/boat/private-new/popabarcosalvador_1.webp", alt: "Popa del Salvador con aro salvavidas" },
+  { src: "/images/boat/private-new/barcosalvadorinterior_1.webp", alt: "Interior del barco con banquetas" },
+  { src: "/images/boat/private-new/cavaenbarco_1.webp", alt: "Botella de cava y copas en cubierta" },
+  { src: "/images/boat/private-new/interiorbarcocubierta_1.webp", alt: "Zona de cubierta cubierta del barco" },
 ];
 
 const faqs = [
   {
-    question: "What is the maximum capacity?",
-    answer: "The Salvador is licensed for up to 35 guests plus crew, offering ample space for your group."
+    question: "¿Cuál es el aforo máximo?",
+    answer:
+      "El Salvador está homologado para hasta 35 invitados más tripulación, con espacio holgado para tu grupo.",
   },
   {
-    question: "How do the routes work?",
-    answer: "Your route is customizable! We typically cruise the beautiful West Coast (e.g., Cala Bassa, Cala Conta) or the North (e.g., Cala Salada, Punta Galera). You can suggest preferences, but the final route depends on weather/sea conditions. The captain will always choose the safest and most enjoyable option for your group."
+    question: "¿Cómo funcionan las rutas?",
+    answer:
+      "La ruta es flexible. Suelen cubrirse la costa oeste (p. ej. Cala Bassa, Cala Conta) o el norte (p. ej. Cala Salada, Punta Galera). Puedes indicar preferencias; la decisión final depende del tiempo y el mar. El capitán elige siempre la opción más segura y agradable.",
   },
   {
-    question: "What exactly is included?",
-    answer: "Exclusive boat use, captain/crew, standard fuel, unlimited drinks (beer, wine, cava, sangria, soft drinks, water), snacks, fruit, paddleboards, kayaks, snorkeling gear."
+    question: "¿Qué incluye exactamente?",
+    answer:
+      "Uso exclusivo del barco, capitán y tripulación, combustible estándar, bebidas (cerveza, vino, cava, sangría, refrescos, agua), snack, fruta, paddle surf, kayak y equipo de snorkel.",
   },
   {
-    question: "What is the duration and price structure?",
-    answer: "Our standard private charter is 4 hours (Half-Day). Base price starts at €1,350 (May/Oct) or €1,650 (Jun-Sep), plus €30 per person. You can add up to 2 extra hours at €500 per hour directly during the booking process (subject to availability). 21% IVA (VAT) is not included."
+    question: "¿Duración y precios?",
+    answer:
+      "El charter estándar son 4 horas (media jornada). Precio base desde 1.350 € (mayo/octubre) o 1.650 € (junio–septiembre), más 30 € por persona en barra. Se pueden sumar hasta 2 horas extra (500 €/hora según disponibilidad) en la reserva. No incluye IVA 21 %.",
   },
   {
-    question: "What are the time slots?",
-    answer: "The standard 4-hour charter is available for midday or sunset slots, which you can select when booking. Extra hours can also be added during booking. For specific morning departures, please contact us directly as these require custom arrangements."
+    question: "¿Qué horarios hay?",
+    answer:
+      "El bloque de 4 horas se ofrece en franja diurna o atardecer, elegibles al reservar. Las horas extra se añaden en el proceso. Para salidas matutinas específicas, escríbenos: requieren coordinación.",
   },
   {
-    question: "Can we bring extra food/drinks or arrange catering?",
-    answer: "You are welcome to bring your own food onboard! However, outside drinks are not permitted as we provide a standard open bar. For an enhanced experience, you can upgrade to our premium tapas menu for €35 per person (plus VAT), or discuss other catering options with us."
+    question: "¿Podemos llevar comida o contratar catering?",
+    answer:
+      "Puedes traer tu comida. Las bebidas externas no están permitidas: ofrecemos open bar estándar. Para subir de nivel, menú premium de tapas 35 €/pax (+ IVA) u otras opciones de catering: consúltanos.",
   },
 ];
 
 // Data for WhatsIncluded, using simple IncludedItem format
 const includedItems = [
-  { name: "Exclusive Boat Use (4 Hrs)", description: "Salvador Ibiza just for your group" },
-  { name: "Captain & Crew", description: "Professional and friendly service" },
-  { name: "Standard Open Bar", description: "Beer, wine, cava, sangria, soft drinks, water" },
-  { name: "Light Tapas & Fruit", description: "Spanish snacks and fresh fruit included" },
-  { name: "Water Sports Gear", description: "Paddleboards, kayaks, snorkeling equipment" },
-  { name: "Premium Sound System", description: "Bluetooth connection available" },
-  { name: "Fuel Included", description: "Standard routes covered" },
-  { name: "Safety & Insurance", description: "Full equipment and insurance for all" },
+  { name: "Barco en exclusiva (4 h)", description: "Salvador Ibiza solo para tu grupo" },
+  { name: "Capitán y tripulación", description: "Servicio profesional y cercano" },
+  { name: "Open bar estándar", description: "Cerveza, vino, cava, sangría, refrescos, agua" },
+  { name: "Tapas ligeras y fruta", description: "Snack español y fruta fresca incluidos" },
+  { name: "Equipo deportes náuticos", description: "Paddle surf, kayak, snorkel" },
+  { name: "Equipo de sonido", description: "Conexión Bluetooth" },
+  { name: "Combustible incluido", description: "Rutas estándar cubiertas" },
+  { name: "Seguridad y seguros", description: "Equipo y coberturas para todos a bordo" },
   {
-    name: "Optional Onboard Photographer",
-    description: "Capture memories! Photos available for optional purchase afterwards."
-  }
+    name: "Fotógrafo a bordo (opcional)",
+    description: "Inmortaliza el día; fotos disponibles contra pago opcional después.",
+  },
 ];
+
+const charterWidgetStrings = {
+  bookNow: "RESERVAR AHORA",
+  confirmReservationAndPay: "CONFIRMAR Y PAGAR DEPÓSITO ",
+  selectTimeLabel: "Horario preferido",
+  selectExperienceLabel: "Opción de charter",
+  addonsLabel: "Extras opcionales (p. ej. horas extra)",
+  depositObservation:
+    "Asegúrate de indicar el número correcto de invitados: el precio se calcula por persona. Tras la reserva recibirás el voucher con ubicación y detalles.",
+} as const;
 
 // --- Componente Principal de la Página Cliente ---
 export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTripsClientPageProps) {
@@ -247,13 +216,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
               "displayBillingTerm": true, 
               "showQuantity": false, 
               "titleVariant": "Modern",
-              "bookNow": "INQUIRE NOW",
-              "confirmReservationAndPay": "PAY CONFIRMATION DEPOSIT OF ",
-              "selectTimeLabel": "Select Preferred Time",
-              "selectExperienceLabel": "Select Charter Option",
-              "addonsLabel": "Optional Upgrades (e.g., Extra Hours)", // Updated label, ensure 'Extra Hour' is an add-on in Turbnb backend
-              "depositObservation": "Make sure you selected the amount of guests you will have on the boat as the price is calculated per person. After the reservation you will get the voucher with all the info as location and booking details"
-
+              ...charterWidgetStrings,
             }
           });
           console.log('Direct Charter Widget Initialized');
@@ -293,12 +256,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                       "displayBillingTerm": true,
                       "showQuantity": false,
                       "titleVariant": "Modern",
-                      "bookNow": "RESERVE NOW",
-                      "confirmReservationAndPay": "CONFIRM & PAY",
-                      "selectTimeLabel": "Select Time",
-                      "selectExperienceLabel": "Select Experience",
-                      "addonsLabel": "Add-ons",
-                      "depositObservation": "Deposit and payment instructions\n\n\n"
+                      ...charterWidgetStrings,
                     }
                    });
                    console.log('TurboBooking widget initialized directly in page on script load');
@@ -373,7 +331,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
           >
             <Image
               src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
-              alt="Luxury private boat charter sailing in Ibiza"
+              alt="Charter privado en Ibiza a bordo del Salvador"
               fill
               priority
               className="object-cover object-center filter brightness-70"
@@ -393,7 +351,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              Premium Experience
+              Experiencia premium
             </motion.span>
             
             <motion.h1 
@@ -420,14 +378,14 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
               </motion.div>
               
               <span className="relative z-10"> 
-                Your Exclusive Ibiza<br className="hidden md:block" /> 
+                Tu charter privado<br className="hidden md:block" /> 
                 <motion.span 
                   className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300"
                   variants={floatingAnimation}
                   initial="initial"
                   animate="animate"
                 >
-                  Private Boat Charter
+                  en Ibiza, en exclusiva
                 </motion.span>
               </span>
             </motion.h1>
@@ -438,7 +396,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              Unforgettable moments, unparalleled freedom, and tailored luxury on the Mediterranean.
+              Momentos únicos, libertad total y un día a medida en el Mediterráneo.
             </motion.p>
             
             {/* Badges */}
@@ -454,7 +412,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 transition={{ duration: 0.2 }}
               >
                 <FiUsers className="mr-2 text-cyan-300" />
-                <span>Up to 35 Guests</span>
+                <span>Hasta 35 invitados</span>
               </motion.div>
               <motion.div 
                 className="flex items-center bg-black/40 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm md:text-base border border-white/10 shadow-lg"
@@ -462,7 +420,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 transition={{ duration: 0.2 }}
               >
                 <FiMap className="mr-2 text-cyan-300" />
-                <span>Curated Routes</span>
+                <span>Rutas seleccionadas</span>
               </motion.div>
               <motion.div 
                 className="flex items-center bg-black/40 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm md:text-base border border-white/10 shadow-lg"
@@ -470,7 +428,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 transition={{ duration: 0.2 }}
               >
                 <FiGift className="mr-2 text-cyan-300" />
-                <span>Ideal for Groups</span>
+                <span>Ideal grupos y eventos</span>
               </motion.div>
             </motion.div>
             
@@ -528,7 +486,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                   <button 
                     onClick={() => setShowDirectWidget(false)}
                     className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                    aria-label="Close Booking Widget"
+                    aria-label="Cerrar widget de reserva"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -569,7 +527,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                   transition={{ delay: 0.3 }} // Pequeño delay para que aparezca después del widget
                 >
                   <p className="text-sm text-blue-800">
-                    <strong>Upgrade Options:</strong> Enhance your experience with our premium tapas menu (€35pp + VAT) or add bottles of spirits (€55/bottle + VAT, includes mixers). Ask for details!
+                    <strong>Extras:</strong> puedes sumar el menú premium de tapas (35 €/pax + IVA) o botellas de destilados (55 €/botella + IVA, incluye mezcladores). ¡Consúltanos!
                   </p>
                 </motion.div>
 
@@ -609,14 +567,14 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 </div>
                 
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 relative">
-                  Your Private <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Oasis at Sea</span>
+                  Tu oasis privado <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">en el mar</span>
                 </h2>
                 <div className="prose prose-lg text-gray-600 max-w-none">
                   <p className="leading-relaxed">
-                    Escape the ordinary and elevate your Ibiza holiday with unparalleled freedom and luxury. A private charter aboard the historic Salvador offers an exclusive gateway to the island&apos;s hidden gems. Imagine cruising turquoise waters, discovering secluded coves inaccessible by land, and creating lasting memories – all tailored to your desires, shared only with your chosen ones.
+                    Sal de la rutina y sube el listón de tus vacaciones en Ibiza con libertad y comodidad de verdad. Un charter privado en el histórico Salvador es la puerta a calas escondidas, aguas turquesas y momentos que solo compartes con quien tú elijas: el barco entero para tu grupo.
                   </p>
                   <p className="leading-relaxed">
-                    Whether celebrating a milestone, seeking quality family time, impressing clients, or simply indulging in a perfect day at sea, our private charter is the definitive way to experience the magic of Ibiza. We handle the details; you soak in the Mediterranean bliss.
+                    Cumpleaños, familia, clientes o un día redondo en el mar: el charter privado es una de las formas más completas de vivir la magia de Ibiza. Nosotros cuidamos la logística; tú te quedas con el Mediterráneo.
                   </p>
                 </div>
               </motion.section>
@@ -630,7 +588,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
               >
                 <WhatsIncluded 
                   items={includedItems} // Use the simplified data format
-                  title="What Your Private Charter Includes"
+                  title="Qué incluye tu charter privado"
                   // Pass specific styling props if needed, otherwise defaults will be used
                   bgColor="bg-teal-50"
                   textColor="text-teal-900"
@@ -647,7 +605,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
               >
-                 <TripGallery images={galleryImages} title="Charter Moments Gallery" />
+                 <TripGallery images={galleryImages} title="Galería del charter privado" />
               </motion.section>
 
               {/* FAQs */}
@@ -657,7 +615,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
               >
-                <FAQ items={faqs} title="Charter FAQs" />
+                <FAQ items={faqs} title="Preguntas frecuentes — charter privado" />
               </motion.section>
             </motion.div>
 
@@ -672,7 +630,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 {/* Charter Details Card */}
                 <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
                   <div className="p-6 space-y-6">
-                    <h3 className="text-2xl font-bold text-gray-800">Charter Details & Booking</h3>
+                    <h3 className="text-2xl font-bold text-gray-800">Detalles y reserva del charter</h3>
                     
                     <div className="space-y-4">
                       <div className="flex items-center justify-between py-2">
@@ -680,9 +638,9 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                           <div className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100">
                             <FiClock className="w-4 h-4 text-blue-600" />
                           </div>
-                          <span className="text-gray-700 font-medium">Duration:</span>
+                          <span className="text-gray-700 font-medium">Duración:</span>
                         </div>
-                        <span className="text-gray-900">4 Hours (+ up to 2 Extra)</span>
+                        <span className="text-gray-900">4 h (+ hasta 2 extra)</span>
                       </div>
                       
                       <div className="flex items-center justify-between py-2">
@@ -690,9 +648,9 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                           <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-100">
                             <FiUsers className="w-4 h-4 text-purple-600" />
                           </div>
-                          <span className="text-gray-700 font-medium">Capacity:</span>
+                          <span className="text-gray-700 font-medium">Capacidad:</span>
                         </div>
-                        <span className="text-gray-900">Up to 35 Guests</span>
+                        <span className="text-gray-900">Hasta 35 invitados</span>
                       </div>
 
                       <div className="pt-4">
@@ -700,20 +658,20 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                           <div className="w-8 h-8 flex items-center justify-center rounded-full bg-green-100">
                             <FiDollarSign className="w-4 h-4 text-green-600" />
                           </div>
-                          <span className="text-gray-700 font-medium">Pricing (4 Hours):</span>
+                          <span className="text-gray-700 font-medium">Precios (4 h):</span>
                         </div>
                         <ul className="space-y-2 ml-11">
                           <li className="flex justify-between text-gray-600">
-                            <span>Low Season:</span>
-                            <span className="font-medium">€1350 + €30/PP Bar </span>
+                            <span>Temporada baja:</span>
+                            <span className="font-medium">1.350 € + 30 €/pax barra</span>
                           </li>
                           <li className="flex justify-between text-gray-600">
-                            <span>High Season:</span>
-                            <span className="font-medium">€1650 + €30/PP Bar </span>
+                            <span>Temporada alta:</span>
+                            <span className="font-medium">1.650 € + 30 €/pax barra</span>
                           </li>
                           <li className="flex justify-between text-gray-600">
-                            <span>Extra Hour:</span>
-                            <span className="font-medium">€500</span>
+                            <span>Hora extra:</span>
+                            <span className="font-medium">500 €</span>
                           </li>
                         </ul>
                       </div>
@@ -729,10 +687,11 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                     </button>
 
                     <p className="text-sm text-gray-500 text-center">
-                      Excludes 21% VAT. Full day & custom quotes available.{' '}
+                      Precios sin IVA 21 %. Jornada completa y presupuestos a medida:{' '}
                       <a href="/contact" className="text-blue-600 hover:text-blue-700 font-medium">
-                        Contact for questions
+                        escríbenos
                       </a>
+                      .
                     </p>
                   </div>
                 </div>
@@ -741,7 +700,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 <WhyChooseUsCard />
                 
                 {/* Componente Perfect For Card */}
-                <PerfectForCard title="Ideal For..." items={perfectFor} />
+                <PerfectForCard title="Ideal para…" items={perfectFor} />
 
               </motion.div>
             </aside>
@@ -768,9 +727,9 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
           </div>
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-3xl mx-auto text-center text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Set Sail on Your Perfect Ibiza Experience?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">¿Tu día perfecto en Ibiza empieza en el mar?</h2>
               <p className="text-lg opacity-90 mb-8">
-                Charter the elegant Salvador boat and create unforgettable memories with your group
+                Charter del elegante Salvador: recuerdos inolvidables con tu grupo
               </p>
               <motion.button
                 id="cta-book-button"
@@ -779,7 +738,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px -12px rgba(0, 0, 0, 0.2)" }}
                 whileTap={{ scale: 0.98 }}
               >
-                Reserve Your Charter Now
+                Reservar charter ahora
               </motion.button>
             </div>
           </div>
@@ -798,12 +757,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
               "displayBillingTerm": true,
               "showQuantity": false,
               "titleVariant": "Modern",
-              "bookNow": "RESERVE NOW",
-              "confirmReservationAndPay": "CONFIRM & PAY",
-              "selectTimeLabel": "Select Time",
-              "selectExperienceLabel": "Select Experience",
-              "addonsLabel": "Add-ons",
-              "depositObservation": "Deposit and payment instructions\n\n\n"
+              ...charterWidgetStrings,
             }} // Propiedades customizadas según usuario
           />
         )}
