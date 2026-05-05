@@ -1,32 +1,45 @@
 /**
  * Fuente única para dominio público (.es), sitio inglés alterno (hreflang) y emails.
  * Overrides: NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_SITE_URL_EN, NEXT_PUBLIC_CONTACT_EMAIL, NEXT_PUBLIC_PARTNERS_EMAIL
+ *
+ * Canónico en producción: https://www.salvadoribiza.es (inglés: https://www.salvadoribiza.com).
  */
 
 function stripTrailingSlash(url: string): string {
   return url.replace(/\/+$/, '');
 }
 
-/** URL canonica del sitio en español (sin barra final) */
+/** Corrige typo histórico (salvadoreiviza.es) si viene en variables de entorno. */
+function normalizeLegacyEsHost(url: string): string {
+  return url.replace(/salvadoreiviza\.es/gi, 'salvadoribiza.es');
+}
+
+/** URL canónica del sitio en español (sin barra final en el host) */
 export function getSiteUrl(): string {
   return stripTrailingSlash(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://salvadoribiza.es"
+    normalizeLegacyEsHost(
+      process.env.NEXT_PUBLIC_SITE_URL || "https://www.salvadoribiza.es"
+    )
   );
 }
 
-/** Sitio inglés para alternates/hreflang (mismos paths si se mantienen slugs EN) */
+/** Sitio inglés para alternates/hreflang (mismos paths) */
 export function getEnglishSiteUrl(): string {
   return stripTrailingSlash(
-    process.env.NEXT_PUBLIC_SITE_URL_EN || "https://salvadoribiza.com"
+    process.env.NEXT_PUBLIC_SITE_URL_EN || "https://www.salvadoribiza.com"
   );
 }
 
 export function getContactEmail(): string {
-  return process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@salvadoribiza.es";
+  return normalizeLegacyEsHost(
+    process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@salvadoribiza.es"
+  );
 }
 
 export function getPartnersEmail(): string {
-  return process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoribiza.es";
+  return normalizeLegacyEsHost(
+    process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoribiza.es"
+  );
 }
 
 export function getGaMeasurementId(): string {
@@ -63,18 +76,19 @@ export function publicAssetUrl(assetPath: string): string {
   return `${getSiteUrl()}${p}`;
 }
 
-/** Para Metadata.alternates: canonical relativo + hreflang bilateral */
+/** Metadata alternates: canonical absoluta (.es) + hreflang bilateral */
 export function pageAlternates(path: string): {
   canonical: string;
   languages: Record<string, string>;
 } {
-  const canonical = normalizePath(path);
+  const canonicalPath = normalizePath(path);
+  const canonicalAbsolute = absoluteUrl(canonicalPath);
   return {
-    canonical,
+    canonical: canonicalAbsolute,
     languages: {
-      es: absoluteUrl(canonical),
-      en: absoluteEnglishUrl(canonical),
-      "x-default": absoluteEnglishUrl(canonical),
+      es: canonicalAbsolute,
+      en: absoluteEnglishUrl(canonicalPath),
+      "x-default": absoluteEnglishUrl(canonicalPath),
     },
   };
 }

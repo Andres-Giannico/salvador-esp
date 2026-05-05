@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const EN_SITE_BASE = (
-  process.env.NEXT_PUBLIC_SITE_URL_EN || "https://salvadoribiza.com"
+  process.env.NEXT_PUBLIC_SITE_URL_EN || "https://www.salvadoribiza.com"
 ).replace(/\/+$/, "");
 
 function englishAlternateHref(pathname: string): string {

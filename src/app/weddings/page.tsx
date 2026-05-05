@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import WeddingsClientPage from './page.client';
-import { pageAlternates } from '@/config/site';
+import { absoluteUrl, getSiteUrl, pageAlternates } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Ibiza Boat Weddings | Unforgettable Ceremonies at Sea | Salvador Ibiza',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ibiza Boat Weddings | Dream Ceremonies at Sea',
     description: '💒 Create your perfect wedding at sea in Ibiza! Intimate ceremonies with stunning sunsets and all-inclusive packages.',
-    url: 'https://salvadoribiza.es/weddings',
+    url: absoluteUrl('/weddings'),
     images: [
       {
         url: '/images/boat/private-new/tapasycavapopabarco_1.webp',
@@ -35,7 +35,7 @@ const weddingSchema = {
   "provider": {
     "@type": "LocalBusiness",
     "name": "Salvador Ibiza",
-    "url": "https://salvadoribiza.es"
+    "url": getSiteUrl()
   },
   "areaServed": {
     "@type": "Place",

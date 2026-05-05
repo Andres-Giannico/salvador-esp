@@ -132,7 +132,7 @@ export function getWebSiteSchema() {
     "@type": "WebSite",
     name: "Salvador Ibiza",
     url: base,
-    alternateName: "salvadoribiza.es",
+    alternateName: "www.salvadoribiza.es",
     inLanguage: "es-ES",
     potentialAction: {
       "@type": "SearchAction",
