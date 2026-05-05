@@ -82,7 +82,7 @@ function generateBlogSchema(posts: BlogPost[]) {
   return {
     "@context": "https://schema.org",
     "@type": "Blog",
-    name: "Blog Salvador Ibiza — Salvadoreiviza.es",
+    name: "Blog Salvador Ibiza — salvadoribiza.es",
     url: absoluteUrl("/blog"),
     description:
       "Historias sobre excursiones en barco, calas secretas, atardeceres en alta mar y consejos prácticos para tu próximo día en Salvador Ibiza.",

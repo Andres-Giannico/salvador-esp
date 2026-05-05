@@ -14,7 +14,7 @@
 
 **Tareas**:
 - [ ] Verificar que el teléfono `+34-871 181 393` es correcto y está actualizado
-- [ ] Confirmar que el email público `.es` (p. ej. `info@salvadoreiviza.es` vía `NEXT_PUBLIC_CONTACT_EMAIL`) es válido y está activo
+- [ ] Confirmar que el email público `.es` (p. ej. `info@salvadoribiza.es` vía `NEXT_PUBLIC_CONTACT_EMAIL`) es válido y está activo
 - [ ] Actualizar el schema de Organization (línea 277) con el número de teléfono real
 - [ ] Asegurar formato consistente del teléfono en todo el código: `+34 871 181 393` o `+34-871-181-393`
 
@@ -37,9 +37,9 @@
   NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=tu_api_key_aqui
   
   # URLs sitio español + sitemap postbuild + alterno inglés (hreflang)
-  NEXT_PUBLIC_SITE_URL=https://salvadoreiviza.es
+  NEXT_PUBLIC_SITE_URL=https://salvadoribiza.es
   NEXT_PUBLIC_SITE_URL_EN=https://salvadoribiza.com
-  SITE_URL=https://salvadoreiviza.es
+  SITE_URL=https://salvadoribiza.es
   
   # Google Analytics (opcional en desarrollo)
   NEXT_PUBLIC_GA_MEASUREMENT_ID=G-SP4LMTQT3E
@@ -433,7 +433,7 @@ public/
 - **Teléfono 1**: +34 871 181 393
 - **Teléfono 2**: +34 681 611 598
 - **WhatsApp**: +34 871 181 393
-- **Email**: `info@salvadoreiviza.es` vía `NEXT_PUBLIC_CONTACT_EMAIL` (verificar buzón activo)
+- **Email**: `info@salvadoribiza.es` vía `NEXT_PUBLIC_CONTACT_EMAIL` (verificar buzón activo)
 
 ### Redes Sociales
 - **Instagram**: @boatstripsinibiza

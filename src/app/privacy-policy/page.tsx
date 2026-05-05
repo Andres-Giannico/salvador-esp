@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
 
           <p>
             Esta política describe cómo <strong>SALVADOR IBIZA (Ibicruiser, S.L.)</strong> trata los
-            datos personales cuando utilizas el sitio web <strong>salvadoreiviza.es</strong> y los
+            datos personales cuando utilizas el sitio web <strong>salvadoribiza.es</strong> y los
             servicios asociados (reservas, formularios de contacto, newsletter, etc.).
           </p>
 

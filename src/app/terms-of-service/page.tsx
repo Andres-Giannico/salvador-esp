@@ -5,7 +5,7 @@ export const metadata: Metadata = esPageMetadata({
   path: "/terms-of-service",
   title: "Aviso legal y condiciones de uso | Salvador Ibiza",
   description:
-    "Condiciones de uso del sitio salvadoreiviza.es y servicios de Ibicruiser, S.L. (Salvador Ibiza). Propiedad intelectual, responsabilidad y legislación aplicable.",
+    "Condiciones de uso del sitio salvadoribiza.es y servicios de Ibicruiser, S.L. (Salvador Ibiza). Propiedad intelectual, responsabilidad y legislación aplicable.",
 });
 
 export default function TermsOfServicePage() {
@@ -18,7 +18,7 @@ export default function TermsOfServicePage() {
 
         <div className="prose prose-lg max-w-none bg-white p-8 rounded-xl shadow-lg border border-gray-100 space-y-6">
           <p>
-            Bienvenido al sitio web <strong>salvadoreiviza.es</strong> (en adelante, SALVADOR IBIZA).
+            Bienvenido al sitio web <strong>salvadoribiza.es</strong> (en adelante, SALVADOR IBIZA).
             El acceso implica la lectura y aceptación de las siguientes condiciones.
           </p>
 

@@ -18,8 +18,8 @@ export default function PartnerEarningsPage() {
       </p>
       <p className="text-center text-gray-500">
         Mientras tanto, escribe a{' '}
-        <a href="mailto:partners@salvadoreiviza.es" className="text-blue-600 hover:underline">
-          partners@salvadoreiviza.es
+        <a href="mailto:partners@salvadoribiza.es" className="text-blue-600 hover:underline">
+          partners@salvadoribiza.es
         </a>
         .
       </p>

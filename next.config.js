@@ -15,7 +15,7 @@ const nextConfig = {
   },
   async redirects() {
     // Fuentes `source` heredadas con literales tipo `salvadoribiza.com/...` son paths del request al host del
-    // despliegue (p. ej. salvadoreiviza.es); sirven para heredar tráfico de URLs antiguas rotas mezcladas.
+    // despliegue (p. ej. salvadoribiza.es); sirven para heredar tráfico de URLs antiguas rotas mezcladas.
     return [
       // SEO: Redirect from old /private-charter to new /private-boat-trips
       {

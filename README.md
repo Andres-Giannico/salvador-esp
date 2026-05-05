@@ -1,6 +1,6 @@
-# 🚢 Salvador Ibiza (ES) — salvadoreiviza.es
+# 🚢 Salvador Ibiza (ES) — salvadoribiza.es
 
-> Sitio público en **español** para excursiones en barco y charters privados en Ibiza. URLs canónicas y sitemap apuntan al dominio **salvadoreiviza.es**; el sitio en inglés (**salvadoribiza.com**) enlaza vía `NEXT_PUBLIC_SITE_URL_EN` y mismos paths para hreflang.
+> Sitio público en **español** para excursiones en barco y charters privados en Ibiza. URLs canónicas y sitemap apuntan al dominio **salvadoribiza.es**; el sitio en inglés (**salvadoribiza.com**) enlaza vía `NEXT_PUBLIC_SITE_URL_EN` y mismos paths para hreflang.
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.3.0-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
@@ -9,7 +9,7 @@
 
 ## 🌐 Live Website
 
-**Producción (.es)**: [https://salvadoreiviza.es](https://salvadoreiviza.es)
+**Producción (.es)**: [https://salvadoribiza.es](https://salvadoribiza.es)
 
 ## 📋 Table of Contents
 
@@ -160,13 +160,13 @@ Copia `.env.example` a `.env.local` y ajusta valores. Mínimo relevante para SEO
 
 ```bash
 # URLs (canónico español + inglés alterno para hreflang / selector EN)
-NEXT_PUBLIC_SITE_URL=https://salvadoreiviza.es
+NEXT_PUBLIC_SITE_URL=https://salvadoribiza.es
 NEXT_PUBLIC_SITE_URL_EN=https://salvadoribiza.com
-SITE_URL=https://salvadoreiviza.es
+SITE_URL=https://salvadoribiza.es
 
 # Emails públicos (opcional; hay fallback en src/config/site.ts)
-NEXT_PUBLIC_CONTACT_EMAIL=info@salvadoreiviza.es
-NEXT_PUBLIC_PARTNERS_EMAIL=partners@salvadoreiviza.es
+NEXT_PUBLIC_CONTACT_EMAIL=info@salvadoribiza.es
+NEXT_PUBLIC_PARTNERS_EMAIL=partners@salvadoribiza.es
 
 # Google Maps en cliente
 NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_key
@@ -335,7 +335,7 @@ Google Analytics 4 implementation with:
 
 ### **Deployment**
 - **Platform**: Vercel (automatic deployment)
-- **Domain**: salvadoreiviza.es (apex y/o www según configuración DNS)
+- **Domain**: salvadoribiza.es (apex y/o www según configuración DNS)
 - **Env producción**: definir `NEXT_PUBLIC_SITE_URL`, `SITE_URL` y `NEXT_PUBLIC_SITE_URL_EN` como en `.env.example`
 - **Monitoring**: Google Analytics / GTM según IDs en entorno
 
@@ -345,9 +345,9 @@ This project is proprietary software for Salvador Ibiza boat experiences.
 
 ## 📞 Contact
 
-- **Web (.es)**: [salvadoreiviza.es](https://salvadoreiviza.es)
+- **Web (.es)**: [salvadoribiza.es](https://salvadoribiza.es)
 - **Teléfonos**: +34 871 181 393 / +34 681 611 598
-- **Formulario**: [Contacto](https://salvadoreiviza.es/contact)
+- **Formulario**: [Contacto](https://salvadoribiza.es/contact)
 - **WhatsApp**: +34 871 181 393
 
 ---

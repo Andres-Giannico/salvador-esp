@@ -338,10 +338,10 @@ export default function PartnersClientPage() {
             <p className="text-sm text-gray-500 mt-4">
               O escribe a{" "}
               <a
-                href={`mailto:${process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoreiviza.es"}`}
+                href={`mailto:${process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoribiza.es"}`}
                 className="text-blue-600 hover:underline"
               >
-                {process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoreiviza.es"}
+                {process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoribiza.es"}
               </a>
             </p>
           </motion.div>

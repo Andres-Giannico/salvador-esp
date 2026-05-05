@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://salvadoreiviza.es',
+  siteUrl: process.env.SITE_URL || 'https://salvadoribiza.es',
   generateRobotsTxt: true, // Genera robots.txt automáticamente
   // Optional:
   // robotsTxtOptions: {

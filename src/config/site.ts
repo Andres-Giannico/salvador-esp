@@ -10,7 +10,7 @@ function stripTrailingSlash(url: string): string {
 /** URL canonica del sitio en español (sin barra final) */
 export function getSiteUrl(): string {
   return stripTrailingSlash(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://salvadoreiviza.es"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://salvadoribiza.es"
   );
 }
 
@@ -22,11 +22,11 @@ export function getEnglishSiteUrl(): string {
 }
 
 export function getContactEmail(): string {
-  return process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@salvadoreiviza.es";
+  return process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@salvadoribiza.es";
 }
 
 export function getPartnersEmail(): string {
-  return process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoreiviza.es";
+  return process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoribiza.es";
 }
 
 export function getGaMeasurementId(): string {

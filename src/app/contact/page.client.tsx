@@ -77,10 +77,10 @@ export default function ContactClientPage() {
                     <div>
                       <p className="text-sm font-medium text-gray-500 mb-1">Correo</p>
                       <a
-                        href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@salvadoreiviza.es"}`}
+                        href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@salvadoribiza.es"}`}
                         className="text-lg font-semibold text-blue-600 hover:text-blue-700 hover:underline break-all"
                       >
-                        {process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@salvadoreiviza.es"}
+                        {process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@salvadoribiza.es"}
                       </a>
                     </div>
                   </motion.div>

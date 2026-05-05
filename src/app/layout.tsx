@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   alternates: rootAlternates,
   title: {
-    default: "Salvadoreiviza.es — excursiones en barco y charter en Ibiza",
-    template: "%s | Salvadoreiviza.es",
+    default: "salvadoribiza.es — excursiones en barco y charter en Ibiza",
+    template: "%s | salvadoribiza.es",
   },
   description:
     "Las mejores excursiones en barco y charter privado en Ibiza con Salvador. Salidas diurnas, al atardecer y experiencias memorables todo incluido.",
@@ -50,11 +50,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Salvador Ibiza" }],
   creator: "Salvador Ibiza",
   openGraph: {
-    title: "Salvadoreiviza.es — excursiones en barco y charter en Ibiza",
+    title: "salvadoribiza.es — excursiones en barco y charter en Ibiza",
     description:
       "Excursiones en barco todo incluido y charter privado en Ibiza con tripulación profesional.",
     url: absoluteUrl("/"),
-    siteName: "Salvadoreiviza.es",
+    siteName: "salvadoribiza.es",
     locale: "es_ES",
     type: "website",
     images: [
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Salvadoreiviza.es — excursiones en barco en Ibiza",
+    title: "salvadoribiza.es — excursiones en barco en Ibiza",
     description:
       "Excursiones en barco y charter privado en Ibiza. Reserva tu experiencia.",
     images: ["/images/optimized/salvador-ibiza-boat-drone-view.webp"],
