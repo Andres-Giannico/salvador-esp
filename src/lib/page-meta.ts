@@ -38,6 +38,8 @@ export function esPageMetadata(opts: {
       title: ogTitle ?? title,
       description: ogDescription ?? description,
       url: absoluteUrl(path),
+      locale: "es_ES",
+      alternateLocale: ["nl_NL", "en_US"],
       images: [
         {
           url: ogImage,

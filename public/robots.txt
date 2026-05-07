@@ -8,3 +8,4 @@ Host: https://www.salvadoribiza.es
 # Sitemaps
 Sitemap: https://www.salvadoribiza.es/sitemap.xml
 Sitemap: https://www.salvadoribiza.com/sitemap.xml
+Sitemap: https://www.salvadoribiza.nl/sitemap.xml

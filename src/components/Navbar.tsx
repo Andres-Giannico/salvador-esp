@@ -10,9 +10,13 @@ const EN_SITE_BASE = (
   process.env.NEXT_PUBLIC_SITE_URL_EN || "https://www.salvadoribiza.com"
 ).replace(/\/+$/, "");
 
-function englishAlternateHref(pathname: string): string {
-  if (!pathname || pathname === "/") return `${EN_SITE_BASE}/`;
-  return `${EN_SITE_BASE}${pathname}`;
+const NL_SITE_BASE = (
+  process.env.NEXT_PUBLIC_SITE_URL_NL || "https://www.salvadoribiza.nl"
+).replace(/\/+$/, "");
+
+function absoluteOnBase(base: string, pathname: string): string {
+  if (!pathname || pathname === "/") return `${base}/`;
+  return `${base}${pathname}`;
 }
 
 export default function Navbar() {
@@ -43,19 +47,30 @@ export default function Navbar() {
   }, [pathname]);
 
   const langSwitcher = (
-    <div className="flex items-center gap-2 border border-gray-200 rounded-full px-2 py-1 bg-white/80">
+    <div className="flex flex-wrap items-center justify-end gap-1 border border-gray-200 rounded-full px-2 py-1 bg-white/80 max-w-[220px] sm:max-w-none">
       <span
-        className="text-sm px-2 py-1 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 font-medium"
+        className="text-xs sm:text-sm px-2 py-1 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 font-medium"
         title="Estás en la versión en español"
       >
         <span aria-hidden>🇪🇸</span> ES
       </span>
       <a
-        href={englishAlternateHref(pathname)}
-        className="text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
-        title="Versión en inglés (misma página)"
+        href={absoluteOnBase(EN_SITE_BASE, pathname)}
+        className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
+        title={`Versión en inglés — ${new URL(`${EN_SITE_BASE}/`).hostname}`}
+        rel="alternate"
+        hrefLang="en"
       >
         <span aria-hidden>🇬🇧</span> EN
+      </a>
+      <a
+        href={absoluteOnBase(NL_SITE_BASE, pathname)}
+        className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
+        title={`Versión en neerlandés — ${new URL(`${NL_SITE_BASE}/`).hostname}`}
+        rel="alternate"
+        hrefLang="nl"
+      >
+        <span aria-hidden>🇳🇱</span> NL
       </a>
     </div>
   );
@@ -110,7 +125,7 @@ export default function Navbar() {
                 </motion.div>
               );
             })}
-            <div className="ml-2">{langSwitcher}</div>
+            <div className="ml-2 flex items-center gap-2">{langSwitcher}</div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -124,7 +139,7 @@ export default function Navbar() {
           </div>
 
           <div className="flex md:hidden items-center space-x-2">
-            {langSwitcher}
+            <div className="scale-90 origin-right">{langSwitcher}</div>
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
@@ -180,6 +195,27 @@ export default function Navbar() {
             id="mobile-menu"
           >
             <div className="px-4 pt-3 pb-4 space-y-2">
+              <p className="px-4 text-xs text-gray-600 pb-1">
+                La misma página en{" "}
+                <a
+                  href={absoluteOnBase(EN_SITE_BASE, pathname)}
+                  className="text-blue-600 font-medium underline"
+                  hrefLang="en"
+                  rel="alternate"
+                >
+                  inglés
+                </a>{" "}
+                o en{" "}
+                <a
+                  href={absoluteOnBase(NL_SITE_BASE, pathname)}
+                  className="text-blue-600 font-medium underline"
+                  hrefLang="nl"
+                  rel="alternate"
+                >
+                  neerlandés
+                </a>
+                .
+              </p>
               {links.map((link) => {
                 const isActive =
                   pathname === link.href ||

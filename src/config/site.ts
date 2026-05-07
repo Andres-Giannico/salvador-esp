@@ -1,17 +1,21 @@
 /**
- * Fuente única para dominio público (.es), sitio inglés alterno (hreflang) y emails.
- * Overrides: NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_SITE_URL_EN, NEXT_PUBLIC_CONTACT_EMAIL, NEXT_PUBLIC_PARTNERS_EMAIL
+ * Fuente única para dominio público (.es), alternativas EN / NL (hreflang) y emails.
  *
- * Canónico en producción: https://www.salvadoribiza.es (inglés: https://www.salvadoribiza.com).
+ * Producción:
+ * - NEXT_PUBLIC_SITE_URL → https://www.salvadoribiza.es
+ * - NEXT_PUBLIC_SITE_URL_EN → https://www.salvadoribiza.com
+ * - NEXT_PUBLIC_SITE_URL_NL → https://www.salvadoribiza.nl
+ *
+ * Opcional: NEXT_PUBLIC_HREFLANG_X_DEFAULT=nl|en — por defecto en (.com) como x-default.
  */
 
 function stripTrailingSlash(url: string): string {
-  return url.replace(/\/+$/, '');
+  return url.replace(/\/+$/, "");
 }
 
 /** Corrige typo histórico (salvadoreiviza.es) si viene en variables de entorno. */
 function normalizeLegacyEsHost(url: string): string {
-  return url.replace(/salvadoreiviza\.es/gi, 'salvadoribiza.es');
+  return url.replace(/salvadoreiviza\.es/gi, "salvadoribiza.es");
 }
 
 /** URL canónica del sitio en español (sin barra final en el host) */
@@ -23,10 +27,15 @@ export function getSiteUrl(): string {
   );
 }
 
-/** Sitio inglés para alternates/hreflang (mismos paths) */
 export function getEnglishSiteUrl(): string {
   return stripTrailingSlash(
     process.env.NEXT_PUBLIC_SITE_URL_EN || "https://www.salvadoribiza.com"
+  );
+}
+
+export function getDutchSiteUrl(): string {
+  return stripTrailingSlash(
+    process.env.NEXT_PUBLIC_SITE_URL_NL || "https://www.salvadoribiza.nl"
   );
 }
 
@@ -50,7 +59,6 @@ export function getGtmId(): string {
   return process.env.NEXT_PUBLIC_GTM_ID || "GTM-MZR67SFF";
 }
 
-/** Ruta Next: '' o '/foo/bar' — siempre empieza por / excepto vacío que significa home */
 export function normalizePath(path: string): string {
   if (!path || path === "/") return "/";
   return path.startsWith("/") ? path : `/${path}`;
@@ -70,13 +78,27 @@ export function absoluteEnglishUrl(path: string): string {
   return `${base}${p}`;
 }
 
-/** Asset bajo `/public` como URL absoluta del sitio (JSON-LD, OG donde haga falta) */
+export function absoluteDutchUrl(path: string): string {
+  const p = normalizePath(path);
+  const base = getDutchSiteUrl();
+  if (p === "/") return `${base}/`;
+  return `${base}${p}`;
+}
+
+/** x-default: NL si NEXT_PUBLIC_HREFLANG_X_DEFAULT=nl; si no, inglés (.com). */
+export function hreflangXDefaultUrl(path: string): string {
+  const p = normalizePath(path);
+  const useNl = process.env.NEXT_PUBLIC_HREFLANG_X_DEFAULT === "nl";
+  const base = useNl ? getDutchSiteUrl() : getEnglishSiteUrl();
+  if (p === "/") return `${base}/`;
+  return `${base}${p}`;
+}
+
 export function publicAssetUrl(assetPath: string): string {
   const p = assetPath.startsWith("/") ? assetPath : `/${assetPath}`;
   return `${getSiteUrl()}${p}`;
 }
 
-/** Metadata alternates: canonical absoluta (.es) + hreflang bilateral */
 export function pageAlternates(path: string): {
   canonical: string;
   languages: Record<string, string>;
@@ -86,9 +108,10 @@ export function pageAlternates(path: string): {
   return {
     canonical: canonicalAbsolute,
     languages: {
+      nl: absoluteDutchUrl(canonicalPath),
       es: canonicalAbsolute,
       en: absoluteEnglishUrl(canonicalPath),
-      "x-default": absoluteEnglishUrl(canonicalPath),
+      "x-default": hreflangXDefaultUrl(canonicalPath),
     },
   };
 }

@@ -56,6 +56,7 @@ export const metadata: Metadata = {
     url: absoluteUrl("/"),
     siteName: "Salvador Ibiza",
     locale: "es_ES",
+    alternateLocale: ["nl_NL", "en_US"],
     type: "website",
     images: [
       {

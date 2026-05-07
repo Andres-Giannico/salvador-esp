@@ -22,6 +22,15 @@ const englishSiteUrl = stripTrailingSlash(
   process.env.NEXT_PUBLIC_SITE_URL_EN || 'https://www.salvadoribiza.com'
 );
 
+const dutchSiteUrl = stripTrailingSlash(
+  process.env.NEXT_PUBLIC_SITE_URL_NL || 'https://www.salvadoribiza.nl'
+);
+
+const xDefaultBase =
+  process.env.NEXT_PUBLIC_HREFLANG_X_DEFAULT === 'nl'
+    ? dutchSiteUrl
+    : englishSiteUrl;
+
 function absoluteForPath(base, pathname) {
   if (!pathname || pathname === '/') return `${base}/`;
   const p = pathname.startsWith('/') ? pathname : `/${pathname}`;
@@ -33,21 +42,28 @@ module.exports = {
   generateRobotsTxt: true,
   exclude: ['/book/trips', '/book/flyer'],
   robotsTxtOptions: {
-    additionalSitemaps: [`${englishSiteUrl}/sitemap.xml`],
+    additionalSitemaps: [
+      `${englishSiteUrl}/sitemap.xml`,
+      `${dutchSiteUrl}/sitemap.xml`,
+    ],
   },
   transform: async (config, path) => {
-    const rel = !path || path === '' ? '/' : path.startsWith('/') ? path : `/${path}`;
+    const rel =
+      !path || path === '' ? '/' : path.startsWith('/') ? path : `/${path}`;
     const es = absoluteForPath(siteUrl, rel);
     const en = absoluteForPath(englishSiteUrl, rel);
+    const nl = absoluteForPath(dutchSiteUrl, rel);
+    const xDefault = absoluteForPath(xDefaultBase, rel);
     return {
       loc: path,
       changefreq: config.changefreq,
       priority: config.priority,
       lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
       alternateRefs: [
+        { href: nl, hreflang: 'nl', hrefIsAbsolute: true },
         { href: en, hreflang: 'en', hrefIsAbsolute: true },
         { href: es, hreflang: 'es', hrefIsAbsolute: true },
-        { href: en, hreflang: 'x-default', hrefIsAbsolute: true },
+        { href: xDefault, hreflang: 'x-default', hrefIsAbsolute: true },
       ],
     };
   },
