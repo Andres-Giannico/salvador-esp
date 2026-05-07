@@ -49,8 +49,8 @@ const corporateHighlights = [
 const idealForItems = [
   {
     icon: FiUsers,
-    title: 'Team building',
-    description: 'Ejercicios ligeros, relax compartido y convivencia en cubierta.',
+    title: 'Cohesión de equipo',
+    description: 'Dinámicas ligeras, relax compartido y convivencia en cubierta.',
     color: 'text-blue-500',
   },
   {

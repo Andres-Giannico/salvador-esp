@@ -1,75 +1,56 @@
-import { Metadata } from 'next';
 import WeddingsClientPage from './page.client';
-import { absoluteUrl, getSiteUrl, pageAlternates } from '@/config/site';
+import { getSiteUrl } from '@/config/site';
+import { esPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
-  title: 'Ibiza Boat Weddings | Unforgettable Ceremonies at Sea',
-  description: '💒 Dream wedding at sea in Ibiza! Intimate ceremonies aboard our traditional boat with stunning sunsets, all-inclusive packages from €1,500. Book your perfect day!',
-  keywords: 'Ibiza wedding, boat wedding, sea wedding ceremony, romantic wedding Ibiza, elopement Ibiza, wedding packages, intimate wedding, sunset wedding, luxury boat charter, Salvador Ibiza, wedding at sea, destination wedding',
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: pageAlternates('/weddings'),
-  openGraph: {
-    title: 'Ibiza Boat Weddings | Dream Ceremonies at Sea',
-    description: '💒 Create your perfect wedding at sea in Ibiza! Intimate ceremonies with stunning sunsets and all-inclusive packages.',
-    url: absoluteUrl('/weddings'),
-    images: [
-      {
-        url: '/images/boat/private-new/tapasycavapopabarco_1.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Elegant wedding setup with champagne and catering on Salvador Ibiza boat',
-      }
-    ],
-  },
-};
+export const metadata = esPageMetadata({
+  path: '/weddings',
+  title: 'Bodas en barco en Ibiza | Ceremonias y celebraciones en el mar',
+  description:
+    'Boda en el mar en Ibiza: ceremonias íntimas en el barco tradicional Salvador, atardeceres espectaculares y servicio tipo todo incluido anunciado. Solicita disponibilidad para tu gran día.',
+  keywords:
+    'boda barco Ibiza, ceremonia en el mar, boda romántica Ibiza, elopement Ibiza, paquetes boda, boda íntima, charter privado Salvador Ibiza, celebración en barco',
+  ogImage: '/images/boat/private-new/tapasycavapopabarco_1.webp',
+  ogImageAlt: 'Ambientación elegante con cava y catering para celebración en Salvador Ibiza',
+});
 
 // Wedding Schema for better SEO
 const weddingSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Ibiza Boat Wedding Ceremonies",
-  "description": "Romantic wedding ceremonies and celebrations aboard Salvador Ibiza traditional wooden boat. Intimate packages for elopements and luxury weddings at sea.",
+  "name": "Ceremonias y bodas en barco en Ibiza",
+  "description":
+    "Ceremonias y celebraciones románticas a bordo del barco tradicional Salvador Ibiza: grupos íntimos y charter privado hasta 36 invitados.",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Salvador Ibiza",
-    "url": getSiteUrl()
+    "url": getSiteUrl(),
   },
   "areaServed": {
     "@type": "Place",
-    "name": "Ibiza, Balearic Islands, Spain"
+    "name": "Ibiza, Islas Baleares, España",
   },
   "offers": [
     {
       "@type": "Offer",
-      "name": "Romantic Elopement Package",
-      "description": "Intimate wedding ceremony for up to 6 guests with champagne toast and romantic cruise",
-      "price": "1500",
-      "priceCurrency": "EUR"
-    },
-    {
-      "@type": "Offer", 
-      "name": "Intimate Celebration Package",
-      "description": "Wedding celebration for up to 20 guests with premium catering, open bar and wedding coordinator",
-      "price": "2500",
-      "priceCurrency": "EUR"
+      "name": "Charter privado boda (temporada baja)",
+      "description": "Hasta 36 invitados, charter 4 h, bar abierto estándar y servicios según contratación.",
+      "price": "1350",
+      "priceCurrency": "EUR",
     },
     {
       "@type": "Offer",
-      "name": "Luxury Wedding Package", 
-      "description": "Ultimate wedding experience for up to 35 guests with professional photographer and custom decorations",
-      "price": "4000",
-      "priceCurrency": "EUR"
-    }
+      "name": "Charter privado boda (temporada alta)",
+      "description": "Junio a septiembre; mismas prestaciones base con tarifa de temporada.",
+      "price": "1650",
+      "priceCurrency": "EUR",
+    },
   ],
-  "serviceType": "Wedding Ceremony",
-  "category": "Wedding Services",
+  "serviceType": "Ceremonia y celebración en barco",
+  "category": "Servicios para bodas",
   "audience": {
     "@type": "Audience",
-    "name": "Couples planning destination weddings"
-  }
+    "name": "Parejas que planean bodas destino o íntimas",
+  },
 };
 
 export default function WeddingsPage() {
