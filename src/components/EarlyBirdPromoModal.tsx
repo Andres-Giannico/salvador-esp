@@ -4,32 +4,30 @@ import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { toast } from 'sonner';
-import { X, Copy, Check } from 'lucide-react';
+import { X, Copy, Check, Timer } from 'lucide-react';
 
 const COOKIE_CONSENT_KEY = 'cookie_consent_status';
 
 /**
  * ---------------------------------------------------------------------------
- * Ventana Early Bird 5 (€5) — reservas entre estas fechas (hora local)
- * Tras el bloque “Super promo” de 10 días, se usa esta promo si aún cae en rango
+ * Early Bird 5 (€5) — reservas entre estas fechas (hora local).
+ * Tras el bloque «Cierre de mayo», aplica Early Bird si sigue en rango.
  * ---------------------------------------------------------------------------
  */
 const EARLYBIRD: { start: Date; end: Date } = {
   start: new Date(2026, 3, 10, 0, 0, 0, 0),
-  end: new Date(2026, 4, 10, 23, 59, 59, 999),
+  end: new Date(2026, 4, 30, 23, 59, 59, 999),
 };
 
 /**
  * ---------------------------------------------------------------------------
- * Super promo SUPERPROMO (€10 / persona) — solo 10 días
- * Ajusta `start` y `end` al lanzar (fin = inicio + 9 días calendario con hora
- * 23:59:59.999, o fija `end` manualmente) = 10 días consecutivos.
- * Cuando pase, el modal vuelve a Early Bird 5 mientras sigan vigentes 10 abr – 10 may.
+ * Oleada SUPERPROMO (€10 / persona) — cierre de mayo
+ * Prioridad sobre la oferta de reserva anticipada mientras esta oleada siga activa.
  * ---------------------------------------------------------------------------
  */
 const SUPER_PROMO: { start: Date; end: Date } = {
-  start: new Date(2026, 3, 24, 0, 0, 0, 0), // 24 abr 2026
-  end: new Date(2026, 4, 3, 23, 59, 59, 999), // 3 may 2026 (10 días incl.)
+  start: new Date(2026, 4, 21, 0, 0, 0, 0),
+  end: new Date(2026, 4, 31, 23, 59, 59, 999),
 };
 
 type ActivePromo = {
@@ -37,9 +35,9 @@ type ActivePromo = {
   code: string;
   eur: number;
   labelShort: string;
-  /** Línea de validez (reservas / campaña) */
+  headline: string;
+  primaryCtaLabel: string;
   validityText: string;
-  /** Nombre de campaña en la cabecera */
   kicker: string;
 };
 
@@ -53,10 +51,12 @@ function getActivePromo(now: Date): ActivePromo | null {
       kind: 'super',
       code: 'SUPERPROMO',
       eur: 10,
-      labelShort: 'Super promo',
-      kicker: 'Exclusiva · Super promo',
+      labelShort: 'Cierre de mayo',
+      headline: 'Cierre de mayo — 10 € menos por persona',
+      primaryCtaLabel: 'Reserva en la web · ahorra 10 €',
+      kicker: 'Últimos días de mayo · Solo reservas en la web',
       validityText:
-        'Válido para reservas realizadas mientras dure esta campaña de 10 días. Después volverá a aplicarse la oferta Early Bird de 5 € si las fechas lo permiten.',
+        'Válido para reservas online hasta el 31 de mayo de 2026 (23:59, hora local). 10 € de descuento por persona con SUPERPROMO en Salvador Boat Mix (excursión de día o atardecer). El código deja de aplicarse tras mayo — entran tarifas de temporada alta.',
     };
   }
   if (inRange(now, EARLYBIRD.start, EARLYBIRD.end)) {
@@ -65,24 +65,25 @@ function getActivePromo(now: Date): ActivePromo | null {
       code: 'EARLYBIRD5',
       eur: 5,
       labelShort: 'Early Bird 5',
-      kicker: 'Exclusiva · Early Bird',
+      headline: 'Gracias — ya estás dentro',
+      primaryCtaLabel: 'Reservar ahora',
+      kicker: 'Exclusiva · Reserva anticipada (Early Bird)',
       validityText:
-        'Válido para reservas del 10 abr – 10 may 2026. Tras esa fecha la promoción finaliza.',
+        'Válido para reservas del 10 abr – 30 may 2026. Transcurrido ese período finaliza la promoción.',
     };
   }
   return null;
 }
 
 function storageKeyFor(promo: ActivePromo['kind']): string {
-  if (promo === 'super') return 'salvador_superpromo_2026_dismissed';
+  if (promo === 'super') return 'salvador_superpromo_2026_may_finale_dismissed';
   return 'salvador_earlybird5_promo_dismissed_2026';
 }
 
-/** Hero del modal: Super promo = banner generado; Early Bird = foto clásica aérea. */
 const PROMO_HERO: Record<ActivePromo['kind'], { src: string; alt: string; className: string; overlay: string }> = {
   super: {
     src: '/images/optimized/superpromo-salvador-ibiza-flash-deal.webp',
-    alt: 'Salvador Ibiza — oferta flash, 10 € de descuento por persona, 10 días',
+    alt: 'Salvador Ibiza — cierre de mayo: 10 € de descuento reservando en la web, hasta el 31 de mayo',
     className: 'object-cover object-center',
     overlay: 'from-black/35 to-transparent',
   },
@@ -145,11 +146,11 @@ export default function EarlyBirdPromoModal() {
     try {
       await navigator.clipboard.writeText(promo.code);
       setCopied(true);
-      toast.success('Código copiado — pégalo al finalizar la reserva.');
+      toast.success('Código copiado — pégalo al pagar en la web.');
       pushDataLayer('salvador_promo_code_copied', { promo_type: promo.kind, promo_code: promo.code });
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      toast.error('No se pudo copiar. Escribe el código manualmente.');
+      toast.error('No se pudo copiar. Introduce el código manualmente.');
     }
   }, [promo]);
 
@@ -166,6 +167,7 @@ export default function EarlyBirdPromoModal() {
         role="presentation"
       >
         <div
+          lang="es"
           className="pointer-events-auto w-full max-w-[min(100%,28rem)] max-h-[min(90vh,640px)] overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-2xl animate-in zoom-in-95 fade-in duration-200"
           role="dialog"
           aria-modal="true"
@@ -190,6 +192,22 @@ export default function EarlyBirdPromoModal() {
             <div
               className={`absolute inset-0 bg-gradient-to-t ${PROMO_HERO[promo.kind].overlay}`}
             />
+            {promo.kind === 'super' ? (
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-3.5">
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-900 shadow-md ring-1 ring-black/5 sm:text-xs">
+                    <Timer className="size-3.5 shrink-0 text-amber-600" aria-hidden />
+                    Hasta el 31 de mayo · Solo web
+                  </span>
+                  <span className="rounded-full bg-emerald-600 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md sm:text-xs">
+                    10 € / persona
+                  </span>
+                  <span className="rounded-full bg-amber-500/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-950 shadow-md sm:text-xs">
+                    Antes de temporada alta
+                  </span>
+                </div>
+              </div>
+            ) : null}
             <button
               type="button"
               onClick={dismiss}
@@ -206,27 +224,40 @@ export default function EarlyBirdPromoModal() {
             </p>
             <h2
               id="earlybird-promo-title"
-              className="mt-1 font-display text-2xl font-bold text-gray-900"
+              className="mt-1 font-display text-2xl font-bold leading-tight tracking-tight text-gray-900 sm:text-[1.65rem]"
             >
-              Gracias — ya estás dentro
+              {promo.headline}
             </h2>
             <p id="earlybird-promo-desc" className="mt-3 text-sm leading-relaxed text-gray-600">
               {promo.kind === 'super' ? (
                 <>
-                  Usa el código <strong className="text-gray-800">SUPERPROMO</strong> para{' '}
-                  <strong className="text-[#1a7f37]">10 € de descuento por persona</strong> en{' '}
-                  <strong>Salvador Boat Mix</strong> — excursión de día o al atardecer. Introdúcelo al reservar.
+                  <strong className="text-gray-800">Cierre de mayo:</strong>{' '}
+                  <strong className="text-[#1a7f37]">10 € menos por persona</strong> en{' '}
+                  <strong>Salvador Boat Mix</strong> (excursión de día o atardecer) al completar tu{' '}
+                  <strong>reserva en nuestra web</strong>. Introduce{' '}
+                  <strong className="font-mono text-gray-800">SUPERPROMO</strong> al pagar — después del{' '}
+                  <strong className="text-gray-800">31 de mayo</strong> esta ventaja exclusiva para la web{' '}
+                  deja de aplicarse y entran los precios de{' '}
+                  <strong className="text-gray-800">temporada alta</strong>.
                 </>
               ) : (
                 <>
-                  Aprovecha <strong className="text-gray-800">Early Bird 5</strong>:{' '}
+                  Aprovecha la <strong className="text-gray-800">oferta de reserva anticipada</strong> con código{' '}
+                  <strong className="font-mono text-gray-800">EARLYBIRD5</strong>:{' '}
                   <strong className="text-[#1a7f37]">5 € de descuento por persona</strong> en{' '}
-                  <strong>Salvador Boat Mix</strong> — día o atardecer. Introduce el código al reservar.
+                  <strong>Salvador Boat Mix</strong> — excursión de día o al atardecer. Introduce tu código al
+                  reservar.
                 </>
               )}
             </p>
 
-            <div className="mt-4 rounded-xl border-2 border-[#28a745] bg-[#f6fff8] p-3">
+            <div
+              className={
+                promo.kind === 'super'
+                  ? 'mt-4 rounded-xl border-2 border-emerald-500/80 bg-gradient-to-br from-emerald-50/90 to-[#f6fff8] p-3.5 shadow-sm ring-1 ring-emerald-500/10'
+                  : 'mt-4 rounded-xl border-2 border-[#28a745] bg-[#f6fff8] p-3'
+              }
+            >
               <p className="text-xs font-medium text-gray-600">Código de descuento</p>
               <div className="mt-1 flex flex-wrap items-center gap-2">
                 <span className="font-mono text-lg font-bold tracking-wide text-gray-900">
@@ -246,11 +277,14 @@ export default function EarlyBirdPromoModal() {
                 </button>
               </div>
               <p className="mt-2 text-xs text-[#1a7f37]">
-                ✓ {promo.eur} € menos por persona en Salvador Boat Mix (día o atardecer)
+                ✓ {promo.eur} € menos por persona · Salvador Boat Mix (día o atardecer) ·{' '}
+                {promo.kind === 'super' ? 'se aplica al pagar en la web' : 'al reservar'}
               </p>
             </div>
 
-            <p className="mt-4 text-xs text-gray-500">{promo.validityText}</p>
+            <p className="mt-4 rounded-lg border border-gray-100 bg-gray-50/80 px-3 py-2 text-xs leading-snug text-gray-600">
+              {promo.validityText}
+            </p>
 
             <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-end">
               <button
@@ -271,7 +305,7 @@ export default function EarlyBirdPromoModal() {
                 }}
                 className="order-1 inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:from-blue-700 hover:to-cyan-600 sm:order-2"
               >
-                Reservar ahora
+                {promo.primaryCtaLabel}
               </Link>
             </div>
           </div>
