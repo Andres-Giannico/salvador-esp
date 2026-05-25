@@ -26,6 +26,10 @@ const dutchSiteUrl = stripTrailingSlash(
   process.env.NEXT_PUBLIC_SITE_URL_NL || 'https://www.salvadoribiza.nl'
 );
 
+const frenchSiteUrl = stripTrailingSlash(
+  process.env.NEXT_PUBLIC_SITE_URL_FR || 'https://www.salvadoribiza.fr'
+);
+
 const xDefaultBase =
   process.env.NEXT_PUBLIC_HREFLANG_X_DEFAULT === 'nl'
     ? dutchSiteUrl
@@ -45,6 +49,7 @@ module.exports = {
     additionalSitemaps: [
       `${englishSiteUrl}/sitemap.xml`,
       `${dutchSiteUrl}/sitemap.xml`,
+      `${frenchSiteUrl}/sitemap.xml`,
     ],
   },
   transform: async (config, path) => {
@@ -53,6 +58,7 @@ module.exports = {
     const es = absoluteForPath(siteUrl, rel);
     const en = absoluteForPath(englishSiteUrl, rel);
     const nl = absoluteForPath(dutchSiteUrl, rel);
+    const fr = absoluteForPath(frenchSiteUrl, rel);
     const xDefault = absoluteForPath(xDefaultBase, rel);
     return {
       loc: path,
@@ -63,6 +69,7 @@ module.exports = {
         { href: nl, hreflang: 'nl', hrefIsAbsolute: true },
         { href: en, hreflang: 'en', hrefIsAbsolute: true },
         { href: es, hreflang: 'es', hrefIsAbsolute: true },
+        { href: fr, hreflang: 'fr', hrefIsAbsolute: true },
         { href: xDefault, hreflang: 'x-default', hrefIsAbsolute: true },
       ],
     };

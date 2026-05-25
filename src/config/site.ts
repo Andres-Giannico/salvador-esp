@@ -5,6 +5,7 @@
  * - NEXT_PUBLIC_SITE_URL → https://www.salvadoribiza.es
  * - NEXT_PUBLIC_SITE_URL_EN → https://www.salvadoribiza.com
  * - NEXT_PUBLIC_SITE_URL_NL → https://www.salvadoribiza.nl
+ * - NEXT_PUBLIC_SITE_URL_FR → https://www.salvadoribiza.fr
  *
  * Opcional: NEXT_PUBLIC_HREFLANG_X_DEFAULT=nl|en — por defecto en (.com) como x-default.
  */
@@ -36,6 +37,12 @@ export function getEnglishSiteUrl(): string {
 export function getDutchSiteUrl(): string {
   return stripTrailingSlash(
     process.env.NEXT_PUBLIC_SITE_URL_NL || "https://www.salvadoribiza.nl"
+  );
+}
+
+export function getFrenchSiteUrl(): string {
+  return stripTrailingSlash(
+    process.env.NEXT_PUBLIC_SITE_URL_FR || "https://www.salvadoribiza.fr"
   );
 }
 
@@ -85,6 +92,13 @@ export function absoluteDutchUrl(path: string): string {
   return `${base}${p}`;
 }
 
+export function absoluteFrenchUrl(path: string): string {
+  const p = normalizePath(path);
+  const base = getFrenchSiteUrl();
+  if (p === "/") return `${base}/`;
+  return `${base}${p}`;
+}
+
 /** x-default: NL si NEXT_PUBLIC_HREFLANG_X_DEFAULT=nl; si no, inglés (.com). */
 export function hreflangXDefaultUrl(path: string): string {
   const p = normalizePath(path);
@@ -111,6 +125,7 @@ export function pageAlternates(path: string): {
       nl: absoluteDutchUrl(canonicalPath),
       es: canonicalAbsolute,
       en: absoluteEnglishUrl(canonicalPath),
+      fr: absoluteFrenchUrl(canonicalPath),
       "x-default": hreflangXDefaultUrl(canonicalPath),
     },
   };
