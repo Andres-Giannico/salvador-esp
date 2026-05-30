@@ -17,7 +17,7 @@ export default function BookNowClientPage() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-2 sm:px-4">
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,10 +33,10 @@ export default function BookNowClientPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100 overflow-hidden flex flex-col"
+            className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100 flex flex-col"
           >
             <div className="border-t-4 border-cyan-500"></div>
-            <div className="p-6 md:p-8 flex flex-col">
+            <div className="p-4 md:p-8 flex flex-col">
               <div className="flex items-center gap-4 mb-5">
                 <span className="bg-cyan-100 p-2 rounded-full inline-block"><FiSun className="w-7 h-7 text-cyan-600" /></span>
                 <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Excursión de día</h2>
@@ -55,8 +55,8 @@ export default function BookNowClientPage() {
                 <span>Más información excursión día</span>
               </Link>
 
-              <div className="mt-auto bg-gradient-to-br from-gray-100 to-cyan-50/50 rounded-lg p-4 border border-gray-200 shadow-inner">
-                <h3 className="text-lg font-semibold text-center text-gray-700 mb-3">Reservar excursión día</h3>
+              <div className="mt-auto -mx-1 sm:mx-0 bg-gradient-to-br from-gray-100 to-cyan-50/50 rounded-lg p-0 sm:p-3 md:p-4 sm:border sm:border-gray-200 sm:shadow-inner">
+                <h3 className="text-lg font-semibold text-center text-gray-700 mb-2 sm:mb-3 px-2 pt-3 sm:pt-0">Reservar excursión día</h3>
                 <TurbnbWidget
                   id="turbnb-booking-day"
                   companyId={2}
@@ -89,10 +89,10 @@ export default function BookNowClientPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100 overflow-hidden flex flex-col"
+            className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100 flex flex-col"
           >
             <div className="border-t-4 border-orange-500"></div>
-            <div className="p-6 md:p-8 flex flex-col">
+            <div className="p-4 md:p-8 flex flex-col">
               <div className="flex items-center gap-4 mb-5">
                 <span className="bg-orange-100 p-2 rounded-full inline-block"><FiMoon className="w-7 h-7 text-orange-600" /></span>
                 <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Excursión al atardecer</h2>
@@ -111,8 +111,8 @@ export default function BookNowClientPage() {
                 <span>Más información ruta ocaso</span>
               </Link>
 
-              <div className="mt-auto bg-gradient-to-br from-gray-100 to-orange-50/50 rounded-lg p-4 border border-gray-200 shadow-inner">
-                <h3 className="text-lg font-semibold text-center text-gray-700 mb-3">Reservar ocaso</h3>
+              <div className="mt-auto -mx-1 sm:mx-0 bg-gradient-to-br from-gray-100 to-orange-50/50 rounded-lg p-0 sm:p-3 md:p-4 sm:border sm:border-gray-200 sm:shadow-inner">
+                <h3 className="text-lg font-semibold text-center text-gray-700 mb-2 sm:mb-3 px-2 pt-3 sm:pt-0">Reservar ocaso</h3>
                 <TurbnbWidget
                   id="turbnb-booking-sunset"
                   companyId={2}

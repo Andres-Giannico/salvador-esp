@@ -139,7 +139,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
           <div 
             id={widgetContainerId} 
             ref={widgetContainerRef} 
-            className="min-h-[60vh] max-h-[80vh] overflow-y-auto bg-white"
+            className="turbnb-widget-host min-h-[60vh] max-h-[80vh] overflow-y-auto bg-white"
           >
             <div className="p-6 text-center text-gray-500">Cargando opciones de reserva…</div> 
           </div>
