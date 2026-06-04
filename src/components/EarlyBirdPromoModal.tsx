@@ -16,7 +16,7 @@ const COOKIE_CONSENT_KEY = 'cookie_consent_status';
  */
 const EARLYBIRD: { start: Date; end: Date } = {
   start: new Date(2026, 3, 10, 0, 0, 0, 0),
-  end: new Date(2026, 4, 30, 23, 59, 59, 999),
+  end: new Date(2026, 5, 20, 23, 59, 59, 999),
 };
 
 /**
@@ -69,7 +69,7 @@ function getActivePromo(now: Date): ActivePromo | null {
       primaryCtaLabel: 'Reservar ahora',
       kicker: 'Exclusiva · Reserva anticipada (Early Bird)',
       validityText:
-        'Válido para reservas del 10 abr – 30 may 2026. Transcurrido ese período finaliza la promoción.',
+        'Válido para reservas del 10 abr – 20 jun 2026. Transcurrido ese período finaliza la promoción.',
     };
   }
   return null;
