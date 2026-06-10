@@ -9,7 +9,7 @@ export const metadata: Metadata = esPageMetadata({
     'Aventura de 3 h en Ibiza: bar abierto ilimitado, tapas españolas, 15 tablas paddle, snorkel y calas vírgenes. Desde 80 €. Reserva aquí.',
   keywords:
     'excursión barco Ibiza, día en barco, todo incluido Ibiza, paddle surf barco Ibiza',
-  ogImage: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
+  ogImage: '/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp',
   ogImageAlt: 'Excursión diurna en barco Salvador Ibiza',
 });
 

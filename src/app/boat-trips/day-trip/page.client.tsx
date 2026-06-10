@@ -21,7 +21,7 @@ import { GoogleReview } from '@/services/googlePlaces'; // Import type
 
 function dayTripClientProductJsonLd() {
   const page = absoluteUrl('/boat-trips/day-trip');
-  const img = publicAssetUrl('/images/optimized/salvador-ibiza-boat-aerial-view.webp');
+  const img = publicAssetUrl('/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp');
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -82,12 +82,13 @@ function dayTripClientProductJsonLd() {
 const images = [
   { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Grupo divertido cubierta barco Salvador Ibiza" },
   { src: "/images/boat/parejaensup.webp", alt: "Pareja en paddle surf cerca del Salvador Ibiza" },
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Vista aérea barco Salvador Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp", alt: "Salvador Ibiza en Cala Comte con invitados en paddleboard y kayak" },
   { src: "/images/boat/chicasensupencueva.webp", alt: "Explorando cuevas en paddle surf Ibiza" },
   { src: "/images/boat/gente-en-suo.webp", alt: "Grupo en paddle surf agua transparente Ibiza" },
   { src: "/images/boat/familiaensup.webp", alt: "Familia disfruta paddle surf juntos" },
-  { src: "/images/boat/aereabarco2.webp", alt: "Otra vista aérea del Salvador Ibiza en mar turquesa" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-drone-sup-kayaks.webp", alt: "Vista aérea con dron del Salvador Ibiza en Cala Comte con paddleboards y kayaks" },
   { src: "/images/boat/parejasnorkeling.webp", alt: "Pareja haciendo snorkel mar turquesa" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-clear-water-shadows.webp", alt: "Vista aérea del Salvador Ibiza en Cala Comte con agua turquesa y sombras de paddleboards" },
   { src: "/images/boat/chicasenproamuyfelicdes.webp", alt: "Amigos felices en la proa del barco" },
   { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Dos amigas tomando sol en cubierta" },
   { src: "/images/boat/chicosdisfrutandoenproa.webp", alt: "Grupo admirando vistas desde la proa" },
@@ -231,8 +232,8 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
       <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
-            alt="Excursión diurna en barco Salvador Ibiza"
+            src="/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp"
+            alt="Excursión diurna Salvador Ibiza con invitados en paddleboard en Cala Comte"
             fill
             priority
             className="object-cover object-center"

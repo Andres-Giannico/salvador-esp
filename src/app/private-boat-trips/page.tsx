@@ -11,8 +11,8 @@ export const metadata = esPageMetadata({
   path: '/private-boat-trips',
   keywords:
     'charter privado Ibiza, barco exclusivo Sant Antoni, evento empresa mar, grupo familiar barco Baleares Salvador',
-  ogImage: '/images/boat/aereabarco2.webp',
-  ogImageAlt: 'Vista aérea del Salvador Ibiza en charter privado',
+  ogImage: '/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp',
+  ogImageAlt: 'Vista aérea con dron del Salvador Ibiza en charter privado en Cala Comte',
 });
 
 function privateBoatTripsJsonLd() {
@@ -23,7 +23,7 @@ function privateBoatTripsJsonLd() {
     name: 'Charter privado en barco Ibiza — Salvador Ibiza',
     description:
       'Excursiones privadas en Ibiza para hasta 35 invitados. Incluye capitán, equipo acuático (paddle, kayak, snorkel) y catering según modalidad contratada.',
-    image: publicAssetUrl('/images/boat/aereabarco2.webp'),
+    image: publicAssetUrl('/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp'),
     brand: {
       '@type': 'Brand',
       name: 'Salvador Ibiza',

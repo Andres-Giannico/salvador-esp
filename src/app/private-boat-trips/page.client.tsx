@@ -35,10 +35,10 @@ interface PrivateBoatTripsClientPageProps {
 
 // Combinar imágenes originales y nuevas de la carpeta /images/boat/ y /images/boat/private-new/
 const galleryImages = [
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Charter privado de lujo / grupo relajado en cubierta" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp", alt: "Panorámica aérea del charter privado Salvador Ibiza en Cala Comte" }, 
   { src: "/images/optimized/salvador-ibiza-luxury-boat.webp", alt: "Vista desde el barco Salvador Ibiza" },
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-drone.webp", alt: "Vista aérea del barco Salvador Ibiza" },
-  { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Atardecer cerca de Es Vedrà" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-red-deck-aerial.webp", alt: "Foto aérea con dron del Salvador Ibiza con cubierta roja en Cala Comte" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-paddleboard-flower.webp", alt: "Paddleboards en forma de flor alrededor del Salvador Ibiza en Cala Comte" },
   { src: "/images/optimized/salvador-ibiza-boat-deck.webp", alt: "Bebidas servidas en charter Salvador Ibiza" },
   { src: "/images/optimized/salvador-ibiza-boat-cave-exploration.webp", alt: "Vista desde el interior de una cueva marina en Salvador Ibiza" },
   { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Grupo disfrutando del atardecer en Salvador Ibiza" },
@@ -330,8 +330,8 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
             }}
           >
             <Image
-              src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
-              alt="Charter privado en Ibiza a bordo del Salvador"
+              src="/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp"
+              alt="Charter privado en las aguas cristalinas de Cala Comte, Ibiza"
               fill
               priority
               className="object-cover object-center filter brightness-70"
@@ -377,10 +377,10 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 </svg>
               </motion.div>
               
-              <span className="relative z-10"> 
-                Tu charter privado<br className="hidden md:block" /> 
+              <span className="relative z-10 block">
+                <span className="block">Tu charter privado</span>
                 <motion.span 
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300"
+                  className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300"
                   variants={floatingAnimation}
                   initial="initial"
                   animate="animate"

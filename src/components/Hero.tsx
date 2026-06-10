@@ -21,8 +21,8 @@ export default function Hero() {
     <div className="relative h-[100vh] md:h-screen flex items-center justify-center text-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/optimized/es-vedra-island-ibiza-background.webp"
-          alt="Experiencia en barco Salvador Ibiza junto a Es Vedrà"
+          src="/images/optimized/salvador-ibiza-cala-comte-paddleboard-flower.webp"
+          alt="Vista aérea del Salvador Ibiza en Cala Comte con paddleboards en agua turquesa cristalina"
           fill
           priority
           className="object-cover object-center brightness-[0.65] z-0"
@@ -99,18 +99,35 @@ export default function Hero() {
             </div>
           </div>
 
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="bg-white/10 backdrop-blur-sm rounded-lg p-2 md:p-3 hover:bg-white/15 transition-all duration-300"
-          >
-            <Image
-              src="/images/optimized/tripadvisor-salvador-ibiza-2024.webp"
-              alt="Tripadvisor Travellers' Choice 2024 — Salvador Ibiza"
-              width={100}
-              height={100}
-              className="object-contain md:w-[120px] md:h-[120px]"
-            />
-          </motion.div>
+          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4">
+            {[
+              {
+                src: '/images/optimized/tripadvisor-salvador-ibiza-2023.webp',
+                alt: "Tripadvisor Travellers' Choice Best of the Best 2023",
+              },
+              {
+                src: '/images/optimized/tripadvisor-salvador-ibiza-2024.webp',
+                alt: "Tripadvisor Travellers' Choice 2024 — Salvador Ibiza",
+              },
+              {
+                src: '/images/optimized/tripadvisor-salvador-ibiza-2025.webp',
+                alt: "Tripadvisor Travellers' Choice Awards 2025",
+              },
+            ].map((badge) => (
+              <motion.div
+                key={badge.src}
+                whileHover={{ scale: 1.05 }}
+                className="relative bg-white/10 backdrop-blur-sm rounded-lg p-2 md:p-3 hover:bg-white/15 transition-all duration-300 w-[100px] h-[115px] md:w-[120px] md:h-[138px]"
+              >
+                <Image
+                  src={badge.src}
+                  alt={badge.alt}
+                  fill
+                  className="object-contain p-1"
+                />
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div

@@ -5,7 +5,7 @@ import TripCard from './ui/TripCard';
 
 const tripData = {
   middayTrip: {
-    imageUrl: '/images/optimized/salvador-ibiza-boat-from-above.webp',
+    imageUrl: '/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp',
     imageAlt: 'Excursión diurna Salvador Ibiza',
     title: 'Experiencia diurna',
     description: 'Sol, mar y diversión garantizados.',
@@ -54,7 +54,7 @@ const tripData = {
     detailsText: 'Ver detalle',
   },
   privateCharter: {
-    imageUrl: '/images/optimized/aereabarco2.webp',
+    imageUrl: '/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp',
     imageAlt: 'Charter privado Salvador Ibiza',
     title: 'Experiencia privada',
     description: 'Tu aventura a medida.',

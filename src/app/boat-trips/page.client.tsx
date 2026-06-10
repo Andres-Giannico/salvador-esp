@@ -12,7 +12,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Updated trip data to match FeaturedTripsSection
 const middayTrip = {
-  imageUrl: "/images/optimized/salvador-ibiza-boat-aerial-view.webp",
+  imageUrl: "/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp",
   imageAlt: "Excursión diurna Salvador Ibiza",
   title: "Experiencia diurna",
   description: "Sol, mar y aventura en 3 horas.",
@@ -115,8 +115,8 @@ const galleryImages = [
     alt: "Brindis en la barra popa Ibiza",
   },
   {
-    src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp",
-    alt: "Vista aérea Salvador Ibiza en mar turquesa",
+    src: "/images/optimized/salvador-ibiza-cala-comte-red-deck-aerial.webp",
+    alt: "Vista aérea con dron del Salvador Ibiza en las aguas turquesas de Cala Comte",
   },
   {
     src: "/images/boat/4chicasparadasentablaxxl.webp",
