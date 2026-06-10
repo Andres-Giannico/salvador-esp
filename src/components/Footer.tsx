@@ -6,6 +6,7 @@ import {
   FaWhatsapp,
   FaTripadvisor,
   FaYoutube,
+  FaTiktok,
 } from "react-icons/fa";
 import { FiMail, FiMapPin, FiPhone, FiArrowRight } from "react-icons/fi";
 import { getContactEmail } from "@/config/site";
@@ -38,6 +39,11 @@ const Footer = () => {
       name: "YouTube",
       href: "https://www.youtube.com/watch?v=0SN3YMMwUEk",
       icon: FaYoutube,
+    },
+    {
+      name: "TikTok",
+      href: "https://www.tiktok.com/@salvadoribiza",
+      icon: FaTiktok,
     },
   ];
 
