@@ -28,6 +28,7 @@ const tripData = {
     ctaHoverBgColor: 'hover:bg-blue-700',
     detailsHref: '/boat-trips/day-trip',
     detailsText: 'Ver detalle',
+    ctaText: 'Reservar excursión día — 80 €',
   },
   sunsetTrip: {
     imageUrl: '/images/sunset.png',
@@ -52,6 +53,7 @@ const tripData = {
     ctaHoverBgColor: 'hover:bg-orange-800',
     detailsHref: '/boat-trips/sunset-trip',
     detailsText: 'Ver detalle',
+    ctaText: 'Reservar atardecer — 80 €',
   },
   privateCharter: {
     imageUrl: '/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp',
@@ -76,17 +78,23 @@ const tripData = {
     ctaHoverBgColor: 'hover:bg-teal-800',
     detailsHref: '/private-boat-trips',
     detailsText: 'Solicitar información',
+    ctaText: 'Solicitar charter privado',
   },
 };
 
 export default function FeaturedTripsSection() {
   return (
-    <section className="py-8 bg-gradient-to-b from-white via-blue-50/10 to-transparent relative z-10">
+    <section className="py-8 md:py-12 bg-gradient-to-b from-white via-blue-50/10 to-transparent relative z-10">
       <motion.div
         className="container mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
         animate="visible"
       >
+        <div className="text-center mb-10 md:mb-14 max-w-3xl mx-auto">
+          <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-sm font-medium mb-4">NUESTRAS EXPERIENCIAS</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 text-gray-900">Elige tu experiencia en barco en Ibiza</h2>
+          <p className="text-lg text-gray-600">Excursiones compartidas todo incluido desde 80 € por adulto, o charters privados desde 1.350 €.</p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
           <TripCard
             {...tripData.middayTrip}

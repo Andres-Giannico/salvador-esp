@@ -9,42 +9,20 @@ import {
   FaTiktok,
 } from "react-icons/fa";
 import { FiMail, FiMapPin, FiPhone, FiArrowRight } from "react-icons/fi";
-import { getContactEmail } from "@/config/site";
+import { businessContact, formatRegisteredAddress } from "@/config/site";
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const email = getContactEmail();
-
-  const phone1 = "+34 871 181 393";
-  const phone2 = "+34 681 611 598";
-  const whatsappNumber = "34871181393";
+  const email = businessContact.email;
+  const [phone1, phone2] = businessContact.phones;
+  const whatsappNumber = businessContact.whatsappNumber;
 
   const socialLinks = [
-    {
-      name: "Instagram",
-      href: "https://www.instagram.com/boatstripsinibiza/",
-      icon: FaInstagram,
-    },
-    {
-      name: "Facebook",
-      href: "https://www.facebook.com/SalvadoIbizaBoat",
-      icon: FaFacebookF,
-    },
-    {
-      name: "TripAdvisor",
-      href: "https://www.tripadvisor.com/Attraction_Review-g652116-d6835309-Reviews-Salvador_Ibiza-Sant_Antoni_de_Portmany_Ibiza_Balearic_Islands.html",
-      icon: FaTripadvisor,
-    },
-    {
-      name: "YouTube",
-      href: "https://www.youtube.com/watch?v=0SN3YMMwUEk",
-      icon: FaYoutube,
-    },
-    {
-      name: "TikTok",
-      href: "https://www.tiktok.com/@salvadoribiza",
-      icon: FaTiktok,
-    },
+    { name: "Instagram", href: businessContact.social.instagram, icon: FaInstagram },
+    { name: "Facebook", href: businessContact.social.facebook, icon: FaFacebookF },
+    { name: "TripAdvisor", href: businessContact.social.tripadvisor, icon: FaTripadvisor },
+    { name: "YouTube", href: businessContact.social.youtube, icon: FaYoutube },
+    { name: "TikTok", href: businessContact.social.tiktok, icon: FaTiktok },
   ];
 
   return (
@@ -101,7 +79,7 @@ const Footer = () => {
                 href="/about"
                 className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium group"
               >
-                Descubre Salvador Ibiza
+                Sobre Salvador Ibiza
                 <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -222,8 +200,7 @@ const Footer = () => {
                     <FiMapPin className="w-4 h-4 text-blue-600" />
                   </div>
                   <span>
-                    Avinguda del Doctor Fleming, 07820 Sant Antoni de Portmany,
-                    Illes Balears
+                    {formatRegisteredAddress()}
                   </span>
                 </li>
                 <li className="flex items-center text-gray-600">

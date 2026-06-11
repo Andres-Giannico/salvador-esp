@@ -16,11 +16,11 @@ import {
   pageAlternates,
 } from "@/config/site";
 import {
-  getLocalBusinessSchema,
-  getOrganizationSchema,
-  getTouristAttractionSchema,
-  getWebSiteSchema,
-} from "@/lib/jsonld";
+  buildLocalBusinessSchema,
+  buildOrganizationSchema,
+  buildTouristAttractionSchema,
+  buildWebsiteSchema,
+} from "@/lib/business-schema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -88,8 +88,11 @@ export default function RootLayout({
 }>) {
   const gaMeasurementId = getGaMeasurementId();
   const gtmId = getGtmId();
-  const localBusinessSchema = getLocalBusinessSchema();
-  const touristAttractionSchema = getTouristAttractionSchema();
+  const siteBase = getSiteUrl();
+  const localBusinessSchema = buildLocalBusinessSchema(siteBase);
+  const touristAttractionSchema = buildTouristAttractionSchema(siteBase);
+  const websiteSchema = buildWebsiteSchema(siteBase);
+  const organizationSchema = buildOrganizationSchema(siteBase);
 
   return (
     <html lang="es" className={`${inter.variable} ${montserrat.variable}`}>
@@ -109,7 +112,7 @@ export default function RootLayout({
 
         <Script
           id="google-tag-manager-head"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -152,14 +155,14 @@ export default function RootLayout({
           id="website-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getWebSiteSchema()),
+            __html: JSON.stringify(websiteSchema),
           }}
         />
         <Script
           id="organization-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getOrganizationSchema()),
+            __html: JSON.stringify(organizationSchema),
           }}
         />
       </head>

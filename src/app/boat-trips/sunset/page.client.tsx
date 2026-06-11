@@ -67,7 +67,7 @@ const galleryImages = [
     src: '/images/boat/doschicassupsunset.webp',
     alt: 'Dos personas en tabla SUP durante excursión al atardecer',
   },
-  { src: '/images/sunset.png', alt: 'Puesta de sol en Ibiza desde el barco Salvador' },
+  { src: '/images/optimized/ibiza-sunset-boat-trip-salvador.webp', alt: 'Puesta de sol en Ibiza desde el barco Salvador' },
   {
     src: '/images/optimized/es-vedra-island-ibiza-background.webp',
     alt: 'Atardecer con Es Vedrà en el horizonte',
