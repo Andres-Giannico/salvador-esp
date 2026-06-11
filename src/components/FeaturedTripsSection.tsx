@@ -31,7 +31,7 @@ const tripData = {
     ctaText: 'Reservar excursión día — 80 €',
   },
   sunsetTrip: {
-    imageUrl: '/images/sunset.png',
+    imageUrl: '/images/optimized/ibiza-sunset-heart-gesture-salvador.webp',
     imageAlt: 'Excursión al atardecer Salvador Ibiza',
     title: 'Ruta al atardecer',
     description: 'El atardecer de Ibiza desde el mejor escenario.',
