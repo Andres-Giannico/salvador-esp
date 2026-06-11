@@ -11,7 +11,7 @@ const COOKIE_CONSENT_KEY = 'cookie_consent_status';
 /**
  * ---------------------------------------------------------------------------
  * Early Bird 5 (€5) — reservas entre estas fechas (hora local).
- * Tras el bloque «Cierre de mayo», aplica Early Bird si sigue en rango.
+ * Tras el bloque Super Promo, aplica Early Bird si sigue en rango.
  * ---------------------------------------------------------------------------
  */
 const EARLYBIRD: { start: Date; end: Date } = {
@@ -21,13 +21,13 @@ const EARLYBIRD: { start: Date; end: Date } = {
 
 /**
  * ---------------------------------------------------------------------------
- * Oleada SUPERPROMO (€10 / persona) — cierre de mayo
+ * Oleada SUPERPROMO (€10 / persona) — flash de 7 días en junio
  * Prioridad sobre la oferta de reserva anticipada mientras esta oleada siga activa.
  * ---------------------------------------------------------------------------
  */
 const SUPER_PROMO: { start: Date; end: Date } = {
-  start: new Date(2026, 4, 21, 0, 0, 0, 0),
-  end: new Date(2026, 4, 31, 23, 59, 59, 999),
+  start: new Date(2026, 5, 11, 0, 0, 0, 0),
+  end: new Date(2026, 5, 17, 23, 59, 59, 999),
 };
 
 type ActivePromo = {
@@ -51,12 +51,12 @@ function getActivePromo(now: Date): ActivePromo | null {
       kind: 'super',
       code: 'SUPERPROMO',
       eur: 10,
-      labelShort: 'Cierre de mayo',
-      headline: 'Cierre de mayo — 10 € menos por persona',
-      primaryCtaLabel: 'Reserva en la web · ahorra 10 €',
-      kicker: 'Últimos días de mayo · Solo reservas en la web',
+      labelShort: 'Super promo',
+      headline: 'Flash de 7 días — 10 € menos por persona',
+      primaryCtaLabel: 'Aprovecha 10 € — reserva ya',
+      kicker: 'Solo 7 días · Reservas web · hasta el 17 jun',
       validityText:
-        'Válido para reservas online hasta el 31 de mayo de 2026 (23:59, hora local). 10 € de descuento por persona con SUPERPROMO en Salvador Boat Mix (excursión de día o atardecer). El código deja de aplicarse tras mayo — entran tarifas de temporada alta.',
+        'Válido para reservas online del 11 al 17 de junio de 2026 (23:59, hora local). 10 € de descuento por persona con SUPERPROMO en Salvador Boat Mix (excursión de día o atardecer). Esta oferta web de 7 días termina el 17 de junio — no te la pierdas.',
     };
   }
   if (inRange(now, EARLYBIRD.start, EARLYBIRD.end)) {
@@ -76,14 +76,14 @@ function getActivePromo(now: Date): ActivePromo | null {
 }
 
 function storageKeyFor(promo: ActivePromo['kind']): string {
-  if (promo === 'super') return 'salvador_superpromo_2026_may_finale_dismissed';
+  if (promo === 'super') return 'salvador_superpromo_2026_june_7day_dismissed';
   return 'salvador_earlybird5_promo_dismissed_2026';
 }
 
 const PROMO_HERO: Record<ActivePromo['kind'], { src: string; alt: string; className: string; overlay: string }> = {
   super: {
     src: '/images/optimized/superpromo-salvador-ibiza-flash-deal.webp',
-    alt: 'Salvador Ibiza — cierre de mayo: 10 € de descuento reservando en la web, hasta el 31 de mayo',
+    alt: 'Salvador Ibiza — flash de 7 días: 10 € de descuento reservando en la web, código SUPERPROMO, hasta el 17 de junio',
     className: 'object-cover object-center',
     overlay: 'from-black/35 to-transparent',
   },
@@ -197,13 +197,13 @@ export default function EarlyBirdPromoModal() {
                 <div className="flex flex-wrap items-center justify-center gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-900 shadow-md ring-1 ring-black/5 sm:text-xs">
                     <Timer className="size-3.5 shrink-0 text-amber-600" aria-hidden />
-                    Hasta el 31 de mayo · Solo web
+                    Solo 7 días · hasta el 17 jun
                   </span>
                   <span className="rounded-full bg-emerald-600 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md sm:text-xs">
                     10 € / persona
                   </span>
                   <span className="rounded-full bg-amber-500/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-950 shadow-md sm:text-xs">
-                    Antes de temporada alta
+                    Tiempo limitado
                   </span>
                 </div>
               </div>
@@ -231,14 +231,13 @@ export default function EarlyBirdPromoModal() {
             <p id="earlybird-promo-desc" className="mt-3 text-sm leading-relaxed text-gray-600">
               {promo.kind === 'super' ? (
                 <>
-                  <strong className="text-gray-800">Cierre de mayo:</strong>{' '}
+                  <strong className="text-gray-800">Super promo:</strong>{' '}
                   <strong className="text-[#1a7f37]">10 € menos por persona</strong> en{' '}
                   <strong>Salvador Boat Mix</strong> (excursión de día o atardecer) al completar tu{' '}
                   <strong>reserva en nuestra web</strong>. Introduce{' '}
-                  <strong className="font-mono text-gray-800">SUPERPROMO</strong> al pagar — después del{' '}
-                  <strong className="text-gray-800">31 de mayo</strong> esta ventaja exclusiva para la web{' '}
-                  deja de aplicarse y entran los precios de{' '}
-                  <strong className="text-gray-800">temporada alta</strong>.
+                  <strong className="font-mono text-gray-800">SUPERPROMO</strong> al pagar — esta{' '}
+                  <strong className="text-gray-800">oferta flash de 7 días</strong> termina el{' '}
+                  <strong className="text-gray-800">17 de junio</strong> y se acaba.
                 </>
               ) : (
                 <>
