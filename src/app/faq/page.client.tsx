@@ -1,11 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { FiHelpCircle, FiAnchor, FiDollarSign } from "react-icons/fi";
+import { FiHelpCircle, FiAnchor, FiDollarSign, FiCompass } from "react-icons/fi";
 import { GiWaveSurfer, GiSailboat } from "react-icons/gi";
 import { motion } from "framer-motion";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import FAQ from "@/components/trips/FAQ";
+import { discoverabilityFaqs } from "@/lib/discoverability-faqs";
+import {
+  familyBoatTripFaqs,
+  sunsetBoatTripFaqs,
+  snorkelingBoatTripFaqs,
+} from "@/lib/topic-faqs";
+
+const topicGuideFaqs = [
+  ...familyBoatTripFaqs.slice(0, 4),
+  ...sunsetBoatTripFaqs.slice(0, 3),
+  ...snorkelingBoatTripFaqs.slice(0, 3),
+];
+
+const planningFaqs = discoverabilityFaqs.map((faq) => ({
+  question: faq.question,
+  answer: faq.answer,
+}));
 
 const generalFaqs = [
   {
@@ -313,6 +330,51 @@ export default function FAQClientPage() {
           </motion.div>
 
           <div className="space-y-16 max-w-4xl mx-auto">
+            <motion.section
+              variants={sectionAnimation}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
+                <FiCompass className="w-6 h-6 text-indigo-600 mr-3 flex-shrink-0" />
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
+                  Mejores excursiones por tema
+                </h2>
+              </div>
+              <p className="text-gray-600 mb-6">
+                Respuestas rápidas — consulta las guías completas en nuestras páginas de{" "}
+                <Link href="/boat-trips/family" className="text-green-600 hover:underline">
+                  familias
+                </Link>
+                ,{" "}
+                <Link href="/boat-trips/sunset" className="text-orange-600 hover:underline">
+                  atardecer
+                </Link>{" "}
+                y{" "}
+                <Link href="/boat-trips/snorkeling" className="text-cyan-600 hover:underline">
+                  snorkel
+                </Link>
+                .
+              </p>
+              <FAQ items={topicGuideFaqs} title="" />
+            </motion.section>
+
+            <motion.section
+              variants={sectionAnimation}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
+                <FiCompass className="w-6 h-6 text-violet-600 mr-3 flex-shrink-0" />
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
+                  Cómo elegir una excursión en barco en Ibiza
+                </h2>
+              </div>
+              <FAQ items={planningFaqs} title="" />
+            </motion.section>
+
             <motion.section
               variants={sectionAnimation}
               initial="initial"

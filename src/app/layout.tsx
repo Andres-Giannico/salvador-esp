@@ -18,6 +18,7 @@ import {
 import {
   getLocalBusinessSchema,
   getOrganizationSchema,
+  getTouristAttractionSchema,
   getWebSiteSchema,
 } from "@/lib/jsonld";
 
@@ -88,6 +89,7 @@ export default function RootLayout({
   const gaMeasurementId = getGaMeasurementId();
   const gtmId = getGtmId();
   const localBusinessSchema = getLocalBusinessSchema();
+  const touristAttractionSchema = getTouristAttractionSchema();
 
   return (
     <html lang="es" className={`${inter.variable} ${montserrat.variable}`}>
@@ -96,6 +98,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(touristAttractionSchema),
           }}
         />
 

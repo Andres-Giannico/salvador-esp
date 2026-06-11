@@ -8,7 +8,7 @@ export function getLocalBusinessSchema() {
   const base = getSiteUrl();
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "TourOperator"],
     "@id": `${base}/#organization`,
     name: "Salvador Ibiza",
     alternateName: "Excursiones en barco Salvador Ibiza",
@@ -145,11 +145,50 @@ export function getWebSiteSchema() {
   };
 }
 
+export function getTouristAttractionSchema() {
+  const base = getSiteUrl();
+  return {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    "@id": `${base}/#tourist-attraction`,
+    name: "Excursiones en barco Salvador Ibiza",
+    description:
+      "Excursiones diurnas y cruceros al atardecer en barco de madera tradicional en Ibiza. Salidas todo incluido con baño, paddle surf, kayak y snorkel desde el puerto de Sant Antoni.",
+    url: base,
+    image: publicAssetUrl("/images/optimized/salvador-ibiza-boat-drone-view.webp"),
+    touristType: ["Familias", "Parejas", "Grupos"],
+    isAccessibleForFree: false,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Puerto de San Antonio",
+      addressLocality: "San Antonio",
+      addressRegion: "Ibiza",
+      postalCode: "07820",
+      addressCountry: "ES",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "38.9804",
+      longitude: "1.3026",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "278",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    provider: {
+      "@id": `${base}/#organization`,
+    },
+  };
+}
+
 export function getOrganizationSchema() {
   const base = getSiteUrl();
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "TourOperator"],
     name: "Salvador Ibiza",
     url: base,
     logo: publicAssetUrl("/images/logo-salvador.png"),

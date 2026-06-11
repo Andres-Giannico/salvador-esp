@@ -6,6 +6,17 @@ import Link from 'next/link';
 import { FiSun, FiClock, FiUsers, FiMapPin, FiCamera, FiHeart } from 'react-icons/fi';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
+import FAQ from '@/components/trips/FAQ';
+import BoatTripComparisonTable from '@/components/trips/BoatTripComparisonTable';
+import TestimonialSlider from '@/components/trips/TestimonialSlider';
+import { sunsetBoatTripComparison } from '@/lib/boat-trip-comparison';
+import { sunsetBoatTripFaqs } from '@/lib/topic-faqs';
+import { sunsetReviews } from '@/lib/topic-reviews';
+
+const sunsetFaqItems = sunsetBoatTripFaqs.map((faq) => ({
+  question: faq.question,
+  answer: faq.answer,
+}));
 
 const highlights = [
   {
@@ -190,11 +201,47 @@ export default function SunsetBoatTripsClientPage() {
               noche tranquila sobre el agua.
             </p>
             <p className="text-md text-gray-600">
-              Desde <strong>Sant Antoni</strong> navegamos hacia zonas donde el angulo del sol y las condiciones suelen funcionar mejor
-              para ver el día terminar desde el Poniente — siempre dentro de seguridad marina y ordenanzas locales.
-              Entre medio: buena compañía, <strong>refrescos y tapeo español</strong>, y el rumor suave del mar contra el casco.
+              Desde <strong>Sant Antoni</strong> navegamos hacia zonas donde el ángulo del sol y las condiciones
+              suelen funcionar mejor para ver el día terminar desde el Poniente — siempre dentro de la seguridad
+              marina y las ordenanzas locales. Entre medio: buena compañía, <strong>refrescos y tapeo
+              español</strong>, y el rumor suave del mar contra el casco.
             </p>
           </motion.div>
+
+          <motion.div
+            className="max-w-4xl mx-auto mb-16 bg-gradient-to-r from-orange-50 to-pink-50 rounded-2xl p-8 border border-orange-100"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              ¿Qué hace la mejor excursión al atardecer en Ibiza?
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              Las mejores excursiones al atardecer en Ibiza salen a la hora adecuada para captar la hora dorada,
+              siguen rutas costeras con vistas despejadas hacia el oeste y ofrecen un ambiente cómodo — ya busques
+              romance, fotografía o una tarde relajada con amigos.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              El crucero vespertino de 3 horas de Salvador Ibiza desde Sant Antoni incluye bar abierto, tapas,
+              paradas de baño en calas preciosas y rutas hacia Cala Comte o Es Vedrà según las condiciones. Es una
+              experiencia en barco de madera tradicional — relajada y auténtica, no un barco fiesta.
+            </p>
+          </motion.div>
+
+          <motion.section
+            className="max-w-4xl mx-auto mb-16 bg-white rounded-2xl shadow-lg p-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <BoatTripComparisonTable
+              rows={sunsetBoatTripComparison}
+              title="Atardecer: Salvador Ibiza vs barco fiesta vs catamarán"
+            />
+          </motion.section>
 
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
@@ -252,6 +299,29 @@ export default function SunsetBoatTripsClientPage() {
               ))}
             </div>
           </motion.div>
+
+          <motion.section
+            className="mb-16 max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <FAQ items={sunsetFaqItems} title="Preguntas frecuentes — excursiones al atardecer" />
+          </motion.section>
+
+          <motion.section
+            className="mb-16 py-4 max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <TestimonialSlider
+              testimonials={sunsetReviews}
+              title="Lo que dicen nuestros pasajeros sobre el atardecer"
+            />
+          </motion.section>
 
           <motion.div
             id="booking"

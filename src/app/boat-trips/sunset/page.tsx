@@ -1,5 +1,7 @@
 import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { esPageMetadata } from '@/lib/page-meta';
+import { buildFaqPageSchema } from '@/lib/faq-schema';
+import { sunsetBoatTripFaqs } from '@/lib/topic-faqs';
 import SunsetBoatTripsClientPage from './page.client';
 
 export const metadata = esPageMetadata({
@@ -45,12 +47,18 @@ const sunsetBoatTripsJsonLd = {
   duration: 'PT3H',
 };
 
+const sunsetFaqSchema = buildFaqPageSchema(sunsetBoatTripFaqs);
+
 export default function SunsetBoatTripsPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sunsetBoatTripsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sunsetFaqSchema) }}
       />
       <SunsetBoatTripsClientPage />
     </>
