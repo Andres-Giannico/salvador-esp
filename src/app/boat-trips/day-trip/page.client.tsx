@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiClock, FiUsers, FiMapPin, FiDollarSign, FiMusic, FiCompass, FiInfo, FiCamera, FiSun, FiAnchor } from 'react-icons/fi';
@@ -15,7 +14,6 @@ import TripHighlights from '@/components/trips/TripHighlights';
 import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
-import { TURBNB_WIDGET_CSS } from '@/lib/turbnb-widget-assets';
 import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { GoogleReview } from '@/services/googlePlaces'; // Import type
 
@@ -170,55 +168,6 @@ interface DayTripClientPageProps {
 }
 
 export default function DayTripClientPage({}: DayTripClientPageProps) {
-  
-  // Initialize the booking widget when the component mounts
-  useEffect(() => {
-    // Function to initialize the widget
-    const initializeWidget = () => {
-      if (typeof window !== 'undefined' && typeof window.TurboBooking !== 'undefined') {
-        const element = document.getElementById('turbnb-booking-3');
-        if (element) {
-          try {
-            // Type is now globally available
-            const turbo3 = new window.TurboBooking();
-            // Remove type assertion
-            turbo3.run(element, {
-              companyId: 2,
-              productId: 2,
-              billingTermIds: [20],
-              channelId: 11,
-              customProperties: {
-                displayBillingTerm: true,
-                showQuantity: true,
-                quantity: "Personas",
-                titleVariant: "Modern",
-                bookNow: "RESERVAR AHORA ",
-                confirmReservationAndPay: "CONFIRMAR Y PAGAR",
-                selectTimeLabel: "Elige horario",
-                selectExperienceLabel: "Tipo de experiencia",
-                addonsLabel: "Extras",
-                depositObservation:
-                  "Tras reservar recibirás un voucher con los detalles. Revisa teléfono y email. Señal 20 € por persona; el resto se abona según la confirmación el día de salida.",
-              }
-            });
-          } catch (error) {
-            console.error("Error initializing booking widget:", error);
-          }
-        }
-      }
-    };
-
-    // Check if TurboBooking is already loaded
-    if (typeof window !== 'undefined' && typeof window.TurboBooking !== 'undefined') {
-      initializeWidget();
-    } else if (typeof window !== 'undefined') {
-      // If not loaded yet, set up event listener for when script loads
-      window.addEventListener('turbnbLoaded', initializeWidget);
-      // Cleanup
-      return () => window.removeEventListener('turbnbLoaded', initializeWidget);
-    }
-  }, []);
-
   return (
     <div className="bg-gray-50">
       {/* Breadcrumbs */}
@@ -497,7 +446,6 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                   titleVariant: "Modern",
                   bookNow: "RESERVAR EXCURSIÓN DÍA",
                   confirmReservationAndPay: "CONFIRMAR Y PAGAR",
-                  selectTimeLabel: "Elige horario",
                   selectExperienceLabel: "Experiencia diurna",
                   addonsLabel: "Extras",
                   childrenAge: "6 a 12 años",
@@ -658,7 +606,6 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
           __html: JSON.stringify(dayTripClientProductJsonLd()),
         }}
       />
-      <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
     </div>
   );
 } 

@@ -420,7 +420,6 @@ export default function SunsetTripClientPage() {
                   titleVariant: "Modern",
                   bookNow: "RESERVAR ATARDECER",
                   confirmReservationAndPay: "CONFIRMAR Y PAGAR",
-                  selectTimeLabel: "Hora del atardecer",
                   selectExperienceLabel: "Experiencia atardecer",
                   addonsLabel: "Extras",
                   childrenAge: "6 a 12 años",

@@ -212,7 +212,6 @@ export default function FamilyBoatTripsClientPage() {
                 titleVariant: "Modern",
                 bookNow: "RESERVAR EN FAMILIA",
                 confirmReservationAndPay: "CONFIRMAR Y PAGAR",
-                selectTimeLabel: "Elige horario",
                 selectExperienceLabel: "Experiencia familiar",
                 addonsLabel: "Extras",
                 childrenAge: "6 a 12 años",

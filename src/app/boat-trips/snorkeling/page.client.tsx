@@ -184,7 +184,6 @@ export default function SnorkelingBoatTripsClientPage() {
                 titleVariant: "Modern",
                 bookNow: "RESERVAR SNORKEL",
                 confirmReservationAndPay: "CONFIRMAR Y PAGAR",
-                selectTimeLabel: "Elige horario",
                 selectExperienceLabel: "Experiencia snorkel",
                 addonsLabel: "Extras",
                 childrenAge: "6 a 12 años",

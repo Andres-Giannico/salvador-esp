@@ -1,18 +1,41 @@
 /**
  * Turbookings / Turbnb — widget de reservas cargado desde salvadoribiza.com.
  *
- * Fuente única de verdad: repo `salvador-boat` → `public/widget-turvok/`
- * Actualizar el bundle solo allí y desplegar .com; .es / .fr / .nl usan esta URL.
+ * v2 (activo): `turbookings-booking-widget.js` — solo JS (CSS embebido).
+ * v1 (rollback): `turbnb.booking.1.0.31.min.{js,css}` en el mismo CDN.
  *
- * Fallback Turbookings:
- *   https://widgets.turbnb.com/turbnb.booking.1.0.31.min.{js,css}
+ * Fuente única del bundle: repo `salvador-boat` → desplegar .com para actualizar.
+ *
+ * Rollback: `USE_TURBNB_WIDGET_V2 = false` y despliega .es
  */
+
+/** `true` = widget 2.0 · `false` = rollback a v1.0.31 */
+export const USE_TURBNB_WIDGET_V2 = true;
 
 const SALVADOR_WIDGET_CDN =
   process.env.NEXT_PUBLIC_TURBNB_WIDGET_CDN?.replace(/\/+$/, '') ||
   'https://www.salvadoribiza.com/widget-turvok';
 
-const BUNDLE = 'turbnb.booking.1.0.31.min';
+export const TURBNB_WIDGET_V2_CDN_URL = `${SALVADOR_WIDGET_CDN}/turbookings-booking-widget.js`;
 
-export const TURBNB_WIDGET_JS = `${SALVADOR_WIDGET_CDN}/${BUNDLE}.js`;
-export const TURBNB_WIDGET_CSS = `${SALVADOR_WIDGET_CDN}/${BUNDLE}.css`;
+const V1_BUNDLE = 'turbnb.booking.1.0.31.min';
+const v1Js = `${SALVADOR_WIDGET_CDN}/${V1_BUNDLE}.js`;
+const v1Css = `${SALVADOR_WIDGET_CDN}/${V1_BUNDLE}.css`;
+
+/** Idioma por defecto del widget en este sitio (español) */
+export const TURBNB_DEFAULT_LOCALE = 'es';
+
+export const TURBNB_WIDGET_JS = USE_TURBNB_WIDGET_V2 ? TURBNB_WIDGET_V2_CDN_URL : v1Js;
+
+/** `null` en v2 (CSS inline en el bundle) */
+export const TURBNB_WIDGET_CSS: string | null = USE_TURBNB_WIDGET_V2 ? null : v1Css;
+
+/** Inyecta locale del sitio; el resto de customProperties se conserva tal cual */
+export function mergeTurboBookingCustomProperties(
+  customProperties?: Record<string, unknown>
+): Record<string, unknown> {
+  return {
+    locale: TURBNB_DEFAULT_LOCALE,
+    ...customProperties,
+  };
+}

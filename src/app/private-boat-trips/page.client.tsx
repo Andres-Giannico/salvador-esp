@@ -16,7 +16,11 @@ import WhatsIncluded from '@/components/trips/WhatsIncluded';
 import PerfectForCard from '@/components/trips/PerfectForCard';
 import WhyChooseUsCard from '@/components/trips/WhyChooseUsCard';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { TURBNB_WIDGET_CSS, TURBNB_WIDGET_JS } from '@/lib/turbnb-widget-assets';
+import {
+  mergeTurboBookingCustomProperties,
+  TURBNB_WIDGET_CSS,
+  TURBNB_WIDGET_JS,
+} from '@/lib/turbnb-widget-assets';
 
 // --- Define Type for PerfectFor Items ---
 type PerfectForItem = {
@@ -113,7 +117,7 @@ const includedItems = [
 const charterWidgetStrings = {
   bookNow: "RESERVAR AHORA",
   confirmReservationAndPay: "CONFIRMAR Y PAGAR DEPÓSITO ",
-  selectTimeLabel: "Horario preferido",
+  quantity: "Participantes",
   selectExperienceLabel: "Opción de charter",
   addonsLabel: "Extras opcionales (p. ej. horas extra)",
   depositObservation:
@@ -126,8 +130,10 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
   const [scrollY, setScrollY] = useState(0);
   const [showDirectWidget, setShowDirectWidget] = useState(false);
   
-  // Carga dinámica del CSS del widget
+  // Carga dinámica del CSS del widget (solo v1)
   useEffect(() => {
+    if (!TURBNB_WIDGET_CSS) return;
+
     const linkId = 'turbnb-widget-css';
     if (!document.getElementById(linkId)) {
       const link = document.createElement('link');
@@ -212,12 +218,12 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
             companyId: 2,
             productId: 3,
             channelId: 11,
-            customProperties: {
+            customProperties: mergeTurboBookingCustomProperties({
               "displayBillingTerm": true, 
               "showQuantity": false, 
               "titleVariant": "Modern",
               ...charterWidgetStrings,
-            }
+            }),
           });
           console.log('Direct Charter Widget Initialized');
         } catch (error) {
@@ -252,12 +258,12 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                      companyId: 2,
                      productId: 3,
                      channelId: 11,
-                     customProperties: {
+                     customProperties: mergeTurboBookingCustomProperties({
                       "displayBillingTerm": true,
                       "showQuantity": false,
                       "titleVariant": "Modern",
                       ...charterWidgetStrings,
-                    }
+                    }),
                    });
                    console.log('TurboBooking widget initialized directly in page on script load');
                  } catch (error) {
@@ -753,12 +759,12 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
             isOpen={isBookingModalOpen}
             onClose={closeBookingModal}
             productId={3} // ID específico para Private Charter
-            customProperties={{
+            customProperties={mergeTurboBookingCustomProperties({
               "displayBillingTerm": true,
               "showQuantity": false,
               "titleVariant": "Modern",
               ...charterWidgetStrings,
-            }} // Propiedades customizadas según usuario
+            })}
           />
         )}
       </AnimatePresence>

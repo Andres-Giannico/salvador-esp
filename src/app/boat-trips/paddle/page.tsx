@@ -221,7 +221,6 @@ export default function PaddleBoatTripsPage() {
                   titleVariant: 'Modern',
                   bookNow: 'RESERVAR SUP',
                   confirmReservationAndPay: 'CONFIRMAR Y PAGAR',
-                  selectTimeLabel: 'Elige horario',
                   selectExperienceLabel: 'Experiencia paddle',
                   addonsLabel: 'Extras',
                   childrenAge: '6 a 12 años',

@@ -2,7 +2,11 @@
 
 import { useEffect } from 'react';
 import Script from 'next/script';
-import { TURBNB_WIDGET_CSS, TURBNB_WIDGET_JS } from '@/lib/turbnb-widget-assets';
+import {
+  mergeTurboBookingCustomProperties,
+  TURBNB_WIDGET_CSS,
+  TURBNB_WIDGET_JS,
+} from '@/lib/turbnb-widget-assets';
 
 interface TurbnbWidgetProps {
   id?: string;
@@ -18,7 +22,6 @@ interface TurbnbWidgetProps {
     titleVariant?: string;
     bookNow?: string;
     confirmReservationAndPay?: string;
-    selectTimeLabel?: string;
     selectExperienceLabel?: string;
     addonsLabel?: string;
     childrenAge?: string;
@@ -41,7 +44,6 @@ export default function TurbnbWidget({
     titleVariant: "Modern",
     bookNow: "RESERVAR AHORA",
     confirmReservationAndPay: "CONFIRMAR Y PAGAR",
-    selectTimeLabel: "Elige horario",
     selectExperienceLabel: "Tipo de experiencia",
     addonsLabel: "Extras",
     depositObservation:
@@ -60,7 +62,7 @@ export default function TurbnbWidget({
               productId,
               billingTermIds,
               channelId,
-              customProperties
+              customProperties: mergeTurboBookingCustomProperties(customProperties),
             });
           } catch (error) {
             console.error("Error initializing booking widget:", error);
@@ -69,11 +71,9 @@ export default function TurbnbWidget({
       }
     };
 
-    // If TurboBooking is loaded, initialize widget
     if (typeof window !== 'undefined' && typeof window.TurboBooking !== 'undefined') {
       initializeWidget();
     } else if (typeof window !== 'undefined') {
-      // If not loaded yet, wait for script to load
       window.addEventListener('turbnbLoaded', initializeWidget);
       return () => window.removeEventListener('turbnbLoaded', initializeWidget);
     }
@@ -84,7 +84,7 @@ export default function TurbnbWidget({
       <div className={`turbnb-widget-host w-full min-w-0 ${className}`}>
         <div id={id} className="w-full min-w-0" />
       </div>
-      
+
       <Script
         src={TURBNB_WIDGET_JS}
         strategy="afterInteractive"
@@ -94,7 +94,9 @@ export default function TurbnbWidget({
           }
         }}
       />
-      <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
+      {TURBNB_WIDGET_CSS ? (
+        <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
+      ) : null}
     </>
   );
-} 
+}

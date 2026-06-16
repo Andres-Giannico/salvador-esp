@@ -10,7 +10,11 @@ import { GiWineBottle } from 'react-icons/gi';
 import TripGallery from '@/components/trips/TripGallery';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import BookingModal from '@/components/booking/BookingModal';
-import { TURBNB_WIDGET_CSS, TURBNB_WIDGET_JS } from '@/lib/turbnb-widget-assets';
+import {
+  mergeTurboBookingCustomProperties,
+  TURBNB_WIDGET_CSS,
+  TURBNB_WIDGET_JS,
+} from '@/lib/turbnb-widget-assets';
 
 // Placeholder for wedding features
 const weddingFeatures = [
@@ -23,7 +27,7 @@ const weddingFeatures = [
 const weddingWidgetStrings = {
   bookNow: 'RESERVAR AHORA',
   confirmReservationAndPay: 'CONFIRMAR Y PAGAR DEPÓSITO ',
-  selectTimeLabel: 'Horario preferido',
+  quantity: 'Participantes',
   selectExperienceLabel: 'Opción de charter nupcial',
   addonsLabel: 'Extras opcionales (p. ej. horas extra)',
   depositObservation:
@@ -49,8 +53,10 @@ export default function WeddingsClientPage() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [showDirectWidget, setShowDirectWidget] = useState(false);
   
-  // Load widget CSS dynamically
+  // Load widget CSS dynamically (v1 only)
   useEffect(() => {
+    if (!TURBNB_WIDGET_CSS) return;
+
     const linkId = 'turbnb-widget-css';
     if (!document.getElementById(linkId)) {
       const link = document.createElement('link');
@@ -99,12 +105,12 @@ export default function WeddingsClientPage() {
             companyId: 2,
             productId: 3, // Same as private charter
             channelId: 11,
-            customProperties: {
+            customProperties: mergeTurboBookingCustomProperties({
               displayBillingTerm: true,
               showQuantity: false,
               titleVariant: 'Modern',
               ...weddingWidgetStrings,
-            },
+            }),
           });
           console.log('Wedding Widget Initialized');
         } catch (error) {
@@ -136,12 +142,12 @@ export default function WeddingsClientPage() {
                   companyId: 2,
                   productId: 3,
                   channelId: 11,
-                  customProperties: {
+                  customProperties: mergeTurboBookingCustomProperties({
                     displayBillingTerm: true,
                     showQuantity: false,
                     titleVariant: 'Modern',
                     ...weddingWidgetStrings,
-                  },
+                  }),
                 });
                 console.log('Wedding widget initialized on script load');
               } catch (error) {
@@ -649,12 +655,12 @@ export default function WeddingsClientPage() {
           isOpen={isBookingModalOpen}
           onClose={closeBookingModal}
           productId={3} // Same as private charter
-          customProperties={{
+          customProperties={mergeTurboBookingCustomProperties({
             displayBillingTerm: true,
             showQuantity: false,
             titleVariant: 'Modern',
             ...weddingWidgetStrings,
-          }}
+          })}
         />
       )}
     </AnimatePresence>
