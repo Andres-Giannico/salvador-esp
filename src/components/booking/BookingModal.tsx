@@ -32,7 +32,6 @@ const BookingModal: React.FC<BookingModalProps> = ({
     "showQuantity": false,
     "titleVariant": "Modern",
     "bookNow": "Reservar ahora",
-    "confirmReservationAndPay": "Confirmar y pagar",
     "selectExperienceLabel": "Elige experiencia",
     "addonsLabel": "Extras",
     "depositObservation": "Depósito e instrucciones de pago\n\n\n"

@@ -348,7 +348,6 @@ export default function SunsetBoatTripsClientPage() {
                   quantity: 'Personas',
                   titleVariant: 'Modern',
                   bookNow: 'RESERVAR OCASO',
-                  confirmReservationAndPay: 'CONFIRMAR Y PAGAR',
                   selectExperienceLabel: 'Salida al atardecer',
                   addonsLabel: 'Extras',
                   childrenAge: '6 a 12 años',

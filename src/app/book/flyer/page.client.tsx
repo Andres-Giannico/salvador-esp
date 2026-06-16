@@ -110,7 +110,6 @@ export default function BookTripsQrFlyerClient() {
                 quantity: "Personas", 
                 titleVariant: "Modern",
                 bookNow: "RESERVAR AHORA",
-                confirmReservationAndPay: "CONFIRMAR Y PAGAR",
                 childrenAge: "6 a 12 años",
                 infantAge: "0 a 5 años",
                 depositObservation:

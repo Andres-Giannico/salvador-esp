@@ -445,7 +445,6 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                   quantity: "Personas",
                   titleVariant: "Modern",
                   bookNow: "RESERVAR EXCURSIÓN DÍA",
-                  confirmReservationAndPay: "CONFIRMAR Y PAGAR",
                   selectExperienceLabel: "Experiencia diurna",
                   addonsLabel: "Extras",
                   childrenAge: "6 a 12 años",

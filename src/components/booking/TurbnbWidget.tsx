@@ -21,7 +21,6 @@ interface TurbnbWidgetProps {
     quantity?: string;
     titleVariant?: string;
     bookNow?: string;
-    confirmReservationAndPay?: string;
     selectExperienceLabel?: string;
     addonsLabel?: string;
     childrenAge?: string;
@@ -43,7 +42,6 @@ export default function TurbnbWidget({
     quantity: "Personas",
     titleVariant: "Modern",
     bookNow: "RESERVAR AHORA",
-    confirmReservationAndPay: "CONFIRMAR Y PAGAR",
     selectExperienceLabel: "Tipo de experiencia",
     addonsLabel: "Extras",
     depositObservation:

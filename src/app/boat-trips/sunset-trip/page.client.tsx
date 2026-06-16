@@ -419,7 +419,6 @@ export default function SunsetTripClientPage() {
                   showQuantity: true,
                   titleVariant: "Modern",
                   bookNow: "RESERVAR ATARDECER",
-                  confirmReservationAndPay: "CONFIRMAR Y PAGAR",
                   selectExperienceLabel: "Experiencia atardecer",
                   addonsLabel: "Extras",
                   childrenAge: "6 a 12 años",

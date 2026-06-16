@@ -214,7 +214,6 @@ export default function GroupBoatTripsPage() {
                   quantity: 'Personas',
                   titleVariant: 'Modern',
                   bookNow: 'RESERVAR GRUPO',
-                  confirmReservationAndPay: 'CONFIRMAR Y PAGAR',
                   selectExperienceLabel: 'Experiencia en grupo',
                   addonsLabel: 'Extras',
                   childrenAge: '6 a 12 años',

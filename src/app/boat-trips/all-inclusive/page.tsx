@@ -198,7 +198,6 @@ export default function AllInclusiveBoatTripsPage() {
                   quantity: 'Personas',
                   titleVariant: 'Modern',
                   bookNow: 'RESERVAR AHORA',
-                  confirmReservationAndPay: 'CONFIRMAR Y PAGAR',
                   selectExperienceLabel: 'Tipo de experiencia',
                   addonsLabel: 'Extras',
                   childrenAge: '6 a 12 años',

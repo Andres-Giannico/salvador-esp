@@ -26,7 +26,6 @@ const weddingFeatures = [
 
 const weddingWidgetStrings = {
   bookNow: 'RESERVAR AHORA',
-  confirmReservationAndPay: 'CONFIRMAR Y PAGAR DEPÓSITO ',
   quantity: 'Participantes',
   selectExperienceLabel: 'Opción de charter nupcial',
   addonsLabel: 'Extras opcionales (p. ej. horas extra)',

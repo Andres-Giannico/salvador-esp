@@ -182,7 +182,6 @@ export default function SanAntonioBoatTripsClient() {
               quantity: 'Personas',
               titleVariant: 'Modern',
               bookNow: 'RESERVAR SALIDA',
-              confirmReservationAndPay: 'CONFIRMAR Y PAGAR',
               selectExperienceLabel: 'Salida desde Sant Antoni',
               addonsLabel: 'Extras',
               childrenAge: '6 a 12 años',

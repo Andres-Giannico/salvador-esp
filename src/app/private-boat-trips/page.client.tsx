@@ -116,7 +116,6 @@ const includedItems = [
 
 const charterWidgetStrings = {
   bookNow: "RESERVAR AHORA",
-  confirmReservationAndPay: "CONFIRMAR Y PAGAR DEPÓSITO ",
   quantity: "Participantes",
   selectExperienceLabel: "Opción de charter",
   addonsLabel: "Extras opcionales (p. ej. horas extra)",
