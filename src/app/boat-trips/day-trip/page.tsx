@@ -1,8 +1,9 @@
-import { Metadata } from 'next';
 import DayTripClientPage from './page.client';
+import Script from 'next/script';
 import { esPageMetadata } from '@/lib/page-meta';
+import { buildProductSchema } from '@/lib/product-schema';
 
-export const metadata: Metadata = esPageMetadata({
+export const metadata = esPageMetadata({
   path: '/boat-trips/day-trip',
   title: 'Excursión diurna en barco Ibiza todo incluido',
   description:
@@ -13,6 +14,25 @@ export const metadata: Metadata = esPageMetadata({
   ogImageAlt: 'Excursión diurna en barco Salvador Ibiza',
 });
 
-export default function DayTripPage() {
-  return <DayTripClientPage />;
+export default async function DayTripPage() {
+  const dayTripJsonLd = await buildProductSchema({
+    name: 'Excursión diurna en barco todo incluido Ibiza — Salvador Ibiza',
+    description:
+      'Excursión diurna todo incluido en Ibiza con capitán. 3 horas de navegación con catering, bebidas, paddle surf y snorkel incluidos.',
+    path: '/boat-trips/day-trip',
+    price: '80.00',
+    image: '/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp',
+    includeRating: true,
+  });
+
+  return (
+    <>
+      <Script
+        id="day-trip-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(dayTripJsonLd) }}
+      />
+      <DayTripClientPage />
+    </>
+  );
 }

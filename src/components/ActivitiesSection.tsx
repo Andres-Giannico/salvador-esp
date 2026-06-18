@@ -8,7 +8,7 @@ const activities = [
   {
     title: 'Atardecer',
     description: 'Las mejores puestas de sol de Ibiza desde el mar',
-    href: '/boat-trips/sunset',
+    href: '/boat-trips/sunset-trip',
     icon: Sunset,
     color: 'from-orange-500 to-pink-500',
   },
@@ -43,14 +43,14 @@ const activities = [
   {
     title: 'Todo incluido',
     description: 'Todo preparado para que solo disfrutes',
-    href: '/boat-trips/all-inclusive',
+    href: '/boat-trips/day-trip',
     icon: Star,
     color: 'from-yellow-500 to-orange-500',
   },
   {
     title: 'Día completo',
     description: 'Rutas y paradas emblemáticas (formato día)',
-    href: '/boat-trips/day',
+    href: '/boat-trips/day-trip',
     icon: Sun,
     color: 'from-amber-500 to-yellow-500',
   },

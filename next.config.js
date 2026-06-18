@@ -17,6 +17,22 @@ const nextConfig = {
     // Fuentes `source` heredadas con literales tipo `salvadoribiza.com/...` son paths del request al host del
     // despliegue (p. ej. salvadoribiza.es); sirven para heredar tráfico de URLs antiguas rotas mezcladas.
     return [
+      // SEO: canonical product URLs — consolidate duplicate intent
+      {
+        source: '/boat-trips/sunset',
+        destination: '/boat-trips/sunset-trip',
+        permanent: true,
+      },
+      {
+        source: '/boat-trips/day',
+        destination: '/boat-trips/day-trip',
+        permanent: true,
+      },
+      {
+        source: '/boat-trips/all-inclusive',
+        destination: '/boat-trips/day-trip',
+        permanent: true,
+      },
       // SEO: Redirect from old /private-charter to new /private-boat-trips
       {
         source: '/private-charter',
@@ -42,7 +58,7 @@ const nextConfig = {
       },
       {
         source: '/interna/salvador-ibiza-style-boat-trip.html',
-        destination: '/boat-trips',
+        destination: '/private-boat-trips',
         permanent: true,
       },
       // Blog redirects
@@ -58,12 +74,12 @@ const nextConfig = {
       },
       {
         source: '/blog/the-boat/turbookings.html',
-        destination: '/partners',
+        destination: '/partners/turbookings',
         permanent: true,
       },
       {
         source: '/blog/the-boat/unlock-instant-earnings.html',
-        destination: '/partners',
+        destination: '/partners/earnings',
         permanent: true,
       },
       // TODO: Blog section needs to be implemented
@@ -74,7 +90,7 @@ const nextConfig = {
       },
       {
         source: '/blog/blog/descubre-el-amor-en-el-mar.html',
-        destination: '/blog',
+        destination: '/blog/discover-love-at-sea',
         permanent: true,
       },
       // Redirect for old general excursions page (using 303)

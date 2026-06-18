@@ -2,50 +2,31 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { esPageMetadata } from '@/lib/page-meta';
+import { buildProductSchema } from '@/lib/product-schema';
 
 export const metadata = esPageMetadata({
-  title: 'Excursiones en barco para grupos Ibiza (3 h)',
+  title: 'Excursiones en barco para grupos Ibiza (3 h) | Amigos y celebraciones',
   description:
-    'Salidas compartidas con espacio suficiente para grupos grandes: celebraciones, amigos y pequeños eventos corporativos. Todo según disponibilidad y modalidad reservada.',
+    'Excursiones en barco perfectas para amigos, cumpleaños, despedidas y reuniones en Ibiza. Hasta 35 personas, bebidas y tapas todo incluido desde Sant Antoni.',
   path: '/boat-trips/groups',
   keywords:
-    'grupo barco Ibiza, excursiones grandes grupos Baleares, despedida Ibiza barco compartido, team building Ibiza barco',
+    'grupo barco Ibiza, excursión amigos Ibiza, cumpleaños barco Ibiza, despedida soltera barco Ibiza, despedida soltero barco Ibiza, excursión grupos Ibiza',
   ogImage: '/images/boat/chicasmuyfelices.webp',
   ogImageAlt: 'Grupo de amigos disfrutando una excursión en barco en Ibiza',
 });
 
-const groupBoatTripsJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Product',
-  name: 'Excursiones en barco para grupos Ibiza · Salvador Ibiza',
-  description:
-    'Excursión compartida con amplia capacidad en cubierta: ideal para reuniones de amigos, celebraciones informales y salidas corporativas ligeras.',
-  image: publicAssetUrl('/images/boat/chicasmuyfelices.webp'),
-  brand: { '@type': 'Brand', name: 'Salvador Ibiza' },
-  offers: {
-    '@type': 'Offer',
-    url: absoluteUrl('/boat-trips/groups'),
-    priceCurrency: 'EUR',
+export default async function GroupBoatTripsPage() {
+  const groupBoatTripsJsonLd = await buildProductSchema({
+    name: 'Excursiones en barco para grupos Ibiza · Salvador Ibiza',
+    description:
+      'Excursiones ideales para amigos y celebraciones en Ibiza. Experiencias todo incluido para cumpleaños, despedidas y reuniones de grupo.',
+    path: '/boat-trips/groups',
     price: '80',
-    priceSpecification: {
-      '@type': 'PriceSpecification',
-      price: '80',
-      priceCurrency: 'EUR',
-      valueAddedTaxIncluded: 'true',
-    },
-    availability: 'https://schema.org/InStock',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '278',
-  },
-  duration: 'PT3H',
-};
+    image: '/images/boat/chicasmuyfelices.webp',
+    duration: 'PT3H',
+  });
 
-export default function GroupBoatTripsPage() {
   return (
     <>
       <script
@@ -226,13 +207,20 @@ export default function GroupBoatTripsPage() {
 
             <div className="text-center">
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Combinar con otras opciones</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Link
                   href="/private-boat-trips"
                   className="block bg-purple-600 text-white p-6 rounded-lg hover:bg-purple-700 transition-colors"
                 >
                   <h4 className="text-xl font-bold mb-2">Charter privado</h4>
                   <p>Todo el barco solo para vosotros, con itinerario cerrado antes de zarpar.</p>
+                </Link>
+                <Link
+                  href="/corporate-events"
+                  className="block bg-teal-600 text-white p-6 rounded-lg hover:bg-teal-700 transition-colors"
+                >
+                  <h4 className="text-xl font-bold mb-2">Eventos corporativos</h4>
+                  <p>Team building y entretenimiento empresarial en el mar.</p>
                 </Link>
                 <Link href="/boat-trips" className="block bg-gray-800 text-white p-6 rounded-lg hover:bg-gray-700 transition-colors">
                   <h4 className="text-xl font-bold mb-2">Todas las excursiones</h4>

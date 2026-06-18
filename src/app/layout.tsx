@@ -10,7 +10,6 @@ import CookieConsentBanner from "@/components/CookieConsentBanner";
 import EarlyBirdPromoModal from "@/components/EarlyBirdPromoModal";
 import {
   absoluteUrl,
-  getGaMeasurementId,
   getGtmId,
   getSiteUrl,
   pageAlternates,
@@ -81,16 +80,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaMeasurementId = getGaMeasurementId();
   const gtmId = getGtmId();
   const siteBase = getSiteUrl();
-  const localBusinessSchema = buildLocalBusinessSchema(siteBase);
-  const touristAttractionSchema = buildTouristAttractionSchema(siteBase);
+  const localBusinessSchema = await buildLocalBusinessSchema(siteBase);
+  const touristAttractionSchema = await buildTouristAttractionSchema(siteBase);
   const websiteSchema = buildWebsiteSchema(siteBase);
   const organizationSchema = buildOrganizationSchema(siteBase);
 
@@ -139,17 +137,11 @@ export default function RootLayout({
                 'wait_for_update': 500
               });
               gtag('js', new Date());
-              gtag('config', '${gaMeasurementId}', {
-                page_path: window.location.pathname,
-              });
             `,
           }}
         />
 
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/images/favicon.ico" sizes="any" />
         <Script
           id="website-schema"

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { FiClock, FiUsers, FiMapPin, FiDollarSign, FiMusic, FiCompass, FiInfo, FiCamera, FiSun, FiAnchor } from 'react-icons/fi';
 import { GiWaterSplash, GiPartyPopper } from 'react-icons/gi';
 import { motion } from 'framer-motion';
-import Script from 'next/script';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Importamos nuestros componentes reutilizables
@@ -14,67 +13,7 @@ import TripHighlights from '@/components/trips/TripHighlights';
 import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
-import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { GoogleReview } from '@/services/googlePlaces'; // Import type
-
-function dayTripClientProductJsonLd() {
-  const page = absoluteUrl('/boat-trips/day-trip');
-  const img = publicAssetUrl('/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp');
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: 'Excursión diurna en barco todo incluido',
-    description:
-      'Auténtica experiencia mediterránea a bordo del barco tradicional Salvador: paddle surf, kayak, snorkel y baños en aguas cristalinas; tapas españolas, fruta y bar abierto ilimitado.',
-    brand: {
-      '@type': 'Brand',
-      name: 'Salvador Ibiza',
-    },
-    offers: {
-      '@type': 'Offer',
-      price: '80',
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/InStock',
-      validFrom: '2023-05-01T00:00:00+02:00',
-      validThrough: '2023-10-31T23:59:59+02:00',
-      seller: {
-        '@type': 'Organization',
-        name: 'Salvador Ibiza',
-      },
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.5',
-      reviewCount: '120',
-    },
-    review: {
-      '@type': 'Review',
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: '4.5',
-      },
-      author: {
-        '@type': 'Person',
-        name: 'TripAdvisor',
-      },
-      reviewBody:
-        'Excursión fantástica; tripulación cercana, barco muy cómodo y bar todo incluido de lujo. ¡Muy recomendable!',
-    },
-    category: 'Excursión en barco',
-    audience: 'Todas las edades',
-    keywords:
-      'excursión barco Ibiza, paddle surf, kayak, snorkel, día en barco Ibiza, Salvador Ibiza',
-    inLanguage: 'es-ES',
-    url: page,
-    image: img,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': page,
-    },
-    datePublished: '2023-05-01T00:00:00+02:00',
-    dateModified: '2023-09-20T10:00:00+02:00',
-  };
-}
 
 // Galería de imágenes para el viaje - Ampliada con fotos aéreas
 const images = [
@@ -222,7 +161,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               whileTap={{ scale: 0.95 }}
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
             >
-              Reservar plaza
+              Ver disponibilidad en vivo
             </motion.span>
           </Link>
         </motion.div>
@@ -597,14 +536,6 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
           </motion.div>
         </div>
       </section>
-
-      <Script
-        id="day-trip-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(dayTripClientProductJsonLd()),
-        }}
-      />
     </div>
   );
 } 

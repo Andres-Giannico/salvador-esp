@@ -1,6 +1,7 @@
 import { esPageMetadata } from "@/lib/page-meta";
 import { buildFaqPageSchema } from "@/lib/faq-schema";
 import { familyBoatTripFaqs } from "@/lib/topic-faqs";
+import { buildProductSchema } from "@/lib/product-schema";
 import FamilyBoatTripsClientPage from "./page.client";
 
 export const metadata = esPageMetadata({
@@ -14,9 +15,23 @@ export const metadata = esPageMetadata({
 
 const faqSchema = buildFaqPageSchema(familyBoatTripFaqs);
 
-export default function FamilyBoatTripsPage() {
+export default async function FamilyBoatTripsPage() {
+  const productSchema = await buildProductSchema({
+    name: "Excursiones en barco para familias Ibiza — Salvador Ibiza",
+    description:
+      "Excursiones en barco seguras y todo incluido para familias en Ibiza. Paddle, snorkel, chalecos para todas las edades y tapas aptas para niños desde Sant Antoni.",
+    path: "/boat-trips/family",
+    price: "80",
+    image: "/images/boat/chicaspasandolomuybien.webp",
+    duration: "PT3H",
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

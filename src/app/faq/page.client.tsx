@@ -348,7 +348,7 @@ export default function FAQClientPage() {
                   familias
                 </Link>
                 ,{" "}
-                <Link href="/boat-trips/sunset" className="text-orange-600 hover:underline">
+                <Link href="/boat-trips/sunset-trip" className="text-orange-600 hover:underline">
                   atardecer
                 </Link>{" "}
                 y{" "}

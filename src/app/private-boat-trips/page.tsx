@@ -2,7 +2,7 @@ import Script from 'next/script';
 import PrivateBoatTripsClientPage from './page.client';
 import { FiUsers, FiGift, FiStar, FiCamera, FiCalendar, FiHelpCircle, FiBriefcase } from 'react-icons/fi';
 import { esPageMetadata } from '@/lib/page-meta';
-import { absoluteUrl, publicAssetUrl } from '@/config/site';
+import { buildProductSchema } from '@/lib/product-schema';
 
 export const metadata = esPageMetadata({
   title: 'Charters privados en Ibiza hasta 35 personas',
@@ -15,41 +15,7 @@ export const metadata = esPageMetadata({
   ogImageAlt: 'Vista aérea con dron del Salvador Ibiza en charter privado en Cala Comte',
 });
 
-function privateBoatTripsJsonLd() {
-  const pageUrl = absoluteUrl('/private-boat-trips');
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: 'Charter privado en barco Ibiza — Salvador Ibiza',
-    description:
-      'Excursiones privadas en Ibiza para hasta 35 invitados. Incluye capitán, equipo acuático (paddle, kayak, snorkel) y catering según modalidad contratada.',
-    image: publicAssetUrl('/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp'),
-    brand: {
-      '@type': 'Brand',
-      name: 'Salvador Ibiza',
-    },
-    offers: {
-      '@type': 'Offer',
-      url: pageUrl,
-      priceCurrency: 'EUR',
-      price: '1350',
-      priceSpecification: {
-        '@type': 'PriceSpecification',
-        price: '1350',
-        priceCurrency: 'EUR',
-        valueAddedTaxIncluded: false,
-      },
-      availability: 'https://schema.org/InStock',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '278',
-    },
-  };
-}
-
-const getIconName = (icon: any): string => {
+const getIconName = (icon: typeof FiUsers): string => {
   if (icon === FiUsers) return 'FiUsers';
   if (icon === FiGift) return 'FiGift';
   if (icon === FiStar) return 'FiStar';
@@ -95,13 +61,22 @@ const perfectForItems = [
   },
 ];
 
-export default function PrivateBoatTripsPage() {
+export default async function PrivateBoatTripsPage() {
+  const productSchema = await buildProductSchema({
+    name: "Charter privado en barco Ibiza — Salvador Ibiza",
+    description:
+      "Excursiones privadas en Ibiza para hasta 35 invitados. Incluye capitán, bar abierto, tapas y deportes acuáticos como paddle surf y snorkel.",
+    path: "/private-boat-trips",
+    price: "1350",
+    image: "/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp",
+  });
+
   return (
     <>
       <Script
         id="private-boat-trips-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(privateBoatTripsJsonLd()) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
       <PrivateBoatTripsClientPage perfectFor={perfectForItems} />
     </>

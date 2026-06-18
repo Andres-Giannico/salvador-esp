@@ -1,7 +1,7 @@
 import SunsetTripClientPage from './page.client';
 import Script from 'next/script';
 import { esPageMetadata } from '@/lib/page-meta';
-import { absoluteUrl, publicAssetUrl } from '@/config/site';
+import { buildProductSchema } from '@/lib/product-schema';
 
 export const metadata = esPageMetadata({
   path: '/boat-trips/sunset-trip',
@@ -14,54 +14,23 @@ export const metadata = esPageMetadata({
   ogImageAlt: 'Atardecer en barco frente a la costa de Ibiza — Salvador',
 });
 
-function sunsetTripJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+export default async function SunsetTripPage() {
+  const sunsetTripJsonLd = await buildProductSchema({
     name: 'Excursión en barco al atardecer Ibiza — Salvador Ibiza',
-    image: [publicAssetUrl('/images/optimized/ibiza-sunset-boat-trip-salvador.webp')],
     description:
       'Excursión compartida al atardecer en Ibiza con capitán. ~3 h de navegación con catering, bebidas, paddle surf y snorkel según condiciones.',
-    brand: {
-      '@type': 'Organization',
-      name: 'Salvador Ibiza',
-    },
-    offers: {
-      '@type': 'Offer',
-      url: absoluteUrl('/boat-trips/sunset-trip'),
-      priceCurrency: 'EUR',
-      price: '80.00',
-      itemCondition: 'https://schema.org/NewCondition',
-      availability: 'https://schema.org/InStock',
-      validFrom: '2025-06-25',
-    },
-    review: {
-      '@type': 'Review',
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: '4.9',
-        bestRating: '5',
-      },
-      author: {
-        '@type': 'Person',
-        name: 'Cliente verificado',
-      },
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '1198',
-    },
-  };
-}
+    path: '/boat-trips/sunset-trip',
+    price: '80.00',
+    image: '/images/boat/sunset.png',
+    includeRating: true,
+  });
 
-export default function SunsetTripPage() {
   return (
     <>
       <Script
         id="sunset-trip-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(sunsetTripJsonLd()) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sunsetTripJsonLd) }}
       />
       <SunsetTripClientPage />
     </>

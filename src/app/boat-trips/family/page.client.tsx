@@ -10,6 +10,7 @@ import TestimonialSlider from "@/components/trips/TestimonialSlider";
 import { familyBoatTripComparison } from "@/lib/boat-trip-comparison";
 import { familyBoatTripFaqs } from "@/lib/topic-faqs";
 import { familyReviews } from "@/lib/topic-reviews";
+import { businessContact } from "@/config/site";
 
 const familyFaqItems = familyBoatTripFaqs.map((faq) => ({
   question: faq.question,
@@ -71,8 +72,7 @@ export default function FamilyBoatTripsClientPage() {
               <p>
                 A diferencia de los barcos fiesta, no ponemos música de discoteca ni restringimos la entrada
                 de niños. Nuestra tripulación da la bienvenida a familias cada día y elige las calas más
-                tranquilas para nadar según las condiciones. Con una valoración de 4,9/5 y más de 278
-                reseñas, Salvador Ibiza es la opción de confianza para familias de toda Europa.
+                tranquilas para nadar según las condiciones. Con una valoración de {businessContact.aggregateRating.ratingValue}/5 y más de {businessContact.aggregateRating.reviewCount} reseñas en Google, Salvador Ibiza es la opción de confianza para familias de toda Europa.
               </p>
             </div>
           </section>

@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { esPageMetadata } from '@/lib/page-meta';
+import { buildProductSchema } from '@/lib/product-schema';
 
 export const metadata = esPageMetadata({
   title: 'Paddle surf (SUP) desde barco en Ibiza (3 h) | Kayaks opcionales',
@@ -15,36 +15,17 @@ export const metadata = esPageMetadata({
   ogImageAlt: 'Paddle surf durante excursión en barco en Ibiza',
 });
 
-const paddleBoatTripsJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Product',
-  name: 'Paddle surf desde barco en Ibiza · Salvador Ibiza',
-  description:
-    'Salida colectiva con tablas suficientes para que el grupo disfrute el SUP desde el agua cercana al anclaje y kit de seguridad habitual.',
-  image: publicAssetUrl('/images/boat/chicasentablasup.png'),
-  brand: { '@type': 'Brand', name: 'Salvador Ibiza' },
-  offers: {
-    '@type': 'Offer',
-    url: absoluteUrl('/boat-trips/paddle'),
-    priceCurrency: 'EUR',
+export default async function PaddleBoatTripsPage() {
+  const paddleBoatTripsJsonLd = await buildProductSchema({
+    name: 'Paddle surf desde barco en Ibiza · Salvador Ibiza',
+    description:
+      'Salida colectiva con tablas suficientes para que el grupo disfrute el SUP desde el agua cercana al anclaje y kit de seguridad habitual.',
+    path: '/boat-trips/paddle',
     price: '80',
-    priceSpecification: {
-      '@type': 'PriceSpecification',
-      price: '80',
-      priceCurrency: 'EUR',
-      valueAddedTaxIncluded: 'true',
-    },
-    availability: 'https://schema.org/InStock',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '278',
-  },
-  duration: 'PT3H',
-};
+    image: '/images/boat/chicasentablasup.png',
+    duration: 'PT3H',
+  });
 
-export default function PaddleBoatTripsPage() {
   return (
     <>
       <script
