@@ -10,8 +10,18 @@ const COOKIE_CONSENT_KEY = 'cookie_consent_status';
 
 /**
  * ---------------------------------------------------------------------------
+ * Champion 10 CHAMPION10 (€10 / persona) — promo Mundial 15 días
+ * Prioridad sobre el resto de promos mientras esté activa.
+ * ---------------------------------------------------------------------------
+ */
+const CHAMPION10: { start: Date; end: Date } = {
+  start: new Date(2026, 5, 20, 0, 0, 0, 0),
+  end: new Date(2026, 6, 4, 23, 59, 59, 999),
+};
+
+/**
+ * ---------------------------------------------------------------------------
  * Early Bird 5 (€5) — reservas entre estas fechas (hora local).
- * Tras el bloque Super Promo, aplica Early Bird si sigue en rango.
  * ---------------------------------------------------------------------------
  */
 const EARLYBIRD: { start: Date; end: Date } = {
@@ -22,7 +32,6 @@ const EARLYBIRD: { start: Date; end: Date } = {
 /**
  * ---------------------------------------------------------------------------
  * Oleada SUPERPROMO (€10 / persona) — flash de 7 días en junio
- * Prioridad sobre la oferta de reserva anticipada mientras esta oleada siga activa.
  * ---------------------------------------------------------------------------
  */
 const SUPER_PROMO: { start: Date; end: Date } = {
@@ -31,7 +40,7 @@ const SUPER_PROMO: { start: Date; end: Date } = {
 };
 
 type ActivePromo = {
-  kind: 'super' | 'earlybird';
+  kind: 'champion' | 'super' | 'earlybird';
   code: string;
   eur: number;
   labelShort: string;
@@ -45,7 +54,24 @@ function inRange(now: Date, start: Date, end: Date): boolean {
   return now >= start && now <= end;
 }
 
+function isFlashPromo(kind: ActivePromo['kind']): boolean {
+  return kind === 'champion' || kind === 'super';
+}
+
 function getActivePromo(now: Date): ActivePromo | null {
+  if (inRange(now, CHAMPION10.start, CHAMPION10.end)) {
+    return {
+      kind: 'champion',
+      code: 'CHAMPION10',
+      eur: 10,
+      labelShort: 'Champion 10',
+      headline: 'Especial Mundial — 10 € menos por persona',
+      primaryCtaLabel: 'Aprovecha 10 € — reserva ya',
+      kicker: 'Champion 10 · 15 días · Reservas web',
+      validityText:
+        'Válido para reservas online del 20 jun al 4 jul 2026 (23:59, hora local). 10 € de descuento por persona con CHAMPION10 en Salvador Boat Mix (excursión de día o atardecer). Esta oferta del Mundial termina el 4 de julio.',
+    };
+  }
   if (inRange(now, SUPER_PROMO.start, SUPER_PROMO.end)) {
     return {
       kind: 'super',
@@ -76,11 +102,18 @@ function getActivePromo(now: Date): ActivePromo | null {
 }
 
 function storageKeyFor(promo: ActivePromo['kind']): string {
+  if (promo === 'champion') return 'salvador_champion10_2026_worldcup_dismissed';
   if (promo === 'super') return 'salvador_superpromo_2026_june_7day_dismissed';
   return 'salvador_earlybird5_promo_dismissed_2026';
 }
 
 const PROMO_HERO: Record<ActivePromo['kind'], { src: string; alt: string; className: string; overlay: string }> = {
+  champion: {
+    src: '/images/optimized/champion10-salvador-ibiza-world-cup-promo.webp',
+    alt: 'Salvador Ibiza — especial Mundial: 10 € de descuento por persona reservando en la web, código CHAMPION10, hasta el 4 de julio',
+    className: 'object-cover object-center',
+    overlay: '',
+  },
   super: {
     src: '/images/optimized/superpromo-salvador-ibiza-flash-deal.webp',
     alt: 'Salvador Ibiza — flash de 7 días: 10 € de descuento reservando en la web, código SUPERPROMO, hasta el 17 de junio',
@@ -176,7 +209,7 @@ export default function EarlyBirdPromoModal() {
         >
           <div
             className={
-              promo.kind === 'super'
+              isFlashPromo(promo.kind)
                 ? 'relative h-48 w-full shrink-0 sm:h-52'
                 : 'relative h-44 w-full shrink-0 sm:h-48'
             }
@@ -189,9 +222,11 @@ export default function EarlyBirdPromoModal() {
               sizes="(max-width: 28rem) 100vw, 28rem"
               priority
             />
-            <div
-              className={`absolute inset-0 bg-gradient-to-t ${PROMO_HERO[promo.kind].overlay}`}
-            />
+            {PROMO_HERO[promo.kind].overlay ? (
+              <div
+                className={`absolute inset-0 bg-gradient-to-t ${PROMO_HERO[promo.kind].overlay}`}
+              />
+            ) : null}
             {promo.kind === 'super' ? (
               <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-3.5">
                 <div className="flex flex-wrap items-center justify-center gap-2">
@@ -229,7 +264,17 @@ export default function EarlyBirdPromoModal() {
               {promo.headline}
             </h2>
             <p id="earlybird-promo-desc" className="mt-3 text-sm leading-relaxed text-gray-600">
-              {promo.kind === 'super' ? (
+              {promo.kind === 'champion' ? (
+                <>
+                  <strong className="text-gray-800">Especial Mundial:</strong>{' '}
+                  <strong className="text-[#1a7f37]">10 € menos por persona</strong> en{' '}
+                  <strong>Salvador Boat Mix</strong> (excursión de día o atardecer) al completar tu{' '}
+                  <strong>reserva en nuestra web</strong>. Introduce{' '}
+                  <strong className="font-mono text-gray-800">CHAMPION10</strong> al pagar — esta{' '}
+                  <strong className="text-gray-800">oferta de 15 días</strong> termina el{' '}
+                  <strong className="text-gray-800">4 de julio</strong>.
+                </>
+              ) : promo.kind === 'super' ? (
                 <>
                   <strong className="text-gray-800">Super promo:</strong>{' '}
                   <strong className="text-[#1a7f37]">10 € menos por persona</strong> en{' '}
@@ -252,7 +297,7 @@ export default function EarlyBirdPromoModal() {
 
             <div
               className={
-                promo.kind === 'super'
+                isFlashPromo(promo.kind)
                   ? 'mt-4 rounded-xl border-2 border-emerald-500/80 bg-gradient-to-br from-emerald-50/90 to-[#f6fff8] p-3.5 shadow-sm ring-1 ring-emerald-500/10'
                   : 'mt-4 rounded-xl border-2 border-[#28a745] bg-[#f6fff8] p-3'
               }
@@ -277,7 +322,7 @@ export default function EarlyBirdPromoModal() {
               </div>
               <p className="mt-2 text-xs text-[#1a7f37]">
                 ✓ {promo.eur} € menos por persona · Salvador Boat Mix (día o atardecer) ·{' '}
-                {promo.kind === 'super' ? 'se aplica al pagar en la web' : 'al reservar'}
+                {isFlashPromo(promo.kind) ? 'se aplica al pagar en la web' : 'al reservar'}
               </p>
             </div>
 
