@@ -1,147 +1,35 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { toast } from 'sonner';
-import { X, Copy, Check, Timer } from 'lucide-react';
+import { X, Copy, Check, Timer, Sun } from 'lucide-react';
+import {
+  getActivePromo,
+  getPromoHeroAlt,
+  isFlashPromo,
+  PROMO_HERO,
+  storageKeyFor,
+  type ActivePromo,
+} from '@/lib/active-promo';
+import { getPromoUi } from '@/lib/promo-i18n';
+import { PromoModalDescription } from '@/components/promo/PromoModalDescription';
+import { pushPromoDataLayer } from '@/lib/promo-analytics';
+import { getClientSiteLocale, siteLocaleLang } from '@/lib/site-locale';
 
 const COOKIE_CONSENT_KEY = 'cookie_consent_status';
 
-/**
- * ---------------------------------------------------------------------------
- * Champion 10 CHAMPION10 (€10 / persona) — promo Mundial 15 días
- * Prioridad sobre el resto de promos mientras esté activa.
- * ---------------------------------------------------------------------------
- */
-const CHAMPION10: { start: Date; end: Date } = {
-  start: new Date(2026, 5, 20, 0, 0, 0, 0),
-  end: new Date(2026, 6, 4, 23, 59, 59, 999),
-};
-
-/**
- * ---------------------------------------------------------------------------
- * Early Bird 5 (€5) — reservas entre estas fechas (hora local).
- * ---------------------------------------------------------------------------
- */
-const EARLYBIRD: { start: Date; end: Date } = {
-  start: new Date(2026, 3, 10, 0, 0, 0, 0),
-  end: new Date(2026, 5, 20, 23, 59, 59, 999),
-};
-
-/**
- * ---------------------------------------------------------------------------
- * Oleada SUPERPROMO (€10 / persona) — flash de 7 días en junio
- * ---------------------------------------------------------------------------
- */
-const SUPER_PROMO: { start: Date; end: Date } = {
-  start: new Date(2026, 5, 11, 0, 0, 0, 0),
-  end: new Date(2026, 5, 17, 23, 59, 59, 999),
-};
-
-type ActivePromo = {
-  kind: 'champion' | 'super' | 'earlybird';
-  code: string;
-  eur: number;
-  labelShort: string;
-  headline: string;
-  primaryCtaLabel: string;
-  validityText: string;
-  kicker: string;
-};
-
-function inRange(now: Date, start: Date, end: Date): boolean {
-  return now >= start && now <= end;
-}
-
-function isFlashPromo(kind: ActivePromo['kind']): boolean {
-  return kind === 'champion' || kind === 'super';
-}
-
-function getActivePromo(now: Date): ActivePromo | null {
-  if (inRange(now, CHAMPION10.start, CHAMPION10.end)) {
-    return {
-      kind: 'champion',
-      code: 'CHAMPION10',
-      eur: 10,
-      labelShort: 'Champion 10',
-      headline: 'Especial Mundial — 10 € menos por persona',
-      primaryCtaLabel: 'Aprovecha 10 € — reserva ya',
-      kicker: 'Champion 10 · 15 días · Reservas web',
-      validityText:
-        'Válido para reservas online del 20 jun al 4 jul 2026 (23:59, hora local). 10 € de descuento por persona con CHAMPION10 en Salvador Boat Mix (excursión de día o atardecer). Esta oferta del Mundial termina el 4 de julio.',
-    };
-  }
-  if (inRange(now, SUPER_PROMO.start, SUPER_PROMO.end)) {
-    return {
-      kind: 'super',
-      code: 'SUPERPROMO',
-      eur: 10,
-      labelShort: 'Super promo',
-      headline: 'Flash de 7 días — 10 € menos por persona',
-      primaryCtaLabel: 'Aprovecha 10 € — reserva ya',
-      kicker: 'Solo 7 días · Reservas web · hasta el 17 jun',
-      validityText:
-        'Válido para reservas online del 11 al 17 de junio de 2026 (23:59, hora local). 10 € de descuento por persona con SUPERPROMO en Salvador Boat Mix (excursión de día o atardecer). Esta oferta web de 7 días termina el 17 de junio — no te la pierdas.',
-    };
-  }
-  if (inRange(now, EARLYBIRD.start, EARLYBIRD.end)) {
-    return {
-      kind: 'earlybird',
-      code: 'EARLYBIRD5',
-      eur: 5,
-      labelShort: 'Early Bird 5',
-      headline: 'Gracias — ya estás dentro',
-      primaryCtaLabel: 'Reservar ahora',
-      kicker: 'Exclusiva · Reserva anticipada (Early Bird)',
-      validityText:
-        'Válido para reservas del 10 abr – 20 jun 2026. Transcurrido ese período finaliza la promoción.',
-    };
-  }
-  return null;
-}
-
-function storageKeyFor(promo: ActivePromo['kind']): string {
-  if (promo === 'champion') return 'salvador_champion10_2026_worldcup_dismissed';
-  if (promo === 'super') return 'salvador_superpromo_2026_june_7day_dismissed';
-  return 'salvador_earlybird5_promo_dismissed_2026';
-}
-
-const PROMO_HERO: Record<ActivePromo['kind'], { src: string; alt: string; className: string; overlay: string }> = {
-  champion: {
-    src: '/images/optimized/champion10-salvador-ibiza-world-cup-promo.webp',
-    alt: 'Salvador Ibiza — especial Mundial: 10 € de descuento por persona reservando en la web, código CHAMPION10, hasta el 4 de julio',
-    className: 'object-cover object-center',
-    overlay: '',
-  },
-  super: {
-    src: '/images/optimized/superpromo-salvador-ibiza-flash-deal.webp',
-    alt: 'Salvador Ibiza — flash de 7 días: 10 € de descuento reservando en la web, código SUPERPROMO, hasta el 17 de junio',
-    className: 'object-cover object-center',
-    overlay: 'from-black/35 to-transparent',
-  },
-  earlybird: {
-    src: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
-    alt: 'Salvador Ibiza — vista aérea del barco sobre agua turquesa',
-    className: 'object-cover object-center',
-    overlay: 'from-black/50 to-transparent',
-  },
-};
-
-function pushDataLayer(event: string, payload?: Record<string, unknown>) {
-  if (typeof window === 'undefined') return;
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event, ...payload });
-}
-
 export default function EarlyBirdPromoModal() {
+  const locale = useMemo(() => getClientSiteLocale(), []);
+  const ui = useMemo(() => getPromoUi(locale), [locale]);
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [promo, setPromo] = useState<ActivePromo | null>(null);
 
   useEffect(() => {
     const now = new Date();
-    const p = getActivePromo(now);
+    const p = getActivePromo(now, locale);
     if (!p) return;
 
     try {
@@ -156,11 +44,11 @@ export default function EarlyBirdPromoModal() {
 
     const timer = window.setTimeout(() => {
       setOpen(true);
-      pushDataLayer('salvador_promo_shown', { promo_type: p.kind, promo_code: p.code });
+      pushPromoDataLayer('salvador_promo_shown', { promo_type: p.kind, promo_code: p.code });
     }, delayMs);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [locale]);
 
   const dismiss = useCallback(() => {
     if (promo) {
@@ -171,7 +59,7 @@ export default function EarlyBirdPromoModal() {
       }
     }
     setOpen(false);
-    pushDataLayer('salvador_promo_dismissed', { promo_type: promo?.kind });
+    pushPromoDataLayer('salvador_promo_dismissed', { promo_type: promo?.kind });
   }, [promo]);
 
   const copyCode = useCallback(async () => {
@@ -179,15 +67,20 @@ export default function EarlyBirdPromoModal() {
     try {
       await navigator.clipboard.writeText(promo.code);
       setCopied(true);
-      toast.success('Código copiado — pégalo al pagar en la web.');
-      pushDataLayer('salvador_promo_code_copied', { promo_type: promo.kind, promo_code: promo.code });
+      toast.success(ui.copySuccessModal);
+      pushPromoDataLayer('salvador_promo_code_copied', {
+        promo_type: promo.kind,
+        promo_code: promo.code,
+      });
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      toast.error('No se pudo copiar. Introduce el código manualmente.');
+      toast.error(ui.copyError);
     }
-  }, [promo]);
+  }, [promo, ui]);
 
   if (!open || !promo) return null;
+
+  const heroAlt = getPromoHeroAlt(promo.kind, locale);
 
   return (
     <>
@@ -200,7 +93,7 @@ export default function EarlyBirdPromoModal() {
         role="presentation"
       >
         <div
-          lang="es"
+          lang={siteLocaleLang(locale)}
           className="pointer-events-auto w-full max-w-[min(100%,28rem)] max-h-[min(90vh,640px)] overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-2xl animate-in zoom-in-95 fade-in duration-200"
           role="dialog"
           aria-modal="true"
@@ -216,7 +109,7 @@ export default function EarlyBirdPromoModal() {
           >
             <Image
               src={PROMO_HERO[promo.kind].src}
-              alt={PROMO_HERO[promo.kind].alt}
+              alt={heroAlt}
               fill
               className={PROMO_HERO[promo.kind].className}
               sizes="(max-width: 28rem) 100vw, 28rem"
@@ -232,13 +125,28 @@ export default function EarlyBirdPromoModal() {
                 <div className="flex flex-wrap items-center justify-center gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-900 shadow-md ring-1 ring-black/5 sm:text-xs">
                     <Timer className="size-3.5 shrink-0 text-amber-600" aria-hidden />
-                    Solo 7 días · hasta el 17 jun
+                    {ui.superBadgeDays}
                   </span>
                   <span className="rounded-full bg-emerald-600 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md sm:text-xs">
-                    10 € / persona
+                    {ui.perGuestBadge(promo.eur)}
                   </span>
                   <span className="rounded-full bg-amber-500/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-950 shadow-md sm:text-xs">
-                    Tiempo limitado
+                    {ui.limitedTime}
+                  </span>
+                </div>
+              </div>
+            ) : promo.kind === 'summer' ? (
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-3.5">
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-900 shadow-md ring-1 ring-black/5 sm:text-xs">
+                    <Sun className="size-3.5 shrink-0 text-amber-500" aria-hidden />
+                    {ui.summerBadgeAllJuly}
+                  </span>
+                  <span className="rounded-full bg-emerald-600 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md sm:text-xs">
+                    {ui.perGuestBadge(promo.eur)}
+                  </span>
+                  <span className="rounded-full bg-orange-500/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md sm:text-xs">
+                    {ui.summerDeal}
                   </span>
                 </div>
               </div>
@@ -247,7 +155,7 @@ export default function EarlyBirdPromoModal() {
               type="button"
               onClick={dismiss}
               className="absolute right-3 top-3 rounded-full bg-white/90 p-2 text-gray-800 shadow-md transition hover:bg-white"
-              aria-label="Cerrar promoción"
+              aria-label={ui.closePromo}
             >
               <X className="size-5" />
             </button>
@@ -264,35 +172,7 @@ export default function EarlyBirdPromoModal() {
               {promo.headline}
             </h2>
             <p id="earlybird-promo-desc" className="mt-3 text-sm leading-relaxed text-gray-600">
-              {promo.kind === 'champion' ? (
-                <>
-                  <strong className="text-gray-800">Especial Mundial:</strong>{' '}
-                  <strong className="text-[#1a7f37]">10 € menos por persona</strong> en{' '}
-                  <strong>Salvador Boat Mix</strong> (excursión de día o atardecer) al completar tu{' '}
-                  <strong>reserva en nuestra web</strong>. Introduce{' '}
-                  <strong className="font-mono text-gray-800">CHAMPION10</strong> al pagar — esta{' '}
-                  <strong className="text-gray-800">oferta de 15 días</strong> termina el{' '}
-                  <strong className="text-gray-800">4 de julio</strong>.
-                </>
-              ) : promo.kind === 'super' ? (
-                <>
-                  <strong className="text-gray-800">Super promo:</strong>{' '}
-                  <strong className="text-[#1a7f37]">10 € menos por persona</strong> en{' '}
-                  <strong>Salvador Boat Mix</strong> (excursión de día o atardecer) al completar tu{' '}
-                  <strong>reserva en nuestra web</strong>. Introduce{' '}
-                  <strong className="font-mono text-gray-800">SUPERPROMO</strong> al pagar — esta{' '}
-                  <strong className="text-gray-800">oferta flash de 7 días</strong> termina el{' '}
-                  <strong className="text-gray-800">17 de junio</strong> y se acaba.
-                </>
-              ) : (
-                <>
-                  Aprovecha la <strong className="text-gray-800">oferta de reserva anticipada</strong> con código{' '}
-                  <strong className="font-mono text-gray-800">EARLYBIRD5</strong>:{' '}
-                  <strong className="text-[#1a7f37]">5 € de descuento por persona</strong> en{' '}
-                  <strong>Salvador Boat Mix</strong> — excursión de día o al atardecer. Introduce tu código al
-                  reservar.
-                </>
-              )}
+              <PromoModalDescription kind={promo.kind} code={promo.code} />
             </p>
 
             <div
@@ -302,7 +182,7 @@ export default function EarlyBirdPromoModal() {
                   : 'mt-4 rounded-xl border-2 border-[#28a745] bg-[#f6fff8] p-3'
               }
             >
-              <p className="text-xs font-medium text-gray-600">Código de descuento</p>
+              <p className="text-xs font-medium text-gray-600">{ui.promoCode}</p>
               <div className="mt-1 flex flex-wrap items-center gap-2">
                 <span className="font-mono text-lg font-bold tracking-wide text-gray-900">
                   {promo.code}
@@ -312,17 +192,13 @@ export default function EarlyBirdPromoModal() {
                   onClick={copyCode}
                   className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-700"
                 >
-                  {copied ? (
-                    <Check className="size-3.5" />
-                  ) : (
-                    <Copy className="size-3.5" />
-                  )}
-                  {copied ? 'Copiado' : 'Copiar'}
+                  {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+                  {copied ? ui.copied : ui.copy}
                 </button>
               </div>
               <p className="mt-2 text-xs text-[#1a7f37]">
-                ✓ {promo.eur} € menos por persona · Salvador Boat Mix (día o atardecer) ·{' '}
-                {isFlashPromo(promo.kind) ? 'se aplica al pagar en la web' : 'al reservar'}
+                {ui.codeBoxHint(promo.eur)}{' '}
+                {isFlashPromo(promo.kind) ? ui.appliedAtCheckout : ui.enterWhenBook}
               </p>
             </div>
 
@@ -336,12 +212,12 @@ export default function EarlyBirdPromoModal() {
                 onClick={dismiss}
                 className="order-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 sm:order-1"
               >
-                Quizás después
+                {ui.maybeLater}
               </button>
               <Link
-                href="/book-now"
+                href="/boat-trips"
                 onClick={() => {
-                  pushDataLayer('salvador_promo_book_now_click', {
+                  pushPromoDataLayer('salvador_promo_book_now_click', {
                     promo_type: promo.kind,
                     promo_code: promo.code,
                   });
@@ -357,10 +233,4 @@ export default function EarlyBirdPromoModal() {
       </div>
     </>
   );
-}
-
-declare global {
-  interface Window {
-    dataLayer?: Record<string, unknown>[];
-  }
 }
