@@ -4,16 +4,13 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import Script from "next/script";
-import { Toaster } from "sonner";
+import Script from 'next/script';
+import { Toaster } from 'sonner';
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import EarlyBirdPromoModal from "@/components/EarlyBirdPromoModal";
-import {
-  absoluteUrl,
-  getGtmId,
-  getSiteUrl,
-  pageAlternates,
-} from "@/config/site";
+import { getSiteUrl, pageAlternates } from "@/config/site";
+import { getLayoutSeo, getOpenGraphLocales } from "@/lib/seo-i18n";
+import { getSiteLocale } from "@/lib/site-locale";
 import {
   buildLocalBusinessSchema,
   buildOrganizationSchema,
@@ -34,45 +31,43 @@ const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const rootAlternates = pageAlternates("/");
+const siteLocale = getSiteLocale();
+const layoutSeo = getLayoutSeo(siteLocale);
+const ogLocales = getOpenGraphLocales(siteLocale);
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
-  alternates: rootAlternates,
+  alternates: pageAlternates('/'),
   title: {
-    default: "Salvador Ibiza — excursiones en barco y charter en Ibiza",
+    default: layoutSeo.title,
     template: "%s | Salvador Ibiza",
   },
-  description:
-    "Las mejores excursiones en barco y charter privado en Ibiza con Salvador. Salidas diurnas, al atardecer y experiencias memorables todo incluido.",
-  keywords:
-    "Salvador Ibiza, excursiones en barco Ibiza, charter privado Ibiza, paseos en barco, atardecer en barco, Es Vedrá, snorkel Ibiza",
-  authors: [{ name: "Salvador Ibiza" }],
+  description: layoutSeo.description,
+  keywords: layoutSeo.keywords,
+  authors: [{ name: "Salvador Ibiza Team" }],
   creator: "Salvador Ibiza",
   openGraph: {
-    title: "Salvador Ibiza — excursiones en barco y charter en Ibiza",
-    description:
-      "Excursiones en barco todo incluido y charter privado en Ibiza con tripulación profesional.",
-    url: absoluteUrl("/"),
+    title: layoutSeo.title,
+    description: layoutSeo.description,
+    url: getSiteUrl(),
     siteName: "Salvador Ibiza",
-    locale: "es_ES",
-    alternateLocale: ["nl_NL", "en_US", "fr_FR"],
-    type: "website",
+    locale: ogLocales.locale,
+    alternateLocale: ogLocales.alternateLocale,
+    type: 'website',
     images: [
       {
-        url: "/images/optimized/salvador-ibiza-boat-drone-view.webp",
+        url: '/images/optimized/salvador-ibiza-boat-drone-view.webp',
         width: 1200,
         height: 630,
-        alt: "Barco Salvador Ibiza en aguas de Ibiza",
-      },
+        alt: 'Salvador Ibiza Boat',
+      }
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Salvador Ibiza — excursiones en barco en Ibiza",
-    description:
-      "Excursiones en barco y charter privado en Ibiza. Reserva tu experiencia.",
-    images: ["/images/optimized/salvador-ibiza-boat-drone-view.webp"],
+    card: 'summary_large_image',
+    title: layoutSeo.title,
+    description: layoutSeo.description,
+    images: ['/images/optimized/salvador-ibiza-boat-drone-view.webp'],
   },
   robots: {
     index: true,
@@ -85,7 +80,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gtmId = getGtmId();
   const siteBase = getSiteUrl();
   const localBusinessSchema = await buildLocalBusinessSchema(siteBase);
   const touristAttractionSchema = await buildTouristAttractionSchema(siteBase);
@@ -93,21 +87,17 @@ export default async function RootLayout({
   const organizationSchema = buildOrganizationSchema(siteBase);
 
   return (
-    <html lang="es" className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang={siteLocale} className={`${inter.variable} ${montserrat.variable}`}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(touristAttractionSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(touristAttractionSchema) }}
         />
-
+        
         <Script
           id="google-tag-manager-head"
           strategy="afterInteractive"
@@ -117,7 +107,7 @@ export default async function RootLayout({
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','${gtmId}');
+              })(window,document,'script','dataLayer','GTM-MZR67SFF');
             `,
           }}
         />
@@ -129,6 +119,7 @@ export default async function RootLayout({
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
+              
               gtag('consent', 'default', {
                 'analytics_storage': 'denied',
                 'ad_storage': 'denied',
@@ -136,11 +127,12 @@ export default async function RootLayout({
                 'ad_personalization': 'denied',
                 'wait_for_update': 500
               });
+              
               gtag('js', new Date());
             `,
           }}
         />
-
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/images/favicon.ico" sizes="any" />
         <Script
@@ -159,18 +151,14 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${inter.className} bg-white text-gray-800`}>
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZR67SFF"
+        height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <Toaster position="top-center" richColors />
-          <main className="flex-grow pt-20 md:pt-24 sm:pt-16">{children}</main>
+          <main className="flex-grow pt-20 md:pt-24 sm:pt-16">
+            {children}
+          </main>
           <Footer />
         </div>
         <WhatsAppButton />

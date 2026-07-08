@@ -1,38 +1,35 @@
-import { Metadata } from "next";
-import { esPageMetadata } from "@/lib/page-meta";
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = esPageMetadata({
-  path: "/partners/turbookings",
-  title: "Integración TurBookings",
+export const metadata = enPageMetadata({
+  title: 'Turbookings integration',
   description:
-    "Cómo funciona la pasarela TurBookings con Salvador Ibiza: reservas seguras para clientes y herramientas para agencias colaboradoras.",
+    'How Salvador Ibiza partners with Turbookings for secure online booking, availability, and partner tools.',
+  path: '/partners/turbookings',
+  robots: { index: true, follow: true },
 });
 
 export default function TurbookingsPage() {
   return (
-    <main className="container mx-auto px-4 py-16 max-w-3xl">
-      <h1 className="text-3xl font-bold mb-6 text-gray-900">TurBookings</h1>
-      <section className="space-y-6 text-gray-700 leading-relaxed">
-        <p>
-          Trabajamos con TurBookings como plataforma de reserva para garantizar disponibilidad en tiempo
-          real, pagos seguros y confirmaciones inmediatas de tus excursiones con Salvador Ibiza.
+    <div>
+      <h1 className="text-3xl font-bold mb-8">Turbookings Integration</h1>
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Seamless Booking Experience</h2>
+        <p className="text-gray-700 leading-relaxed">
+          We partner with Turbookings to offer a reliable and easy-to-use booking platform for our boat trips. Turbookings provides a secure system for checking availability, making reservations, and processing payments.
         </p>
-        <h2 className="text-xl font-semibold text-gray-900">Ventajas para huéspedes</h2>
-        <ul className="list-disc list-inside space-y-2">
-          <li>Elegibilidad en vivo sin llamadas espera.</li>
-          <li>Pago protegido y comprobantes por correo.</li>
-          <li>Gestión sencilla de cambios dentro de políticas publicadas temporada.</li>
+        <h2 className="text-2xl font-semibold">Benefits for Customers</h2>
+        <ul className="list-disc list-inside text-gray-700 space-y-1">
+          <li>Real-time availability and instant booking confirmation.</li>
+          <li>Secure online payment processing.</li>
+          <li>Easy management of your bookings.</li>
+          <li>Clear overview of trip details and inclusions.</li>
         </ul>
-        <h2 className="text-xl font-semibold text-gray-900">Ventajas para agencias</h2>
-        <p>
-          Paneles para agencias afiliadas con visibilidad sobre cupos, tarifas pactadas y soporte
-          comercial. Actualizaremos pronto el detalle económico en la página de{" "}
-          <a href="/partners/earnings" className="text-blue-600 hover:underline">
-            comisiones partners
-          </a>
-          .
+        <h2 className="text-2xl font-semibold">Benefits for Agents & Resellers</h2>
+        <p className="text-gray-700 leading-relaxed">
+          Turbookings provides our partners with a powerful platform to manage sales, track commissions, and access promotional materials.
+          Learn more about earning potential on our <a href="/partners/earnings" className="text-blue-600 hover:underline">Earnings page</a>.
         </p>
       </section>
-    </main>
+    </div>
   );
 }

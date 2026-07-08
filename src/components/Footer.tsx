@@ -1,38 +1,34 @@
-import Link from "next/link";
-import Image from "next/image";
-import {
-  FaInstagram,
-  FaFacebookF,
-  FaWhatsapp,
-  FaTripadvisor,
-  FaYoutube,
-  FaTiktok,
-} from "react-icons/fa";
-import { FiMail, FiMapPin, FiPhone, FiArrowRight } from "react-icons/fi";
-import { businessContact, formatRegisteredAddress } from "@/config/site";
+import Link from 'next/link';
+import Image from 'next/image';
+import { FaInstagram, FaFacebookF, FaWhatsapp, FaTripadvisor, FaYoutube, FaTiktok } from 'react-icons/fa';
+import { FiMail, FiMapPin, FiPhone, FiArrowRight } from 'react-icons/fi';
+import { businessContact, formatRegisteredAddress } from '@/config/site';
+import { getThingsToDoCopy } from '@/lib/seo-i18n';
+import { getClientSiteLocale } from '@/lib/site-locale';
+
+const KAYAK_IBIZA_GUIDE_URL = 'https://www.kayak.es/Ibiza.8085.guide';
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const email = businessContact.email;
+  const currentLocale = 'en';
+  const thingsToDoLabel = getThingsToDoCopy(getClientSiteLocale()).footerLink;
+
   const [phone1, phone2] = businessContact.phones;
   const whatsappNumber = businessContact.whatsappNumber;
 
   const socialLinks = [
-    { name: "Instagram", href: businessContact.social.instagram, icon: FaInstagram },
-    { name: "Facebook", href: businessContact.social.facebook, icon: FaFacebookF },
-    { name: "TripAdvisor", href: businessContact.social.tripadvisor, icon: FaTripadvisor },
-    { name: "YouTube", href: businessContact.social.youtube, icon: FaYoutube },
-    { name: "TikTok", href: businessContact.social.tiktok, icon: FaTiktok },
+    { name: 'Instagram', href: businessContact.social.instagram, icon: FaInstagram },
+    { name: 'Facebook', href: businessContact.social.facebook, icon: FaFacebookF },
+    { name: 'TripAdvisor', href: businessContact.social.tripadvisor, icon: FaTripadvisor },
+    { name: 'YouTube', href: businessContact.social.youtube, icon: FaYoutube },
+    { name: 'TikTok', href: businessContact.social.tiktok, icon: FaTiktok },
   ];
 
   return (
-    <footer id="contact" className="relative">
+    <footer className="relative">
+      {/* Subtle wave separator */}
       <div className="absolute top-0 left-0 right-0 h-16 overflow-hidden">
-        <svg
-          className="absolute bottom-0 w-full h-24 text-white"
-          viewBox="0 0 1440 74"
-          preserveAspectRatio="none"
-        >
+        <svg className="absolute bottom-0 w-full h-24 text-white" viewBox="0 0 1440 74" preserveAspectRatio="none">
           <path
             d="M456.464 0.0433865C277.158 -1.70575 0 50.0141 0 50.0141V74H1440V50.0141C1440 50.0141 1320.4 31.1925 1243.09 27.0276C1099.33 19.2816 1019.08 53.1981 875.138 50.0141C710.527 46.3727 621.108 1.64949 456.464 0.0433865Z"
             fill="currentColor"
@@ -40,13 +36,15 @@ const Footer = () => {
         </svg>
       </div>
 
+      {/* Main Footer */}
       <div className="pt-20 pb-12 bg-gradient-to-b from-gray-50 to-gray-100">
         <div className="container mx-auto px-6 lg:px-8">
+          {/* Top section with logo and socials */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 pb-8 border-b border-gray-200">
-            <Link href="/" className="mb-6 md:mb-0">
+            <Link href={currentLocale === 'en' ? '/' : `/${currentLocale}`} className="mb-6 md:mb-0">
               <Image
                 src="/images/optimized/salvador-ibiza-footer-logo-alt.webp"
-                alt="Salvador Ibiza"
+                alt="Salvador Ibiza Footer Logo"
                 width={60}
                 height={18}
                 loading="lazy"
@@ -68,149 +66,114 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Main footer grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
+            {/* About column */}
             <div className="lg:pr-8">
-              <h3 className="text-lg font-bold mb-4 text-gray-800">Sobre nosotros</h3>
+              <h3 className="text-lg font-bold mb-4 text-gray-800">About Us</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Vive Ibiza desde el mar con nuestras excursiones en barco premium:
-                momentos inolvidables, aguas cristalinas y la magia del Mediterráneo.
+                Experience Ibiza from a different perspective with our premium boat trips. Unforgettable moments, crystal-clear waters, and the magic of the Mediterranean.
               </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium group"
-              >
-                Sobre Salvador Ibiza
-                <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              <Link href="/about" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium group">
+                About Salvador Ibiza <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
+            {/* Explore column */}
             <div>
-              <h3 className="text-lg font-bold mb-4 text-gray-800">Explora</h3>
+              <h3 className="text-lg font-bold mb-4 text-gray-800">Explore</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link
-                    href="/boat-trips"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    ⟡ Excursiones en barco
+                  <Link href="/boat-trips" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ Boat Trips
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/private-boat-trips"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    ⟡ Charters privados
+                  <Link href="/private-boat-trips" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ Private Trips
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/corporate-events"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    ⟡ Eventos corporativos
+                  <Link href="/corporate-events" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ Corporate Events
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/weddings"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    ⟡ Bodas
+                  <Link href="/weddings" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ Weddings
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/gallery"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    ⟡ Galería
+                  <Link href="/things-to-do-ibiza" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ {thingsToDoLabel}
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/faq"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    ⟡ Preguntas frecuentes
+                  <Link href="/gallery" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ Gallery
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/blog"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
+                  <Link href="/faq" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog" className="text-gray-600 hover:text-blue-600 transition duration-300">
                     ⟡ Blog
                   </Link>
                 </li>
               </ul>
             </div>
 
+            {/* Legal/Company column - ADD Contact Link Here */}
             <div>
-              <h3 className="text-lg font-bold mb-4 text-gray-800">Empresa</h3>
+              <h3 className="text-lg font-bold mb-4 text-gray-800">Company</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link
-                    href="/about"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    ⟡ Quiénes somos
+                  <Link href="/about" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ About Us
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/partners"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    ⟡ Colaboradores
+                  <Link href="/partners" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ Partners
+                  </Link>
+                </li>
+                {/* Add Contact Us Link */}
+                <li>
+                  <Link href="/contact" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ Contact Us
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/contact"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    ⟡ Contacto
+                  <Link href="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/privacy-policy"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    ⟡ Política de privacidad
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/terms-of-service"
-                    className="text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    ⟡ Aviso legal / condiciones
+                  <Link href="/terms-of-service" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ Terms of Service
                   </Link>
                 </li>
               </ul>
             </div>
 
+            {/* Contact column */}
             <div>
-              <h3 className="text-lg font-bold mb-4 text-gray-800">Contacto</h3>
+              <h3 className="text-lg font-bold mb-4 text-gray-800">Contact</h3>
               <ul className="space-y-4">
                 <li className="flex items-center text-gray-600">
                   <div className="bg-blue-50 p-2 rounded-full mr-3">
                     <FiMapPin className="w-4 h-4 text-blue-600" />
                   </div>
-                  <span>
-                    {formatRegisteredAddress()}
-                  </span>
+                  <span>{formatRegisteredAddress()}</span>
                 </li>
                 <li className="flex items-center text-gray-600">
                   <div className="bg-blue-50 p-2 rounded-full mr-3">
                     <FiPhone className="w-4 h-4 text-blue-600" />
                   </div>
-                  <a
-                    href={`tel:${phone1.replace(/\s/g, "")}`}
-                    className="hover:text-blue-600 transition duration-300"
-                  >
+                  <a href={`tel:${phone1.replace(/\s/g, '')}`} className="hover:text-blue-600 transition duration-300">
                     {phone1}
                   </a>
                 </li>
@@ -218,10 +181,7 @@ const Footer = () => {
                   <div className="bg-blue-50 p-2 rounded-full mr-3">
                     <FiPhone className="w-4 h-4 text-blue-600" />
                   </div>
-                  <a
-                    href={`tel:${phone2.replace(/\s/g, "")}`}
-                    className="hover:text-blue-600 transition duration-300"
-                  >
+                  <a href={`tel:${phone2.replace(/\s/g, '')}`} className="hover:text-blue-600 transition duration-300">
                     {phone2}
                   </a>
                 </li>
@@ -229,24 +189,21 @@ const Footer = () => {
                   <div className="bg-blue-50 p-2 rounded-full mr-3">
                     <FiMail className="w-4 h-4 text-blue-600" />
                   </div>
-                  <a
-                    href={`mailto:${email}`}
-                    className="hover:text-blue-600 transition duration-300 break-all"
-                  >
-                    {email}
+                  <a href={`mailto:${businessContact.email}`} className="hover:text-blue-600 transition duration-300">
+                    {businessContact.email}
                   </a>
                 </li>
                 <li className="flex items-center text-gray-600">
                   <div className="bg-green-50 p-2 rounded-full mr-3">
                     <FaWhatsapp className="w-4 h-4 text-green-600" />
                   </div>
-                  <a
-                    href={`https://wa.me/${whatsappNumber}`}
-                    target="_blank"
+                  <a 
+                    href={`https://wa.me/${whatsappNumber}`} 
+                    target="_blank" 
                     rel="noopener noreferrer"
                     className="hover:text-green-600 transition duration-300"
                   >
-                    WhatsApp
+                    WhatsApp Us
                   </a>
                 </li>
               </ul>
@@ -255,20 +212,33 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Bottom bar */}
       <div className="py-4 bg-white border-t border-gray-100">
-        <div className="container mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-500 mb-4 md:mb-0">
-            © {year} <span className="font-medium">Salvador Ibiza</span>. Todos los
-            derechos reservados.
-          </p>
-          <div className="flex space-x-8">
+        <div className="container mx-auto px-6 lg:px-8">
+          <p className="text-sm text-gray-500 text-center mb-3">
+            Discover more things to do in{' '}
             <a
-              href="#top"
-              className="text-sm text-gray-500 hover:text-blue-600 transition duration-300"
+              href={KAYAK_IBIZA_GUIDE_URL}
+              target="_blank"
+              rel="noopener noreferrer nofollow sponsored"
+              className="text-gray-600 hover:text-blue-600 underline underline-offset-2 transition duration-300"
             >
-              Volver arriba
+              Ibiza on KAYAK
             </a>
-            <span className="text-sm text-gray-500">Hecho con ❤️ desde MDQ e IBZ</span>
+            .
+          </p>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
+            <p className="text-sm text-gray-500 text-center md:text-left">
+              &copy; {year} <span className="font-medium">Salvador Ibiza</span>. All rights reserved.
+            </p>
+            <div className="flex space-x-8">
+              <a href="#top" className="text-sm text-gray-500 hover:text-blue-600 transition duration-300">
+                Back to top
+              </a>
+              <span className="text-sm text-gray-500">
+                Made with ❤️ from MDQ & IBZ
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -276,4 +246,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer; 

@@ -1,14 +1,13 @@
-import { Metadata } from 'next';
 import BookNowClientPage from './page.client';
-import { esPageMetadata } from '@/lib/page-meta';
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = esPageMetadata({
-  path: '/book-now',
-  title: 'Reservar excursiones en barco',
+export const metadata = enPageMetadata({
+  title: 'Book Your Ibiza Boat Trip',
   description:
-    'Reserva online tu excursión en barco o charter privado en Ibiza con Salvador. Disponibilidad en tiempo real y pago seguro.',
+    'Book your private charter or shared boat trip (Day or Sunset) easily online. Choose your perfect Ibiza experience with Salvador Ibiza.',
+  path: '/book-now',
 });
 
 export default function BookNowPage() {
   return <BookNowClientPage />;
-}
+} 

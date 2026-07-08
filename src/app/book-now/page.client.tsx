@@ -24,7 +24,7 @@ export default function BookNowClientPage() {
           transition={{ duration: 0.5 }}
           className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12 md:mb-16"
         >
-          Reserva tu <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">aventura Ibiza</span>
+          Book Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Ibiza Adventure</span>
         </motion.h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
@@ -39,12 +39,11 @@ export default function BookNowClientPage() {
             <div className="p-4 md:p-8 flex flex-col">
               <div className="flex items-center gap-4 mb-5">
                 <span className="bg-cyan-100 p-2 rounded-full inline-block"><FiSun className="w-7 h-7 text-cyan-600" /></span>
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Excursión de día</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Day Trip</h2>
               </div>
               <div className="prose prose-sm sm:prose-base text-gray-600 mb-4">
                 <p>
-                  Nuestra salida diurna más demandada: aguas de Ibiza de <strong>14:00 a 17:00</strong>. Bebidas bajo
-                  modalidad anunciada, tapeo, paradas para baño y buen ambiente a bordo.
+                  Join our popular day trip! Experience the beautiful waters of Ibiza from <strong>14:00-17:00</strong>. Includes drinks, snacks, swim stops, and good vibes.
                 </p>
               </div>
               <Link 
@@ -52,11 +51,11 @@ export default function BookNowClientPage() {
                 className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors mb-6 mt-4 self-start"
               >
                 <FiInfo className="w-4 h-4" />
-                <span>Más información excursión día</span>
+                <span>More Info about Day Trip</span>
               </Link>
 
               <div className="mt-auto -mx-1 sm:mx-0 bg-gradient-to-br from-gray-100 to-cyan-50/50 rounded-lg p-0 sm:p-3 md:p-4 sm:border sm:border-gray-200 sm:shadow-inner">
-                <h3 className="text-lg font-semibold text-center text-gray-700 mb-2 sm:mb-3 px-2 pt-3 sm:pt-0">Reservar excursión día</h3>
+                <h3 className="text-lg font-semibold text-center text-gray-700 mb-2 sm:mb-3 px-2 pt-3 sm:pt-0">Book Day Trip</h3>
                 <TurbnbWidget
                   id="turbnb-booking-day"
                   companyId={2}
@@ -67,15 +66,15 @@ export default function BookNowClientPage() {
                   customProperties={{
                     displayBillingTerm: true,
                     showQuantity: true,
-                    quantity: "Personas",
+                    quantity: "Guests",
                     titleVariant: "Modern",
-                    bookNow: "RESERVAR AHORA",
-                    selectExperienceLabel: "Tipo de experiencia",
-                    addonsLabel: "Extras",
-                    childrenAge: "6 a 12 años",
-                    infantAge: "0 a 5 años",
-                    depositObservation:
-                      "Tras reservar recibirás un voucher con los detalles. Revisa teléfono y email. Señal 20 € por persona; el resto se abona el día de la salida en la modalidad indicada en la confirmación.",
+                    bookNow: "RESERVE NOW",
+                    confirmReservationAndPay: "CONFIRM & PAY",
+                    selectExperienceLabel: "Experience Type",
+                    addonsLabel: "Add-ons",
+                    childrenAge: "6 to 12 Years",
+                    infantAge: "0 to 5 Years",
+                    depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
                   }}
                 />
               </div>
@@ -93,12 +92,11 @@ export default function BookNowClientPage() {
             <div className="p-4 md:p-8 flex flex-col">
               <div className="flex items-center gap-4 mb-5">
                 <span className="bg-orange-100 p-2 rounded-full inline-block"><FiMoon className="w-7 h-7 text-orange-600" /></span>
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Excursión al atardecer</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Sunset Trip</h2>
               </div>
               <div className="prose prose-sm sm:prose-base text-gray-600 mb-4">
                 <p>
-                  El ocaso de Ibiza desde el mar: salida orientativa <strong>18:30–21:30</strong> (ajustada temporada)
-                  para una tarde íntima en el Mediterráneo.
+                  Experience the magical sunset! Join us from <strong>18:30-21:30</strong> (times vary by season) for an unforgettable evening on the Mediterranean.
                 </p>
               </div>
               <Link 
@@ -106,11 +104,11 @@ export default function BookNowClientPage() {
                 className="inline-flex items-center gap-2 text-sm font-medium text-orange-600 hover:text-orange-800 transition-colors mb-6 mt-4 self-start"
               >
                 <FiInfo className="w-4 h-4" />
-                <span>Más información ruta ocaso</span>
+                <span>More Info about Sunset Trip</span>
               </Link>
 
               <div className="mt-auto -mx-1 sm:mx-0 bg-gradient-to-br from-gray-100 to-orange-50/50 rounded-lg p-0 sm:p-3 md:p-4 sm:border sm:border-gray-200 sm:shadow-inner">
-                <h3 className="text-lg font-semibold text-center text-gray-700 mb-2 sm:mb-3 px-2 pt-3 sm:pt-0">Reservar ocaso</h3>
+                <h3 className="text-lg font-semibold text-center text-gray-700 mb-2 sm:mb-3 px-2 pt-3 sm:pt-0">Book Sunset Trip</h3>
                 <TurbnbWidget
                   id="turbnb-booking-sunset"
                   companyId={2}
@@ -121,15 +119,15 @@ export default function BookNowClientPage() {
                   customProperties={{
                     displayBillingTerm: true,
                     showQuantity: true,
-                    quantity: "Personas",
+                    quantity: "Guests",
                     titleVariant: "Modern",
-                    bookNow: "RESERVAR AHORA",
-                    selectExperienceLabel: "Tipo de experiencia",
-                    addonsLabel: "Extras",
-                    childrenAge: "6 a 12 años",
-                    infantAge: "0 a 5 años",
-                    depositObservation:
-                      "Tras reservar recibirás un voucher con los detalles. Revisa teléfono y email. Señal 20 € por persona; el resto se abona el día de la salida en la modalidad indicada en la confirmación.",
+                    bookNow: "RESERVE NOW",
+                    confirmReservationAndPay: "CONFIRM & PAY",
+                    selectExperienceLabel: "Experience Type",
+                    addonsLabel: "Add-ons",
+                    childrenAge: "6 to 12 Years",
+                    infantAge: "0 to 5 Years",
+                    depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
                   }}
                 />
               </div>

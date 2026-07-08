@@ -2,28 +2,31 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { esPageMetadata } from '@/lib/page-meta';
+import { enPageMetadata } from '@/lib/page-meta';
 import { buildProductSchema } from '@/lib/product-schema';
 
-export const metadata = esPageMetadata({
-  title: 'Paddle surf (SUP) desde barco en Ibiza (3 h) | Kayaks opcionales',
-  description:
-    'Excursión compartida con tablas SUP a bordo, paradas para remar desde calas cercanas al puerto de Sant Antoni y aguas habitualmente muy claras. Kayaks disponibles.',
+export const metadata = enPageMetadata({
+  title: 'Paddle Boarding Boat Trips Ibiza (3 hours) | SUP Adventures',
+  description: 'Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters on your paddle board adventure.',
   path: '/boat-trips/paddle',
-  keywords: 'paddle surf Ibiza, SUP Ibiza barco, tablas inclusión excursiones Baleares',
+  keywords: 'paddle boarding Ibiza, SUP boat trips, paddle board rental Ibiza, stand up paddle boarding, SUP adventure Ibiza, paddle board tours',
+  ogTitle: 'Paddle Boarding Boat Trips Ibiza | SUP Adventures',
+  ogDescription: 'Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters.',
   ogImage: '/images/boat/chicasentablasup.png',
-  ogImageAlt: 'Paddle surf durante excursión en barco en Ibiza',
+  ogImageAlt: 'Woman paddle boarding during Ibiza boat trip',
 });
+
+// JSON-LD structured data for paddle boarding boat trips — no aggregateRating (reviews on canonical product pages only)
 
 export default async function PaddleBoatTripsPage() {
   const paddleBoatTripsJsonLd = await buildProductSchema({
-    name: 'Paddle surf desde barco en Ibiza · Salvador Ibiza',
+    name: "Paddle Boarding Boat Trips Ibiza by Salvador",
     description:
-      'Salida colectiva con tablas suficientes para que el grupo disfrute el SUP desde el agua cercana al anclaje y kit de seguridad habitual.',
-    path: '/boat-trips/paddle',
-    price: '80',
-    image: '/images/boat/chicasentablasup.png',
-    duration: 'PT3H',
+      "Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters on your adventure.",
+    path: "/boat-trips/paddle",
+    price: "80",
+    image: "/images/boat/chicasentablasup.png",
+    duration: "PT3H",
   });
 
   return (
@@ -34,44 +37,42 @@ export default async function PaddleBoatTripsPage() {
       />
       <div className="min-h-screen bg-gradient-to-b from-teal-50 to-white py-16">
         <div className="container mx-auto px-4">
+          {/* Breadcrumbs */}
           <div className="bg-white border-b border-gray-200 -mx-4 px-4 py-4 mb-8">
             <Breadcrumbs />
           </div>
 
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">
-              Paddle SUP en excursiones por <span className="text-teal-600">Ibiza</span>
+              Paddle Boarding Boat Trips <span className="text-teal-600">Ibiza</span>
             </h1>
-
+            
             <p className="text-xl text-gray-600 text-center mb-12 leading-relaxed">
-              Prueba el <strong>stand up paddle</strong> en la misma excursión de barco sin reservas aparte: llegamos a calas donde el capitán permite bajar tabla y navegar tranquilamente antes de seguir navegación o snorkel.
+              Experience the best <strong>paddle boarding boat trips in Ibiza</strong>. 
+              15 premium SUP boards included to explore hidden coves and crystal-clear waters.
             </p>
 
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Lo que marca esta temática dentro del tour</h2>
-
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Premium SUP Adventure Experience</h2>
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-teal-600 font-bold">🏄‍♀️</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Lote grande de tablas</h3>
-                    <p className="text-gray-600">
-                      Tablas hinchables y estables para debutantes y para quien ya controla mejor el balanceo sobre las olas cortas mediterráneas.
-                    </p>
+                    <h3 className="font-semibold text-gray-800 mb-2">15 Premium SUP Boards</h3>
+                    <p className="text-gray-600">High-quality, stable paddle boards suitable for all skill levels, from beginners to advanced paddlers.</p>
                   </div>
                 </div>
-
+                
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-teal-600 font-bold">🏝️</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Fondeos cerca del litoral</h3>
-                    <p className="text-gray-600">
-                      El capitán para en aguas tranquilas ese día para que podáis bajar tabla y explorar vistas de acantilado y entrada a calitas sin tener que ir en coche hasta otro punto.
-                    </p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Hidden Cove Access</h3>
+                    <p className="text-gray-600">Paddle to secluded beaches and hidden coves only accessible by water for a unique exploration.</p>
                   </div>
                 </div>
 
@@ -80,10 +81,8 @@ export default async function PaddleBoatTripsPage() {
                     <span className="text-teal-600 font-bold">👨‍🏫</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Mini taller de entrada al agua</h3>
-                    <p className="text-gray-600">
-                      Repasamos postura corta sobre tabla, seguridad elemental y cercanía al barco; la tripulación vigila cuando el grupo entra en el agua.
-                    </p>
+                    <h3 className="font-semibold text-gray-800 mb-2">SUP Instruction</h3>
+                    <p className="text-gray-600">Professional guidance and basic SUP lessons for beginners, plus tips for improving your technique.</p>
                   </div>
                 </div>
 
@@ -92,10 +91,8 @@ export default async function PaddleBoatTripsPage() {
                     <span className="text-teal-600 font-bold">💎</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Aguas con buena visibilidad</h3>
-                    <p className="text-gray-600">
-                      En jornadas de mar en calma el color del agua y el fondo se aprecian con claridad; las condiciones reales ese día marcan el tiempo que pasáis en tabla frente al descanso en cubierta.
-                    </p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Crystal Clear Waters</h3>
+                    <p className="text-gray-600">Paddle in pristine Mediterranean waters with excellent visibility and calm conditions.</p>
                   </div>
                 </div>
 
@@ -104,10 +101,8 @@ export default async function PaddleBoatTripsPage() {
                     <span className="text-teal-600 font-bold">🛶</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Kayaks opcionales a bordo</h3>
-                    <p className="text-gray-600">
-                      Para quien prefiere remar sentado, suele haber kayaks disponibles dentro del mismo equipo de actividades náuticas de la salida colectiva.
-                    </p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Kayaks Also Included</h3>
+                    <p className="text-gray-600">2 kayaks available for those who prefer kayaking or want to try both paddle sports.</p>
                   </div>
                 </div>
 
@@ -116,64 +111,63 @@ export default async function PaddleBoatTripsPage() {
                     <span className="text-teal-600 font-bold">📸</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Lugares muy fotográficos</h3>
-                    <p className="text-gray-600">
-                      Desde el agua ves la costa y el barco Salvador de un ángulo distinto; es un buen momento para fotos antes de cambiar bañador por toalla en cubierta.
-                    </p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Instagram-Worthy Spots</h3>
+                    <p className="text-gray-600">Paddle to the most photogenic locations around Ibiza for amazing photos and memories.</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-teal-50 border border-teal-200 rounded-lg p-6 mb-8">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">¿Vas por primera vez o ya lo dominas?</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-3">🏄‍♂️ Perfect for All Skill Levels</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span>
-                      <strong>Novatos</strong>: instrucciones breves y remada cercana al barco
+                      <strong>Complete beginners</strong> - basic instruction included
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span>
-                      <strong>Nivel intermedio</strong>: más autonomía alrededor del fondeo
+                      <strong>Intermediate paddlers</strong> - explore new areas
                     </li>
                   </ul>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span>
-                      <strong>Fuerte en SUP</strong>: disfruta el tramo donde el tiempo de parada permite más línea recta sobre el agua
+                      <strong>Advanced SUPers</strong> - challenging routes available
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span>
-                      <strong>Solo quieres descansar</strong>: música moderada en cubierta, baños y equipo de snorkel si apetece
+                      <strong>Non-paddlers</strong> - can relax on boat and swim
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="bg-gradient-to-r from-teal-100 to-cyan-100 rounded-lg p-6">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Equipamiento habitual relacionado</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-3">🌊 What's Included in Your SUP Adventure</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <ul className="space-y-2 text-gray-700">
-                    <li>Tablas para repartir entre el grupo</li>
-                    <li>Kayaks cuando la tripulación los despliega ese día</li>
-                    <li>Chalecos y material de seguridad</li>
-                    <li>Indicaciones antes de saltar al agua</li>
+                    <li>✅ 15 premium paddle boards</li>
+                    <li>✅ 2 kayaks for variety</li>
+                    <li>✅ All safety equipment</li>
+                    <li>✅ Basic SUP instruction</li>
                   </ul>
                   <ul className="space-y-2 text-gray-700">
-                    <li>Equipo de snorkel si quieres alternar con el paddle</li>
-                    <li>Bebidas y tapeo según modalidad todo incluido contratada</li>
-                    <li>Sistema de sonido con Bluetooth a volumen comedido</li>
-                    <li>Capitán y tripulación habituales ruta Sant Antoni</li>
+                    <li>✅ Snorkeling equipment</li>
+                    <li>✅ All-inclusive drinks & tapas</li>
+                    <li>✅ Professional crew guidance</li>
+                    <li>✅ Multiple paddle locations</li>
                   </ul>
                 </div>
               </div>
             </div>
 
+            {/* Image Gallery */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/boat/chicasentablasup.png"
-                  alt="Persona en tabla SUP junto al barco en Ibiza"
+                  alt="Woman paddle boarding during Ibiza boat trip"
                   fill
                   className="object-cover"
                 />
@@ -181,15 +175,18 @@ export default async function PaddleBoatTripsPage() {
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/boat/4chicasparadasentablaxxl.webp"
-                  alt="Grupo sobre tablas de paddle en excursión en Ibiza"
+                  alt="Four women on paddle boards during Ibiza SUP adventure"
                   fill
                   className="object-cover"
                 />
               </div>
             </div>
 
+            {/* Booking Widget */}
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Reserva día con paddle</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                Book Your SUP Adventure
+              </h2>
               <TurbnbWidget
                 companyId={2}
                 productId={2}
@@ -198,32 +195,34 @@ export default async function PaddleBoatTripsPage() {
                 customProperties={{
                   displayBillingTerm: true,
                   showQuantity: true,
-                  quantity: 'Personas',
-                  titleVariant: 'Modern',
-                  bookNow: 'RESERVAR SUP',
-                  selectExperienceLabel: 'Experiencia paddle',
-                  addonsLabel: 'Extras',
-                  childrenAge: '6 a 12 años',
-                  infantAge: '0 a 5 años',
-                  depositObservation:
-                    'Al completar la reserva recibirás un voucher con los detalles (punto de encuentro y horarios). Confirma que teléfono y email sean correctos. Se suele solicitar una señal de 20 € por persona; el saldo restante según las condiciones de la confirmación (habitualmente a bordo el día del viaje).',
+                  titleVariant: "Modern",
+                  bookNow: "BOOK SUP TRIP",
+                  confirmReservationAndPay: "CONFIRM & PAY",
+                  selectExperienceLabel: "SUP Experience",
+                  addonsLabel: "Add-ons",
+                  childrenAge: "6 to 12 Years",
+                  infantAge: "0 to 5 Years"
                 }}
               />
             </div>
 
+            {/* Additional Options */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Combinar con más actividades</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">More Water Sports Adventures</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Link
+                <Link 
                   href="/boat-trips/snorkeling"
                   className="block bg-teal-600 text-white p-6 rounded-lg hover:bg-teal-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">Combinar snorkel</h4>
-                  <p>Otra página con el mismo formato informativo para quien prioriza tiempo bajo el agua ese mismo día de salida.</p>
+                  <h4 className="text-xl font-bold mb-2">Snorkeling Experience</h4>
+                  <p>Combine SUP with underwater exploration</p>
                 </Link>
-                <Link href="/boat-trips" className="block bg-gray-800 text-white p-6 rounded-lg hover:bg-gray-700 transition-colors">
-                  <h4 className="text-xl font-bold mb-2">Todas las excursiones</h4>
-                  <p>Listado temático desde la página principal excursiones náuticas</p>
+                <Link 
+                  href="/boat-trips"
+                  className="block bg-gray-800 text-white p-6 rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  <h4 className="text-xl font-bold mb-2">All Boat Trips</h4>
+                  <p>Explore all our water adventures</p>
                 </Link>
               </div>
             </div>
@@ -232,4 +231,4 @@ export default async function PaddleBoatTripsPage() {
       </div>
     </>
   );
-}
+} 

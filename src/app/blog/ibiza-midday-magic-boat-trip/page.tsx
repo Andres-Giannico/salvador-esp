@@ -1,20 +1,51 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { esPageMetadata } from '@/lib/page-meta'
+import Script from 'next/script'
+import { enPageMetadata } from '@/lib/page-meta'
+import { buildBlogPostingSchema } from '@/lib/blog-schema'
 
-export const metadata = esPageMetadata({
-  title: 'Magia del mediodía en barco Ibiza',
+const metaBase = enPageMetadata({
+  title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
   description:
-    'Por qué navegar al mediodía en Ibiza marca diferencia: mar en calma chapuzones varios sol generoso energía alta sin prisa atardecer grupo mixto.',
+    "Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.",
   path: '/blog/ibiza-midday-magic-boat-trip',
   keywords:
-    'Ibiza excursión día mediodía Salvador barco grupo sol calas snorkel paddle blog',
+    'Ibiza day boat trip, midday boat tour Ibiza, best daytime excursions Ibiza, Salvador Ibiza blog, Ibiza boat activities',
+  ogTitle: "Ibiza's Midday Magic: The Unforgettable Day Trip",
+  ogDescription: 'Explore the unique charm of a daytime boat adventure in Ibiza with Salvador.',
   ogImage: '/images/blog/midday-magic-placeholder.webp',
-  ogImageAlt: 'Día soleado en barco Ibiza con Salvador',
+  ogImageAlt: 'Enjoying a sunny midday boat trip in Ibiza',
+})
+
+export const metadata: Metadata = {
+  ...metaBase,
+  twitter: {
+    card: 'summary_large_image',
+    title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
+    description:
+      'Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.',
+    images: ['/images/blog/midday-magic-placeholder.webp'],
+  },
+}
+
+const blogSchema = buildBlogPostingSchema({
+  title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
+  description:
+    'Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.',
+  path: '/blog/ibiza-midday-magic-boat-trip',
+  datePublished: '2024-03-01',
+  image: '/images/blog/midday-magic-placeholder.webp',
 })
 
 export default function MiddayMagicBoatTripPage() {
   return (
+    <>
+      <Script
+        id="blog-midday-magic-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
     <article className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
       <Link
         href="/blog"
@@ -105,10 +136,11 @@ export default function MiddayMagicBoatTripPage() {
             href="/book-now" // Or directly to Day Trip booking if widget supports it
             className="mt-4 inline-block rounded-lg bg-white px-8 py-3.5 text-lg font-semibold text-blue-600 hover:bg-blue-50 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
           >
-            Reserva día en barco
+            Book Your Daytime Adventure
           </Link>
         </div>
       </div>
     </article>
+    </>
   )
 } 

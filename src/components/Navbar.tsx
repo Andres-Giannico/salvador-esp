@@ -1,25 +1,25 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const EN_SITE_BASE = (
-  process.env.NEXT_PUBLIC_SITE_URL_EN || "https://www.salvadoribiza.com"
-).replace(/\/+$/, "");
+const ES_SITE_BASE = (
+  process.env.NEXT_PUBLIC_SITE_URL_ES || 'https://www.salvadoribiza.es'
+).replace(/\/+$/, '');
 
 const NL_SITE_BASE = (
-  process.env.NEXT_PUBLIC_SITE_URL_NL || "https://www.salvadoribiza.nl"
-).replace(/\/+$/, "");
+  process.env.NEXT_PUBLIC_SITE_URL_NL || 'https://www.salvadoribiza.nl'
+).replace(/\/+$/, '');
 
 const FR_SITE_BASE = (
-  process.env.NEXT_PUBLIC_SITE_URL_FR || "https://www.salvadoribiza.fr"
-).replace(/\/+$/, "");
+  process.env.NEXT_PUBLIC_SITE_URL_FR || 'https://www.salvadoribiza.fr'
+).replace(/\/+$/, '');
 
 function absoluteOnBase(base: string, pathname: string): string {
-  if (!pathname || pathname === "/") return `${base}/`;
+  if (!pathname || pathname === '/') return `${base}`;
   return `${base}${pathname}`;
 }
 
@@ -28,58 +28,53 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const links = [
-    { href: "/", label: "INICIO" },
-    { href: "/boat-trips", label: "EXCURSIONES" },
-    { href: "/private-boat-trips", label: "CHARTERS PRIVADOS" },
-    { href: "/gallery", label: "GALERÍA" },
-    { href: "/faq", label: "FAQ" },
+    { href: '/', label: 'HOME' },
+    { href: '/boat-trips', label: 'BOAT TRIPS' },
+    { href: '/private-boat-trips', label: 'PRIVATE TRIPS' },
+    { href: '/gallery', label: 'GALLERY' },
+    { href: '/faq', label: 'FAQ' },
   ];
 
   const navClass = `fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 bg-white/90 backdrop-blur-md shadow-lg py-2`;
-  const linkColor = "text-gray-700";
-  const activeBgColor = "bg-gradient-to-r from-blue-500/20 to-cyan-500/20";
-  const activeTextColor = "text-blue-600 font-semibold";
-  const hoverBgColor =
-    "hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-cyan-500/10";
-  const hoverTextColor = "hover:text-blue-600";
+  const linkColor = 'text-gray-700';
+  const activeBgColor = 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20';
+  const activeTextColor = 'text-blue-600 font-semibold';
+  const hoverBgColor = 'hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-cyan-500/10';
+  const hoverTextColor = 'hover:text-blue-600';
   const ctaClass = `py-2.5 px-6 rounded-full text-sm font-semibold shadow-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl`;
-  const navHeight = "h-20 md:h-24";
-  const logoHeight = "h-16 md:h-20";
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+  const navHeight = 'h-20 md:h-24';
+  const logoHeight = 'h-16 md:h-20';
 
   const langSwitcher = (
     <div className="flex flex-wrap items-center justify-end gap-1 border border-gray-200 rounded-full px-2 py-1 bg-white/80 max-w-[220px] sm:max-w-none">
       <span
-        className="text-xs sm:text-sm px-2 py-1 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 font-medium"
-        title="Estás en la versión en español"
-      >
-        <span aria-hidden>🇪🇸</span> ES
-      </span>
-      <a
-        href={absoluteOnBase(EN_SITE_BASE, pathname)}
-        className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
-        title={`Versión en inglés — ${new URL(`${EN_SITE_BASE}/`).hostname}`}
-        rel="alternate"
-        hrefLang="en"
+        className="text-xs sm:text-sm px-2 py-1 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 font-medium text-gray-900"
+        title="You are on the English site"
       >
         <span aria-hidden>🇬🇧</span> EN
-      </a>
+      </span>
       <a
         href={absoluteOnBase(NL_SITE_BASE, pathname)}
         className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
-        title={`Versión en neerlandés — ${new URL(`${NL_SITE_BASE}/`).hostname}`}
+        title={`Dutch version — ${new URL(`${NL_SITE_BASE}/`).hostname}`}
         rel="alternate"
         hrefLang="nl"
       >
         <span aria-hidden>🇳🇱</span> NL
       </a>
       <a
+        href={absoluteOnBase(ES_SITE_BASE, pathname)}
+        className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
+        title={`Spanish version — ${new URL(`${ES_SITE_BASE}/`).hostname}`}
+        rel="alternate"
+        hrefLang="es"
+      >
+        <span aria-hidden>🇪🇸</span> ES
+      </a>
+      <a
         href={absoluteOnBase(FR_SITE_BASE, pathname)}
         className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
-        title={`Versión en francés — ${new URL(`${FR_SITE_BASE}/`).hostname}`}
+        title={`French version — ${new URL(`${FR_SITE_BASE}/`).hostname}`}
         rel="alternate"
         hrefLang="fr"
       >
@@ -88,6 +83,10 @@ export default function Navbar() {
     </div>
   );
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
     <nav className={`${navClass} ${navHeight}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -95,13 +94,13 @@ export default function Navbar() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             className="flex-shrink-0"
           >
             <Link href="/">
               <Image
                 src="/images/optimized/salvador-ibiza-boat-trips-logo.webp"
-                alt="Salvador Ibiza — excursiones en barco"
+                alt="Salvador Ibiza Logo"
                 width={200}
                 height={90}
                 className={`object-contain ${logoHeight} w-auto hover:scale-105 transition-transform duration-300`}
@@ -113,8 +112,7 @@ export default function Navbar() {
           <div className="hidden md:flex md:items-center md:space-x-2 lg:space-x-3">
             {links.map((link, i) => {
               const isActive =
-                pathname === link.href ||
-                (link.href !== "/" && pathname.startsWith(link.href));
+                pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
               return (
                 <motion.div
                   key={link.href}
@@ -125,11 +123,7 @@ export default function Navbar() {
                   <Link href={link.href}>
                     <span
                       className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${linkColor}
-                        ${
-                          isActive
-                            ? `${activeBgColor} ${activeTextColor}`
-                            : `${hoverBgColor} ${hoverTextColor}`
-                        }
+                        ${isActive ? `${activeBgColor} ${activeTextColor}` : `${hoverBgColor} ${hoverTextColor}`}
                       `}
                     >
                       {link.label}
@@ -146,12 +140,12 @@ export default function Navbar() {
               className="ml-2"
             >
               <Link href="/book-now">
-                <span className={ctaClass}>RESERVAR</span>
+                <span className={ctaClass}>BOOK NOW</span>
               </Link>
             </motion.div>
           </div>
 
-          <div className="flex md:hidden items-center space-x-2">
+          <div className="flex md:hidden items-center space-x-3">
             <div className="scale-90 origin-right">{langSwitcher}</div>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -160,35 +154,20 @@ export default function Navbar() {
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >
-              <span className="sr-only">Abrir menú principal</span>
+              <span className="sr-only">Open main menu</span>
               <motion.div
-                animate={isOpen ? "open" : "closed"}
+                animate={isOpen ? 'open' : 'closed'}
                 variants={{
                   open: { rotate: 90 },
                   closed: { rotate: 0 },
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <svg
-                  className="h-6 w-6 text-gray-700"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+                <svg className="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   {isOpen ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16m-7 6h7"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
                   )}
                 </svg>
               </motion.div>
@@ -201,53 +180,55 @@ export default function Navbar() {
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="md:hidden bg-white/95 backdrop-blur-md shadow-lg overflow-hidden"
             id="mobile-menu"
           >
             <div className="px-4 pt-3 pb-4 space-y-2">
               <p className="px-4 text-xs text-gray-600 pb-1">
-                La misma página en{" "}
-                <a
-                  href={absoluteOnBase(EN_SITE_BASE, pathname)}
-                  className="text-blue-600 font-medium underline"
-                  hrefLang="en"
-                  rel="alternate"
-                >
-                  inglés
-                </a>{" "}
-                o en{" "}
+                Same page in{' '}
                 <a
                   href={absoluteOnBase(NL_SITE_BASE, pathname)}
                   className="text-blue-600 font-medium underline"
                   hrefLang="nl"
                   rel="alternate"
                 >
-                  neerlandés
+                  Dutch
+                </a>{' '}
+                or{' '}
+                <a
+                  href={absoluteOnBase(ES_SITE_BASE, pathname)}
+                  className="text-blue-600 font-medium underline"
+                  hrefLang="es"
+                  rel="alternate"
+                >
+                  Spanish
+                </a>
+                {' '}
+                or{' '}
+                <a
+                  href={absoluteOnBase(FR_SITE_BASE, pathname)}
+                  className="text-blue-600 font-medium underline"
+                  hrefLang="fr"
+                  rel="alternate"
+                >
+                  French
                 </a>
                 .
               </p>
               {links.map((link) => {
                 const isActive =
-                  pathname === link.href ||
-                  (link.href !== "/" && pathname.startsWith(link.href));
+                  pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
                 return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)}>
                     <motion.span
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                       className={`block px-4 py-2.5 rounded-xl text-base font-medium
-                        ${
-                          isActive
-                            ? `${activeBgColor} ${activeTextColor}`
-                            : `${linkColor} ${hoverBgColor} ${hoverTextColor}`
-                        }`}
+                        ${isActive ? `${activeBgColor} ${activeTextColor}` : `${linkColor} ${hoverBgColor} ${hoverTextColor}`}
+                      `}
                     >
                       {link.label}
                     </motion.span>
@@ -260,7 +241,7 @@ export default function Navbar() {
                     whileHover={{ scale: 1.02 }}
                     className="block text-center py-3 px-4 rounded-xl font-medium bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    RESERVAR AHORA
+                    BOOK NOW
                   </motion.span>
                 </Link>
               </div>

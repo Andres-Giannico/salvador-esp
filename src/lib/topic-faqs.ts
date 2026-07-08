@@ -2,247 +2,247 @@ import type { PlainFaq } from "./faq-schema";
 
 export const familyBoatTripFaqs: PlainFaq[] = [
   {
-    question: "¿Cuál es la mejor excursión en barco para familias en Ibiza?",
+    question: "What is the best family boat trip in Ibiza?",
     answer:
-      "Para familias, las mejores excursiones combinan paradas de baño en aguas tranquilas, chalecos salvavidas para todas las edades, comida apta para niños y un ambiente relajado — no un barco fiesta. Salvador Ibiza ofrece salidas todo incluido de 3 horas desde Sant Antoni en un barco de madera tradicional con paddle surf, kayaks, equipo de snorkel, tapas y fruta fresca.",
+      "For families, the best boat trips combine calm swim stops, life jackets for all ages, kid-friendly food, and a relaxed atmosphere — not a party boat. Salvador Ibiza runs 3-hour all-inclusive day trips from San Antonio on a traditional wooden boat with paddleboards, kayaks, snorkelling gear, tapas and fresh fruit.",
   },
   {
-    question: "¿Es Salvador Ibiza adecuado para familias con niños?",
+    question: "Is Salvador Ibiza good for families with children?",
     answer:
-      "Sí. Salvador Ibiza está pensado para familias. Nuestra tripulación da la bienvenida a niños de todas las edades, proporciona chalecos en cada talla, elige calas resguardadas para nadar y mantiene un ambiente relajado y divertido — sin música de fiesta a alto volumen ni multitudes de discoteca.",
+      "Yes. Salvador Ibiza is designed for families. Our crew welcomes children of all ages, provides life jackets in every size, selects sheltered coves for swimming, and keeps the atmosphere relaxed and fun — without loud party music or nightclub crowds.",
   },
   {
-    question: "¿Es Salvador Ibiza seguro para niños?",
+    question: "Is Salvador Ibiza safe for children?",
     answer:
-      "La seguridad es nuestra prioridad. Todos los niños reciben chalecos salvavidas, el capitán da una charla de seguridad antes de zarpar y las paradas de baño se eligen en aguas tranquilas y resguardadas. Nuestra tripulación está acostumbrada a ayudar a las familias durante toda la excursión.",
+      "Safety is our priority. All children receive life jackets, the captain gives a safety briefing before departure, and swim stops are chosen in calm, sheltered waters. Our experienced crew is trained to assist families throughout the trip.",
   },
   {
-    question: "¿Qué edad es adecuada para una excursión en barco con Salvador Ibiza?",
+    question: "What age is suitable for a Salvador Ibiza boat trip?",
     answer:
-      "Los bebés (0–5 años) viajan gratis, los niños de 6 a 12 años pagan tarifa reducida (45 €) y los adolescentes son bienvenidos en la misma excursión que los adultos. Bebés y pequeños deben estar siempre bajo supervisión de un adulto.",
+      "Infants (0–5) travel free, children aged 6–12 receive a discounted ticket (€45), and teenagers are welcome on the same trip as adults. Babies and toddlers should be supervised by a parent at all times.",
   },
   {
-    question: "¿Pueden ir bebés a una excursión con Salvador Ibiza?",
+    question: "Can babies join a Salvador Ibiza boat trip?",
     answer:
-      "Sí, los bebés de 0 a 5 años viajan gratis. Recomendamos traer protección solar y mantener a los más pequeños a la sombra bajo la toldo del barco durante las horas de más calor. Indícanos la edad del niño al reservar.",
+      "Yes, infants aged 0–5 travel free of charge. We recommend bringing sun protection and keeping babies in shade under the boat canopy during the hottest hours. Please let us know the child's age when booking.",
   },
   {
-    question: "¿Los niños necesitan chaleco salvavidas a bordo?",
+    question: "Do children need life jackets on board?",
     answer:
-      "Sí. Se proporcionan chalecos a todos los pasajeros, incluidos los niños, y son obligatorios durante la excursión. Disponemos de varias tallas, desde bebés hasta adolescentes.",
+      "Yes. Life jackets are provided for all passengers including children and are mandatory during the trip. We stock multiple sizes to fit toddlers through teenagers.",
   },
   {
-    question: "¿Hay sombra en el barco para los niños?",
+    question: "Is there shade on the boat for kids?",
     answer:
-      "Sí. Todos nuestros barcos tienen toldo (bimini) que ofrece amplia sombra. Esto es especialmente importante para los más pequeños durante las 3 horas de excursión.",
+      "Yes. All our boats have a canopy (bimini top) providing ample shade. This is especially important for young children during the 3-hour trip.",
   },
   {
-    question: "¿Hay baño a bordo?",
+    question: "Are there toilets on board?",
     answer:
-      "Sí, nuestros barcos están equipados con aseo marino (WC) para la comodidad de las familias y de todos los pasajeros.",
+      "Yes, our boats are equipped with a marine toilet (WC) for the comfort of families and all guests.",
   },
   {
-    question: "¿Pueden hacer snorkel y usar paddle los adolescentes?",
+    question: "Can teenagers snorkel and use paddleboards?",
     answer:
-      "Por supuesto. A los adolescentes les encantan nuestros puntos de snorkel, las tablas de paddle y los kayaks. El equipo está incluido y la tripulación recomienda las mejores zonas según la capacidad de natación.",
+      "Absolutely. Teenagers love our snorkelling spots, paddleboards and kayaks. Full equipment is included and the crew can recommend the best areas based on swimming ability.",
   },
   {
-    question: "¿Qué es lo que más disfrutan los niños en una excursión con Salvador Ibiza?",
+    question: "What do kids love most on a Salvador Ibiza trip?",
     answer:
-      "A los niños les encanta saltar al agua cristalina, ver peces mientras hacen snorkel, probar paddle y kayaks, y comer fruta fresca y tapas en cubierta. Muchas familias dicen que las paradas de baño en calas escondidas son lo mejor del día.",
+      "Kids especially enjoy jumping into crystal-clear water, spotting fish while snorkelling, trying paddleboards and kayaks, and eating fresh fruit and tapas on deck. Many families say the swim stops in hidden coves are the highlight.",
   },
   {
-    question: "¿En qué se diferencia Salvador Ibiza de un barco fiesta para familias?",
+    question: "How is Salvador Ibiza different from a party boat for families?",
     answer:
-      "Los barcos fiesta se centran en música alta, alcohol y ambiente de discoteca — a menudo con restricciones de edad para niños. Salvador Ibiza ofrece un ambiente relajado y familiar con actividades acuáticas, snorkel, tapas y bar abierto para adultos, sin el ambiente de fiesta.",
+      "Party boats focus on loud music, alcohol and nightclub-style crowds — often with age restrictions for children. Salvador Ibiza offers a relaxed, family-friendly atmosphere with water activities, snorkelling, tapas and an open bar for adults, without the party vibe.",
   },
   {
-    question: "¿Cuánto cuesta una excursión en barco para familias?",
+    question: "How much does a family boat trip cost?",
     answer:
-      "Las excursiones compartidas diurnas y al atardecer cuestan 80 € por adulto. Los niños de 6 a 12 años pagan 45 €. Los bebés de 0 a 5 años viajan gratis. Todas las salidas son todo incluido con capitán, tripulación, bebidas, tapas y material náutico.",
+      "Day and sunset shared trips cost €80 per adult. Children aged 6–12 pay €45. Infants aged 0–5 travel free. All trips are all-inclusive with captain, crew, drinks, tapas and water sports equipment.",
   },
   {
-    question: "¿Qué incluye la excursión para los niños?",
+    question: "What is included for children on the trip?",
     answer:
-      "Los niños disfrutan de las mismas inclusiones que los adultos: equipo de snorkel, paddle surf, kayaks, refrescos sin alcohol, fruta fresca y tapas. Se proporcionan chalecos salvavidas. No hay menú infantil separado, pero la comida es apta para familias.",
+      "Children enjoy the same inclusions as adults: snorkelling gear, paddleboards, kayaks, non-alcoholic drinks, fresh fruit and tapas. Life jackets are provided. There is no separate kids menu, but the food is family-friendly.",
   },
   {
-    question: "¿Pueden disfrutar la excursión niños que no saben nadar?",
+    question: "Can non-swimming children still enjoy the trip?",
     answer:
-      "Sí. Los niños que prefieren no nadar pueden quedarse en cubierta a la sombra, disfrutar del paisaje, la música y la comida. La tripulación puede sugerir zonas poco profundas cerca del barco para quienes nadan con cautela.",
+      "Yes. Children who prefer not to swim can stay on deck under the shade, enjoy the scenery, music and food. The crew can suggest shallow areas near the boat for cautious swimmers.",
   },
   {
-    question: "¿Qué debemos llevar para los niños?",
+    question: "What should we bring for kids?",
     answer:
-      "Trae bañador, toalla, protector solar, gorra, gafas de sol y cámara. Si tu hijo es propenso al mareo, considera medicación preventiva. No se permiten bebidas de fuera porque ofrecemos bar abierto completo.",
+      "Pack swimwear, towels, sunscreen, hats, sunglasses and a camera. Consider seasickness medication if your child is prone to motion sickness. Outside drinks are not permitted as we provide a full open bar.",
   },
   {
-    question: "¿La música es demasiado alta para los niños?",
+    question: "Is the music too loud for children?",
     answer:
-      "No. Ponemos música de fondo relajada a un volumen cómodo — no los sets de DJ de los barcos fiesta. En charters privados puedes conectar tu propia playlist por Bluetooth.",
+      "No. We play relaxed background music at a comfortable volume — not the loud DJ sets you find on party boats. You can also connect your own playlist via Bluetooth on private charters.",
   },
   {
-    question: "¿Dónde es el punto de encuentro para familias?",
+    question: "Where is the meeting point for families?",
     answer:
-      "Zarparamos del puerto de Sant Antoni, Ibiza. La ubicación exacta de embarque y la hora se confirman en el voucher de reserva. Consulta nuestra página de contacto para direcciones y mapa.",
+      "We depart from the port of San Antonio, Ibiza. The exact boarding location and time are confirmed on your booking voucher. See our contact page for directions and a map.",
   },
   {
-    question: "¿Podemos reservar una excursión privada solo para nuestra familia?",
+    question: "Can we book a private trip just for our family?",
     answer:
-      "Sí. Los charters privados son ideales para familias que quieren el barco en exclusiva. Puedes personalizar ruta, horario y ambiente. Los viajes privados empiezan desde 1.350 € para hasta 35 personas.",
+      "Yes. Private charters are ideal for families who want the boat exclusively. You can customise the route, timing and atmosphere. Private trips start from €1,350 for up to 35 guests.",
   },
   {
-    question: "¿Qué pasa si hace mal tiempo?",
+    question: "What happens if the weather is bad?",
     answer:
-      "Si el capitán decide que las condiciones no son seguras, intentaremos reprogramar tu excursión. Si no es posible, ofrecemos reembolso completo. La seguridad de la familia siempre es lo primero.",
+      "If the captain decides conditions are unsafe, we will try to reschedule your trip. If rescheduling is not possible, we offer a full refund. Family safety always comes first.",
   },
   {
-    question: "¿Cuánto dura la excursión en barco para familias?",
+    question: "How long is the family boat trip?",
     answer:
-      "Nuestra excursión diurna compartida dura aproximadamente 3 horas (habitualmente 14:00–17:00 en temporada alta). La excursión al atardecer también dura 3 horas (aprox. 18:30–21:30). Ambas son aptas para familias.",
+      "Our shared day trip lasts approximately 3 hours (typically 2:00 PM – 5:00 PM in peak season). The sunset trip is also 3 hours (around 6:30 PM – 9:30 PM). Both are suitable for families.",
   },
 ];
 
 export const sunsetBoatTripFaqs: PlainFaq[] = [
   {
-    question: "¿Cuál es la mejor excursión en barco al atardecer en Ibiza?",
+    question: "What is the best sunset boat trip in Ibiza?",
     answer:
-      "Las mejores excursiones al atardecer combinan una salida programada para la hora dorada, rutas escénicas por la costa oeste y un ambiente cómodo. Salvador Ibiza ofrece cruceros vespertinos de 3 horas desde Sant Antoni con bar abierto, tapas, paradas de baño y vistas hacia Cala Comte o Es Vedrà.",
+      "The best sunset boat trips combine a departure timed for golden hour, scenic west-coast routes, and a comfortable atmosphere. Salvador Ibiza offers 3-hour sunset cruises from San Antonio with an open bar, tapas, swim stops and views towards Cala Comte or Es Vedrà.",
   },
   {
-    question: "¿A qué hora sale la excursión al atardecer de Salvador Ibiza?",
+    question: "What time does the Salvador Ibiza sunset trip depart?",
     answer:
-      "En temporada alta, la excursión al atardecer suele salir alrededor de las 18:30 y regresar sobre las 21:30 — programada para captar la legendaria hora dorada y la puesta de sol sobre el Mediterráneo.",
+      "During peak season the sunset trip typically departs around 6:30 PM and returns around 9:30 PM — timed to catch Ibiza's legendary golden hour and sunset over the Mediterranean.",
   },
   {
-    question: "¿Por dónde navega la excursión al atardecer?",
+    question: "Where does the sunset boat trip go?",
     answer:
-      "El capitán elige la mejor ruta cada día según el estado del mar. Las rutas exploran la costa oeste de Ibiza hacia Cala Comte o la costa norte hacia Es Vedrà y Sa Foradada — ambas ofrecen puestas de sol espectaculares.",
+      "The captain chooses the best route daily based on sea conditions. Routes explore Ibiza's west coast towards Cala Comte or the north coast towards Es Vedrà and Sa Foradada — both offer spectacular sunset views.",
   },
   {
-    question: "¿La excursión al atardecer es buena para parejas?",
+    question: "Is the sunset trip good for couples?",
     answer:
-      "Sí, es una de nuestras salidas más populares entre parejas. La luz dorada, el bar abierto con cava y el ambiente relajado en un barco de madera tradicional crean un entorno naturalmente romántico.",
+      "Yes, it's one of our most popular trips for couples. The golden-hour light, open bar with cava, and relaxed atmosphere on a traditional wooden boat create a naturally romantic setting.",
   },
   {
-    question: "¿Pueden ir familias a la excursión al atardecer?",
+    question: "Can families join the sunset trip?",
     answer:
-      "Por supuesto. Los niños son bienvenidos en la excursión al atardecer con las mismas tarifas que la diurna (45 € de 6 a 12 años, gratis de 0 a 5). El ambiente es relajado, no de barco fiesta.",
+      "Absolutely. Children are welcome on the sunset trip with the same pricing as the day trip (€45 for ages 6–12, free for infants 0–5). The atmosphere is relaxed, not a party boat.",
   },
   {
-    question: "¿Qué incluye la excursión al atardecer?",
+    question: "What is included on the sunset boat trip?",
     answer:
-      "Capitán y tripulación, combustible, bar abierto ilimitado (cerveza, vino, cava, sangría, refrescos, agua), tapas españolas, fruta fresca, 15 tablas de paddle, 2 kayaks y equipo completo de snorkel.",
+      "Captain and crew, fuel, unlimited open bar (beer, wine, cava, sangria, soft drinks, water), Spanish tapas, fresh fruit, 15 paddleboards, 2 kayaks and full snorkelling equipment.",
   },
   {
-    question: "¿Se puede nadar durante la excursión al atardecer?",
+    question: "Can you swim during the sunset trip?",
     answer:
-      "Sí. Paramos en calas preciosas donde puedes nadar, hacer snorkel, paddle o kayak mientras cae el sol — una de las partes más memorables de la experiencia.",
+      "Yes. We stop at beautiful coves where you can swim, snorkel, paddleboard or kayak while the sun sets — one of the most memorable parts of the experience.",
   },
   {
-    question: "¿En qué se diferencia Salvador Ibiza de un barco fiesta al atardecer?",
+    question: "How is Salvador Ibiza different from a sunset party boat?",
     answer:
-      "Los barcos fiesta al atardecer priorizan música alta y ambiente de club. Salvador Ibiza ofrece un crucero vespertino relajado en barco de madera tradicional con bebidas premium, tapas y actividades acuáticas — ideal si quieres el atardecer sin ambiente de discoteca.",
+      "Sunset party boats prioritise loud music and club-style crowds. Salvador Ibiza offers a relaxed sunset cruise on a traditional wooden boat with premium drinks, tapas and water activities — ideal if you want the sunset without the nightclub atmosphere.",
   },
   {
-    question: "¿La excursión al atardecer es buena para fotografía?",
+    question: "Is the sunset trip good for photography?",
     answer:
-      "Sí. Las rutas por la costa oeste ofrecen fondos de puesta de sol impresionantes sobre el mar, Es Vedrà y Cala Comte. Muchos pasajeros capturan sus mejores fotos de vacaciones en Ibiza durante esta excursión.",
+      "Yes. The west-coast routes offer stunning sunset backdrops over the sea, Es Vedrà and Cala Comte. Many guests capture their best Ibiza holiday photos during this trip.",
   },
   {
-    question: "¿Cuánto cuesta la excursión en barco al atardecer?",
+    question: "How much does the sunset boat trip cost?",
     answer:
-      "80 € por adulto, 45 € para niños de 6 a 12 años y gratis para bebés de 0 a 5 años. Todo está incluido — sin extras ocultos en bebidas, comida o equipo.",
+      "€80 per adult, €45 for children aged 6–12, and free for infants aged 0–5. Everything is included — no hidden extras for drinks, food or equipment.",
   },
   {
-    question: "¿Desde dónde sale la excursión al atardecer?",
+    question: "Where does the sunset trip depart from?",
     answer:
-      "Puerto de Sant Antoni (Sant Antoni de Portmany), Ibiza. El punto exacto de embarque figura en el voucher de confirmación de reserva.",
+      "San Antonio port (Sant Antoni de Portmany), Ibiza. The exact boarding point is on your booking confirmation voucher.",
   },
   {
-    question: "¿Debo reservar la excursión al atardecer con antelación?",
+    question: "Should I book the sunset trip in advance?",
     answer:
-      "Sí, especialmente en julio y agosto. Las salidas al atardecer son muy populares y suelen agotarse. Reservar online garantiza tu plaza.",
+      "Yes, especially in July and August. Sunset trips are very popular and sell out regularly. Booking online guarantees your spot.",
   },
 ];
 
 export const snorkelingBoatTripFaqs: PlainFaq[] = [
   {
-    question: "¿Cuál es la mejor excursión en barco con snorkel en Ibiza?",
+    question: "What is the best snorkelling boat trip in Ibiza?",
     answer:
-      "Las mejores excursiones de snorkel visitan varias calas de agua cristalina, incluyen equipo profesional para todos los pasajeros y combinan el snorkel con una experiencia completa a bordo. Salvador Ibiza incluye máscaras, tubos y aletas para todos, más 2–3 paradas de baño en nuestras excursiones diurnas y al atardecer de 3 horas.",
+      "The best snorkelling boat trips visit multiple crystal-clear coves, include professional equipment for all guests, and combine snorkelling with a full boat experience. Salvador Ibiza includes masks, snorkels and fins for everyone, plus 2–3 swim stops on our 3-hour day and sunset trips.",
   },
   {
-    question: "¿Está incluido el equipo de snorkel?",
+    question: "Is snorkelling equipment included?",
     answer:
-      "Sí. Cada excursión de Salvador Ibiza incluye equipo completo de snorkel — máscaras, tubos y aletas — para todos los pasajeros sin coste adicional.",
+      "Yes. Every Salvador Ibiza trip includes complete snorkelling equipment — masks, snorkels and fins — for all guests at no extra charge.",
   },
   {
-    question: "¿Cuáles son los mejores puntos de snorkel en Ibiza en barco?",
+    question: "Where are the best snorkelling spots in Ibiza by boat?",
     answer:
-      "Nuestras rutas visitan calas resguardadas de la costa oeste (cerca de Cala Comte, Cala Salada) y costa norte (zona Sa Foradada). El capitán elige los mejores puntos cada día según visibilidad y condiciones del mar.",
+      "Our routes visit sheltered coves along Ibiza's west coast (near Cala Comte, Cala Salada) and north coast (Sa Foradada area). The captain selects the best spots daily based on visibility and sea conditions.",
   },
   {
-    question: "¿Pueden hacer snorkel principiantes en una excursión con Salvador Ibiza?",
+    question: "Can beginners snorkel on a Salvador Ibiza trip?",
     answer:
-      "Sí. La tripulación da una charla de seguridad y puede recomendar zonas poco profundas para quienes empiezan. Las calas tranquilas con agua clara y poco profunda son perfectas para principiantes y familias.",
+      "Yes. The crew gives a safety briefing and can recommend shallow areas for first-time snorkellers. Calm coves with clear, shallow water are perfect for beginners and families.",
   },
   {
-    question: "¿Pueden hacer snorkel los niños en la excursión?",
+    question: "Can children snorkel on the boat trip?",
     answer:
-      "Sí. El snorkel es uno de los momentos preferidos de muchas familias. Proporcionamos equipo en varias tallas y la tripulación supervisa las paradas de baño en aguas seguras y resguardadas.",
+      "Yes. Snorkelling is a highlight for many families. We provide equipment in various sizes and the crew supervises swim stops in safe, sheltered waters.",
   },
   {
-    question: "¿Qué fauna marina se puede ver haciendo snorkel en Ibiza?",
+    question: "What marine life can you see snorkelling in Ibiza?",
     answer:
-      "Según la temporada y la ubicación, puedes ver doradas, pulpos, estrellas de mar, erizos y peces mediterráneos de colores en los roqueríos y praderas de posidonia de la costa de Ibiza.",
+      "Depending on the season and location, you may see sea bream, octopus, starfish, sea urchins and colourful Mediterranean fish in the rocky coves and posidonia meadows around Ibiza's coast.",
   },
   {
-    question: "¿Debo traer mi propio equipo de snorkel?",
+    question: "Do I need to bring my own snorkelling gear?",
     answer:
-      "No. Todo el equipo está incluido y se mantiene a bordo. Solo trae bañador y toalla.",
+      "No. All equipment is provided and maintained on board. Just bring your swimwear and towel.",
   },
   {
-    question: "¿Pueden disfrutar la excursión quienes no saben nadar?",
+    question: "Can non-swimmers enjoy the snorkelling trip?",
     answer:
-      "Sí. Quienes no nadan pueden quedarse en el barco, disfrutar del paisaje, las bebidas y las tapas, o chapucear en agua poco profunda cerca del barco con ayuda de la tripulación.",
+      "Yes. Non-swimmers can stay on the boat, enjoy the scenery, drinks and tapas, or paddle in shallow water near the boat with crew assistance.",
   },
   {
-    question: "¿Hay snorkel tanto en excursiones diurnas como al atardecer?",
+    question: "Is snorkelling available on both day and sunset trips?",
     answer:
-      "Sí. Tanto nuestra excursión diurna de 3 horas como la de atardecer incluyen paradas de snorkel con equipo completo.",
+      "Yes. Both our 3-hour day trip and 3-hour sunset trip include snorkelling stops with full equipment included.",
   },
   {
-    question: "¿Cuánto cuesta una excursión en barco con snorkel en Ibiza?",
+    question: "How much does a snorkelling boat trip cost in Ibiza?",
     answer:
-      "Las excursiones compartidas de Salvador Ibiza cuestan 80 € por adulto con todo el equipo de snorkel incluido — además de paddle surf, kayaks, bar abierto y tapas. Sin suplemento extra por snorkel.",
+      "Salvador Ibiza shared trips cost €80 per adult with all snorkelling equipment included — along with paddleboards, kayaks, open bar and tapas. No separate snorkelling surcharge.",
   },
 ];
 
 export const generalBoatTripFaqs: PlainFaq[] = [
   {
-    question: "¿Cuál es la mejor excursión en barco en Ibiza?",
+    question: "What is the best boat trip in Ibiza?",
     answer:
-      "Depende de tu grupo. Para familias y grupos que buscan relax, la excursión diurna de 3 horas de Salvador Ibiza en barco de madera tradicional es una excelente opción — todo incluido con paddle, kayaks, snorkel, tapas y bar abierto. Para amantes del atardecer, nuestro crucero vespertino desde Sant Antoni es igual de popular.",
+      "It depends on your group. For families and relaxed groups, Salvador Ibiza's 3-hour day trip on a traditional wooden boat is a top choice — all-inclusive with paddleboards, kayaks, snorkelling, tapas and an open bar. For sunset lovers, our sunset cruise from San Antonio is equally popular.",
   },
   {
-    question: "Salvador Ibiza vs barcos fiesta — ¿cuál elegir?",
+    question: "Salvador Ibiza vs party boats — which should I choose?",
     answer:
-      "Elige un barco fiesta si quieres música alta y ambiente de discoteca. Elige Salvador Ibiza si prefieres nadar en calas escondidas, hacer snorkel, paddle surf, tapas y un ambiente relajado en un precioso barco de madera — ideal para familias, parejas y grupos que buscan una experiencia auténtica en el mar de Ibiza.",
+      "Choose a party boat if you want loud music and a nightclub atmosphere. Choose Salvador Ibiza if you prefer swimming in hidden coves, snorkelling, paddleboarding, tapas and a relaxed vibe on a beautiful wooden boat — ideal for families, couples and groups who want an authentic Ibiza sea experience.",
   },
   {
-    question: "Salvador Ibiza vs catamarán — ¿cuál es la diferencia?",
+    question: "Salvador Ibiza vs catamaran — what's the difference?",
     answer:
-      "Los catamaranes ofrecen espacio y estabilidad, pero a menudo carecen del encanto de un barco de madera tradicional y pueden incluir menos equipo. Salvador Ibiza incluye 15 tablas de paddle, 2 kayaks, equipo completo de snorkel, bar abierto y tapas en cada excursión compartida — a un precio todo incluido competitivo desde Sant Antoni.",
+      "Catamarans offer space and stability but often lack the charm of a traditional wooden boat and may not include as much equipment. Salvador Ibiza includes 15 paddleboards, 2 kayaks, full snorkelling gear, open bar and tapas on every shared trip — at a competitive all-inclusive price from San Antonio.",
   },
   {
-    question: "¿Charter privado o excursión compartida?",
+    question: "Private charter or shared boat trip?",
     answer:
-      "Las excursiones compartidas (80 €/adulto) ofrecen gran relación calidad-precio y ambiente social. Los charters privados (desde 1.350 €) encajan con cumpleaños, familias o grupos que quieren el barco en exclusiva con ruta y horario a medida.",
+      "Shared trips (€80/adult) are great value and social. Private charters (from €1,350) suit birthdays, families or groups who want the boat exclusively with a custom route and timing.",
   },
   {
-    question: "¿Qué incluyen las excursiones en barco de Salvador Ibiza?",
+    question: "What is included on Salvador Ibiza boat trips?",
     answer:
-      "Capitán, tripulación, combustible, bar abierto ilimitado, tapas españolas, fruta fresca, 15 tablas de paddle, 2 kayaks y equipo completo de snorkel — todo incluido en el precio del billete.",
+      "Captain, crew, fuel, unlimited open bar, Spanish tapas, fresh fruit, 15 paddleboards, 2 kayaks and complete snorkelling equipment — all included in the ticket price.",
   },
 ];

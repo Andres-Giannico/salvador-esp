@@ -229,7 +229,7 @@ export default function PartnersClientPage() {
                <FiBriefcase className="inline mr-2 mb-1"/> For Businesses: Elevate Your Offerings
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Colabora con nosotros vía Turvok para ofrecer experiencias premium de Salvador Ibiza directamente a tus clientes (hoteles, conserjes, agencias, webs).
+              Partner with us via Turvok to offer premium Salvador Ibiza experiences directly to your clients (Hotels, Concierges, Agencies, Websites).
             </p>
           </motion.div>
           
@@ -260,7 +260,7 @@ export default function PartnersClientPage() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h3 className="text-2xl font-bold text-gray-800">Widget Turvok</h3>
+              <h3 className="text-2xl font-bold text-gray-800">The Turvok Widget</h3>
               <p className="text-gray-600">
                 Integrate our powerful booking system directly onto your website:
               </p>
@@ -280,7 +280,7 @@ export default function PartnersClientPage() {
               <div className="bg-gradient-to-r from-blue-200 to-purple-200 rounded-2xl p-1 shadow-lg">
                 <Image
                   src="/images/optimized/turbobookings-salvador-ibiza.webp"
-                  alt="Integración widget Turvok"
+                  alt="Turvok Widget Integration"
                   width={600}
                   height={400}
                   className="rounded-xl shadow-2xl"
@@ -328,22 +328,14 @@ export default function PartnersClientPage() {
             transition={{ delay: 0.2 }}
           >
             <a 
-              href="https://wa.me/34871181393?text=Hola!%20Me%20interesa%20el%20programa%20de%20partners%20empresariales%20Turvok."
+              href="https://wa.me/34871181393?text=Hi!%20I'm%20interested%20in%20the%20Turvok%20business%20partner%20program."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-xl hover:shadow-2xl text-xl transform hover:scale-105"
             >
               Partner with Us Today!
             </a>
-            <p className="text-sm text-gray-500 mt-4">
-              O escribe a{" "}
-              <a
-                href={`mailto:${process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoribiza.es"}`}
-                className="text-blue-600 hover:underline"
-              >
-                {process.env.NEXT_PUBLIC_PARTNERS_EMAIL || "partners@salvadoribiza.es"}
-              </a>
-            </p>
+            <p className="text-sm text-gray-500 mt-4">Or email us at partners@salvadoribiza.com</p>
           </motion.div>
         </div>
       </section>

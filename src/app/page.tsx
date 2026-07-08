@@ -1,15 +1,28 @@
 import HomePageContent from '@/components/HomePageContent';
-import { esPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
+import { buildFaqPageSchema } from '@/lib/faq-schema';
+import { getHomeSeo, getHomepageFaqs } from '@/lib/seo-i18n';
+import { getSiteLocale } from '@/lib/site-locale';
 
-export const metadata = esPageMetadata({
-  title: 'Salvador Ibiza — excursiones en barco y charter en Ibiza',
-  description:
-    'Las mejores excursiones en barco y charter privado en Ibiza con Salvador. Salidas diurnas, al atardecer y experiencias memorables todo incluido.',
+const locale = getSiteLocale();
+const homeSeo = getHomeSeo(locale);
+
+export const metadata = pageMetadata({
+  ...homeSeo,
   path: '/',
-  keywords:
-    'Salvador Ibiza, excursiones en barco Ibiza, charter privado Ibiza, paseos en barco, atardecer en barco, Es Vedrá, snorkel Ibiza',
+  locale,
 });
 
+const faqSchema = buildFaqPageSchema(getHomepageFaqs(locale));
+
 export default function HomePage() {
-  return <HomePageContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <HomePageContent />
+    </>
+  );
 }

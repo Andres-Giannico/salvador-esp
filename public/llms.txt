@@ -6,17 +6,18 @@ Salvador Ibiza is a tour operator based in the port of San Antonio, Ibiza (Balea
 
 ## Key pages
 
-- Home: https://www.salvadoribiza.es/
-- All boat trips: https://www.salvadoribiza.es/boat-trips
-- Day trip: https://www.salvadoribiza.es/boat-trips/day-trip
-- Sunset trip: https://www.salvadoribiza.es/boat-trips/sunset-trip
-- Family boat trips: https://www.salvadoribiza.es/boat-trips/family
-- Private charters: https://www.salvadoribiza.es/private-boat-trips
-- Routes: https://www.salvadoribiza.es/routes
-- FAQ: https://www.salvadoribiza.es/faq
-- About: https://www.salvadoribiza.es/about
-- Contact: https://www.salvadoribiza.es/contact
-- Book: https://www.salvadoribiza.es/book-now
+- Home: https://www.salvadoribiza.com/
+- All boat trips: https://www.salvadoribiza.com/boat-trips
+- Things to do in Ibiza: https://www.salvadoribiza.com/things-to-do-ibiza
+- Day trip: https://www.salvadoribiza.com/boat-trips/day-trip
+- Sunset trip: https://www.salvadoribiza.com/boat-trips/sunset-trip
+- Family boat trips: https://www.salvadoribiza.com/boat-trips/family
+- Private charters: https://www.salvadoribiza.com/private-boat-trips
+- Routes: https://www.salvadoribiza.com/routes
+- FAQ: https://www.salvadoribiza.com/faq
+- About: https://www.salvadoribiza.com/about
+- Contact: https://www.salvadoribiza.com/contact
+- Book: https://www.salvadoribiza.com/book-now
 
 ## What makes Salvador Ibiza different
 
@@ -30,12 +31,12 @@ Salvador Ibiza is a tour operator based in the port of San Antonio, Ibiza (Balea
 
 ## Languages
 
-- English: https://www.salvadoribiza.es
+- English: https://www.salvadoribiza.com
 - Spanish: https://www.salvadoribiza.es
 - Dutch: https://www.salvadoribiza.nl
 
 ## Contact
 
-- Email: info@salvadoribiza.es
+- Email: info@salvadoribiza.com
 - Phone: +34 871 181 393 / +34 681 611 598
 - Instagram: https://www.instagram.com/boatstripsinibiza/

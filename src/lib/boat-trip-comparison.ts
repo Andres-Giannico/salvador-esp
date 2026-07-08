@@ -8,34 +8,34 @@ export type ComparisonRow = {
 };
 
 export const generalBoatTripComparison: ComparisonRow[] = [
-  { feature: "Familias y niños bienvenidos", salvador: true, partyBoat: false, catamaran: true },
-  { feature: "Equipo de snorkel incluido", salvador: true, partyBoat: false, catamaran: "partial" },
-  { feature: "Paddle surf y kayaks", salvador: true, partyBoat: false, catamaran: "partial" },
-  { feature: "Bar abierto y tapas todo incluido", salvador: true, partyBoat: "partial", catamaran: "partial" },
-  { feature: "Ambiente relajado (no fiesta)", salvador: true, partyBoat: false, catamaran: true },
-  { feature: "Barco de madera tradicional", salvador: true, partyBoat: false, catamaran: false },
-  { feature: "Rutas al atardecer (costa oeste)", salvador: true, partyBoat: true, catamaran: true },
-  { feature: "Salida desde Sant Antoni", salvador: true, partyBoat: "partial", catamaran: "partial" },
+  { feature: "Kids & families welcome", salvador: true, partyBoat: false, catamaran: true },
+  { feature: "Snorkelling equipment included", salvador: true, partyBoat: false, catamaran: "partial" },
+  { feature: "Paddleboards & kayaks", salvador: true, partyBoat: false, catamaran: "partial" },
+  { feature: "All-inclusive open bar & tapas", salvador: true, partyBoat: "partial", catamaran: "partial" },
+  { feature: "Relaxed / non-party atmosphere", salvador: true, partyBoat: false, catamaran: true },
+  { feature: "Traditional wooden boat", salvador: true, partyBoat: false, catamaran: false },
+  { feature: "Sunset routes (west coast)", salvador: true, partyBoat: true, catamaran: true },
+  { feature: "Departs San Antonio", salvador: true, partyBoat: "partial", catamaran: "partial" },
 ];
 
 export const familyBoatTripComparison: ComparisonRow[] = [
-  { feature: "Niños permitidos", salvador: true, partyBoat: false, catamaran: true },
-  { feature: "Chalecos salvavidas (todas las tallas)", salvador: true, partyBoat: "partial", catamaran: true },
-  { feature: "Paradas de baño tranquilas para niños", salvador: true, partyBoat: "partial", catamaran: true },
-  { feature: "Snorkel para niños", salvador: true, partyBoat: false, catamaran: "partial" },
-  { feature: "15 tablas de paddle incluidas", salvador: true, partyBoat: false, catamaran: false },
-  { feature: "Comida y bebidas aptas para niños", salvador: true, partyBoat: "partial", catamaran: "partial" },
-  { feature: "Música de fiesta a alto volumen", salvador: false, partyBoat: true, catamaran: false },
-  { feature: "Bebés (0–5 años) gratis", salvador: true, partyBoat: false, catamaran: "partial" },
+  { feature: "Children allowed", salvador: true, partyBoat: false, catamaran: true },
+  { feature: "Life jackets (all sizes)", salvador: true, partyBoat: "partial", catamaran: true },
+  { feature: "Calm swim stops for kids", salvador: true, partyBoat: "partial", catamaran: true },
+  { feature: "Snorkelling for children", salvador: true, partyBoat: false, catamaran: "partial" },
+  { feature: "15 paddleboards included", salvador: true, partyBoat: false, catamaran: false },
+  { feature: "Kid-friendly food & drinks", salvador: true, partyBoat: "partial", catamaran: "partial" },
+  { feature: "Loud party music", salvador: false, partyBoat: true, catamaran: false },
+  { feature: "Infants (0–5) free", salvador: true, partyBoat: false, catamaran: "partial" },
 ];
 
 export const sunsetBoatTripComparison: ComparisonRow[] = [
-  { feature: "Horario pensado para la hora dorada", salvador: true, partyBoat: true, catamaran: true },
-  { feature: "Vistas al atardecer en la costa oeste", salvador: true, partyBoat: true, catamaran: true },
-  { feature: "Paradas de baño al atardecer", salvador: true, partyBoat: "partial", catamaran: "partial" },
-  { feature: "Bar abierto y cava incluidos", salvador: true, partyBoat: "partial", catamaran: "partial" },
-  { feature: "Ambiente romántico y relajado", salvador: true, partyBoat: false, catamaran: true },
-  { feature: "Barco de madera tradicional", salvador: true, partyBoat: false, catamaran: false },
-  { feature: "Apto para familias", salvador: true, partyBoat: false, catamaran: true },
-  { feature: "Salida desde Sant Antoni", salvador: true, partyBoat: "partial", catamaran: "partial" },
+  { feature: "Timed for golden hour", salvador: true, partyBoat: true, catamaran: true },
+  { feature: "West coast sunset views", salvador: true, partyBoat: true, catamaran: true },
+  { feature: "Swim stops at sunset", salvador: true, partyBoat: "partial", catamaran: "partial" },
+  { feature: "Open bar & cava included", salvador: true, partyBoat: "partial", catamaran: "partial" },
+  { feature: "Romantic / relaxed vibe", salvador: true, partyBoat: false, catamaran: true },
+  { feature: "Traditional wooden boat", salvador: true, partyBoat: false, catamaran: false },
+  { feature: "Family-friendly", salvador: true, partyBoat: false, catamaran: true },
+  { feature: "Departs San Antonio", salvador: true, partyBoat: "partial", catamaran: "partial" },
 ];

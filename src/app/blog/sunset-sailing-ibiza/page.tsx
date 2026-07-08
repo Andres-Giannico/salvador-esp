@@ -1,20 +1,38 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
-import { esPageMetadata } from '@/lib/page-meta'
+import { enPageMetadata } from '@/lib/page-meta'
+import { buildBlogPostingSchema } from '@/lib/blog-schema'
 
-export const metadata = esPageMetadata({
-  title: 'Navegar al ocaso en Ibiza: mágico final día desde Salvador',
+export const metadata = enPageMetadata({
+  title: 'Sunset Sailing in Ibiza: A Magical End to a Perfect Day',
   description:
-    'Atardecer de Ibiza vista mar con Salvador: música comedida cóctel dentro modalidad anunciado tapas y calma Balear.',
+    'Experience the magic of Ibiza\'s legendary sunsets from the best viewpoint - aboard our luxury yacht. Book your sunset sailing adventure today.',
   path: '/blog/sunset-sailing-ibiza',
   keywords:
-    'atardecer Ibiza barco ocaso dorado sant antoni navegación puesta sol mar Mediterráneo excursión Salvador blog',
+    'sunset sailing Ibiza, sunset cruise Ibiza, sunset boat trip, golden hour cruise, Ibiza sunset experience, luxury yacht sunset',
+  ogImage: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
+  ogImageAlt: 'Sunset Sailing in Ibiza - Magical golden hour cruise',
+})
+
+const blogSchema = buildBlogPostingSchema({
+  title: 'Sunset Sailing in Ibiza: A Magical End to a Perfect Day',
+  description:
+    "Experience the magic of Ibiza's legendary sunsets from the best viewpoint - aboard our luxury yacht. Book your sunset sailing adventure today.",
+  path: '/blog/sunset-sailing-ibiza',
+  datePublished: '2024-02-20',
+  image: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
 })
 
 export default function SunsetSailingPage() {
   return (
     <>
+      <Script
+        id="blog-sunset-sailing-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
       {/* Breadcrumbs */}
       <div className="bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-4 py-4">
@@ -67,7 +85,7 @@ export default function SunsetSailingPage() {
                 href="/boat-trips/sunset-trip"
                 className="inline-block bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-400 hover:to-pink-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
               >
-                Reserva ocaso en barco
+                Book Your Sunset Trip
               </Link>
             </div>
           </div>
@@ -169,7 +187,7 @@ export default function SunsetSailingPage() {
               href="/book-now"
               className="inline-block bg-white text-orange-600 hover:bg-orange-50 font-bold py-4 px-8 rounded-lg shadow-lg transition duration-300 text-lg"
             >
-              Reserva experiencia ocaso ya
+              Book Your Sunset Experience Now
             </Link>
           </div>
         </div>

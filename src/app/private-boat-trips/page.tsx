@@ -1,18 +1,18 @@
 import Script from 'next/script';
 import PrivateBoatTripsClientPage from './page.client';
 import { FiUsers, FiGift, FiStar, FiCamera, FiCalendar, FiHelpCircle, FiBriefcase } from 'react-icons/fi';
-import { esPageMetadata } from '@/lib/page-meta';
+import { enPageMetadata } from '@/lib/page-meta';
 import { buildProductSchema } from '@/lib/product-schema';
 
-export const metadata = esPageMetadata({
-  title: 'Charters privados en Ibiza hasta 35 personas',
-  description:
-    'Barco Salvador solo para tu grupo: rutas a medida, tripulación profesional, servicio tipo todo incluido anunciado y deportes acuáticos. Precios desde 1.350 € según temporada. Reserva charter privado.',
+export const metadata = enPageMetadata({
+  title: 'Private Boat Trips Ibiza - Your Exclusive Salvador Experience',
+  description: '🛥️ Exclusive private boat charter in Ibiza! Up to 35 guests, customized routes, premium service & all-inclusive luxury. From €1,350 - Book your dream trip!',
   path: '/private-boat-trips',
-  keywords:
-    'charter privado Ibiza, barco exclusivo Sant Antoni, evento empresa mar, grupo familiar barco Baleares Salvador',
+  keywords: 'private boat trips ibiza, private boat tour ibiza, event boat, ibiza private boat trips, private boat charter ibiza, exclusive boat tour',
+  ogTitle: 'Private Boat Trips Ibiza - Exclusive Salvador Experience',
+  ogDescription: '🛥️ Exclusive private boat charter in Ibiza! Up to 35 guests, customized routes, premium service & all-inclusive luxury.',
   ogImage: '/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp',
-  ogImageAlt: 'Vista aérea con dron del Salvador Ibiza en charter privado en Cala Comte',
+  ogImageAlt: 'Aerial drone view of the Salvador Ibiza boat during a private trip in Cala Comte.',
 });
 
 const getIconName = (icon: typeof FiUsers): string => {
@@ -26,46 +26,25 @@ const getIconName = (icon: typeof FiUsers): string => {
 };
 
 const perfectForItems = [
-  { icon: getIconName(FiUsers), title: 'Grupos y familias', description: 'Cubierta amplia para todos.', color: 'text-blue-500' },
-  {
-    icon: getIconName(FiGift),
-    title: 'Celebraciones',
-    description: 'Cumpleaños, aniversarios y días especiales.',
-    color: 'text-pink-500',
-  },
-  {
-    icon: getIconName(FiStar),
-    title: 'Ocasiones únicas',
-    description: 'Propuestas, eventos diferentes.',
-    color: 'text-yellow-500',
-  },
-  {
-    icon: getIconName(FiCamera),
-    title: 'Sesiones foto / vídeo',
-    description: 'Fondos espectaculares garantizados.',
-    color: 'text-purple-500',
-  },
-  {
-    icon: getIconName(FiCalendar),
-    title: 'Fiestas pre/post boda',
-    description: 'Relájate antes o después del gran día.',
-    color: 'text-orange-500',
-    href: '/weddings',
-  },
+  { icon: getIconName(FiUsers), title: "Groups & Families", description: "Spacious deck for everyone.", color: "text-blue-500" },
+  { icon: getIconName(FiGift), title: "Celebrations", description: "Birthdays, anniversaries, special days.", color: "text-pink-500" },
+  { icon: getIconName(FiStar), title: "Special Occasions", description: "Proposals, unique events.", color: "text-yellow-500" },
+  { icon: getIconName(FiCamera), title: "Photo Shoots", description: "Stunning backdrops guaranteed.", color: "text-purple-500" },
+  { icon: getIconName(FiCalendar), title: "Pre/Post Wedding Parties", description: "Relax before or after the big day.", color: "text-orange-500", href: "/weddings" },
   {
     icon: getIconName(FiBriefcase),
-    title: 'Eventos empresa',
-    description: 'Team building y clientes invitados.',
-    color: 'text-teal-500',
-    href: '/corporate-events',
+    title: "Corporate Events",
+    description: "Team building, client entertainment.",
+    color: "text-teal-500",
+    href: "/corporate-events"
   },
 ];
 
 export default async function PrivateBoatTripsPage() {
   const productSchema = await buildProductSchema({
-    name: "Charter privado en barco Ibiza — Salvador Ibiza",
+    name: "Private Boat Trips Ibiza by Salvador",
     description:
-      "Excursiones privadas en Ibiza para hasta 35 invitados. Incluye capitán, bar abierto, tapas y deportes acuáticos como paddle surf y snorkel.",
+      "Exclusive private boat trips in Ibiza for up to 35 guests. Includes captain, open bar, snacks, and water sports like paddleboarding and snorkeling.",
     path: "/private-boat-trips",
     price: "1350",
     image: "/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp",

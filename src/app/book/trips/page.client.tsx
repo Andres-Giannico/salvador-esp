@@ -15,7 +15,7 @@ export default function BookTripsQrClient() {
         <div className="relative h-24 md:h-32 w-full">
           <Image 
             src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
-            alt="Excursión en barco Salvador Ibiza" 
+            alt="Salvador Ibiza Boat Trip" 
             layout="fill"
             objectFit="cover"
             className="opacity-90"
@@ -25,10 +25,10 @@ export default function BookTripsQrClient() {
 
         <div className="p-3 sm:p-4 md:p-8">
           <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-3">
-            Reserva tu <span className="text-cyan-600">excursión</span>
+            Book Your <span className="text-cyan-600">Boat Trip</span>
           </h1>
           <p className="text-center text-gray-600 mb-8 text-sm md:text-base">
-            Elige experiencia diurna o atardecer mágico desde Sant Antoni.
+            Choose your preferred experience: Daytime Adventure or Magical Sunset from San Antonio.
           </p>
 
           {/* Trip Options - Enhanced Styling */}
@@ -38,13 +38,13 @@ export default function BookTripsQrClient() {
             <div className="border border-blue-200 bg-gradient-to-br from-blue-50 to-cyan-50/30 rounded-lg p-4 transition-shadow duration-300 hover:shadow-md">
               <h2 className="text-lg font-semibold text-blue-700 mb-3 flex items-center">
                 <span className="bg-blue-100 p-1.5 rounded-full mr-2 inline-block"><FiSun className="w-4 h-4 text-blue-600"/></span>
-                Excursión de día
+                Daytime Trip
               </h2>
               <div className="space-y-1.5 text-sm">
-                <p className="flex items-center"><FiClock className="w-4 h-4 mr-1.5 text-blue-600 flex-shrink-0"/> 14:00 – 17:00 (3 h)</p>
-                <p className="flex items-center"><FiMapPin className="w-4 h-4 mr-1.5 text-blue-600 flex-shrink-0"/> Puerto Sant Antoni</p>
-                <p className="flex items-center"><FiDollarSign className="w-4 h-4 mr-1.5 text-blue-600 flex-shrink-0"/> 80 € adulto / 45 € niño</p>
-                <p className="flex items-center text-xs text-gray-600 mt-1"><FiCheckCircle className="w-3 h-3 text-green-500 mr-1"/> Bebidas, tapas, paddle, kayak, snorkel</p>
+                <p className="flex items-center"><FiClock className="w-4 h-4 mr-1.5 text-blue-600 flex-shrink-0"/> 2:00 PM - 5:00 PM (3h)</p>
+                <p className="flex items-center"><FiMapPin className="w-4 h-4 mr-1.5 text-blue-600 flex-shrink-0"/> San Antonio Port</p>
+                <p className="flex items-center"><FiDollarSign className="w-4 h-4 mr-1.5 text-blue-600 flex-shrink-0"/> €80 Adult / €45 Child</p>
+                <p className="flex items-center text-xs text-gray-600 mt-1"><FiCheckCircle className="w-3 h-3 text-green-500 mr-1"/> Drinks, Tapas, Paddle, Kayak, Snorkel</p>
               </div>
             </div>
 
@@ -52,13 +52,13 @@ export default function BookTripsQrClient() {
             <div className="border border-orange-200 bg-gradient-to-br from-orange-50 to-yellow-50/30 rounded-lg p-4 transition-shadow duration-300 hover:shadow-md">
               <h2 className="text-lg font-semibold text-orange-700 mb-3 flex items-center">
                  <span className="bg-orange-100 p-1.5 rounded-full mr-2 inline-block"><FiMoon className="w-4 h-4 text-orange-600"/></span>
-                 Salida al atardecer
+                 Sunset Voyage
               </h2>
               <div className="space-y-1.5 text-sm">
-                <p className="flex items-start"><FiClock className="w-4 h-4 mr-1.5 text-orange-600 mt-0.5 flex-shrink-0"/> <span>Habitualmente 18:30 – 21:30 (3 h)<br/><span className="text-xs text-orange-800/80">(Los horarios se afinan cada mes por el ocaso)</span></span></p>
-                <p className="flex items-center"><FiMapPin className="w-4 h-4 mr-1.5 text-orange-600 flex-shrink-0"/> Puerto Sant Antoni</p>
-                <p className="flex items-center"><FiDollarSign className="w-4 h-4 mr-1.5 text-orange-600 flex-shrink-0"/> 80 € adulto / 45 € niño</p>
-                <p className="flex items-center text-xs text-gray-600 mt-1"><FiCheckCircle className="w-3 h-3 text-green-500 mr-1"/> Bar (¡cava!), tapas, paddle, kayak y puesta de sol</p>
+                <p className="flex items-start"><FiClock className="w-4 h-4 mr-1.5 text-orange-600 mt-0.5 flex-shrink-0"/> <span>Approx. 6:30 PM - 9:30 PM (3h)<br/><span className="text-xs text-orange-800/80">(Times vary slightly by month for sunset)</span></span></p>
+                <p className="flex items-center"><FiMapPin className="w-4 h-4 mr-1.5 text-orange-600 flex-shrink-0"/> San Antonio Port</p>
+                <p className="flex items-center"><FiDollarSign className="w-4 h-4 mr-1.5 text-orange-600 flex-shrink-0"/> €80 Adult / €45 Child</p>
+                <p className="flex items-center text-xs text-gray-600 mt-1"><FiCheckCircle className="w-3 h-3 text-green-500 mr-1"/> Drinks (Cava!), Tapas, Paddle, Kayak, Sunset</p>
               </div>
             </div>
           </div>
@@ -68,33 +68,33 @@ export default function BookTripsQrClient() {
 
           {/* Booking Widget Section - Enhanced Styling */}
           <div className="bg-gradient-to-br from-gray-100 to-cyan-50/50 rounded-lg p-0 sm:p-3 md:p-6 sm:border sm:border-gray-200 sm:shadow-inner">
-            <h2 className="text-xl md:text-2xl font-semibold text-center text-gray-800 mb-3 px-2 pt-3 sm:pt-0">Reserva online</h2>
+            <h2 className="text-xl md:text-2xl font-semibold text-center text-gray-800 mb-3 px-2 pt-3 sm:pt-0">Book Online Now</h2>
             
             {/* Benefits List */}
             <div className="mb-6 space-y-2 px-2">
               <div className="flex items-center text-sm text-gray-700">
                 <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
-                <span>Reserva rápida y cómoda</span>
+                <span>Quick and easy reservation</span>
               </div>
               <div className="flex items-center text-sm text-gray-700">
                 <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
-                <span>Confirmación instantánea</span>
+                <span>Instant confirmation</span>
               </div>
               <div className="flex items-center text-sm text-gray-700">
                 <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
-                <span>Condiciones de cancelación claras</span>
+                <span>Flexible cancellation policy</span>
               </div>
               <div className="flex items-center text-sm text-gray-700">
                 <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
-                <span>Experiencias tipo todo incluido donde aplique</span>
+                <span>All-inclusive experiences</span>
               </div>
               <div className="flex items-center text-sm text-gray-700">
                 <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
-                <span>Tripulación experta en la zona náutica</span>
+                <span>Expert guides and personalized attention</span>
               </div>
               <div className="flex items-center text-sm text-gray-700">
                 <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
-                <span>Señal online (20 € por persona) para reservar plaza</span>
+                <span>Partial online payment (20€ per person to reserve)</span>
               </div>
             </div>
 
@@ -107,13 +107,13 @@ export default function BookTripsQrClient() {
               customProperties={{
                 displayBillingTerm: true, // Important to show the selector
                 showQuantity: true,
-                quantity: "Personas", 
+                quantity: "Guests", 
                 titleVariant: "Modern",
-                bookNow: "RESERVAR AHORA",
-                childrenAge: "6 a 12 años",
-                infantAge: "0 a 5 años",
-                depositObservation:
-                  "Al completar la reserva recibirás un voucher con los detalles (punto de encuentro y horarios). Confirma que teléfono y email sean correctos. Se suele solicitar una señal de 20 € por persona; el saldo restante según las condiciones de la confirmación (habitualmente a bordo el día del viaje).",
+                bookNow: "RESERVE NOW",
+                confirmReservationAndPay: "CONFIRM & PAY",
+                childrenAge: "6 to 12 Years",
+                infantAge: "0 to 5 Years",
+                depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
               }}
             />
           </div>
@@ -121,7 +121,7 @@ export default function BookTripsQrClient() {
           {/* Link to main boat trips page */}
           <div className="text-center mt-8">
             <Link href="/boat-trips" className="text-xs text-cyan-700 hover:underline">
-              Más información sobre excursiones Salvador
+              See more details about our boat trips
             </Link>
           </div>
         </div>

@@ -1,125 +1,50 @@
-import { Metadata } from 'next';
 import CorporateEventsClientPage from './page.client';
-import {
-  FiBriefcase,
-  FiUsers,
-  FiSun,
-  FiCheckCircle,
-  FiAward,
-  FiCoffee,
-  FiHelpCircle,
-} from 'react-icons/fi';
+import { FiBriefcase, FiUsers, FiSun, FiCheckCircle, FiAward, FiCoffee, FiHelpCircle } from 'react-icons/fi';
 import { GiPartyPopper, GiTeamIdea } from 'react-icons/gi';
-import { esPageMetadata } from '@/lib/page-meta';
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = esPageMetadata({
-  path: '/corporate-events',
-  title: 'Eventos corporativos en Ibiza',
+// --- Metadata --- 
+export const metadata = enPageMetadata({
+  title: 'Corporate Events & Boat Charters in Ibiza',
   description:
-    'Team building, incentivos y entretenimiento de clientes a bordo de Salvador Ibiza: barco tradicional en Sant Antoni de Portmany.',
+    'Host unforgettable corporate events, team building activities, client entertainment, or incentive trips aboard Salvador Ibiza, a stunning traditional boat in San Antonio.',
+  path: '/corporate-events',
 });
 
+// --- Data Definitions (to be passed to client) --- 
+
 const corporateHighlights = [
-  {
-    icon: FiBriefcase,
-    title: 'Entorno diferente',
-    description:
-      'Sal del convenio habitual e impresiona clientes y equipos con un espacio único sobre el Mediterráneo.',
-  },
-  {
-    icon: GiTeamIdea,
-    title: 'Espíritu de equipo',
-    description:
-      'Actividades que fomentan compañerismo en un ambiente relajado e inspirador frente al mar.',
-  },
-  {
-    icon: FiAward,
-    title: 'Incentivos',
-    description:
-      'Premia objetivos cumplidos con una jornada de lujo inolvidable para tu equipo destacado.',
-  },
-  {
-    icon: FiCheckCircle,
-    title: 'Discreto y profesional',
-    description:
-      'Tripulación con experiencia en grupos empresa: seguridad y servicio de primer nivel.',
-  },
+  { icon: FiBriefcase, title: "Unique & Memorable Venue", description: "Escape the office and impress clients or colleagues with an exclusive setting on the Mediterranean."}, 
+  { icon: GiTeamIdea, title: "Boost Team Morale", description: "Foster collaboration and connection in a relaxed, inspiring environment with shared activities."}, 
+  { icon: FiAward, title: "Ideal for Incentives", description: "Reward your top performers with a luxurious and unforgettable day out on the water."}, 
+  { icon: FiCheckCircle, title: "Professional & Private", description: "Our experienced crew ensures a smooth, discreet, and professional experience for your group."}, 
 ];
 
 const idealForItems = [
-  {
-    icon: FiUsers,
-    title: 'Cohesión de equipo',
-    description: 'Dinámicas ligeras, relax compartido y convivencia en cubierta.',
-    color: 'text-blue-500',
-  },
-  {
-    icon: FiBriefcase,
-    title: 'Clientes estratégicos',
-    description: 'Reuniones informales y experiencias gastronómicas frente al mar.',
-    color: 'text-purple-500',
-  },
-  {
-    icon: FiAward,
-    title: 'Viajes incentivados',
-    description:
-      'Reconocimiento público cuando el equipo marca resultados extraordinarios.',
-    color: 'text-yellow-500',
-  },
-  {
-    icon: GiPartyPopper,
-    title: 'Celebraciones de empresa',
-    description: 'Fiestas corporativas, aniversarios o hitos profesionales.',
-    color: 'text-pink-500',
-  },
-  {
-    icon: FiSun,
-    title: 'Retiros ejecutivos',
-    description:
-      'Combina sesiones creativas en tierra firme con medio día al sol en alta mar.',
-    color: 'text-orange-500',
-  },
+  { icon: FiUsers, title: "Team Building Days", description: "Activities and relaxation to strengthen bonds.", color: "text-blue-500" },
+  { icon: FiBriefcase, title: "Client Entertainment", description: "Host meetings or thank clients in style.", color: "text-purple-500" },
+  { icon: FiAward, title: "Incentive Trips", description: "Motivate and reward achievements.", color: "text-yellow-500" },
+  { icon: GiPartyPopper, title: "Company Celebrations", description: "Milestones, successes, or corporate parties.", color: "text-pink-500" },
+  { icon: FiSun, title: "Executive Retreats", description: "Combine business with pleasure in a private setting.", color: "text-orange-500" },
 ];
 
 const includedFeatures = [
+  { name: "Exclusive 4-Hour Charter", description: "Private use of Salvador Ibiza (up to 35 guests)" },
+  { name: "Captain & Professional Crew", description: "Ensuring smooth sailing and service" },
+  { name: "Standard Open Bar", description: "Soft drinks, beer, wine, cava, sangria, water" },
+  { name: "Light Spanish Tapas & Fruit", description: "Complimentary catering included" },
+  { name: "Water Activities Equipment", description: "Paddleboards, kayaks, snorkeling gear" },
+  { name: "Onboard Sound System", description: "Bluetooth enabled for your choice of music" },
+  { name: "Customizable Route Options", description: "Tailor the journey (weather permitting)" },
   {
-    name: 'Charter privado 4 h',
-    description: 'Uso exclusivo de Salvador Ibiza hasta 35 invitados',
-  },
-  {
-    name: 'Capitán y tripulación',
-    description: 'Tránsito cómodo y servicio cercano durante toda la jornada',
-  },
-  {
-    name: 'Bar abierto estándar',
-    description:
-      'Refrescos, cerveza, vino blanco/rojo espumoso, sangría clara/roja y agua',
-  },
-  {
-    name: 'Tapeo ligero',
-    description: 'Tapas mediterráneas y fruta de temporada seleccionadas',
-  },
-  {
-    name: 'Equipamiento náutico',
-    description:
-      'Paddle surf, kayak y equipo de snorkeling para todas las personas a bordo',
-  },
-  {
-    name: 'Sonido Bluetooth',
-    description: 'Sistema disponible para vuestros playlists ambientales',
-  },
-  {
-    name: 'Ruta flexible',
-    description: 'Orientación personalizada dentro de lo permitido meteorológico',
-  },
-  {
-    name: 'Fotografía opcional',
-    description:
-      'Posibilidad de contratar fotógrafo profesional antes de zarpar por coste aparte.',
-  },
+    name: "Optional Onboard Photographer",
+    description: "Capture memories! Photos available for optional purchase afterwards."
+  }
 ];
 
-const getIconName = (icon: unknown): string => {
+// Helper to get icon name as string
+const getIconName = (icon: any): string => {
+  // Add all icons used in the data arrays above
   if (icon === FiBriefcase) return 'FiBriefcase';
   if (icon === GiTeamIdea) return 'GiTeamIdea';
   if (icon === FiAward) return 'FiAward';
@@ -127,24 +52,23 @@ const getIconName = (icon: unknown): string => {
   if (icon === FiUsers) return 'FiUsers';
   if (icon === GiPartyPopper) return 'GiPartyPopper';
   if (icon === FiSun) return 'FiSun';
-  return 'FiHelpCircle';
+  return 'FiHelpCircle'; // Default icon name
 };
 
+// --- Server Component --- 
 export default async function CorporateEventsPage() {
-  const highlightsProps = corporateHighlights.map((item) => ({
-    ...item,
-    icon: getIconName(item.icon),
-  }));
-  const idealForProps = idealForItems.map((item) => ({
-    ...item,
-    icon: getIconName(item.icon),
-  }));
+  // Prepare props for client component with icon names as strings
+  const highlightsProps = corporateHighlights.map(item => ({ ...item, icon: getIconName(item.icon) }));
+  const idealForProps = idealForItems.map(item => ({ ...item, icon: getIconName(item.icon) }));
 
   return (
-    <CorporateEventsClientPage
-      highlights={highlightsProps}
-      idealFor={idealForProps}
-      included={includedFeatures}
-    />
+    <>
+      {/* Optional: Add JSON-LD Schema for Service */}
+      <CorporateEventsClientPage 
+        highlights={highlightsProps}
+        idealFor={idealForProps}
+        included={includedFeatures}
+      />
+    </>
   );
-}
+} 

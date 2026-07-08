@@ -1,27 +1,30 @@
-import { esPageMetadata } from "@/lib/page-meta";
+import { enPageMetadata } from "@/lib/page-meta";
 import { buildFaqPageSchema } from "@/lib/faq-schema";
 import { snorkelingBoatTripFaqs } from "@/lib/topic-faqs";
 import { buildProductSchema } from "@/lib/product-schema";
 import SnorkelingBoatTripsClientPage from "./page.client";
 
-export const metadata = esPageMetadata({
-  title: "Mejores excursiones snorkel en barco Ibiza (3 h) | Equipo incluido",
+export const metadata = enPageMetadata({
+  title: "Best Snorkeling Boat Trips Ibiza (3 hours) | Equipment Included",
   description:
-    "Descubre la mejor excursión de snorkel en barco en Ibiza con Salvador Ibiza: equipo profesional, calas cristalinas, 2–3 paradas de baño y salidas todo incluido desde Sant Antoni.",
+    "Discover the best snorkelling boat trip in Ibiza with Salvador. Professional equipment, crystal-clear coves, 2–3 swim stops and all-inclusive day trips from San Antonio.",
   path: "/boat-trips/snorkeling",
   keywords:
-    "mejor excursión snorkel barco Ibiza, snorkel Ibiza barco, dónde hacer snorkel Ibiza, excursión snorkel Baleares, calas snorkel Ibiza",
+    "best snorkeling boat trip ibiza, snorkeling boat trips Ibiza, where to snorkel ibiza, snorkel tour Ibiza, ibiza sea caves snorkeling",
+  ogTitle: "Best Snorkeling Boat Trips Ibiza | Equipment Included",
+  ogDescription:
+    "Explore Ibiza's best snorkelling spots by boat with Salvador. Full equipment, expert crew and all-inclusive trips from San Antonio.",
   ogImage: "/images/boat/parejasnorkeling.webp",
-  ogImageAlt: "Pareja haciendo snorkel en excursión en barco Ibiza",
+  ogImageAlt: "Couple snorkeling in crystal clear waters during Ibiza boat trip",
 });
 
 const faqSchema = buildFaqPageSchema(snorkelingBoatTripFaqs);
 
 export default async function SnorkelingBoatTripsPage() {
   const productSchema = await buildProductSchema({
-    name: "Excursiones snorkel en barco Ibiza con Salvador Ibiza",
+    name: "Snorkeling Boat Trips Ibiza by Salvador",
     description:
-      "Snorkel con equipo profesional en aguas mediterráneas; indicaciones de seguridad y paradas adaptadas al grupo.",
+      "Discover Ibiza's underwater world with professional snorkeling equipment and expert guidance. Perfect for all skill levels in crystal-clear Mediterranean waters.",
     path: "/boat-trips/snorkeling",
     price: "80",
     image: "/images/boat/parejasnorkeling.webp",

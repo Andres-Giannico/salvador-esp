@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FiX } from 'react-icons/fi';
+import { FiX, FiPlay } from 'react-icons/fi';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Define the type for image data passed as prop
@@ -22,6 +22,7 @@ interface GalleryClientPageProps {
 
 export default function GalleryClientPage({ images }: GalleryClientPageProps) {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const { scrollYProgress } = useScroll();
   
   // Parallax effect values
@@ -71,7 +72,7 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-center mb-8 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent"
         >
-          Galería Salvador Ibiza
+          Salvador Ibiza Gallery
         </motion.h1>
 
         {/* Gallery Description */}
@@ -82,44 +83,40 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
           className="max-w-4xl mx-auto text-center mb-16"
         >
           <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-            Descubre la magia de las <strong>excursiones en barco Salvador Ibiza</strong> en nuestra galería
-            fotográfica. Desde vistas aéreas espectaculares hasta momentos íntimos de alegría, estas imágenes
-            reflejan la esencia de nuestras <strong>experiencias en barco todo incluido</strong> alrededor de la
-            preciosa isla de Ibiza.
+            Discover the magic of <strong>Salvador Ibiza boat trips</strong> through our stunning photo gallery. 
+            From breathtaking aerial views to intimate moments of joy, these images capture the essence of our 
+            <strong>all-inclusive boat experiences</strong> around the beautiful island of Ibiza.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
             <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-lg font-bold text-blue-600 mb-3">🌅 Atardeceres inolvidables</h3>
+              <h3 className="text-lg font-bold text-blue-600 mb-3">🌅 Sunset Adventures</h3>
               <p className="text-gray-600 text-sm">
-                Vive los legendarios atardeceres de Ibiza desde nuestro barco de madera tradicional: la hora
-                dorada, momentos románticos y recuerdos imborrables capturados en el mar.
+                Experience the legendary Ibiza sunsets from our traditional wooden boat. Golden hour magic, 
+                romantic moments, and unforgettable memories captured at sea.
               </p>
             </div>
             
             <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-lg font-bold text-cyan-600 mb-3">🏄‍♀️ Deporte y diversión</h3>
+              <h3 className="text-lg font-bold text-cyan-600 mb-3">🏄‍♀️ Water Sports Fun</h3>
               <p className="text-gray-600 text-sm">
-                Paddle surf, kayak y snorkel en aguas cristalinas del Mediterráneo. Nuestros pasajeros
-                disfrutan de hasta 15 tablas SUP premium y todo el equipo de actividades náuticas.
+                Paddle boarding, kayaking, and snorkeling adventures in crystal-clear Mediterranean waters. 
+                Our guests enjoying the 15 premium SUP boards and water sports equipment.
               </p>
             </div>
             
             <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-lg font-bold text-orange-600 mb-3">🍾 Todo incluido de lujo</h3>
+              <h3 className="text-lg font-bold text-orange-600 mb-3">🍾 All-Inclusive Luxury</h3>
               <p className="text-gray-600 text-sm">
-                Tapas, bebidas de calidad y experiencias gourmet a bordo. Así construimos el ambiente todo
-                incluido perfecto para nuestras salidas de día y al atardecer.
+                Spanish tapas, premium drinks, and gourmet experiences onboard. See how we create 
+                the perfect all-inclusive atmosphere for our day and sunset trips.
               </p>
             </div>
           </div>
           
           <p className="text-lg text-gray-700 mt-8 font-medium">
-            ¿Quieres vivir tus propios recuerdos?{' '}
-            <a href="/boat-trips" className="text-blue-600 hover:underline">
-              Reserva hoy tu aventura con Salvador Ibiza
-            </a>{' '}
-            y forma parte de esta galería.
+            Ready to create your own memories? <a href="/boat-trips" className="text-blue-600 hover:underline">Book your Salvador Ibiza adventure today</a> 
+            and become part of our incredible gallery!
           </p>
         </motion.div>
 
@@ -236,10 +233,10 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Vive Salvador Ibiza
+              Experience Salvador Ibiza
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Un viaje virtual con nosotros: descubre la magia de nuestras excursiones en barco
+              Take a virtual journey with us and discover the magic of our boat trips
             </p>
           </motion.div>
 
@@ -250,7 +247,7 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
             <div className="relative pb-[56.25%] h-0">
               <iframe
                 src="https://www.youtube.com/embed/0SN3YMMwUEk?autoplay=0&rel=0&showinfo=0&modestbranding=1"
-                title="Experiencia en barco Salvador Ibiza — vídeo"
+                title="Salvador Ibiza Boat Experience"
                 className="absolute top-0 left-0 w-full h-full rounded-2xl"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -272,7 +269,7 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
               href="/boat-trips" 
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-full font-semibold hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
-              Reserva tu experiencia
+              Book Your Experience
             </a>
           </motion.div>
         </div>

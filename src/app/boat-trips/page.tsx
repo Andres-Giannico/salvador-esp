@@ -1,20 +1,22 @@
 import BoatTripsClientPage from './page.client';
-import { esPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 import { buildFaqPageSchema } from '@/lib/faq-schema';
-import { generalBoatTripFaqs } from '@/lib/topic-faqs';
+import { getBoatTripsHubSeo } from '@/lib/seo-i18n';
+import { getGeneralBoatTripFaqs } from '@/lib/faq-i18n';
+import { getSiteLocale } from '@/lib/site-locale';
 
-export const metadata = esPageMetadata({
+const locale = getSiteLocale();
+const hubSeo = getBoatTripsHubSeo(locale);
+
+export const metadata = pageMetadata({
+  ...hubSeo,
   path: '/boat-trips',
-  title: 'Mejores excursiones en barco Ibiza — día y atardecer',
-  description:
-    'Descubre las mejores excursiones en barco en Ibiza con Salvador Ibiza: salidas todo incluido diurnas y al atardecer con paddle, snorkel, bar abierto y tapas. Compara opciones y reserva desde Sant Antoni.',
-  keywords:
-    'excursiones barco Ibiza, paseos en barco, atardecer en barco, snorkel Ibiza, barco todo incluido Ibiza',
+  locale,
 });
 
-const faqSchema = buildFaqPageSchema(generalBoatTripFaqs);
-
 export default function BoatTripsPage() {
+  const faqSchema = buildFaqPageSchema(getGeneralBoatTripFaqs(locale));
+
   return (
     <>
       <script

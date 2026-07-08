@@ -2,29 +2,29 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { esPageMetadata } from '@/lib/page-meta';
+import { enPageMetadata } from '@/lib/page-meta';
 import { buildProductSchema } from '@/lib/product-schema';
 
-export const metadata = esPageMetadata({
-  title: 'Excursiones en barco para grupos Ibiza (3 h) | Amigos y celebraciones',
-  description:
-    'Excursiones en barco perfectas para amigos, cumpleaños, despedidas y reuniones en Ibiza. Hasta 35 personas, bebidas y tapas todo incluido desde Sant Antoni.',
+export const metadata = enPageMetadata({
+  title: 'Group Boat Trips Ibiza (3 hours) | Friends & Celebrations',
+  description: 'Perfect group boat trips in Ibiza for friends, birthdays, hen/stag parties and reunions. Up to 35 guests, all-inclusive drinks, tapas and water sports from San Antonio.',
   path: '/boat-trips/groups',
-  keywords:
-    'grupo barco Ibiza, excursión amigos Ibiza, cumpleaños barco Ibiza, despedida soltera barco Ibiza, despedida soltero barco Ibiza, excursión grupos Ibiza',
+  keywords: 'group boat trips Ibiza, friends boat trip Ibiza, birthday boat party Ibiza, hen party boat Ibiza, stag party boat Ibiza, large group boat tour Ibiza',
+  ogTitle: 'Group Boat Trips Ibiza | Friends & Celebrations',
+  ogDescription: 'Book a group boat trip in Ibiza for friends and celebrations. All-inclusive 3-hour cruises with drinks, tapas and water sports for up to 35 guests.',
   ogImage: '/images/boat/chicasmuyfelices.webp',
-  ogImageAlt: 'Grupo de amigos disfrutando una excursión en barco en Ibiza',
+  ogImageAlt: 'Happy group of friends enjoying boat trip in Ibiza',
 });
 
 export default async function GroupBoatTripsPage() {
   const groupBoatTripsJsonLd = await buildProductSchema({
-    name: 'Excursiones en barco para grupos Ibiza · Salvador Ibiza',
+    name: "Group Boat Trips Ibiza by Salvador",
     description:
-      'Excursiones ideales para amigos y celebraciones en Ibiza. Experiencias todo incluido para cumpleaños, despedidas y reuniones de grupo.',
-    path: '/boat-trips/groups',
-    price: '80',
-    image: '/images/boat/chicasmuyfelices.webp',
-    duration: 'PT3H',
+      "Perfect boat trips for friends and celebrations in Ibiza. Special rates and all-inclusive experiences for birthdays, hen/stag parties and group reunions.",
+    path: "/boat-trips/groups",
+    price: "80",
+    image: "/images/boat/chicasmuyfelices.webp",
+    duration: "PT3H",
   });
 
   return (
@@ -41,54 +41,45 @@ export default async function GroupBoatTripsPage() {
 
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">
-              Grupos en barco por <span className="text-purple-600">Ibiza</span>
+              Group Boat Trips <span className="text-purple-600">Ibiza</span>
             </h1>
-
+            
             <p className="text-xl text-gray-600 text-center mb-12 leading-relaxed">
-              Reserva plazas en la misma excursión compartida cuando viajáis <strong>muchos amigos</strong>, celebráis un hito o
-              buscáis una actividad de equipo distinta desde el Puerto de Sant Antoni.
+              Perfect <strong>group boat trips in Ibiza</strong> for friends, birthdays, hen and stag parties, and reunions.
+              Create unforgettable memories together on the Mediterranean.
             </p>
 
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Ventajas para grupos grandes</h2>
-
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Perfect for Friends & Celebrations</h2>
+              
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-purple-600 font-bold">👥</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Capacidad cómoda en cubierta</h3>
-                    <p className="text-gray-600">
-                      El Salvador ofrece sitio suficiente para ir juntos sin sentiros apretados: zona de baño al sol, espacio para
-                      merendar y estar de pie cuando el capitán permite moverse por cubierta.
-                    </p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Large Group Capacity</h3>
+                    <p className="text-gray-600">Accommodate up to 35 people comfortably with spacious deck areas and seating arrangements.</p>
                   </div>
                 </div>
-
+                
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-purple-600 font-bold">🎉</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Ambiente festivo controlado</h3>
-                    <p className="text-gray-600">
-                      Cumpleaños y despedidas son habituales: la tripulación mantiene la seguridad, el orden en puerto y un volumen de
-                      música respetuoso con el mar y otros barcos.
-                    </p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Celebration Friendly</h3>
+                    <p className="text-gray-600">Perfect for birthdays, bachelor/bachelorette parties, anniversaries, and special occasions.</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-purple-600 font-bold">🏢</span>
+                    <span className="text-purple-600 font-bold">🥂</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Pequeños eventos corporativos</h3>
-                    <p className="text-gray-600">
-                      Alternativa económica al charter íntegro cuando buscáis convivencia en grupo sin ocupar todo el barco en
-                      exclusiva.
-                    </p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Friends & Reunions</h3>
+                    <p className="text-gray-600">Ideal for holiday groups, reunions, and friends travelling together who want a shared day at sea.</p>
                   </div>
                 </div>
 
@@ -97,65 +88,59 @@ export default async function GroupBoatTripsPage() {
                     <span className="text-purple-600 font-bold">🎵</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Lista propia por Bluetooth</h3>
-                    <p className="text-gray-600">
-                      Podéis enlazar música propia dentro de límites razonables; el patrón prioriza seguridad náutica y normativa de
-                      fondeos.
-                    </p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Group Entertainment</h3>
+                    <p className="text-gray-600">Premium sound system for your playlist, group activities, and shared experiences.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 md:col-span-2">
+                <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                     <span className="text-purple-600 font-bold">🍾</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Catering escalado según inclusión contratada</h3>
-                    <p className="text-gray-600">
-                      Bebidas y tapas se sirven dentro de lo que marca vuestra modalidad todo incluido o la tarifa anunciada al
-                      reservar por canal web oficial.
-                    </p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Group Catering</h3>
+                    <p className="text-gray-600">All-inclusive drinks and tapas scaled for your group size, with special dietary accommodations.</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-8">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Ocasiones frecuentes</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-3">Ideal Group Occasions</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      Cumpleaños entre amigos
+                      <strong>Birthday celebrations</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      Despedidas de soltera o soltero
+                      <strong>Bachelor/Bachelorette parties</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      Reuniones de antiguos compañeros
+                      <strong>Friend group reunions</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      Team building informal
+                      <strong>Holiday group trips</strong>
                     </li>
                   </ul>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      Aniversarios de pareja
+                      <strong>Anniversary celebrations</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      Vacaciones con familia amplia
+                      <strong>Student group excursions</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      Viajes organizados estudiantiles
+                      <strong>Sports team celebrations</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      Celebraciones de equipo deportivo
+                      <strong>Hen & stag parties</strong>
                     </li>
                   </ul>
                 </div>
@@ -166,7 +151,7 @@ export default async function GroupBoatTripsPage() {
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/boat/chicasmuyfelices.webp"
-                  alt="Grupo feliz durante excursión en barco en Ibiza"
+                  alt="Happy group of friends enjoying boat trip in Ibiza"
                   fill
                   className="object-cover"
                 />
@@ -174,7 +159,7 @@ export default async function GroupBoatTripsPage() {
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/boat/chicaspasandolomuybien.webp"
-                  alt="Amigos divirtiéndose en cubierta con Salvador Ibiza"
+                  alt="Group of friends having fun on Salvador boat trip"
                   fill
                   className="object-cover"
                 />
@@ -182,7 +167,9 @@ export default async function GroupBoatTripsPage() {
             </div>
 
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Reserva vuestra salida</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                Book Your Group Adventure
+              </h2>
 
               <TurbnbWidget
                 companyId={2}
@@ -192,39 +179,40 @@ export default async function GroupBoatTripsPage() {
                 customProperties={{
                   displayBillingTerm: true,
                   showQuantity: true,
-                  quantity: 'Personas',
-                  titleVariant: 'Modern',
-                  bookNow: 'RESERVAR GRUPO',
-                  selectExperienceLabel: 'Experiencia en grupo',
-                  addonsLabel: 'Extras',
-                  childrenAge: '6 a 12 años',
-                  infantAge: '0 a 5 años',
-                  depositObservation:
-                    'Al completar la reserva recibirás un voucher con los detalles (punto de encuentro y horarios). Confirma que teléfono y email sean correctos. Se suele solicitar una señal de 20 € por persona; el saldo restante según las condiciones de la confirmación (habitualmente a bordo el día del viaje).',
+                  titleVariant: "Modern",
+                  bookNow: "BOOK GROUP TRIP",
+                  confirmReservationAndPay: "CONFIRM & PAY",
+                  selectExperienceLabel: "Group Experience",
+                  addonsLabel: "Add-ons",
+                  childrenAge: "6 to 12 Years",
+                  infantAge: "0 to 5 Years"
                 }}
               />
             </div>
 
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Combinar con otras opciones</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">More Group Options</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Link
+                <Link 
                   href="/private-boat-trips"
                   className="block bg-purple-600 text-white p-6 rounded-lg hover:bg-purple-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">Charter privado</h4>
-                  <p>Todo el barco solo para vosotros, con itinerario cerrado antes de zarpar.</p>
+                  <h4 className="text-xl font-bold mb-2">Private Group Charter</h4>
+                  <p>Exclusive boat just for your group with custom itinerary</p>
                 </Link>
-                <Link
+                <Link 
                   href="/corporate-events"
                   className="block bg-teal-600 text-white p-6 rounded-lg hover:bg-teal-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">Eventos corporativos</h4>
-                  <p>Team building y entretenimiento empresarial en el mar.</p>
+                  <h4 className="text-xl font-bold mb-2">Corporate Events</h4>
+                  <p>Team building and business entertainment at sea</p>
                 </Link>
-                <Link href="/boat-trips" className="block bg-gray-800 text-white p-6 rounded-lg hover:bg-gray-700 transition-colors">
-                  <h4 className="text-xl font-bold mb-2">Todas las excursiones</h4>
-                  <p>Otras páginas temáticas: atardecer, snorkel, paddle y más.</p>
+                <Link 
+                  href="/boat-trips"
+                  className="block bg-gray-800 text-white p-6 rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  <h4 className="text-xl font-bold mb-2">All Boat Trips</h4>
+                  <p>Explore all our group-friendly options</p>
                 </Link>
               </div>
             </div>

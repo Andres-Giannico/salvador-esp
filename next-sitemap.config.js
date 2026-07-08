@@ -71,7 +71,7 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: false,
   /** QR / flyer: noindex — no deben aparecer en sitemap */
-  exclude: ['/book/trips', '/book/flyer'],
+  exclude: ['/book/trips', '/book/flyer', '/api/*'],
   robotsTxtOptions: {
     additionalSitemaps: [
       `${spanishSiteUrl}/sitemap.xml`,

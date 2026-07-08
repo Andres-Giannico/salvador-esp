@@ -1,56 +1,62 @@
 import WeddingsClientPage from './page.client';
 import { getSiteUrl } from '@/config/site';
-import { esPageMetadata } from '@/lib/page-meta';
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata = esPageMetadata({
+export const metadata = enPageMetadata({
+  title: 'Ibiza Boat Weddings | Unforgettable Ceremonies at Sea',
+  description: '💒 Dream wedding at sea in Ibiza! Intimate ceremonies aboard our traditional boat with stunning sunsets, all-inclusive packages from €1,500. Book your perfect day!',
   path: '/weddings',
-  title: 'Bodas en barco en Ibiza | Ceremonias y celebraciones en el mar',
-  description:
-    'Boda en el mar en Ibiza: ceremonias íntimas en el barco tradicional Salvador, atardeceres espectaculares y servicio tipo todo incluido anunciado. Solicita disponibilidad para tu gran día.',
-  keywords:
-    'boda barco Ibiza, ceremonia en el mar, boda romántica Ibiza, elopement Ibiza, paquetes boda, boda íntima, charter privado Salvador Ibiza, celebración en barco',
+  keywords: 'Ibiza wedding, boat wedding, sea wedding ceremony, romantic wedding Ibiza, elopement Ibiza, wedding packages, intimate wedding, sunset wedding, luxury boat charter, Salvador Ibiza, wedding at sea, destination wedding',
+  ogTitle: 'Ibiza Boat Weddings | Dream Ceremonies at Sea',
+  ogDescription: '💒 Create your perfect wedding at sea in Ibiza! Intimate ceremonies with stunning sunsets and all-inclusive packages.',
   ogImage: '/images/boat/private-new/tapasycavapopabarco_1.webp',
-  ogImageAlt: 'Ambientación elegante con cava y catering para celebración en Salvador Ibiza',
+  ogImageAlt: 'Elegant wedding setup with champagne and catering on Salvador Ibiza boat',
 });
 
 // Wedding Schema for better SEO
 const weddingSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Ceremonias y bodas en barco en Ibiza",
-  "description":
-    "Ceremonias y celebraciones románticas a bordo del barco tradicional Salvador Ibiza: grupos íntimos y charter privado hasta 36 invitados.",
+  "name": "Ibiza Boat Wedding Ceremonies",
+  "description": "Romantic wedding ceremonies and celebrations aboard Salvador Ibiza traditional wooden boat. Intimate packages for elopements and luxury weddings at sea.",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Salvador Ibiza",
-    "url": getSiteUrl(),
+    "url": getSiteUrl()
   },
   "areaServed": {
     "@type": "Place",
-    "name": "Ibiza, Islas Baleares, España",
+    "name": "Ibiza, Balearic Islands, Spain"
   },
   "offers": [
     {
       "@type": "Offer",
-      "name": "Charter privado boda (temporada baja)",
-      "description": "Hasta 36 invitados, charter 4 h, bar abierto estándar y servicios según contratación.",
-      "price": "1350",
-      "priceCurrency": "EUR",
+      "name": "Romantic Elopement Package",
+      "description": "Intimate wedding ceremony for up to 6 guests with champagne toast and romantic cruise",
+      "price": "1500",
+      "priceCurrency": "EUR"
+    },
+    {
+      "@type": "Offer", 
+      "name": "Intimate Celebration Package",
+      "description": "Wedding celebration for up to 20 guests with premium catering, open bar and wedding coordinator",
+      "price": "2500",
+      "priceCurrency": "EUR"
     },
     {
       "@type": "Offer",
-      "name": "Charter privado boda (temporada alta)",
-      "description": "Junio a septiembre; mismas prestaciones base con tarifa de temporada.",
-      "price": "1650",
-      "priceCurrency": "EUR",
-    },
+      "name": "Luxury Wedding Package", 
+      "description": "Ultimate wedding experience for up to 35 guests with professional photographer and custom decorations",
+      "price": "4000",
+      "priceCurrency": "EUR"
+    }
   ],
-  "serviceType": "Ceremonia y celebración en barco",
-  "category": "Servicios para bodas",
+  "serviceType": "Wedding Ceremony",
+  "category": "Wedding Services",
   "audience": {
     "@type": "Audience",
-    "name": "Parejas que planean bodas destino o íntimas",
-  },
+    "name": "Couples planning destination weddings"
+  }
 };
 
 export default function WeddingsPage() {
